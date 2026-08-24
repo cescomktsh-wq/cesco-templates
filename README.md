@@ -8,12 +8,13 @@
 ## 갱신 방법
 
 `index.html` 하나가 전부다. 수정 → 커밋 → 푸시하면 1분 안에 반영된다.
+배포는 `gh-pages` 브랜치에서 나가므로 **main과 gh-pages를 함께 푸시**한다 (아래 한 줄이면 둘 다 갱신).
 
 ```powershell
 # 수정 후
 git add index.html
 git commit -m "무엇을 바꿨는지 한 줄"
-git push origin main
+git push origin main main:gh-pages
 ```
 
 Claude Code에서 갱신을 시킬 때는 이렇게 요청하면 된다:
