@@ -26,6 +26,7 @@ Claude Code에서 갱신을 시킬 때는 이렇게 요청하면 된다:
 - 새 문서를 추가하면 4곳을 함께 갱신한다: ① 좌측 내비(`navitem`, `data-goto`/`data-search`) ② d00 마스터 인덱스 표 ③ 하단 스크립트의 `var SECS`(섹션 메뉴) ④ 그룹 헤더의 타입 개수.
 - 문서 내 상호 참조는 `<button class="xref" data-goto="dNN">`.
 - 상태 뱃지: `s-ok`(정본/실제 확인) · `s-warn`(혼재) · `s-est`(추정).
+- 문서를 고치면 상단 헤더의 `최종 업데이트 YYYY-MM-DD`(`.mark span`)를 그날 날짜로 바꾼다.
 
 ## 이력
 
