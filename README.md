@@ -22,7 +22,7 @@ Claude Code에서 갱신을 시킬 때는 이렇게 요청하면 된다:
 
 ## 문서 구조 (편집 시 지킬 것)
 
-- 문서 1건 = `<article class="doc" id="dNN" hidden>` 1개. 새 문서는 마지막 article 뒤에 추가하고 id를 이어 쓴다 (현재 마지막: d99).
+- 문서 1건 = `<article class="doc" id="dNN" hidden>` 1개. 새 문서는 마지막 article 뒤에 추가하고 id를 이어 쓴다 (현재 마지막: d100).
 - 새 문서를 추가하면 4곳을 함께 갱신한다: ① 좌측 내비(`navitem`, `data-goto`/`data-search`) ② d00 마스터 인덱스 표 ③ 하단 스크립트의 `var SECS`(섹션 메뉴) ④ 그룹 헤더의 타입 개수.
 - 문서 내 상호 참조는 `<button class="xref" data-goto="dNN">`.
 - 상태 뱃지: `s-ok`(정본/실제 확인) · `s-warn`(혼재) · `s-est`(추정).
@@ -32,3 +32,4 @@ Claude Code에서 갱신을 시킬 때는 이렇게 요청하면 된다:
 
 - 2026-08-24: 아티팩트에서 GitHub Pages로 이관. d95 "제품 POP — 제품 부착형 정본 (비주얼 가이드 v.4 전사)" 추가, d45·d77(추정 POP)에 정본 참조 연결. 전사 원문 MD는 cesco-skills 저장소 `cesco-pop/references/`.
 - 2026-10-13: d99 "우수사례 — 작성 가이드 v2 + 빈 템플릿 (정본)" 추가(그룹 12 타입 1→2, d76에 참조 연결). 사례 유형 5종은 d52 분류를 따름. 원본 MD 2건은 D:\김선희\브랜드 업무 자료\세스코\261013\ · Chloe-sh/cesco-deliverables.
+- 2026-10-13: d100 "포맷별 진척 · 고도화 예정 (WBS)" 추가(개요 그룹). 내비 17개 포맷 그룹 헤더에 WBS 현재 단계 배지(`.grpwbs`), d00 표에 'WBS 단계' 열. 데이터는 업무현황 WBS 구글시트 10/12 스냅샷, 10월 3주차 이후는 제안. 갱신 시 `261013/scripts/insert_d100.py` 참고.
