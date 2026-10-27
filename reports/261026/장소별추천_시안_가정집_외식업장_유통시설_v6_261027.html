@@ -93,7 +93,7 @@ body{font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothi
 .risk b::before{content:"→ ";color:var(--red);}
 .risk p{font-size:13px;color:var(--ink-2);line-height:1.6;margin-top:8px;}
 /* BLOCK 04-1 세스코 연구소 */
-.lab{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+.lab{display:block;max-width:760px;}
 .lab .slot{aspect-ratio:4/3;}
 .lab p{font-size:14px;color:var(--ink-2);line-height:1.75;}
 .lab .kpi{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
@@ -239,18 +239,11 @@ body:not(.show-memo) .memo,body:not(.show-memo) .note,body:not(.show-memo) .slot
       </div>
     </div>
     <div class="sec">
-      <div class="st"><h3>세스코 과학 연구소가<br>함께합니다.</h3><small>신뢰 장치 · cesco.co.kr 솔루션 페이지·코퍼스에서 확인된 내용만 <span class="memo">[731종/713종 · 특허 140/600여 건은 원문 불일치 · 정본 확인]</span></small></div>
-      <div class="lab">
-        <div class="slot"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6L4 20a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1L14 9V3"/><path d="M7 15h10"/></svg></span><div class="lbl"><b>이미지</b>세스코 과학연구소 해충사육실 또는 바이러스 연구소 시험 장면</div></div>
-        <div>
-          <p>세스코 과학연구소는 해충·바이러스·식품안전·생활과학·향기 다섯 분야의 연구소를 두고, 해충과 세균을 직접 키우고 시험해 현장에서 쓰는 관리 방법을 만듭니다. 여기서 나온 기준을 1,000시간 교육을 이수한 정직원 컨설턴트가 공간에 적용합니다.</p>
-          <div class="kpi">
-            <div><b>해충방제 연구소 · 국내 서식 해충 731종 직접 사육·연구</b><span>해충사육실 약 8만 마리를 직접 키우며 습성을 연구해 2,193가지 방제 방법과 자체 개발 BIO 약제 300가지를 만들고, 3개월마다 약제를 바꿔 써 내성을 막습니다.</span></div>
-            <div><b>바이러스 연구소 · 고려대 의대 바이러스병 연구소 공동연구</b><span>연구원 200명이 공간에 맞는 살균 방법을 처방합니다. BSL-3 시설에서 살아 있는 고위험 바이러스로 공기살균 효능을 시험하고, 한국산업기술시험원(KTL)·한국건설생활환경시험연구원(KCL)에서 검증합니다.</span></div>
-            <div><b>생활과학 연구소 · 3,127가지 생활위생 솔루션</b><span>침구·주방·욕실처럼 손이 자주 닿는 생활 공간의 오염을 연구해 세스코 마이랩 제품과 매트리스 케어 같은 생활위생 서비스를 설계합니다.</span></div>
-            <div><b>40만 멤버스 위생 빅데이터 · 매달 이달의 해충 선정</b><span>세스코 과학연구소는 매달 자체 모니터링 데이터를 분석해 이달의 해충을 선정하고, 전국 100여 개 직영지사의 컨설턴트가 그 결과를 현장 관리에 반영합니다.</span></div>
-          </div>
-        </div>
+      <div class="st"><h3>이 공간에 필요한<br>세스코 핵심 솔루션</h3><small>cesco.co.kr 장소 페이지 TOP3 기준 · 전환은 "자세히 보기"만</small></div>
+      <div class="sols">
+        <div><span class="k">솔루션 01</span><b>통합 해충방제</b><p>외부 유입부터 서식 지점까지 집 안 전체를 진단하고 정기적으로 관리합니다.</p><a href="#">자세히 보기</a></div>
+        <div><span class="k">솔루션 02</span><b>바이러스케어</b><p>전문가 표면 살균과 24시간 공기 살균으로 가족이 머무는 공간을 관리합니다.</p><a href="#">자세히 보기</a></div>
+        <div><span class="k">솔루션 03</span><b>공기질 안심관리</b><p>공기살균기·공기청정기 렌탈과 정기 케어십으로 실내 공기를 관리합니다. <span class="memo">[솔루션 정식명 확인]</span></p><a href="#">자세히 보기</a></div>
       </div>
     </div>
     <div class="sec">
@@ -261,11 +254,17 @@ body:not(.show-memo) .memo,body:not(.show-memo) .note,body:not(.show-memo) .slot
       </div>
     </div>
     <div class="sec">
-      <div class="st"><h3>이 공간에 필요한<br>세스코 핵심 솔루션</h3><small>cesco.co.kr 장소 페이지 TOP3 기준 · 전환은 "자세히 보기"만</small></div>
-      <div class="sols">
-        <div><span class="k">솔루션 01</span><b>통합 해충방제</b><p>외부 유입부터 서식 지점까지 집 안 전체를 진단하고 정기적으로 관리합니다.</p><a href="#">자세히 보기</a></div>
-        <div><span class="k">솔루션 02</span><b>바이러스케어</b><p>전문가 표면 살균과 24시간 공기 살균으로 가족이 머무는 공간을 관리합니다.</p><a href="#">자세히 보기</a></div>
-        <div><span class="k">솔루션 03</span><b>공기질 안심관리</b><p>공기살균기·공기청정기 렌탈과 정기 케어십으로 실내 공기를 관리합니다. <span class="memo">[솔루션 정식명 확인]</span></p><a href="#">자세히 보기</a></div>
+      <div class="st"><h3>세스코 과학 연구소가<br>함께합니다.</h3><small>신뢰 장치 · cesco.co.kr 솔루션 페이지·코퍼스에서 확인된 내용만 <span class="memo">[731종/713종 · 특허 140/600여 건은 원문 불일치 · 정본 확인]</span></small></div>
+      <div class="lab">
+        <div>
+          <p>세스코 과학연구소는 해충·바이러스·식품안전·생활과학·향기 다섯 분야의 연구소를 두고, 해충과 세균을 직접 키우고 시험해 현장에서 쓰는 관리 방법을 만듭니다. 여기서 나온 기준을 1,000시간 교육을 이수한 정직원 컨설턴트가 공간에 적용합니다.</p>
+          <div class="kpi">
+            <div><b>해충방제 연구소 · 국내 서식 해충 731종 직접 사육·연구</b><span>해충사육실 약 8만 마리를 직접 키우며 습성을 연구해 2,193가지 방제 방법과 자체 개발 BIO 약제 300가지를 만들고, 3개월마다 약제를 바꿔 써 내성을 막습니다.</span></div>
+            <div><b>바이러스 연구소 · 고려대 의대 바이러스병 연구소 공동연구</b><span>연구원 200명이 공간에 맞는 살균 방법을 처방합니다. BSL-3 시설에서 살아 있는 고위험 바이러스로 공기살균 효능을 시험하고, 한국산업기술시험원(KTL)·한국건설생활환경시험연구원(KCL)에서 검증합니다.</span></div>
+            <div><b>생활과학 연구소 · 3,127가지 생활위생 솔루션</b><span>침구·주방·욕실처럼 손이 자주 닿는 생활 공간의 오염을 연구해 세스코 마이랩 제품과 매트리스 케어 같은 생활위생 서비스를 설계합니다.</span></div>
+            <div><b>40만 멤버스 위생 빅데이터 · 매달 이달의 해충 선정</b><span>세스코 과학연구소는 매달 자체 모니터링 데이터를 분석해 이달의 해충을 선정하고, 전국 100여 개 직영지사의 컨설턴트가 그 결과를 현장 관리에 반영합니다.</span></div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="sec">
@@ -322,18 +321,11 @@ body:not(.show-memo) .memo,body:not(.show-memo) .note,body:not(.show-memo) .slot
       </div>
     </div>
     <div class="sec">
-      <div class="st"><h3>세스코 과학 연구소가<br>함께합니다.</h3><small>신뢰 장치 · cesco.co.kr 솔루션 페이지·코퍼스에서 확인된 내용만 <span class="memo">[731종/713종 · 특허 140/600여 건은 원문 불일치 · 정본 확인]</span></small></div>
-      <div class="lab">
-        <div class="slot"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6L4 20a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1L14 9V3"/><path d="M7 15h10"/></svg></span><div class="lbl"><b>이미지</b>세스코 과학연구소 해충사육실 또는 식품안전 연구소 시험 장면</div></div>
-        <div>
-          <p>세스코 과학연구소는 해충·바이러스·식품안전·생활과학·향기 다섯 분야의 연구소를 두고, 해충과 세균을 직접 키우고 시험해 현장에서 쓰는 관리 방법을 만듭니다. 여기서 나온 기준을 1,000시간 교육을 이수한 정직원 컨설턴트가 공간에 적용합니다.</p>
-          <div class="kpi">
-            <div><b>해충방제 연구소 · 국내 서식 해충 731종 직접 사육·연구</b><span>해충사육실 약 8만 마리를 직접 키우며 습성을 연구해 2,193가지 방제 방법과 자체 개발 BIO 약제 300가지를 만들고, 3개월마다 약제를 바꿔 써 내성을 막습니다.</span></div>
-            <div><b>식품안전 연구소 · 1976년부터 3,021가지 관리 기준</b><span>120만 개 주방에서 채취한 오염 데이터로 식품안전 관리 기준을 만들었습니다. 식품의약품안전처 지정 HACCP 교육훈련기관(제10호)과 식품 등 시험·검사기관(제100호)을 함께 운영합니다.</span></div>
-            <div><b>바이러스 연구소 · 고려대 의대 바이러스병 연구소 공동연구</b><span>연구원 200명이 공간에 맞는 살균 방법을 처방합니다. BSL-3 시설에서 살아 있는 고위험 바이러스로 공기살균 효능을 시험하고, 한국산업기술시험원(KTL)·한국건설생활환경시험연구원(KCL)에서 검증합니다.</span></div>
-            <div><b>이물분석센터 · 국내 유일 이물분석 전문기관</b><span>KOLAS 국제공인시험기관(2016년 인정)으로 30여 가지 분석 기법을 써 이물의 종류와 혼입 시점을 밝힙니다. 일반 분석은 3~5일이 걸립니다.</span></div>
-          </div>
-        </div>
+      <div class="st"><h3>이 공간에 필요한<br>세스코 핵심 솔루션</h3><small>cesco.co.kr 장소 페이지 TOP3 기준 · 전환은 "자세히 보기"만</small></div>
+      <div class="sols">
+        <div><span class="k">솔루션 01</span><b>통합 해충방제</b><p>주방 안쪽부터 출입구까지 외식업장의 유입·서식 지점을 진단하고 정기 관리합니다.</p><a href="#">자세히 보기</a></div>
+        <div><span class="k">솔루션 02</span><b>식품안전</b><p>1976년부터 쌓은 3,021가지 관리 기준으로 조리 환경을 진단하고 교육합니다.</p><a href="#">자세히 보기</a></div>
+        <div><span class="k">솔루션 03</span><b>바이러스케어</b><p>전문가 표면 살균과 24시간 공기 살균으로 손님이 머무는 홀을 관리합니다.</p><a href="#">자세히 보기</a></div>
       </div>
     </div>
     <div class="sec">
@@ -345,11 +337,17 @@ body:not(.show-memo) .memo,body:not(.show-memo) .note,body:not(.show-memo) .slot
       <p class="banner" style="margin-top:20px">홍보물 지급 조건 및 품목은 당사 사정에 따라 예고없이 중단 또는 변경될 수 있습니다.</p>
     </div>
     <div class="sec">
-      <div class="st"><h3>이 공간에 필요한<br>세스코 핵심 솔루션</h3><small>cesco.co.kr 장소 페이지 TOP3 기준 · 전환은 "자세히 보기"만</small></div>
-      <div class="sols">
-        <div><span class="k">솔루션 01</span><b>통합 해충방제</b><p>주방 안쪽부터 출입구까지 외식업장의 유입·서식 지점을 진단하고 정기 관리합니다.</p><a href="#">자세히 보기</a></div>
-        <div><span class="k">솔루션 02</span><b>식품안전</b><p>1976년부터 쌓은 3,021가지 관리 기준으로 조리 환경을 진단하고 교육합니다.</p><a href="#">자세히 보기</a></div>
-        <div><span class="k">솔루션 03</span><b>바이러스케어</b><p>전문가 표면 살균과 24시간 공기 살균으로 손님이 머무는 홀을 관리합니다.</p><a href="#">자세히 보기</a></div>
+      <div class="st"><h3>세스코 과학 연구소가<br>함께합니다.</h3><small>신뢰 장치 · cesco.co.kr 솔루션 페이지·코퍼스에서 확인된 내용만 <span class="memo">[731종/713종 · 특허 140/600여 건은 원문 불일치 · 정본 확인]</span></small></div>
+      <div class="lab">
+        <div>
+          <p>세스코 과학연구소는 해충·바이러스·식품안전·생활과학·향기 다섯 분야의 연구소를 두고, 해충과 세균을 직접 키우고 시험해 현장에서 쓰는 관리 방법을 만듭니다. 여기서 나온 기준을 1,000시간 교육을 이수한 정직원 컨설턴트가 공간에 적용합니다.</p>
+          <div class="kpi">
+            <div><b>해충방제 연구소 · 국내 서식 해충 731종 직접 사육·연구</b><span>해충사육실 약 8만 마리를 직접 키우며 습성을 연구해 2,193가지 방제 방법과 자체 개발 BIO 약제 300가지를 만들고, 3개월마다 약제를 바꿔 써 내성을 막습니다.</span></div>
+            <div><b>식품안전 연구소 · 1976년부터 3,021가지 관리 기준</b><span>120만 개 주방에서 채취한 오염 데이터로 식품안전 관리 기준을 만들었습니다. 식품의약품안전처 지정 HACCP 교육훈련기관(제10호)과 식품 등 시험·검사기관(제100호)을 함께 운영합니다.</span></div>
+            <div><b>바이러스 연구소 · 고려대 의대 바이러스병 연구소 공동연구</b><span>연구원 200명이 공간에 맞는 살균 방법을 처방합니다. BSL-3 시설에서 살아 있는 고위험 바이러스로 공기살균 효능을 시험하고, 한국산업기술시험원(KTL)·한국건설생활환경시험연구원(KCL)에서 검증합니다.</span></div>
+            <div><b>이물분석센터 · 국내 유일 이물분석 전문기관</b><span>KOLAS 국제공인시험기관(2016년 인정)으로 30여 가지 분석 기법을 써 이물의 종류와 혼입 시점을 밝힙니다. 일반 분석은 3~5일이 걸립니다.</span></div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="sec">
@@ -406,18 +404,11 @@ body:not(.show-memo) .memo,body:not(.show-memo) .note,body:not(.show-memo) .slot
       </div>
     </div>
     <div class="sec">
-      <div class="st"><h3>세스코 과학 연구소가<br>함께합니다.</h3><small>신뢰 장치 · cesco.co.kr 솔루션 페이지·코퍼스에서 확인된 내용만 <span class="memo">[731종/713종 · 특허 140/600여 건은 원문 불일치 · 정본 확인]</span></small></div>
-      <div class="lab">
-        <div class="slot"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6"/><path d="M10 3v6L4 20a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1L14 9V3"/><path d="M7 15h10"/></svg></span><div class="lbl"><b>이미지</b>세스코 이물분석센터 분석 장면 또는 해충사육실</div></div>
-        <div>
-          <p>세스코 과학연구소는 해충·바이러스·식품안전·생활과학·향기 다섯 분야의 연구소를 두고, 해충과 세균을 직접 키우고 시험해 현장에서 쓰는 관리 방법을 만듭니다. 여기서 나온 기준을 1,000시간 교육을 이수한 정직원 컨설턴트가 공간에 적용합니다.</p>
-          <div class="kpi">
-            <div><b>해충방제 연구소 · 국내 서식 해충 731종 직접 사육·연구</b><span>해충사육실 약 8만 마리를 직접 키우며 습성을 연구해 2,193가지 방제 방법과 자체 개발 BIO 약제 300가지를 만들고, 3개월마다 약제를 바꿔 써 내성을 막습니다.</span></div>
-            <div><b>이물분석센터 · 국내 유일 이물분석 전문기관</b><span>KOLAS 국제공인시험기관(2016년 인정)으로 30여 가지 분석 기법을 써 이물의 종류와 혼입 시점을 밝힙니다. 일반 분석은 3~5일이 걸립니다.</span></div>
-            <div><b>식품안전 연구소 · 1976년부터 3,021가지 관리 기준</b><span>120만 개 주방에서 채취한 오염 데이터로 식품안전 관리 기준을 만들었습니다. 식품의약품안전처 지정 HACCP 교육훈련기관(제10호)과 식품 등 시험·검사기관(제100호)을 함께 운영합니다.</span></div>
-            <div><b>바이러스 연구소 · 고려대 의대 바이러스병 연구소 공동연구</b><span>연구원 200명이 공간에 맞는 살균 방법을 처방합니다. BSL-3 시설에서 살아 있는 고위험 바이러스로 공기살균 효능을 시험하고, 한국산업기술시험원(KTL)·한국건설생활환경시험연구원(KCL)에서 검증합니다.</span></div>
-          </div>
-        </div>
+      <div class="st"><h3>이 공간에 필요한<br>세스코 핵심 솔루션</h3><small>cesco.co.kr 장소 페이지 TOP3 기준 · 전환은 "자세히 보기"만</small></div>
+      <div class="sols">
+        <div><span class="k">솔루션 01</span><b>통합 해충방제</b><p>입고 동선부터 매장 안쪽까지 유통시설의 유입·서식 지점을 진단하고 정기 관리합니다.</p><a href="#">자세히 보기</a></div>
+        <div><span class="k">솔루션 02</span><b>바이러스케어</b><p>카트·계산대·화장실 표면 살균과 24시간 공기 살균으로 고객 접점을 관리합니다.</p><a href="#">자세히 보기</a></div>
+        <div><span class="k">솔루션 03</span><b>식품안전</b><p>판매 식품과 푸드코트의 취급 환경을 3,021가지 기준으로 진단하고 이물분석까지 연결합니다.</p><a href="#">자세히 보기</a></div>
       </div>
     </div>
     <div class="sec">
@@ -429,11 +420,17 @@ body:not(.show-memo) .memo,body:not(.show-memo) .note,body:not(.show-memo) .slot
       <p class="banner" style="margin-top:20px">홍보물 지급 조건 및 품목은 당사 사정에 따라 예고없이 중단 또는 변경될 수 있습니다.</p>
     </div>
     <div class="sec">
-      <div class="st"><h3>이 공간에 필요한<br>세스코 핵심 솔루션</h3><small>cesco.co.kr 장소 페이지 TOP3 기준 · 전환은 "자세히 보기"만</small></div>
-      <div class="sols">
-        <div><span class="k">솔루션 01</span><b>통합 해충방제</b><p>입고 동선부터 매장 안쪽까지 유통시설의 유입·서식 지점을 진단하고 정기 관리합니다.</p><a href="#">자세히 보기</a></div>
-        <div><span class="k">솔루션 02</span><b>바이러스케어</b><p>카트·계산대·화장실 표면 살균과 24시간 공기 살균으로 고객 접점을 관리합니다.</p><a href="#">자세히 보기</a></div>
-        <div><span class="k">솔루션 03</span><b>식품안전</b><p>판매 식품과 푸드코트의 취급 환경을 3,021가지 기준으로 진단하고 이물분석까지 연결합니다.</p><a href="#">자세히 보기</a></div>
+      <div class="st"><h3>세스코 과학 연구소가<br>함께합니다.</h3><small>신뢰 장치 · cesco.co.kr 솔루션 페이지·코퍼스에서 확인된 내용만 <span class="memo">[731종/713종 · 특허 140/600여 건은 원문 불일치 · 정본 확인]</span></small></div>
+      <div class="lab">
+        <div>
+          <p>세스코 과학연구소는 해충·바이러스·식품안전·생활과학·향기 다섯 분야의 연구소를 두고, 해충과 세균을 직접 키우고 시험해 현장에서 쓰는 관리 방법을 만듭니다. 여기서 나온 기준을 1,000시간 교육을 이수한 정직원 컨설턴트가 공간에 적용합니다.</p>
+          <div class="kpi">
+            <div><b>해충방제 연구소 · 국내 서식 해충 731종 직접 사육·연구</b><span>해충사육실 약 8만 마리를 직접 키우며 습성을 연구해 2,193가지 방제 방법과 자체 개발 BIO 약제 300가지를 만들고, 3개월마다 약제를 바꿔 써 내성을 막습니다.</span></div>
+            <div><b>이물분석센터 · 국내 유일 이물분석 전문기관</b><span>KOLAS 국제공인시험기관(2016년 인정)으로 30여 가지 분석 기법을 써 이물의 종류와 혼입 시점을 밝힙니다. 일반 분석은 3~5일이 걸립니다.</span></div>
+            <div><b>식품안전 연구소 · 1976년부터 3,021가지 관리 기준</b><span>120만 개 주방에서 채취한 오염 데이터로 식품안전 관리 기준을 만들었습니다. 식품의약품안전처 지정 HACCP 교육훈련기관(제10호)과 식품 등 시험·검사기관(제100호)을 함께 운영합니다.</span></div>
+            <div><b>바이러스 연구소 · 고려대 의대 바이러스병 연구소 공동연구</b><span>연구원 200명이 공간에 맞는 살균 방법을 처방합니다. BSL-3 시설에서 살아 있는 고위험 바이러스로 공기살균 효능을 시험하고, 한국산업기술시험원(KTL)·한국건설생활환경시험연구원(KCL)에서 검증합니다.</span></div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="sec">
