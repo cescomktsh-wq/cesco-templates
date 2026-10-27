@@ -118,6 +118,32 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
 .side li{margin-bottom:6px}
 .side .flag{display:inline-block;background:var(--amber-bg);color:var(--amber);font-weight:800;border-radius:3px;padding:0 5px;font-size:10.5px;margin-right:3px}
 @media (max-width:760px){.wrap{padding:12px 0 40px}.desc{border-radius:0}.phone{width:100%;border-radius:0;box-shadow:none}.side{width:auto;padding:16px}}
+
+/* B안: 위쳌 파란 포인트 + 계기판형 수치 */
+:root{--wc:#0072CE;--wc-bg:#EAF3FC;--wc-line:#CFE0F3}
+#b .tabs span.on{border-bottom-color:var(--wc);color:var(--wc)}
+#b .grade{color:var(--wc)}
+#b .r{background:#fff;border:1px solid var(--wc-line);border-left:4px solid var(--wc);border-radius:12px;box-shadow:none;padding:10px 12px 10px 11px}
+#b .r .k{color:#6B7684}
+#b .r .vd{color:var(--wc)}
+#b .r .vd svg{background:var(--wc)}
+#b .mt{margin-top:7px}
+#b .mrow{display:flex;align-items:baseline;gap:3px}
+#b .mrow b{font-size:17px;font-weight:900;color:var(--ink);line-height:1;letter-spacing:-.01em}
+#b .mrow small{font-size:10px;font-weight:700;color:var(--muted)}
+#b .pill{margin-left:auto;font-size:9.5px;font-weight:800;color:var(--wc);background:var(--wc-bg);border-radius:999px;padding:2px 7px;white-space:nowrap}
+#b .two .pill{font-size:9px;padding:2px 5px}
+#b .mb{position:relative;height:7px;border-radius:4px;background:#E6EDF5;margin-top:6px}
+#b .mb i{display:block;height:7px;border-radius:4px;background:var(--wc)}
+#b .mb:after{content:"";position:absolute;right:0;top:-3px;width:2px;height:13px;background:#1A1A1A;border-radius:1px}
+#b .ml{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-top:4px;font-weight:600}
+#b .ml span:last-child{color:var(--ink2);font-weight:800}
+#b .r .why1{border-top-color:var(--wc-line)}
+#b .two .card .big em{color:var(--wc)}
+#b .two .card .lb,#b .owner .lb{color:var(--wc)}
+#b .owner .a{color:var(--wc)}
+#b .acc .t b{color:var(--ink)}
+#b .actions .cta{background:var(--wc)}
 </style>
 </head>
 <body>
@@ -210,13 +236,13 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
       </div>
 
       <div class="res">
-        <div class="r"><div class="k">튀김유 산가 · 바삭함의 기준</div><div class="vd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>아주 바삭바삭해요</span></div><div class="v">0.8</div><div class="bar"><i style="width:27%"></i></div><div class="s">기준 3.0 이하 (식품위생법<sup>1</sup>) · 새 기름에 가까운 값</div><div class="why1"><b>왜 보나요?</b> 기름이 산화되면 눅눅해지고 속이 불편해져요.<sup>2</sup></div></div>
-        <div class="r"><div class="k">생닭 보관 온도</div><div class="vd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>신선하게 보관되고 있어요</span></div><div class="v">2<small>℃</small></div><div class="bar"><i style="width:40%"></i></div><div class="s">기준 0~5℃ · 24시간 센서</div><div class="why1"><b>왜 보나요?</b> 온도가 오르면 세균이 빠르게 늘어요.</div></div>
+        <div class="r"><div class="k">튀김유 산가 · 바삭함의 기준</div><div class="vd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>아주 바삭바삭해요</span></div><div class="mt"><div class="mrow"><b>0.8</b><span class="pill">기준의 27% · 새 기름 수준</span></div><div class="mb"><i style="width:27%"></i></div><div class="ml"><span>0</span><span>기준선 3.0 (식품위생법<sup>1</sup>)</span></div></div><div class="why1"><b>왜 보나요?</b> 기름이 산화되면 눅눅해지고 속이 불편해져요.<sup>2</sup></div></div>
+        <div class="r"><div class="k">생닭 보관 온도</div><div class="vd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>신선하게 보관되고 있어요</span></div><div class="mt"><div class="mrow"><b>2</b><small>℃</small><span class="pill">0~5℃ 범위 안 · 24시간 센서</span></div><div class="mb"><i style="width:40%"></i></div><div class="ml"><span>0℃</span><span>5℃</span></div></div><div class="why1"><b>왜 보나요?</b> 온도가 오르면 세균이 빠르게 늘어요.</div></div>
         <div class="two">
-          <div class="r"><div class="k">칼·도마 오염도</div><div class="vd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>청결하게 관리되고 있어요</span></div><div class="v">120<small>RLU</small></div><div class="bar"><i style="width:60%"></i></div><div class="s">기준 200 이하</div><div class="why1"><b>왜?</b> 생닭 교차 오염 → 식중독<sup>3</sup></div></div>
-          <div class="r"><div class="k">작업자 손</div><div class="vd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>깨끗한 손으로 조리해요</span></div><div class="v">60<small>RLU</small></div><div class="bar"><i style="width:30%"></i></div><div class="s">기준 200 이하</div><div class="why1"><b>왜?</b> 손을 거친 교차 오염 → 대장균·식중독</div></div>
+          <div class="r"><div class="k">칼·도마 오염도</div><div class="vd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>청결하게 관리되고 있어요</span></div><div class="mt"><div class="mrow"><b>120</b><small>RLU</small><span class="pill">기준의 60%</span></div><div class="mb"><i style="width:60%"></i></div><div class="ml"><span>0</span><span>기준선 200</span></div></div><div class="why1"><b>왜?</b> 생닭 교차 오염 → 식중독<sup>3</sup></div></div>
+          <div class="r"><div class="k">작업자 손</div><div class="vd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>깨끗한 손으로 조리해요</span></div><div class="mt"><div class="mrow"><b>60</b><small>RLU</small><span class="pill">기준의 30%</span></div><div class="mb"><i style="width:30%"></i></div><div class="ml"><span>0</span><span>기준선 200</span></div></div><div class="why1"><b>왜?</b> 손을 거친 교차 오염 → 대장균·식중독</div></div>
         </div>
-        <div class="r"><div class="k">공기 중 부유세균</div><div class="vd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>주방 공기도 깨끗해요</span></div><div class="v">180<small>CFU/㎥</small></div><div class="bar"><i style="width:22%"></i></div><div class="s">기준 800 이하</div><div class="why1"><b>왜 보나요?</b> 튀김 연기·습기 많은 주방은 공기 중 세균이 늘기 쉬워요. 후드 기름때는 화재·해충의 자리예요.<sup>4</sup></div></div>
+        <div class="r"><div class="k">공기 중 부유세균</div><div class="vd"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>주방 공기도 깨끗해요</span></div><div class="mt"><div class="mrow"><b>180</b><small>CFU/㎥</small><span class="pill">기준의 23%</span></div><div class="mb"><i style="width:22%"></i></div><div class="ml"><span>0</span><span>기준선 800</span></div></div><div class="why1"><b>왜 보나요?</b> 튀김 연기·습기 많은 주방은 공기 중 세균이 늘기 쉬워요. 후드 기름때는 화재·해충의 자리예요.<sup>4</sup></div></div>
       </div>
 
       <div class="two">
@@ -243,7 +269,7 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
 
   <aside class="side">
     <h3>시안 메모 · 각주</h3>
-    <p style="margin-bottom:10px"><b>A안</b>은 "왜 보는지"를 먼저 5줄로 보여주고 결과로 넘어갑니다. 흐름은 원안과 같지만 두 챕터가 한 카드로 줄었습니다. <b>B안</b>은 결과를 첫 화면에 두고, 이유는 결과 카드마다 한 줄씩 붙인 뒤 다섯 가지 설명과 FAQ는 접어 둡니다. 두 안 모두 세 번째 질문이 첫 화면(빨간 점선) 안에 들어옵니다. 결과 카드는 "적합" 배지 대신 "아주 바삭바삭해요"처럼 손님에게 말하듯 적은 판정 문장을 가장 크게 두고, 측정값은 그 아래 작게 붙였습니다(10/27).</p>
+    <p style="margin-bottom:10px"><b>A안</b>은 "왜 보는지"를 먼저 5줄로 보여주고 결과로 넘어갑니다. 흐름은 원안과 같지만 두 챕터가 한 카드로 줄었습니다. <b>B안</b>은 결과를 첫 화면에 두고, 이유는 결과 카드마다 한 줄씩 붙인 뒤 다섯 가지 설명과 FAQ는 접어 둡니다. 두 안 모두 세 번째 질문이 첫 화면(빨간 점선) 안에 들어옵니다. 결과 카드는 "적합" 배지 대신 "아주 바삭바삭해요"처럼 손님에게 말하듯 적은 판정 문장을 가장 크게 두고, 측정값은 그 아래 작게 붙였습니다(10/27). <b>B안</b>은 위쳌 포인트 색을 파란색으로 두고, 수치는 기준선이 보이는 계기판형(값 · 기준의 몇 % · 0~기준선 눈금)으로 바꿔 "얼마나 여유 있는 수치인지"가 읽히게 했습니다.</p>
     <ol>
       <li>식품위생법 시행규칙 [별표 17] 식품접객영업자 등의 준수사항: 튀김용 유지 산가 3.0 이하. 최신 개정 조문은 국가법령정보센터 원문 대조 필요.</li>
       <li><span class="flag">확인 필요</span>산화된 기름의 건강 영향은 공식 안내문 출처 확정 전이라 수치 없이 서술.</li>
