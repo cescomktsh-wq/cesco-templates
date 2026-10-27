@@ -11,16 +11,18 @@
 html,body{margin:0;padding:0}
 body{background:#E9EBE7;color:var(--txt);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:13px;line-height:1.55;-webkit-font-smoothing:antialiased;word-break:keep-all}
 p{margin:0}
-.wrap{max-width:1100px;margin:0 auto;padding:20px 20px 60px}
+.wrap{max-width:1180px;margin:0 auto;padding:20px 20px 60px}
 .desc{background:#fff;border-radius:12px;padding:14px 18px;margin-bottom:18px}
 .desc h1{margin:0;font-size:16px;font-weight:800;color:var(--ink)}
 .desc p{font-size:12.5px;color:var(--muted);margin-top:4px}
-.stage{display:flex;gap:24px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
+.stage{display:flex;gap:28px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
 .stage > figure{margin:0}
-figcaption{font-size:12px;font-weight:700;color:var(--muted);margin:0 0 8px 4px}
-/* phone: full-length strip, no height clamp */
-.phone{width:390px;background:var(--bg);border-radius:28px;box-shadow:0 10px 30px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.06);overflow:hidden}
-.appbar{height:52px;background:#fff;display:flex;align-items:center;padding:0 12px;gap:8px;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+figcaption{font-size:12.5px;font-weight:800;color:var(--ink);margin:0 0 8px 4px}
+figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5px}
+.phone{width:390px;background:var(--bg);border-radius:28px;box-shadow:0 10px 30px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.06);overflow:hidden;position:relative}
+.fold{position:absolute;left:0;right:0;top:844px;border-top:2px dashed #C8102E;pointer-events:none}
+.fold span{position:absolute;right:10px;top:-9px;background:#C8102E;color:#fff;font-size:9.5px;font-weight:800;border-radius:4px;padding:1px 6px}
+.appbar{height:52px;background:#fff;display:flex;align-items:center;padding:0 12px;gap:8px;border-bottom:1px solid var(--line)}
 .appbar .back{width:36px;height:36px;border-radius:50%;border:0;background:#fff;display:flex;align-items:center;justify-content:center}
 .appbar .t{flex:1;font-size:15px;font-weight:800;color:var(--ink);text-align:center;margin-right:36px}
 .head{background:#fff;padding:12px 16px 0}
@@ -32,87 +34,82 @@ figcaption{font-size:12px;font-weight:700;color:var(--muted);margin:0 0 8px 4px}
 .tabs{display:flex;background:#fff;border-bottom:1px solid var(--line);margin-top:10px}
 .tabs span{flex:1;height:42px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#595959}
 .tabs span.on{border-bottom:3px solid var(--green);font-weight:900;color:var(--green)}
-.body{padding:12px 16px 20px;display:flex;flex-direction:column;gap:10px}
-/* hero */
-.hero{background:var(--navy);border-radius:14px;padding:18px 16px 16px;color:#fff}
-.hero .eb{font-size:10px;letter-spacing:.14em;font-weight:800;color:#9FB4DC}
-.hero h3{margin:6px 0 8px;font-size:19px;line-height:1.3;font-weight:900;color:#fff}
-.hero p{font-size:12px;color:#C9D4EA;line-height:1.5}
-.hero .row{display:flex;align-items:center;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.18)}
-.hero .row .l{flex:1;font-size:11px;color:#C9D4EA}
-.hero .row .l b{display:block;font-size:13px;color:#fff;font-weight:900}
-.grade{width:52px;height:52px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--green)}
+.body{padding:12px 16px 16px;display:flex;flex-direction:column;gap:10px}
+/* hero (compact) */
+.hero{background:var(--navy);border-radius:14px;padding:14px 16px;color:#fff;display:flex;align-items:center;gap:12px}
+.hero .l{flex:1}
+.hero .eb{font-size:9.5px;letter-spacing:.14em;font-weight:800;color:#9FB4DC}
+.hero h3{margin:3px 0 4px;font-size:16px;line-height:1.3;font-weight:900;color:#fff}
+.hero p{font-size:11px;color:#C9D4EA}
+.grade{width:50px;height:50px;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--green);flex-shrink:0}
 .grade b{font-size:20px;line-height:1}
 .grade span{font-size:8.5px;font-weight:800;margin-top:2px}
-/* chapter */
-.ch{margin-top:8px}
+/* chapter head */
 .ch .eb{font-size:10px;letter-spacing:.14em;font-weight:900;color:var(--navy)}
-.ch h3{margin:3px 0 6px;font-size:17px;font-weight:900;color:var(--ink);line-height:1.3}
-.ch .lead{font-size:12.5px;color:var(--txt);line-height:1.55}
+.ch h3{margin:2px 0 0;font-size:16.5px;font-weight:900;color:var(--ink);line-height:1.3}
+.ch .lead{font-size:12px;color:var(--txt);margin-top:3px}
 .ch .lead b{color:var(--ink2);font-weight:800}
 .card{background:var(--card);border-radius:14px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-/* points */
-.pt{display:flex;gap:10px;align-items:flex-start}
-.pt .ic{width:36px;height:36px;border-radius:10px;background:var(--green-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.pt .lb{font-size:9.5px;font-weight:900;letter-spacing:.12em;color:var(--green)}
-.pt h4{margin:1px 0 3px;font-size:13.5px;font-weight:900;color:var(--ink)}
-.pt p{font-size:12px;color:var(--txt);line-height:1.5}
-.note{display:flex;gap:10px;align-items:flex-start;background:var(--green-bg);border-radius:14px;padding:12px 14px;font-size:12px;color:var(--ink2);line-height:1.5}
-.note b{font-weight:900}
-/* problems */
-.pb h4{margin:0 0 4px;font-size:13.5px;font-weight:900;color:var(--ink);line-height:1.4}
-.pb p{font-size:12px;color:var(--txt);line-height:1.5}
-.pb .so{margin-top:10px;background:var(--bg);border-radius:10px;padding:9px 11px;display:flex;gap:8px;align-items:center}
-.pb .so .lb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:var(--navy);white-space:nowrap}
-.pb .so .v{font-size:12px;font-weight:800;color:var(--ink);line-height:1.35}
-.pb .so .v small{display:block;font-size:10.5px;color:var(--muted);font-weight:500}
-sup.fn{font-size:9px;color:var(--navy);font-weight:800;margin-left:1px}
+/* merged 1+2 list */
+.why{display:flex;flex-direction:column}
+.why .row{display:grid;grid-template-columns:30px 1fr auto;gap:0 10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.why .row:last-child{border-bottom:0;padding-bottom:0}
+.why .row:first-child{padding-top:0}
+.why .ic{width:30px;height:30px;border-radius:9px;background:var(--green-bg);display:flex;align-items:center;justify-content:center}
+.why .k{font-size:12.5px;font-weight:900;color:var(--ink);line-height:1.3}
+.why .m{font-size:11px;color:var(--txt);line-height:1.35;margin-top:1px}
+.why .m b{color:var(--red);font-weight:800}
+.why .std{font-size:10px;font-weight:800;color:var(--green);background:var(--green-bg);border-radius:6px;padding:3px 7px;white-space:nowrap;text-align:center;line-height:1.25}
+.why .std small{display:block;font-size:9px;color:var(--muted);font-weight:600}
 /* results */
-.band{display:flex;align-items:center;gap:8px}
+.band{display:flex;align-items:center;gap:8px;margin-top:6px}
 .band .ok{display:inline-flex;align-items:center;gap:5px;background:var(--green);color:#fff;border-radius:999px;padding:4px 10px;font-size:11.5px;font-weight:800}
 .band .dt{font-size:10.5px;color:var(--muted)}
 .res{display:flex;flex-direction:column;gap:8px}
-.res .r{background:#fff;border-radius:14px;padding:11px 13px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-.res .r .top{display:flex;align-items:center;justify-content:space-between}
-.res .r .k{font-size:11.5px;font-weight:700;color:#595959}
+.r{background:#fff;border-radius:14px;padding:10px 12px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.r .top{display:flex;align-items:center;justify-content:space-between}
+.r .k{font-size:11.5px;font-weight:700;color:#595959}
 .tag{font-size:9px;font-weight:900;color:#fff;background:var(--green);border-radius:5px;padding:2px 6px}
-.res .r .v{font-size:21px;font-weight:900;color:var(--green);line-height:1;margin-top:4px}
-.res .r .v small{font-size:11px;font-weight:700;margin-left:2px}
-.bar{height:6px;border-radius:3px;background:#ECEEE9;margin-top:6px}
-.bar i{display:block;height:6px;border-radius:3px;background:var(--green)}
-.res .r .s{font-size:10px;color:var(--muted);margin-top:4px}
+.r .v{font-size:20px;font-weight:900;color:var(--green);line-height:1;margin-top:4px}
+.r .v small{font-size:11px;font-weight:700;margin-left:2px}
+.bar{height:5px;border-radius:3px;background:#ECEEE9;margin-top:6px}
+.bar i{display:block;height:5px;border-radius:3px;background:var(--green)}
+.r .s{font-size:10px;color:var(--muted);margin-top:4px}
+.r .why1{font-size:10.5px;color:var(--txt);margin-top:5px;padding-top:5px;border-top:1px dashed var(--line);line-height:1.4}
+.r .why1 b{color:var(--ink2);font-weight:800}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .two .card .lb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:var(--navy)}
-.two .card .big{font-size:15px;font-weight:900;color:var(--ink);line-height:1.25;margin-top:3px}
+.two .card .big{font-size:14.5px;font-weight:900;color:var(--ink);line-height:1.25;margin-top:3px}
 .two .card .big em{font-style:normal;color:var(--green)}
 .two .card .sm{font-size:10.5px;color:var(--muted);margin-top:4px;line-height:1.4}
-.owner .lb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:var(--navy);margin-bottom:8px}
-.owner .qa{display:grid;grid-template-columns:16px 1fr;gap:6px 8px;font-size:12px}
+.owner .lb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
+.owner .qa{display:grid;grid-template-columns:16px 1fr;gap:4px 8px;font-size:12px}
 .owner .q{font-weight:900;color:var(--red)}
 .owner .a{font-weight:900;color:var(--green)}
 .owner .t{color:var(--ink2)}
-.owner .t small{display:block;color:var(--muted);font-size:10.5px;margin-top:1px}
-.report{display:flex;align-items:center;gap:10px;border:1px dashed #C9CFD6;border-radius:14px;padding:11px 13px;background:#fff}
+.owner .t small{display:block;color:var(--muted);font-size:10.5px}
+.report{display:flex;align-items:center;gap:10px;border:1px dashed #C9CFD6;border-radius:14px;padding:10px 12px;background:#fff}
 .report .t{flex:1;font-size:12px;color:var(--ink2);font-weight:700}
 .report .t small{display:block;color:var(--muted);font-size:10.5px;font-weight:500}
-.btn{display:inline-block;border-radius:10px;padding:9px 13px;font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap}
-.btn.pri{background:var(--green);color:#fff}
+.btn{display:inline-block;border-radius:10px;padding:8px 12px;font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap}
 .btn.sec{background:#fff;color:var(--ink);border:1px solid #E3E6E1}
-/* faq */
-.faq .it{padding:10px 0;border-bottom:1px solid var(--line)}
+/* collapsed block (B) */
+.acc{display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.acc .t{flex:1}
+.acc .t b{display:block;font-size:13px;font-weight:900;color:var(--ink)}
+.acc .t span{font-size:11px;color:var(--muted)}
+.acc svg{flex-shrink:0}
+.faq .it{padding:8px 0;border-bottom:1px solid var(--line)}
 .faq .it:last-child{border-bottom:0;padding-bottom:0}
 .faq .it:first-child{padding-top:0}
 .faq .q{display:flex;gap:7px;font-size:12.5px;font-weight:900;color:var(--ink)}
 .faq .q b{color:var(--red)}
-.faq .a{display:flex;gap:7px;font-size:12px;color:var(--txt);margin-top:4px;line-height:1.5}
+.faq .a{display:flex;gap:7px;font-size:11.5px;color:var(--txt);margin-top:3px;line-height:1.5}
 .faq .a b{color:var(--green);font-weight:900}
-.fine{font-size:10.5px;color:var(--muted);line-height:1.5}
-.fine .flag{display:inline-block;background:var(--amber-bg);color:var(--amber);font-weight:800;border-radius:3px;padding:0 4px;font-size:9.5px;margin-right:3px}
-/* bottom action bar */
-.actions{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 16px 14px;display:flex;gap:8px;align-items:center}
+.fine{font-size:10px;color:var(--muted);line-height:1.5}
+.actions{background:#fff;border-top:1px solid var(--line);padding:10px 16px 14px;display:flex;gap:8px;align-items:center}
 .actions .ico{width:44px;height:44px;border-radius:12px;border:1px solid #E3E6E1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9.5px;color:#595959;gap:2px}
 .actions .cta{flex:1;height:44px;border-radius:12px;background:var(--green);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center}
-/* side notes (desktop only) */
 .side{width:300px;font-size:12.5px;color:#3E444A;line-height:1.6}
 .side h3{margin:0 0 8px;font-size:13px;font-weight:800;color:var(--ink)}
 .side ol{margin:0;padding-left:16px}
@@ -124,158 +121,134 @@ sup.fn{font-size:9px;color:var(--navy);font-weight:800;margin-left:1px}
 <body>
 <div class="wrap">
   <div class="desc">
-    <h1>위쳌 사업장 상세 — 위생 탭 상세페이지형 시안 (치킨집 예시, 10/27)</h1>
-    <p>앱의 사업장 상세 '위생' 탭을 세스코몰 상품 상세처럼 한 번에 내려 읽는 긴 화면으로 풀었습니다. 390px 앱 폭 기준이며 상호·수치는 시안용 예시입니다.</p>
+    <h1>위쳌 사업장 상세 — 위생 탭 상세페이지형 시안 (치킨집 예시, 10/27 · 짧은 판 A/B)</h1>
+    <p>"중요한 것"과 "놓치면 생기는 문제"를 한 카드로 합치고, 이 집의 결과가 첫 화면 안에 들어오게 줄였습니다. 빨간 점선이 첫 화면(844px) 끝입니다. 상호·수치는 시안용 예시입니다.</p>
   </div>
 
   <div class="stage">
+
+  <!-- ================= A ================= -->
   <figure>
-  <figcaption>위생 탭 · 전체 스크롤 (390px)</figcaption>
+  <figcaption>A안 · 다섯 가지 한 카드 → 바로 결과<small>왜 보는지를 5줄로 압축, 결과가 첫 화면에 걸리기 시작</small></figcaption>
   <div class="phone">
-    <div class="appbar">
-      <button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-      <div class="t">바삭마을 치킨</div>
-    </div>
+    <div class="fold"><span>첫 화면 끝</span></div>
+    <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">바삭마을 치킨</div></div>
     <div class="head">
       <div class="nm"><h2>바삭마을 치킨</h2><span class="cat">치킨·닭강정</span></div>
       <div class="rv"><svg width="13" height="13" viewBox="0 0 24 24" fill="#C77700" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.5L12 16.8 6.1 20l1.3-6.5L2.5 9l6.6-.8z"/></svg><b>4.7</b><span>리뷰 2,041 · 성수동</span></div>
       <div class="tabs"><span>홈</span><span>메뉴</span><span>리뷰</span><span>사진</span><span class="on">위생</span></div>
     </div>
-
     <div class="body">
-      <!-- hero -->
       <div class="hero">
-        <div class="eb">CESCO 위쳌 · 치킨집</div>
-        <h3>오늘 튀기는 기름까지,<br>세스코가 직접 확인했어요</h3>
-        <p>치킨집 위생은 눈에 보이는 청결보다 보이지 않는 다섯 가지가 결정해요. 세스코 전문가가 매장에서 측정기로 재고, 그 결과를 그대로 보여드려요.</p>
-        <div class="row">
-          <div class="l"><b>10.16 세스코 실측</b>5개 항목 모두 적합 · 다음 정기 점검 시 갱신</div>
-          <div class="grade"><b>A</b><span>위생 등급</span></div>
-        </div>
-      </div>
-      <!-- 01 -->
-      <div class="ch" id="q1">
-        <div class="eb">CHAPTER 01</div>
-        <h3>가장 바삭하고 깨끗한<br>치킨을 먹으려면?</h3>
-        <p class="lead"><b>기름이 신선하고</b>, <b>생닭이 깨끗하게 다뤄지는</b> 집이어야 해요. 그걸 가르는 다섯 가지를 세스코 위쳌이 봐요.</p>
-      </div>
-      <div class="card pt">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B7A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/></svg></div>
-        <div><div class="lb">POINT 01 · 튀김유 산가</div><h4>바삭함은 기름 신선도에서 와요</h4><p>기름은 쓸수록 산화돼요. 산가는 기름이 얼마나 상했는지를 숫자로 보여주는 지표예요. 식품위생법 시행규칙은 튀김용 기름을 산가 3.0 이하로 관리하도록 정하고 있어요.<sup class="fn">1</sup></p></div>
-      </div>
-      <div class="card pt">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B7A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v10.5a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z"/><path d="M12 11v6"/></svg></div>
-        <div><div class="lb">POINT 02 · 생닭 보관 온도</div><h4>신선한 닭은 차갑게 보관돼요</h4><p>생닭은 0~5℃ 냉장 보관이 기본이에요. 온도가 조금만 올라가도 세균이 빠르게 늘어요. 냉장고 안 온도는 센서로 24시간 기록해요.</p></div>
-      </div>
-      <div class="card pt">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B7A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M8 3v3M16 3v3M3 11h18"/></svg></div>
-        <div><div class="lb">POINT 03 · 칼·도마</div><h4>생닭이 닿은 도마, 다른 재료엔 닿지 않게</h4><p>생닭을 다룬 칼과 도마가 다른 재료에 닿으면 균이 그대로 옮겨가요. 눈에는 깨끗해 보여도 ATP 측정기로 재면 남은 오염이 숫자로 나와요.</p></div>
-      </div>
-      <div class="card pt">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B7A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7a2 2 0 1 1 4 0v4M11 9V5a2 2 0 1 1 4 0v4M15 10V7a2 2 0 1 1 4 0v7a7 7 0 0 1-7 7h-1a7 7 0 0 1-7-7v-3a2 2 0 1 1 4 0"/></svg></div>
-        <div><div class="lb">POINT 04 · 작업자 손</div><h4>닭을 만진 손이 가장 먼저 깨끗해야 해요</h4><p>생닭을 만진 손은 가장 빠른 전염 경로예요. 손질 뒤 손 씻기와 장갑 교체가 지켜지는지, 손 표면 오염도를 직접 재서 확인해요.</p></div>
-      </div>
-      <div class="card pt">
-        <div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B7A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h16l-2 10H6z"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg></div>
-        <div><div class="lb">POINT 05 · 후드·매장 공기</div><h4>연기가 잘 빠지는 주방이 깨끗한 주방이에요</h4><p>튀김 연기가 쌓인 후드·덕트의 기름때는 불이 옮겨붙기 쉽고 해충이 모이는 자리가 돼요. 연기와 습기가 많은 주방은 부유세균도 늘기 쉬워요.</p></div>
-      </div>
-      <div class="note">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B7A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l7 3v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V5z"/><path d="M9 12l2 2 4-4.5"/></svg>
-        <div><b>세스코 위쳌은 묻지 않고 재요.</b> 산가계·ATP 측정기·온도 센서·부유균 측정기로 세스코 식품안전 전문가가 매장에서 직접 측정하고 리포트에 서명해요.</div>
+        <div class="l"><div class="eb">CESCO 위쳌 · 치킨집</div><h3>오늘 튀기는 기름까지<br>세스코가 직접 확인했어요</h3><p>10.16 실측 · 5개 항목 모두 적합</p></div>
+        <div class="grade"><b>A</b><span>위생 등급</span></div>
       </div>
 
-      <!-- 02 -->
-      <div class="ch" id="q2">
-        <div class="eb">CHAPTER 02</div>
-        <h3>하나라도 놓치면<br>치킨이 어떻게 되나요?</h3>
-        <p class="lead">눅눅한 튀김, 비린 냄새, 배탈. 문제는 눈에 보이기 전에 시작돼요. 그래서 문제마다 <b>미리 잡아낼 수 있는 지표</b>를 정해 두고 그 숫자를 봐요.</p>
+      <div class="ch">
+        <h3>가장 바삭하고 깨끗한 치킨을 먹으려면?</h3>
+        <p class="lead">이 다섯 가지가 지켜져야 해요. 놓치면 <b>이렇게</b> 돼요.</p>
       </div>
-      <div class="card pb">
-        <h4>오래 쓴 기름은 맛보다 먼저 몸이 알아요</h4>
-        <p>기름이 산화되면 색이 짙어지고 냄새가 나며 튀김이 눅눅해져요. 산화가 진행된 기름은 속을 불편하게 할 수 있어요.<sup class="fn">2</sup> 겉으로는 멀쩡해 보여도 산가를 재면 교체 시점이 분명해져요.</p>
-        <div class="so"><span class="lb">그래서 보는 지표</span><span class="v">튀김유 산가<small>식품위생법 시행규칙 기준 3.0 이하</small></span></div>
-      </div>
-      <div class="card pb">
-        <h4>생닭 한 번의 교차 오염이 식중독으로 이어져요</h4>
-        <p>식약처는 캠필로박터 식중독의 주요 경로로 덜 익힌 닭고기와 생닭을 씻는 과정의 교차 오염을 꼽아요. 닭 요리를 많이 먹는 7~8월에 발생이 집중돼요.<sup class="fn">3</sup></p>
-        <div class="so"><span class="lb">그래서 보는 지표</span><span class="v">칼·도마 ATP · 손 ATP · 생닭 보관 온도<small>ATP 200 RLU 이하 · 냉장 0~5℃</small></span></div>
-      </div>
-      <div class="card pb">
-        <h4>연기와 습기가 많은 주방은 공기도 관리 대상이에요</h4>
-        <p>튀김 연기와 수증기가 머무는 주방은 공기 중 부유세균이 늘기 쉬운 환경이에요. 환기와 공기 살균이 제대로 되는지는 부유세균 수치로 확인할 수 있어요.</p>
-        <div class="so"><span class="lb">그래서 보는 지표</span><span class="v">공기 중 부유세균<small>800 CFU/㎥ 이하 · 세스코 위쳌 기준</small></span></div>
-      </div>
-      <div class="card pb">
-        <h4>후드에 쌓인 기름때는 화재와 해충을 부르는 자리예요</h4>
-        <p>후드와 덕트에 눌어붙은 기름때는 불이 옮겨붙기 쉽고, 바퀴벌레 같은 해충이 모이는 먹이가 돼요.<sup class="fn">4</sup> 정기 방역과 후드 청소 기록이 꾸준히 남아 있어야 안심할 수 있어요.</p>
-        <div class="so"><span class="lb">그래서 보는 지표</span><span class="v">정기 방역 · 후드 관리 기록<small>세스코 방역 이력 · 최근 관리일</small></span></div>
+      <div class="card why">
+        <div class="row"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B7A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c3 4 6 7 6 11a6 6 0 0 1-12 0c0-4 3-7 6-11z"/></svg></div><div><div class="k">기름 신선도 (튀김유 산가)</div><div class="m"><b>놓치면</b> 눅눅한 튀김, 속 불편<sup>2</sup></div></div><div class="std">3.0 이하<small>식품위생법<sup>1</sup></small></div></div>
+        <div class="row"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B7A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4v10.5a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z"/><path d="M12 11v6"/></svg></div><div><div class="k">생닭 냉장 보관</div><div class="m"><b>놓치면</b> 세균이 빠르게 늘어요</div></div><div class="std">0~5℃<small>24시간 센서</small></div></div>
+        <div class="row"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B7A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M8 3v3M16 3v3M3 11h18"/></svg></div><div><div class="k">생닭 칼·도마 분리</div><div class="m"><b>놓치면</b> 교차 오염 → 캠필로박터 식중독<sup>3</sup></div></div><div class="std">200 RLU 이하<small>ATP 측정</small></div></div>
+        <div class="row"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B7A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7a2 2 0 1 1 4 0v4M11 9V5a2 2 0 1 1 4 0v4M15 10V7a2 2 0 1 1 4 0v7a7 7 0 0 1-7 7h-1a7 7 0 0 1-7-7v-3a2 2 0 1 1 4 0"/></svg></div><div><div class="k">닭 만진 손 씻기</div><div class="m"><b>놓치면</b> 손이 가장 빠른 전염 경로</div></div><div class="std">200 RLU 이하<small>ATP 측정</small></div></div>
+        <div class="row"><div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B7A3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h16l-2 10H6z"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg></div><div><div class="k">후드 기름때·매장 공기</div><div class="m"><b>놓치면</b> 화재·해충, 공기 중 세균<sup>4</sup></div></div><div class="std">800 CFU/㎥ 이하<small>부유세균</small></div></div>
       </div>
 
-      <!-- 03 -->
-      <div class="ch" id="q3">
-        <div class="eb">CHAPTER 03</div>
-        <h3>그래서, 이 집 치킨은<br>안심해도 되나요?</h3>
-        <div class="band"><span class="ok"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>5개 항목 모두 적합</span><span class="dt">바삭마을 치킨 · 10.16 세스코 전문가 실측</span></div>
+      <div class="ch">
+        <h3>그래서, 이 집 치킨은 안심해도 되나요?</h3>
+        <div class="band"><span class="ok"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>5개 항목 모두 적합</span><span class="dt">10.16 세스코 전문가 실측</span></div>
       </div>
       <div class="res">
-        <div class="r"><div class="top"><span class="k">튀김유 산가</span><span class="tag">적합</span></div><div class="v">0.8</div><div class="bar"><i style="width:27%"></i></div><div class="s">기준 3.0 이하 (식품위생법 시행규칙)</div></div>
-        <div class="two" style="gap:8px">
-          <div class="r"><div class="top"><span class="k">생닭 보관 온도</span><span class="tag">적합</span></div><div class="v">2<small>℃</small></div><div class="bar"><i style="width:40%"></i></div><div class="s">기준 0~5℃ 냉장</div></div>
+        <div class="r"><div class="top"><span class="k">튀김유 산가</span><span class="tag">적합</span></div><div class="v">0.8</div><div class="bar"><i style="width:27%"></i></div><div class="s">기준 3.0 이하 · 새 기름에 가까운 값</div></div>
+        <div class="two">
+          <div class="r"><div class="top"><span class="k">생닭 보관 온도</span><span class="tag">적합</span></div><div class="v">2<small>℃</small></div><div class="bar"><i style="width:40%"></i></div><div class="s">기준 0~5℃</div></div>
           <div class="r"><div class="top"><span class="k">칼·도마 오염도</span><span class="tag">적합</span></div><div class="v">120<small>RLU</small></div><div class="bar"><i style="width:60%"></i></div><div class="s">기준 200 이하</div></div>
-          <div class="r"><div class="top"><span class="k">작업자 손 오염도</span><span class="tag">적합</span></div><div class="v">60<small>RLU</small></div><div class="bar"><i style="width:30%"></i></div><div class="s">기준 200 이하</div></div>
+          <div class="r"><div class="top"><span class="k">작업자 손</span><span class="tag">적합</span></div><div class="v">60<small>RLU</small></div><div class="bar"><i style="width:30%"></i></div><div class="s">기준 200 이하</div></div>
           <div class="r"><div class="top"><span class="k">공기 중 부유세균</span><span class="tag">안심</span></div><div class="v">180<small>CFU/㎥</small></div><div class="bar"><i style="width:22%"></i></div><div class="s">기준 800 이하</div></div>
         </div>
       </div>
       <div class="two">
-        <div class="card"><div class="lb">동네에서 보면</div><div class="big">성수동 치킨집 <em>상위 3%</em></div><div class="sm">위쳌 측정 치킨집 94곳 중 3위 · 같은 동네, 같은 업종끼리만 비교해요</div></div>
-        <div class="card"><div class="lb">꾸준한지 보면</div><div class="big">6회 연속 <em>기준 통과</em></div><svg width="100%" height="30" viewBox="0 0 140 30" aria-hidden="true" style="margin-top:6px"><polyline points="6,6 32,9 58,14 84,17 110,20 134,25" fill="none" stroke="#0B7A3E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="134" cy="25" r="3" fill="#fff" stroke="#0B7A3E" stroke-width="2"/></svg><div class="sm">칼·도마 5월 190 → 10월 120 RLU</div></div>
+        <div class="card"><div class="lb">동네에서 보면</div><div class="big">성수동 치킨집 <em>상위 3%</em></div><div class="sm">위쳌 측정 94곳 중 3위</div></div>
+        <div class="card"><div class="lb">꾸준한지 보면</div><div class="big">6회 연속 <em>기준 통과</em></div><div class="sm">칼·도마 5월 190 → 10월 120 RLU</div></div>
       </div>
       <div class="card owner">
         <div class="lb">사장님이 남긴 기록</div>
         <div class="qa">
           <span class="q">Q</span><span class="t">기름은 얼마나 자주 갈아요?</span>
-          <span class="a">A</span><span class="t">주 3회 전량 교체하고 매일 산가를 측정해서 기록을 공개해요.<small>기록 인증 답변 · 사장님 · 어제</small></span>
-          <span class="q">Q</span><span class="t">닭은 당일 입고인가요?</span>
-          <span class="a">A</span><span class="t">매일 아침 7시에 입고돼요. 입고표 사진을 매일 올리고 있어요.<small>사진 인증 답변 · 사장님 · 3일 전</small></span>
+          <span class="a">A</span><span class="t">주 3회 전량 교체하고 매일 산가를 측정해 공개해요.<small>기록 인증 · 사장님 · 어제</small></span>
         </div>
       </div>
-      <div class="report">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
-        <div class="t">위생점검 리포트 No. 2026-1016-0512<small>2026.10.16 · 세스코 전문가 현장 측정·서명 원본</small></div>
-        <a class="btn sec" href="#">원본 보기</a>
-      </div>
-
-      <!-- FAQ -->
-      <div class="ch">
-        <div class="eb">FAQ</div>
-        <h3>먹기 전에 다들 이게 궁금했어요</h3>
-      </div>
+      <div class="report"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. 2026-1016-0512<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
       <div class="card faq">
-        <div class="it"><div class="q"><b>Q</b>산가 0.8이면 어느 정도인가요?</div><div class="a"><b>A</b>법정 관리 기준 3.0의 4분의 1 수준으로, 새 기름에 가까운 값이에요. 산가는 낮을수록 덜 산화된 기름이에요.</div></div>
-        <div class="it"><div class="q"><b>Q</b>측정은 누가, 어떻게 하나요?</div><div class="a"><b>A</b>세스코 식품안전 전문가가 매장을 방문해 산가계·ATP 측정기·부유균 측정기로 직접 재요. 결과는 서명한 리포트 원본으로 남아요.</div></div>
-        <div class="it"><div class="q"><b>Q</b>수치는 언제 갱신되나요?</div><div class="a"><b>A</b>정기 점검일마다 갱신돼요. 생닭 보관 온도는 냉장고 안 세스코 IoT 센서가 24시간 기록해요.</div></div>
-        <div class="it"><div class="q"><b>Q</b>'적합'은 무엇과 비교한 결과인가요?</div><div class="a"><b>A</b>튀김유 산가는 식품위생법 시행규칙 기준, ATP와 부유세균은 세스코 위쳌 관리 기준과 비교한 결과예요.</div></div>
+        <div class="it"><div class="q"><b>Q</b>산가 0.8이면 어느 정도인가요?</div><div class="a"><b>A</b>법정 기준 3.0의 4분의 1 수준으로 새 기름에 가까운 값이에요.</div></div>
+        <div class="it"><div class="q"><b>Q</b>측정은 누가 하나요?</div><div class="a"><b>A</b>세스코 식품안전 전문가가 매장에 와서 측정기로 직접 재고 리포트에 서명해요.</div></div>
       </div>
-      <p class="fine">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 상호·수치는 시안용 예시입니다. <span class="flag">확인 필요</span>각주 2·4는 공식 출처 확정 전이라 수치 없이 서술했어요.</p>
+      <p class="fine">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요.</p>
     </div>
+    <div class="actions"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.9 2z"/></svg>전화</div><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>저장</div><div class="cta">이 가게 방역 알림 받기</div></div>
+  </div>
+  </figure>
 
-    <div class="actions">
-      <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.9 2z"/></svg>전화</div>
-      <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>저장</div>
-      <div class="cta">이 가게 방역 알림 받기</div>
+  <!-- ================= B ================= -->
+  <figure>
+  <figcaption>B안 · 결과 먼저, "왜 보나요?"는 접어 두기<small>결과 카드마다 한 줄 이유, 다섯 가지 설명은 펼침으로</small></figcaption>
+  <div class="phone">
+    <div class="fold"><span>첫 화면 끝</span></div>
+    <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">바삭마을 치킨</div></div>
+    <div class="head">
+      <div class="nm"><h2>바삭마을 치킨</h2><span class="cat">치킨·닭강정</span></div>
+      <div class="rv"><svg width="13" height="13" viewBox="0 0 24 24" fill="#C77700" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.5L12 16.8 6.1 20l1.3-6.5L2.5 9l6.6-.8z"/></svg><b>4.7</b><span>리뷰 2,041 · 성수동</span></div>
+      <div class="tabs"><span>홈</span><span>메뉴</span><span>리뷰</span><span>사진</span><span class="on">위생</span></div>
     </div>
+    <div class="body">
+      <div class="hero">
+        <div class="l"><div class="eb">CESCO 위쳌 · 치킨집</div><h3>이 집 치킨,<br>안심하고 먹어도 되나요?</h3><p>10.16 세스코 실측 · 5개 항목 모두 적합</p></div>
+        <div class="grade"><b>A</b><span>위생 등급</span></div>
+      </div>
+
+      <div class="res">
+        <div class="r"><div class="top"><span class="k">튀김유 산가 · 바삭함의 기준</span><span class="tag">적합</span></div><div class="v">0.8</div><div class="bar"><i style="width:27%"></i></div><div class="s">기준 3.0 이하 (식품위생법<sup>1</sup>) · 새 기름에 가까운 값</div><div class="why1"><b>왜 보나요?</b> 기름이 산화되면 눅눅해지고 속이 불편해져요.<sup>2</sup></div></div>
+        <div class="r"><div class="top"><span class="k">생닭 보관 온도</span><span class="tag">적합</span></div><div class="v">2<small>℃</small></div><div class="bar"><i style="width:40%"></i></div><div class="s">기준 0~5℃ · 24시간 센서</div><div class="why1"><b>왜 보나요?</b> 온도가 오르면 세균이 빠르게 늘어요.</div></div>
+        <div class="two">
+          <div class="r"><div class="top"><span class="k">칼·도마 오염도</span><span class="tag">적합</span></div><div class="v">120<small>RLU</small></div><div class="bar"><i style="width:60%"></i></div><div class="s">기준 200 이하</div><div class="why1"><b>왜?</b> 생닭 교차 오염 → 식중독<sup>3</sup></div></div>
+          <div class="r"><div class="top"><span class="k">작업자 손</span><span class="tag">적합</span></div><div class="v">60<small>RLU</small></div><div class="bar"><i style="width:30%"></i></div><div class="s">기준 200 이하</div><div class="why1"><b>왜?</b> 닭 만진 손이 가장 빠른 경로</div></div>
+        </div>
+        <div class="r"><div class="top"><span class="k">공기 중 부유세균</span><span class="tag">안심</span></div><div class="v">180<small>CFU/㎥</small></div><div class="bar"><i style="width:22%"></i></div><div class="s">기준 800 이하</div><div class="why1"><b>왜 보나요?</b> 튀김 연기·습기 많은 주방은 공기 중 세균이 늘기 쉬워요. 후드 기름때는 화재·해충의 자리예요.<sup>4</sup></div></div>
+      </div>
+
+      <div class="two">
+        <div class="card"><div class="lb">동네에서 보면</div><div class="big">성수동 치킨집 <em>상위 3%</em></div><div class="sm">위쳌 측정 94곳 중 3위</div></div>
+        <div class="card"><div class="lb">꾸준한지 보면</div><div class="big">6회 연속 <em>기준 통과</em></div><div class="sm">칼·도마 5월 190 → 10월 120 RLU</div></div>
+      </div>
+
+      <div class="acc"><div class="t"><b>가장 바삭하고 깨끗한 치킨을 먹으려면?</b><span>세스코가 치킨집에서 이 다섯 가지를 보는 이유</span></div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
+
+      <div class="card owner">
+        <div class="lb">사장님이 남긴 기록</div>
+        <div class="qa">
+          <span class="q">Q</span><span class="t">기름은 얼마나 자주 갈아요?</span>
+          <span class="a">A</span><span class="t">주 3회 전량 교체하고 매일 산가를 측정해 공개해요.<small>기록 인증 · 사장님 · 어제</small></span>
+        </div>
+      </div>
+      <div class="report"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. 2026-1016-0512<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
+      <div class="acc"><div class="t"><b>먹기 전에 다들 이게 궁금했어요</b><span>산가 0.8은 어느 정도? 측정은 누가? 2문항</span></div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
+      <p class="fine">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요.</p>
+    </div>
+    <div class="actions"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.9 2z"/></svg>전화</div><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>저장</div><div class="cta">이 가게 방역 알림 받기</div></div>
   </div>
   </figure>
 
   <aside class="side">
     <h3>시안 메모 · 각주</h3>
+    <p style="margin-bottom:10px"><b>A안</b>은 "왜 보는지"를 먼저 5줄로 보여주고 결과로 넘어갑니다. 흐름은 원안과 같지만 두 챕터가 한 카드로 줄었습니다. <b>B안</b>은 결과를 첫 화면에 두고, 이유는 결과 카드마다 한 줄씩 붙인 뒤 다섯 가지 설명과 FAQ는 접어 둡니다. 두 안 모두 세 번째 질문이 첫 화면(빨간 점선) 안에 들어옵니다.</p>
     <ol>
-      <li>식품위생법 시행규칙 [별표 17] 식품접객영업자 등의 준수사항: 튀김용 유지 산가 3.0 이하. 기존 시안의 "기준치 2.5"는 이 기준으로 수정. 최신 개정 조문은 국가법령정보센터 원문 대조 필요.</li>
-      <li><span class="flag">확인 필요</span>산화된 기름의 건강 영향은 공식 안내문 출처를 확정하지 못해 수치 없이 서술. 세스코 내부 자료 또는 식약처 안내문 확보 후 보강.</li>
-      <li>식품의약품안전처 캠필로박터 식중독 예방 안내: 주요 경로는 덜 익힌 닭고기와 생닭 세척 중 교차 오염, 발생은 7~8월 집중(2011~2015년 67건 중 29건).</li>
-      <li><span class="flag">확인 필요</span>후드·덕트 기름때와 화재의 관계는 소방청 통계 출처를 확정하지 못해 수치 없이 서술.</li>
+      <li>식품위생법 시행규칙 [별표 17] 식품접객영업자 등의 준수사항: 튀김용 유지 산가 3.0 이하. 최신 개정 조문은 국가법령정보센터 원문 대조 필요.</li>
+      <li><span class="flag">확인 필요</span>산화된 기름의 건강 영향은 공식 안내문 출처 확정 전이라 수치 없이 서술.</li>
+      <li>식품의약품안전처 캠필로박터 식중독 예방 안내: 주요 경로는 덜 익힌 닭고기와 생닭 세척 중 교차 오염, 7~8월 집중.</li>
+      <li><span class="flag">확인 필요</span>후드·덕트 기름때와 화재의 관계는 소방청 통계 출처 확정 전이라 수치 없이 서술.</li>
     </ol>
-    <p style="margin-top:12px">구조: 히어로(등급·실측일) → 01 중요한 것 5포인트 → 02 문제와 "그래서 보는 지표" → 03 실측 결과·동네 비교·추이·사장님 기록·리포트 원본 → FAQ → 하단 고정 액션바. 사업장 상세의 기존 위생 모듈(안1~안5)을 대체하지 않고 '위생' 탭 전체 화면으로 쓰는 안입니다.</p>
   </aside>
   </div>
 </div>
