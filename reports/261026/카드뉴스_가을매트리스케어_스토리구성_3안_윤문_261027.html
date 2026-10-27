@@ -594,9 +594,10 @@ tabs.forEach(b=>b.addEventListener('click',()=>{
 }));
 let start='G1';
 try{ const s=localStorage.getItem('cesco-mattress-g3'); if(s && ['G1','G2','G3'].includes(s)) start=s; }catch(e){}
+const hv=(location.hash||'').replace('#','').toUpperCase(); if(['G1','G2','G3'].includes(hv)) start=hv;
 tabs.forEach(t=>t.setAttribute('aria-selected', t.dataset.v===start?'true':'false'));
 render(start);
-tabs.forEach(b=>b.addEventListener('click',()=>{ try{localStorage.setItem('cesco-mattress-g3', b.dataset.v);}catch(e){} }));
+tabs.forEach(b=>b.addEventListener('click',()=>{ try{localStorage.setItem('cesco-mattress-g3', b.dataset.v);}catch(e){} try{history.replaceState(null,'','#'+b.dataset.v.toLowerCase());}catch(e){} }));
 
 
 /* ---------- 변주 덱 ---------- */
