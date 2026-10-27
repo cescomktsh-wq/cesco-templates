@@ -200,19 +200,36 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
 .taste p{color:var(--ink2)}
 .plan td.no{color:#9E0B22}
 .plan td.yes{color:#0B5E2E}
+
+/* 3판: 글 중간 사진 */
+.story p+p{margin-top:8px}
+.ph.wide{aspect-ratio:16/9;height:auto;margin-top:10px}
+.ph.sq{aspect-ratio:1;height:auto}
+.ph.tall{aspect-ratio:4/5;height:auto;margin-top:10px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.cap2{font-size:10.5px;color:var(--muted);margin-top:5px;line-height:1.4}
+.story .kick+h4{margin-top:2px}
+.story .dlg{margin-top:8px;padding-left:10px;border-left:2px solid var(--wc-line);font-size:12.5px;color:var(--ink2);line-height:1.6}
+.story .dlg b{font-weight:800;color:var(--ink);margin-right:4px}
+.intro .cap2{margin-top:0;margin-bottom:8px}
+.endq{background:var(--navy);color:#fff}
+.endq .kick{color:#9FB4DC}
+.endq h4{color:#fff}
+.endq p{color:#D6E5F7}
+.iv .a small{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="desc">
-    <h1>위쳌 사업장 상세 — 이야기형(I·J안) 업종별 변형: 치킨집 · 고기집 · 산후조리원 (10/27 · 2판)</h1>
-    <p>"수많은 멤버스 사업장에 적용하면 다 똑같아지지 않을까"에 대한 답입니다. 틀(카드 문법 · 방문기 → 팩트 칩 → 리포트 · 전문가 서명)은 고정하고, <b>제목 · 이 집만의 한 가지 · 장면 순서 · 사장님 질문 · 사진 · 먹어보니</b>를 업장마다 바꿨습니다. 2판에서는 생성문 티를 빼는 쪽으로 글을 다시 썼습니다(아래 "글쓰기 규칙" 참고). 사진은 샷 리스트의 이름을 적은 자리로 두었습니다. 상호·수치·인터뷰는 시안용 예시입니다.</p>
+    <h1>위쳌 사업장 상세 — 이야기형(I·J안) 업종별 변형: 치킨집 · 고기집 · 산후조리원 (10/27 · 3판)</h1>
+    <p>"수많은 멤버스 사업장에 적용하면 다 똑같아지지 않을까"에 대한 답입니다. 틀(카드 문법 · 팩트 칩 · 리포트 · 전문가 서명)은 고정하고 글은 집마다 다르게 씁니다. 3판은 생성문 티를 한 번 더 빼고(세 글의 문체·마무리를 다르게, 대화는 짧게, 쓸데없는 디테일 허용) 사진을 글 중간에 블로그처럼 넣었습니다. 사진 자리는 샷 이름을 적은 점선 상자이고, 캡션은 사진 설명이 아니라 한마디입니다. 상호·수치·인터뷰는 시안용 예시입니다.</p>
   </div>
 
-  <div class="stage-h">I안 · 방문기 — 같은 틀, 업장 세 곳<small>제목은 위생이 아니라 그 집의 한 장면에서. 장면마다 결론을 달지 않고, 재지 않은 장면을 하나씩 둡니다</small></div>
+  <div class="stage-h">I안 · 방문기 — 같은 틀, 업장 세 곳, 문체 세 가지<small>치킨집은 해요체 수다, 고기집은 '다'체 단문, 조리원은 차분한 해요체. 마무리도 먹어보니 · 문 앞 한마디 · 복도의 A4로 다릅니다</small></div>
   <div class="stage">
   <figure id="i-chicken">
-  <figcaption>I안 · 치킨집<small>제목은 기름 가는 새벽에서. 후드 장면은 측정 없이 관찰만</small></figcaption>
+  <figcaption>I안 · 치킨집<small>해요체 수다. 사진은 글 중간에, 캡션은 한마디</small></figcaption>
   <div class="phone">
     <div class="fold"><span>첫 화면 끝</span></div>
     <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">바삭마을 치킨</div></div>
@@ -222,18 +239,16 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
       <div class="tabs"><span>홈</span><span>메뉴</span><span>리뷰</span><span>사진</span><span class="on">위생</span></div>
     </div>
     <div class="body">
-      <div class="ph hero-ph">대표 사진 자리<br>갓 튀긴 후라이드 한 마리 · 클로즈업</div>
       <div class="hero">
         <div class="l"><div class="eb">위쳌 방문기 · 10.16</div><h3>새벽 네 시 반,<br>기름부터 가는 집</h3></div>
         <div class="grade"><b>A</b><span>위생 등급</span></div>
       </div>
-      <div class="onething"><div class="lb">이 집만의 한 가지</div><p><b>월·수·금 새벽에 튀김 기름을 전량 갑니다.</b> 문은 열한 시에 여는데 사장님은 네 시 반에 나와요.</p></div>
-      <div class="card intro"><p style="margin-top:0">그 얘기를 듣고 10월 16일 아침 세스코 점검에 따라갔습니다. 튀김기는 두 대, 주방은 네 평 남짓이에요.</p></div>
-      <div class="card story"><div class="kick">기름</div><h4>왼쪽 통은 바닥 눈금이 다 보였어요</h4><div class="ph">현장 사진 자리<br>튀김기 뚜껑 연 모습 · 기름 색</div><p>쓰던 기름은 갈색으로 가라앉는데 여기는 눈금이 비쳐요. 전문가가 산가 스트립을 담갔다 빼고 색을 맞춰 보더니 0.8이라고 했어요. 식품위생법은 3.0까지 허용하니까 새 기름에 가까운 숫자예요. 폐유통은 뒷골목에 세 개 나란히 서 있고, 사장님은 수거 오시는 분 이름까지 알고 있었어요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>튀김유 산가 0.8 · 기준 3.0 이하<sup>1</sup></div></div>
-      <div class="card story"><div class="kick">냉장고</div><h4>밤에도 2도에서 안 움직여요</h4><div class="ph">현장 사진 자리<br>냉장고 안 · 온도 센서</div><p>생닭 냉장고 안쪽에 손바닥만 한 센서가 붙어 있어요. 온도계가 아니라 24시간 기록하는 거예요. 전문가가 지난주 그래프를 열어 보여줬는데 밤에도 2도 언저리예요. 닭은 아침 일곱 시쯤 들어오고, 그날 못 쓰면 다음 날 안 쓴대요. 금요일 저녁에 가끔 일찍 마감되는 이유를 여기서 알았어요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>생닭 냉장 2℃ · 24시간 센서 · 기준 0~5℃</div></div>
-      <div class="card story"><div class="kick">도마</div><h4>"어제 새로 산 건데요"</h4><div class="ph">현장 사진 자리<br>빨간 도마 · ATP 측정</div><p>도마가 빨강, 하양 두 개예요. 빨강은 생닭만. 전문가가 닦아 둔 빨간 도마를 면봉으로 문지르고 측정기에 넣었어요. 10초쯤 지나 120. 200 아래면 통과인데 사장님이 옆에서 "어제 새로 산 건데" 하면서 웃으셨어요. 그 전 도마는 석 달 썼대요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>칼·도마 120 RLU · 관리 기준 200 이하<sup>6</sup></div></div>
-      <div class="card story"><div class="kick">후드</div><h4>옷에 냄새가 안 배는 이유를 여기서 봤어요</h4><p>튀김집에 오래 있으면 옷에 냄새가 배잖아요. 두 시간 있었는데 안 뱄어요. 후드 안쪽을 열어 보니 기름때가 얇게 한 겹, 그 이상은 없어요. 2주에 한 번 업체가 와서 닦는대요. 이 장면은 재지 않았어요. 눈으로 보면 되는 거라서.</p></div>
-      <div class="card story taste"><div class="kick">먹어보니</div><h4>식어도 눅눅해지지 않아요</h4><p>점검 끝나고 한 마리 먹었어요. 바삭한 건 알고 갔는데, 식은 뒤에도 그대로인 건 몰랐어요. 기름이 새것이면 그렇대요. 반죽 비율도 있다는데 그건 안 가르쳐 주셨어요.</p></div>
+      <div class="card story intro"><div class="ph wide">사진 자리<br>갓 튀긴 후라이드 · 그날 첫 마리</div><div class="cap2">↑ 열한 시 사십 분. 그날 첫 마리예요.</div><p>바삭마을 치킨은 열한 시에 열어요. 사장님은 네 시 반에 나오고요. 기름 가는 날이라서. 월, 수, 금. 작년에 리뷰에서 그 얘기를 보고 한 번 가보고 싶었는데, 10월 16일에 세스코 점검이 잡혀서 따라갔어요.</p><p>주방은 네 평쯤. 튀김기 두 대, 라디오 하나. 라디오는 두 시간 내내 켜져 있었어요.</p></div>
+      <div class="card story"><div class="kick">기름</div><h4>왼쪽 통은 바닥 눈금이 보여요</h4><div class="pair"><div class="ph sq">사진 자리<br>왼쪽 통 · 오늘 간 기름</div><div class="ph sq">사진 자리<br>뒷골목 · 폐유통 세 개</div></div><div class="cap2">↑ 왼쪽이 새벽에 간 기름. 오른쪽은 뒷골목 폐유통.</div><p>쓰던 기름은 갈색으로 가라앉아요. 여기는 눈금이 비쳐요. 전문가가 산가 스트립을 담갔다 빼서 색표랑 맞춰 봤어요. 0.8. 식품위생법은 3.0까지 허용해요.</p><div class="dlg"><b>사장님</b>오늘 간 거라 당연하죠.<br><b>전문가</b>그래도 재야 돼요.</div><p>둘이 여섯 번째라 말이 짧아요. 폐유통은 화요일마다 수거해 간대요. 수거하시는 분 이름을 들었는데 까먹었어요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>튀김유 산가 0.8 · 기준 3.0 이하<sup>1</sup></div></div>
+      <div class="card story"><div class="kick">냉장고</div><h4>밤에도 2도</h4><div class="ph wide">사진 자리<br>전문가 폰 화면 · 지난주 온도 그래프</div><div class="cap2">↑ 밤 세 시에 2.1도. 거의 직선이에요.</div><p>생닭 냉장고 안쪽에 손바닥만 한 센서가 붙어 있어요. 24시간 기록되는 거. 닭은 아침 일곱 시에 들어오고, 그날 못 쓴 건 다음 날 안 써요. 금요일 저녁에 가끔 일찍 닫는 게 그래서였대요. 저도 한 번 헛걸음한 적 있어요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>생닭 냉장 2℃ · 24시간 센서 · 기준 0~5℃</div></div>
+      <div class="card story"><div class="kick">도마</div><h4>빨강은 생닭만</h4><div class="ph tall">사진 자리<br>빨간 도마 위 면봉 · 측정기</div><p>도마가 빨강, 하양. 전문가가 닦아 둔 빨간 도마를 면봉으로 쓱 문지르고 측정기에 꽂았어요. 10초. 120. 200 아래면 통과예요.</p><div class="dlg"><b>사장님</b>어제 새로 산 건데.<br><b>전문가</b>그래도 120이에요.</div><p>그 전 도마는 석 달 썼대요. 칼은 세 자루인데 빨간 테이프 감은 게 생닭용.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>칼·도마 120 RLU · 관리 기준 200 이하<sup>6</sup></div></div>
+      <div class="card story"><div class="kick">후드</div><p>두 시간 있었는데 옷에 냄새가 안 뱄어요. 후드 안쪽을 열어 봤는데 기름때가 얇게 한 겹. 2주에 한 번 업체가 닦는대요. 이건 안 쟀어요. 전문가가 보더니 그냥 닫았어요.</p></div>
+      <div class="card story taste"><div class="kick">먹어보니</div><h4>식어도 그대로예요</h4><p>점검 끝나고 한 마리 시켰어요. 바삭한 건 알고 갔는데 식은 뒤에도 그대로인 건 몰랐어요. 반쯤 남겨서 집에 가져갔는데 저녁에도 괜찮았어요. 기름이 새것이면 그렇대요. 반죽 비율은 안 알려주셨어요. 저는 순살파인데 여기는 뼈로 드세요.</p></div>
       <div class="report"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. 2026-1016-0512<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
       <div class="acc"><div class="t"><b>측정값 한눈에 보기</b><span>수치만 보고 싶은 분은 여기</span></div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
       <p class="fine">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 방문기는 위쳌 에디터가 점검에 동행해 쓴 글이에요.</p>
@@ -242,7 +257,7 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
   </div>
   </figure>
   <figure id="i-meat">
-  <figcaption>I안 · 고기집<small>제목은 사장님 폰 잠금화면에서. 집게 장면은 측정 없이</small></figcaption>
+  <figcaption>I안 · 고기집<small>'다'체 단문. 다른 에디터가 쓴 것처럼</small></figcaption>
   <div class="phone">
     <div class="fold"><span>첫 화면 끝</span></div>
     <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">화로마당</div></div>
@@ -252,19 +267,17 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
       <div class="tabs"><span>홈</span><span>메뉴</span><span>리뷰</span><span>사진</span><span class="on">위생</span></div>
     </div>
     <div class="body">
-      <div class="ph hero-ph">대표 사진 자리<br>불판 위 삼겹살 · 육즙 올라오는 순간</div>
       <div class="hero">
         <div class="l"><div class="eb">위쳌 방문기 · 10.14</div><h3>숙성고 온도가<br>폰 잠금화면인 사장님</h3></div>
         <div class="grade"><b>A</b><span>위생 등급</span></div>
       </div>
-      <div class="onething"><div class="lb">이 집만의 한 가지</div><p><b>숙성고 1도를 밤에도 폰으로 봅니다.</b> 정육점 9년, 고기집 3년. 월요일에 들어온 고기는 화요일에 낸대요.</p></div>
-      <div class="card intro"><p style="margin-top:0">농담인 줄 알았는데 잠금화면이 정말 온도 그래프였어요. 10월 14일 오전, 세스코 점검에 같이 들어갔습니다.</p></div>
-      <div class="card story"><div class="kick">숙성고</div><h4>라벨이 손글씨예요</h4><div class="ph">현장 사진 자리<br>숙성고 문 연 모습 · 입고일 라벨</div><p>문을 열면 1도. 고기마다 입고일, 부위, 무게가 손글씨로 붙어 있어요. 사흘 넘긴 건 안 낸대요. 축산물 기준은 10도 이하라 여유가 크고요. 전문가가 센서 기록을 넘겨 보는 동안 사장님은 "월요일 거는 화요일이 제일 맛있어요"라고 했어요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>숙성고 1℃ · 24시간 센서 · 식육 냉장 기준 10℃ 이하<sup>5</sup></div></div>
-      <div class="card story"><div class="kick">불판</div><h4>테이블 여섯에 불판이 마흔 장</h4><div class="ph">현장 사진 자리<br>세척된 불판 더미</div><p>손님마다 새 불판이 나가요. 한 테이블에 세 번 바꿀 때도 있대요. 그래서 불판이 마흔 장 넘고, 설거지만 하시는 분이 따로 계세요. 닦아 둔 불판을 전문가가 재니 90. 기름때 남은 불판은 숫자가 확 튀는데 여기는 조용했어요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세척 불판 90 RLU · 관리 기준 200 이하<sup>6</sup></div></div>
-      <div class="card story"><div class="kick">집게</div><h4>빨간 손잡이는 생고기용</h4><p>집게가 두 개 나와요. 빨간 손잡이가 생고기용, 검정이 구운 고기용. 처음 오는 손님한테 직원이 꼭 말해 줘요. 저도 들었어요. 이건 재지 않았고, 재지 않아도 되는 장면이에요.</p></div>
-      <div class="card story"><div class="kick">파절이</div><h4>저녁에 더 맛있다는 리뷰가 있었어요</h4><div class="ph">현장 사진 자리<br>반찬 소분 냉장고</div><p>남은 반찬은 그 자리에서 버려요. 파절이 냉장고를 열어 봤는데 4도, 뚜껑 덮인 통에 오늘 날짜. 다섯 시에 한 번 더 무친대요. 그래서 "저녁 파절이가 더 맛있다"는 리뷰가 있었던 거예요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>반찬 소분 냉장 4℃ · 재사용 없음 확인</div></div>
-      <div class="card story"><div class="kick">연기</div><h4>후드가 테이블마다 내려와요</h4><p>고기집인데 옷 냄새가 덜 배요. 후드 안쪽 기름때가 얇고, 공기 중 세균을 재니 260. 연기 많은 집에서 이 숫자면 환기가 되고 있다는 뜻이래요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>공기 중 부유세균 260 CFU/㎥ · 기준 800 이하</div></div>
-      <div class="card story taste"><div class="kick">먹어보니</div><h4>삼겹살은 숙성, 파절이는 두 번 무쳐서</h4><p>쫀득한 건 1도에서 하루 더 있어서고, 파절이가 아삭한 건 다섯 시에 다시 무쳐서예요. 둘 다 냉장고 얘기였어요. 된장찌개는 그냥 맛있었어요. 이유는 못 물어봤어요.</p></div>
+      <div class="card story intro"><div class="ph wide">사진 자리<br>불판 위 삼겹살 · 두 번째 불판</div><div class="cap2">↑ 2인분. 두 번째 불판이다.</div><p>농담인 줄 알았다. 사장님 폰을 켜니 1.2℃가 떠 있었다. 숙성고 온도. 화로마당은 마포 골목 안쪽, 테이블 여섯 개짜리 고기집이다. 10월 14일 오전 열 시, 세스코 점검에 따라 들어갔다.</p></div>
+      <div class="card story"><div class="kick">숙성고</div><h4>라벨이 손글씨다</h4><div class="pair"><div class="ph sq">사진 자리<br>숙성고 안 · 1℃</div><div class="ph sq">사진 자리<br>손글씨 라벨 · 10/13 삼겹 4.2kg</div></div><div class="cap2">↑ 10/13 입고, 삼겹, 4.2kg. 글씨가 급하다.</div><p>문을 열면 1도. 고기마다 입고일, 부위, 무게. 사흘 넘긴 건 안 낸다. 축산물 기준은 10도 이하니까 여유가 크다.</p><div class="dlg"><b>사장님</b>월요일 거는 화요일이 제일 맛있어요. 수요일은 좀 지나고.</div><p>왜냐고 물었더니 설명이 길어서 다 못 적었다.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>숙성고 1℃ · 24시간 센서 · 식육 냉장 기준 10℃ 이하<sup>5</sup></div></div>
+      <div class="card story"><div class="kick">불판</div><h4>마흔 장</h4><div class="ph wide">사진 자리<br>세척된 불판 더미</div><div class="cap2">↑ 세어 봤다. 마흔세 장.</div><p>손님마다 새 불판. 한 테이블에 세 번 바꿀 때도 있다. 설거지만 하시는 분이 따로 계신다. 오후 두 시 출근. 닦아 둔 불판을 전문가가 쟀다. 90. 기름때 남은 불판은 숫자가 튄다고 한다. 여기는 조용했다.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세척 불판 90 RLU · 관리 기준 200 이하<sup>6</sup></div></div>
+      <div class="card story"><p>집게는 두 개가 나온다. 빨간 손잡이가 생고기용. 처음 온 손님한테 직원이 말해 준다. 나도 들었다. 이건 안 쟀다.</p></div>
+      <div class="card story"><div class="kick">파절이</div><h4>다섯 시에 한 번 더</h4><div class="ph tall">사진 자리<br>파절이 통 · 뚜껑에 오늘 날짜</div><p>남은 반찬은 그 자리에서 버린다. 파절이 냉장고 4도, 뚜껑 덮인 통에 오늘 날짜. 다섯 시에 다시 무친다. "저녁 파절이가 더 맛있다"는 리뷰가 있었는데 그게 이거였다.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>반찬 소분 냉장 4℃ · 재사용 없음 확인</div></div>
+      <div class="card story"><div class="kick">연기</div><p>후드가 테이블마다 내려온다. 안쪽 기름때가 얇다. 공기 중 세균 260, 기준 800. 연기 많은 집에서 이 숫자면 환기가 된다는 뜻이라고 전문가가 말했다. 옷 냄새는 조금 뱄다. 고기집이니까.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>공기 중 부유세균 260 CFU/㎥ · 기준 800 이하</div></div>
+      <div class="card story endq"><div class="kick">나오면서</div><p>사장님이 문 앞까지 나왔다. "정육점 할 때는 고기만 보면 됐거든요. 여기는 손님 자리에서 안 보이는 데가 전부예요." 삼겹살은 쫀득했고 된장찌개는 그냥 맛있었다. 이유는 못 물어봤다.</p></div>
       <div class="report"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. 2026-1014-0287<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
       <div class="acc"><div class="t"><b>측정값 한눈에 보기</b><span>수치만 보고 싶은 분은 여기</span></div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
       <p class="fine">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 방문기는 위쳌 에디터가 점검에 동행해 쓴 글이에요.</p>
@@ -273,7 +286,7 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
   </div>
   </figure>
   <figure id="i-care">
-  <figcaption>I안 · 산후조리원<small>제목은 복도의 A4 한 장에서. 침구 장면은 측정 없이</small></figcaption>
+  <figcaption>I안 · 산후조리원<small>차분한 해요체. 마무리는 먹어보니 대신 복도의 A4</small></figcaption>
   <div class="phone">
     <div class="fold"><span>첫 화면 끝</span></div>
     <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">포근 산후조리원</div></div>
@@ -283,19 +296,17 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
       <div class="tabs"><span>홈</span><span>프로그램</span><span>리뷰</span><span>사진</span><span class="on">위생</span></div>
     </div>
     <div class="body">
-      <div class="ph hero-ph">대표 사진 자리<br>신생아실 창 너머 · 아기 침대</div>
       <div class="hero">
         <div class="l"><div class="eb">위쳌 방문기 · 10.15</div><h3>복도에 공기 수치를<br>손글씨로 붙여 두는 조리원</h3></div>
         <div class="grade"><b>A</b><span>위생 등급</span></div>
       </div>
-      <div class="onething"><div class="lb">이 집만의 한 가지</div><p><b>2층 복도 끝에 A4 한 장.</b> 신생아실 부유세균 수치, 원장님 글씨. 세스코가 재면 바꿔 붙입니다.</p></div>
-      <div class="card intro"><p style="margin-top:0">숫자는 세스코 거고 붙이는 건 원장님이에요. 10월 15일 오전, 그 숫자가 어떻게 나오는지 보러 신생아실에 들어갔습니다.</p></div>
-      <div class="card story"><div class="kick">신생아실</div><h4>침대 사이에 샘플러를 놓고 10분</h4><div class="ph">현장 사진 자리<br>신생아실 · 공기 샘플러</div><p>210. 산후조리원 법정 기준은 800이에요. 공기청정기 필터 교체일이 문에 적혀 있는데 지난주 날짜였어요. 아기 일곱 명이 자고 있었고, 간호사 두 분이 교대로 들어와요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>신생아실 부유세균 210 CFU/㎥ · 기준 800 이하<sup>7</sup></div></div>
-      <div class="card story"><div class="kick">젖병</div><h4>스티커 색이 다 달라요</h4><div class="ph">현장 사진 자리<br>젖병 소독기 · 이름 스티커</div><p>소독기에서 꺼낸 젖병 안쪽을 면봉으로 문질러 재니 40. 전문가 말로는 거의 0에 가까운 값이에요. 젖병마다 아기 이름 스티커가 붙어 있는데 색이 다 달라요. 엄마들이 고른 색이래요. 퇴소할 때 젖병을 가져가는 분이 많다고요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>젖병 내부 40 RLU · 관리 기준 200 이하<sup>6</sup></div></div>
-      <div class="card story"><div class="kick">수유실</div><h4>체크표에 11시 40분, 1시 35분</h4><div class="ph">현장 사진 자리<br>수유실 문손잡이 · 소독 체크표</div><p>두 시간마다 닦는다는 체크표가 문 옆에 있어요. 시간이 손으로 적혀 있었어요. 손잡이를 재니 90, 소파 팔걸이는 120. 수유실 소파가 유난히 깊어서 물어봤더니 원장님이 간호사 때 쓰던 소파가 불편했던 기억으로 골랐대요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>손잡이 90 · 소파 120 RLU · 관리 기준 200 이하</div></div>
-      <div class="card story"><div class="kick">침구</div><h4>들어오는 문과 나가는 문이 달라요</h4><p>산모 침구는 매일, 속싸개는 하루 두 번 바꿔요. 세탁 카트가 들어오는 문과 나가는 문이 달라요. 작은 건데 원장님이 제일 오래 설명한 부분이었어요. 동선이 섞이면 다 섞인다고. 이 장면은 재지 않았어요.</p></div>
-      <div class="card story"><div class="kick">조리실</div><h4>미역국은 하루 두 번 끓여요</h4><div class="ph">현장 사진 자리<br>조리실 · 조리대 측정</div><p>조리대 110, 식재료 냉장 3도, 조리하시는 분 손 50. 미역국은 점심 전, 저녁 전 두 번 끓여요. 한 그릇 얻어먹었는데 들기름 향이 셌어요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>조리대 110 RLU · 냉장 3℃ · 조리자 손 50 RLU</div></div>
-      <div class="card story taste"><div class="kick">먹어보니</div><h4>2주를 사는 곳이니까</h4><p>엄마가 못 들어가는 방을 대신 보고 왔어요. 숫자는 다 괜찮았고, 복도의 A4는 다음 달에 바뀝니다. 미역국은 들기름이 많이 들어가요. 그건 위생이 아니라 그냥 맛있으라고 그런대요.</p></div>
+      <div class="card story intro"><div class="ph wide">사진 자리<br>2층 복도 끝 · A4 한 장</div><div class="cap2">↑ 숫자는 세스코, 글씨는 원장님.</div><p>포근 산후조리원 2층 복도 끝에 A4 한 장이 붙어 있어요. 신생아실 부유세균 수치예요. 매달 세스코가 재면 원장님이 새로 써서 바꿔 붙여요. 지난달 숫자 위에 덧쓰는 게 아니라 아예 새 종이로요. 10월 15일, 그 숫자가 어떻게 나오는지 보러 갔어요.</p></div>
+      <div class="card story"><div class="kick">신생아실</div><h4>침대 사이에 샘플러를 놓고 10분</h4><div class="ph wide">사진 자리<br>신생아실 · 창 너머</div><div class="cap2">↑ 엄마는 못 들어가는 방. 창 너머로 찍었어요.</div><p>아기 일곱 명이 자고 있었고, 간호사 두 분이 교대로 들어와요. 공기 샘플러를 침대 사이에 놓고 10분. 210. 산후조리원 법정 기준이 800이에요. 공기청정기 필터 교체일이 문에 적혀 있는데 지난주 날짜였어요. 10분 동안 아기 한 명이 깼고, 간호사분이 안아서 재웠어요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>신생아실 부유세균 210 CFU/㎥ · 기준 800 이하<sup>7</sup></div></div>
+      <div class="card story"><div class="kick">젖병</div><h4>스티커 색이 다 달라요</h4><div class="pair"><div class="ph sq">사진 자리<br>젖병 소독기</div><div class="ph sq">사진 자리<br>젖병 이름 스티커 · 색색</div></div><div class="cap2">↑ 색은 엄마들이 골라요. 분홍이 제일 많대요.</div><p>소독기에서 막 꺼낸 젖병 안쪽을 면봉으로 문질러 재니 40. 전문가 말로는 거의 0에 가까운 값이에요. 퇴소할 때 젖병을 가져가는 엄마가 많대요. 스티커 때문인 것 같다고 원장님이 그랬어요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>젖병 내부 40 RLU · 관리 기준 200 이하<sup>6</sup></div></div>
+      <div class="card story"><div class="kick">수유실</div><h4>11시 40분, 1시 35분</h4><div class="ph tall">사진 자리<br>소독 체크표 · 손글씨 시간과 사인</div><p>두 시간마다 닦는다는 체크표가 문 옆에 있어요. 시간이 손으로 적혀 있고, 사인이 두 가지예요. 손잡이를 재니 90, 소파 팔걸이는 120. 소파가 유난히 깊어서 물어봤더니, 원장님이 간호사 때 쓰던 수유실 소파가 불편했던 기억으로 골랐대요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>손잡이 90 · 소파 120 RLU · 관리 기준 200 이하</div></div>
+      <div class="card story"><div class="kick">세탁</div><p>산모 침구는 매일, 속싸개는 하루 두 번. 세탁 카트가 들어오는 문과 나가는 문이 달라요. 작은 건데 원장님이 제일 오래 설명했어요. 동선이 섞이면 다 섞인다고. 이건 안 쟀어요.</p></div>
+      <div class="card story"><div class="kick">미역국</div><div class="ph wide">사진 자리<br>미역국 한 그릇 · 점심</div><div class="cap2">↑ 점심. 들기름이 많이 들어가요.</div><p>조리실도 쟀어요. 조리대 110, 냉장 3도, 조리하시는 분 손 50. 미역국은 점심 전, 저녁 전 두 번 끓여요. 한 그릇 얻어먹었는데 들기름 향이 셌어요. 그건 위생이 아니라 그냥 맛있으라고 그런대요.</p><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>조리대 110 RLU · 냉장 3℃ · 조리자 손 50 RLU</div></div>
+      <div class="card story"><p>나올 때 복도 A4를 다시 봤어요. 다음 달이면 새 종이로 바뀌어요. 숫자는 세스코 거고, 글씨는 원장님 거예요.</p></div>
       <div class="report"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. 2026-1015-0341<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
       <div class="acc"><div class="t"><b>측정값 한눈에 보기</b><span>수치만 보고 싶은 분은 여기</span></div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
       <p class="fine">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 방문기는 위쳌 에디터가 점검에 동행해 쓴 글이에요.</p>
@@ -305,10 +316,10 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
   </figure>
   </div>
 
-  <div class="stage-h">J안 · 사장님 인터뷰 — 같은 틀, 업장 세 곳<small>헤드라인은 사장님이 실제로 한 말에서. 세 곳에 같은 질문이 하나도 없습니다</small></div>
+  <div class="stage-h">J안 · 사장님 인터뷰 — 같은 틀, 업장 세 곳<small>한 글자 답("네."), 설명 거부, (웃음), 위생과 상관없는 질문 하나씩</small></div>
   <div class="stage">
   <figure id="j-chicken">
-  <figcaption>J안 · 치킨집<small>헤드라인은 사장님이 실제로 한 말. 공통 질문 없음</small></figcaption>
+  <figcaption>J안 · 치킨집<small>한마디 답, (웃음), 라디오 질문 같은 곁가지</small></figcaption>
   <div class="phone">
     <div class="fold"><span>첫 화면 끝</span></div>
     <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">바삭마을 치킨</div></div>
@@ -319,15 +330,17 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
     </div>
     <div class="body">
       <div class="iv-hero">
-        <div class="ph">사진 자리<br>사장님 사진 자리 · 튀김기 앞, 앞치마 차림</div>
+        <div class="ph" style="height:150px">사진 자리<br>사장님 사진 자리 · 튀김기 앞, 앞치마</div>
         <div class="eb">사장님 인터뷰 · 위쳌</div>
         <h3>"기름 가는 날은<br>알람이 세 개예요"</h3>
         <div class="who">바삭마을 치킨 박OO 사장님 · 성수동 17년</div>
       </div>
-      <div class="card iv"><div class="q">네 시 반에 나오신다고요.</div><div class="a">월수금만요. 알람 세 개 맞춰 놔요. 한 번 늦잠 자서 열 시에 갈았는데 그날 단골이 "오늘 좀 다르네" 하더라고요. 그 뒤로는 안 늦어요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 튀김유 산가 0.8 (기준 3.0)<sup>1</sup></div></div>
-      <div class="card iv"><div class="q">도마가 빨간 건 왜예요?</div><div class="a">직원이 헷갈리니까요. 생닭은 빨강. 말로 하면 안 지켜져요. 색이 있어야 돼요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 칼·도마 120 RLU (관리 기준 200)<sup>6</sup></div></div>
-      <div class="card iv"><div class="q">식어도 눅눅해지지 않던데요.</div><div class="a">기름이 새거면 그래요. 반죽 비율도 있는데 그건 비밀이고요. 아버지 때 그대로예요.</div></div>
-      <div class="card iv"><div class="q">점검 받을 때 긴장되세요?</div><div class="a">첫 번째는요. 지금은 "후드 보셔야죠" 하고 제가 먼저 열어요. 여섯 번째예요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 점검 6회 연속 기준 통과</div></div>
+      <div class="card iv"><div class="q">네 시 반에 나오신다고요.</div><div class="a">월수금만요. 알람 세 개. 네 시, 네 시 십 분, 네 시 이십 분.</div></div>
+      <div class="card iv"><div class="q">한 번도 안 늦으셨어요?</div><div class="a">한 번. 작년 여름에. 열 시에 갈았는데 단골이 그날 "오늘 좀 다르네" 그러더라고요. 그 뒤로 알람이 세 개가 됐어요. (웃음)</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 튀김유 산가 0.8 (기준 3.0)<sup>1</sup></div></div>
+      <div class="card iv"><div class="q">도마가 빨간 건요.</div><div class="a">직원이 헷갈리니까요. 생닭은 빨강. 말로 하면 안 지켜져요. 색이 있어야 돼요. 칼도 빨간 테이프.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 칼·도마 120 RLU (관리 기준 200)<sup>6</sup></div></div>
+      <div class="card iv"><div class="q">식어도 안 눅눅하던데요.</div><div class="a">기름이 새거면 그래요. 반죽도 있는데 그건.<small>(잠시) 아버지 때 그대로예요. 그것만요.</small></div></div>
+      <div class="card iv"><div class="q">점검 받을 때 긴장되세요?</div><div class="a">처음엔요. 지금은 "후드 보셔야죠" 하고 제가 먼저 열어요. 여섯 번째예요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 점검 6회 연속 기준 통과</div></div>
+      <div class="card iv"><div class="q">라디오는 왜 계속 틀어 놓으세요?</div><div class="a">조용하면 기름 소리만 들려요. 그게 싫어서.</div></div>
       <div class="pull"><p>"말로 하면 안 지켜져요.<br>색이 있어야 돼요."</p><span>박OO 사장님 · 10.16</span></div>
       <div class="report"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. 2026-1016-0512<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
       <div class="acc"><div class="t"><b>측정값 한눈에 보기</b><span>수치만 보고 싶은 분은 여기</span></div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
@@ -337,7 +350,7 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
   </div>
   </figure>
   <figure id="j-meat">
-  <figcaption>J안 · 고기집<small>헤드라인은 사장님 말. 인건비 이야기로 캐릭터</small></figcaption>
+  <figcaption>J안 · 고기집<small>"네." 한 글자 답, 설명 거부, 인건비 이야기</small></figcaption>
   <div class="phone">
     <div class="fold"><span>첫 화면 끝</span></div>
     <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">화로마당</div></div>
@@ -348,15 +361,17 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
     </div>
     <div class="body">
       <div class="iv-hero">
-        <div class="ph">사진 자리<br>사장님 사진 자리 · 숙성고 앞, 고기 든 모습</div>
+        <div class="ph" style="height:150px">사진 자리<br>사장님 사진 자리 · 숙성고 앞, 고기 든 모습</div>
         <div class="eb">사장님 인터뷰 · 위쳌</div>
         <h3>"설거지 이모님 인건비가<br>저희 맛이에요"</h3>
         <div class="who">화로마당 이OO 사장님 · 정육점 9년, 고기집 3년</div>
       </div>
-      <div class="card iv"><div class="q">폰 잠금화면이 숙성고 온도예요?</div><div class="a">네. 새벽에 깨면 봐요. 1도. 한 번 정전으로 4도까지 간 적 있는데 그날 고기 다 뺐어요. 그 뒤로 센서를 달았고요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 숙성고 1℃ (기준 10℃ 이하)<sup>5</sup></div></div>
-      <div class="card iv"><div class="q">불판을 한 테이블에 세 번씩 바꾸면 설거지가요.</div><div class="a">설거지만 하시는 이모님이 계세요. 그 인건비가 저희 맛이라고 생각해요. 탄 불판에서 구운 고기는 제가 먼저 못 먹겠더라고요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 세척 불판 90 RLU (관리 기준 200)<sup>6</sup></div></div>
-      <div class="card iv"><div class="q">저녁 파절이가 더 맛있다는 리뷰가 있어요.</div><div class="a">다섯 시에 한 번 더 무쳐요. 남은 건 버리고요. 점심 거 저녁에 내면 저부터 알아요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 반찬 소분 냉장 4℃ · 재사용 없음 확인</div></div>
-      <div class="card iv"><div class="q">정육점 할 때랑 뭐가 달라요?</div><div class="a">거기선 고기만 보면 됐는데, 여기선 손님 자리에서 안 보이는 데가 전부예요. 그래서 점검 받아요. 네 번 받았어요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 점검 4회 연속 기준 통과</div></div>
+      <div class="card iv"><div class="q">폰 잠금화면이 숙성고 온도예요?</div><div class="a">네.</div></div>
+      <div class="card iv"><div class="q">왜요?</div><div class="a">새벽에 깨면 봐요. 한 번 정전으로 4도까지 간 적 있어요. 그날 고기 다 뺐어요. 그 뒤로 센서 달고, 잠금화면으로.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 숙성고 1℃ (기준 10℃ 이하)<sup>5</sup></div></div>
+      <div class="card iv"><div class="q">불판을 한 테이블에 세 번씩 바꾸면 설거지가요.</div><div class="a">이모님이 두 시에 오세요. 불판만 하세요. 그 인건비가 저희 맛이라고 생각해요. 탄 불판에서 구운 고기, 제가 먼저 못 먹겠더라고요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 세척 불판 90 RLU (관리 기준 200)<sup>6</sup></div></div>
+      <div class="card iv"><div class="q">저녁 파절이가 더 맛있다는 리뷰요.</div><div class="a">다섯 시에 한 번 더 무쳐요. 남은 건 버리고. 아깝죠. 근데 점심 거 저녁에 내면 저부터 알아요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 반찬 소분 냉장 4℃ · 재사용 없음 확인</div></div>
+      <div class="card iv"><div class="q">월요일 고기가 화요일에 제일 맛있다는 건 무슨 뜻이에요?</div><div class="a">그건 설명이 길어요. (웃음) 오셔서 드세요.</div></div>
+      <div class="card iv"><div class="q">정육점 때랑 뭐가 달라요?</div><div class="a">거기선 고기만 보면 됐어요. 여기는 손님 자리에서 안 보이는 데가 전부예요. 그래서 점검 받아요. 네 번.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 점검 4회 연속 기준 통과</div></div>
       <div class="pull"><p>"손님 자리에서 안 보이는 데가<br>전부예요."</p><span>이OO 사장님 · 10.14</span></div>
       <div class="report"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. 2026-1014-0287<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
       <div class="acc"><div class="t"><b>측정값 한눈에 보기</b><span>수치만 보고 싶은 분은 여기</span></div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
@@ -366,7 +381,7 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
   </div>
   </figure>
   <figure id="j-care">
-  <figcaption>J안 · 산후조리원<small>헤드라인은 원장님 말. 광고 이야기로 캐릭터</small></figcaption>
+  <figcaption>J안 · 산후조리원<small>종이를 새로 바꾸는 이유, 소파 이야기 같은 위생 밖 질문</small></figcaption>
   <div class="phone">
     <div class="fold"><span>첫 화면 끝</span></div>
     <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">포근 산후조리원</div></div>
@@ -377,15 +392,17 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
     </div>
     <div class="body">
       <div class="iv-hero">
-        <div class="ph">사진 자리<br>원장님 사진 자리 · 신생아실 창 앞</div>
+        <div class="ph" style="height:150px">사진 자리<br>원장님 사진 자리 · 신생아실 창 앞</div>
         <div class="eb">원장님 인터뷰 · 위쳌</div>
         <h3>"복도에 붙인 숫자는<br>제가 쓴 게 아니에요"</h3>
         <div class="who">포근 산후조리원 최OO 원장 · 신생아실 간호사 12년</div>
       </div>
-      <div class="card iv"><div class="q">복도 A4는 직접 붙이세요?</div><div class="a">붙이는 건 제가 하는데 숫자는 세스코가 잰 거예요. 제가 쓰면 그건 광고잖아요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 신생아실 부유세균 210 CFU/㎥ (기준 800)<sup>7</sup></div></div>
-      <div class="card iv"><div class="q">젖병 이름 스티커 색이 다 달라요.</div><div class="a">엄마들이 골라요. 섞이면 안 되니까 시작한 건데, 지금은 퇴소할 때 다들 가져가세요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 젖병 내부 40 RLU (관리 기준 200)<sup>6</sup></div></div>
-      <div class="card iv"><div class="q">세탁 카트 문이 두 개던데요.</div><div class="a">들어오는 거랑 나가는 거. 12년 신생아실에서 배운 게 그거예요. 동선이 섞이면 다 섞여요.</div></div>
-      <div class="card iv"><div class="q">미역국에 들기름이 많던데요.</div><div class="a">하루 두 번 끓여요. 그건 위생이 아니라 그냥 맛있으라고요. 엄마들이 밥 때문에 다시 오시기도 해요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 조리대 110 RLU · 냉장 3℃</div></div>
+      <div class="card iv"><div class="q">복도 A4는 직접 붙이세요?</div><div class="a">붙이는 건 제가 해요. 숫자는 세스코가 잰 거고요. 제가 쓰면 그건 광고잖아요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 신생아실 부유세균 210 CFU/㎥ (기준 800)<sup>7</sup></div></div>
+      <div class="card iv"><div class="q">왜 새 종이로 바꾸세요? 위에 쓰면 되는데.</div><div class="a">지난달 거랑 비교하라고 붙이는 게 아니라서요. 이번 달 숫자만 보시면 돼요.</div></div>
+      <div class="card iv"><div class="q">젖병 스티커 색이 다 달라요.</div><div class="a">엄마들이 골라요. 섞이면 안 되니까 시작한 건데, 지금은 퇴소할 때 다들 가져가세요. 분홍이 제일 많아요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 젖병 내부 40 RLU (관리 기준 200)<sup>6</sup></div></div>
+      <div class="card iv"><div class="q">세탁 카트 문이 두 개던데요.</div><div class="a">들어오는 거랑 나가는 거. 12년 신생아실에서 배운 게 그거 하나예요. 동선이 섞이면 다 섞여요.</div></div>
+      <div class="card iv"><div class="q">수유실 소파가 깊던데요.</div><div class="a">제가 간호사 때 쓰던 소파가 불편했어요. 그래서 골랐어요. 그건 위생이랑 상관없고요. (웃음)</div></div>
+      <div class="card iv"><div class="q">미역국에 들기름이 많던데요.</div><div class="a">하루 두 번 끓여요. 그것도 위생이 아니라 그냥 맛있으라고요. 엄마들이 밥 때문에 다시 오시기도 해요.</div><div class="fact"><i><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 조리대 110 RLU · 냉장 3℃</div></div>
       <div class="pull"><p>"제가 쓰면<br>그건 광고잖아요."</p><span>최OO 원장 · 10.15</span></div>
       <div class="report"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. 2026-1015-0341<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
       <div class="acc"><div class="t"><b>측정값 한눈에 보기</b><span>수치만 보고 싶은 분은 여기</span></div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></div>
@@ -397,23 +414,27 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
   </div>
 
   <div class="plan">
-    <h2>글쓰기 규칙 — 생성문 티를 빼고, 그 집만의 매력이 남게</h2>
-    <div class="sub">1판에서 기계 티가 났던 지점과 2판에서 바꾼 것. 초안을 사람이 쓰든 생성을 쓰든 이 표로 검수합니다.</div>
+    <h2>글쓰기 규칙 — 생성문 티를 빼고, 그 집만의 매력이 남게 (3판)</h2>
+    <div class="sub">초안을 사람이 쓰든 생성을 쓰든 이 표로 검수합니다. 위쪽 여덟 줄은 2판, 아래 다섯 줄은 3판에서 더한 것.</div>
     <table>
-      <thead><tr><th style="width:24%">티 나는 지점 (1판)</th><th style="width:38%">바꾼 규칙 (2판)</th><th>예</th></tr></thead>
+      <thead><tr><th style="width:24%">티 나는 지점</th><th style="width:38%">규칙</th><th>예</th></tr></thead>
       <tbody>
-        <tr><td class="no">장면마다 "그래서 ~한 이유"로 끝남</td><td class="yes">결론은 글 끝 "먹어보니" 한 번만. 장면은 본 것으로 끝낸다</td><td>"폐유통은 뒷골목에 세 개 나란히 서 있고, 사장님은 수거 오시는 분 이름까지 알고 있었어요."</td></tr>
-        <tr><td class="no">문장마다 형광 강조, 굵은 글씨</td><td class="yes">강조 없음. 강조하고 싶은 건 따옴표 속 사장님 말로</td><td>"어제 새로 산 건데요"</td></tr>
-        <tr><td class="no">"장면 1/5" 번호, 다섯 장면 고정</td><td class="yes">한 단어 소제목(기름·냉장고·도마). 장면 수는 3~5, 재지 않은 장면 1개 이상</td><td>후드 장면: "이 장면은 재지 않았어요. 눈으로 보면 되는 거라서."</td></tr>
-        <tr><td class="no">세 사장님이 같은 질문에 같은 답 ("남이 재줘야죠")</td><td class="yes">공통 질문 금지. 사장님이 실제로 한 말에서 질문을 거꾸로 만든다</td><td>"폰 잠금화면이 숙성고 온도예요?" / "세탁 카트 문이 두 개던데요."</td></tr>
-        <tr><td class="no">제목이 위생 메시지 ("주방까지 다 봤습니다")</td><td class="yes">제목은 그 집의 한 장면. 위생은 그 장면의 증거로 따라온다</td><td>"새벽 네 시 반, 기름부터 가는 집" / "복도에 공기 수치를 손글씨로 붙여 두는 조리원"</td></tr>
-        <tr><td class="no">"진짜 · 솔직히 · 신기한 게 · 완벽 · 비밀"</td><td class="yes">금지어. 대신 숫자·시간·개수·이름 같은 구체 디테일</td><td>"테이블 여섯에 불판이 마흔 장" / "체크표에 11시 40분, 1시 35분"</td></tr>
-        <tr><td class="no">위생 얘기만 함</td><td class="yes">맛·분위기 문장을 하나 이상, 이유를 모르는 것도 그대로</td><td>"된장찌개는 그냥 맛있었어요. 이유는 못 물어봤어요."</td></tr>
-        <tr><td class="no">사장님 답이 매끈한 문어체</td><td class="yes">녹음 풀듯 짧게. 반복·줄임말·미완성 문장 유지</td><td>"월수금만요. 알람 세 개 맞춰 놔요."</td></tr>
+        <tr><td class="no">장면마다 "그래서 ~한 이유"로 끝남</td><td class="yes">결론은 글 끝에 한 번만. 장면은 본 것으로 끝낸다</td><td>"폐유통은 화요일마다 수거해 간대요. 수거하시는 분 이름을 들었는데 까먹었어요."</td></tr>
+        <tr><td class="no">문장마다 형광 강조, 굵은 글씨</td><td class="yes">강조 없음. 강조하고 싶은 건 따옴표 속 사장님 말로</td><td>"어제 새로 산 건데."</td></tr>
+        <tr><td class="no">"장면 1/5" 번호, 다섯 장면 고정</td><td class="yes">한 단어 소제목. 장면 수 3~6, 재지 않은 장면 1개 이상, 소제목 없는 짧은 문단도 허용</td><td>"집게는 두 개가 나온다. … 이건 안 쟀다."</td></tr>
+        <tr><td class="no">세 사장님이 같은 질문에 같은 답</td><td class="yes">공통 질문 금지. 사장님이 실제로 한 말에서 질문을 거꾸로 만든다</td><td>"왜 새 종이로 바꾸세요? 위에 쓰면 되는데."</td></tr>
+        <tr><td class="no">제목이 위생 메시지</td><td class="yes">제목은 그 집의 한 장면. 위생은 그 장면의 증거로 따라온다</td><td>"새벽 네 시 반, 기름부터 가는 집"</td></tr>
+        <tr><td class="no">"진짜 · 솔직히 · 신기한 게 · 완벽 · 비밀"</td><td class="yes">금지어. 대신 숫자·시간·개수·이름</td><td>"세어 봤다. 마흔세 장."</td></tr>
+        <tr><td class="no">위생 얘기만 함</td><td class="yes">맛·분위기 문장 하나 이상, 이유를 모르는 것도 그대로</td><td>"된장찌개는 그냥 맛있었다. 이유는 못 물어봤다."</td></tr>
+        <tr><td class="no">사장님 답이 매끈한 문어체</td><td class="yes">녹음 풀듯 짧게. 한 글자 답, (웃음), 말 끊김 유지</td><td>"네." / "반죽도 있는데 그건." (잠시)</td></tr>
+        <tr><td class="no">세 글이 같은 문체·같은 길이·같은 마무리</td><td class="yes">글마다 문체를 정한다(해요체 수다 · '다'체 단문 · 차분한 해요체). 마무리도 다르게(먹어보니 · 문 앞 한마디 · 처음 장면으로 돌아가기)</td><td>치킨 "저는 순살파인데 여기는 뼈로 드세요." / 고기 "사장님이 문 앞까지 나왔다." / 조리원 "다음 달이면 새 종이로 바뀌어요."</td></tr>
+        <tr><td class="no">사진이 장면 맨 위 한 장씩</td><td class="yes">사진은 글 중간에. 두 장 나란히, 가로 긴 컷, 세로 컷을 섞고 사진 없는 장면도 둔다</td><td>"왼쪽이 새벽에 간 기름. 오른쪽은 뒷골목 폐유통."</td></tr>
+        <tr><td class="no">캡션이 사진 설명</td><td class="yes">캡션은 한마디. 시간, 개수, 느낌</td><td>"밤 세 시에 2.1도. 거의 직선이에요." / "글씨가 급하다."</td></tr>
+        <tr><td class="no">대화를 간접화법으로 정리</td><td class="yes">두 줄 대화는 그대로 받아쓴다</td><td>사장님: 오늘 간 거라 당연하죠. / 전문가: 그래도 재야 돼요.</td></tr>
+        <tr><td class="no">쓸모 있는 정보만 있음</td><td class="yes">쓸모없는 디테일을 한두 개 둔다. 라디오, 헛걸음, 까먹은 이름, 깬 아기</td><td>"라디오는 두 시간 내내 켜져 있었어요." / "10분 동안 아기 한 명이 깼고"</td></tr>
       </tbody>
     </table>
   </div>
-
   <div class="plan">
     <h2>매력을 끌어내는 질문 풀 (업종별 · 사장님이 2~3개 고름)</h2>
     <div class="sub">위생 질문이 아니라 그 집 이야기가 나오는 질문. 답에 위생 사실이 섞여 나오면 그때 팩트 칩을 붙입니다.</div>
