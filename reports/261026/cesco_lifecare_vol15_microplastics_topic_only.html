@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>세스코 라이프케어 매거진 Vol.15 · 미세플라스틱 특집 16P 시안 · A안(주제만 전달)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Nunito:wght@800;900&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#dfe3e8; --bar:#ffffff; --bar-text:#1c2430; --bar-border:#c9d0d8;
+  --navy:#1e2a44; --blue:#3a7bd5; --blue-page:#4a86d9; --blue-ink:#2a63bd; --tint:#f1f4f8; --tint-2:#e7ecf3;
+  --ink:#242b36; --ink-2:#4b5563; --ink-3:#8a94a3; --rule:#dde3ea; --paper:#ffffff; --backcover:#8b96ab;
+  --memo:#d9640a; --memo-bg:#fff3e6;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ color-scheme: dark; --bg:#14181e; --bar:#1b2129; --bar-text:#e6e9ee; --bar-border:#2b333d; }
+}
+:root[data-theme="dark"]{ color-scheme: dark; --bg:#14181e; --bar:#1b2129; --bar-text:#e6e9ee; --bar-border:#2b333d; }
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bar)}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bar);color:var(--bar-text);border-bottom:1px solid var(--bar-border);padding:.7rem 1rem;display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;font-size:.85rem}
+.bar strong{font-weight:700}.bar .sp{flex:1}
+.bar label{display:flex;align-items:center;gap:.4rem;cursor:pointer;user-select:none}
+.bar button{font:inherit;background:transparent;color:inherit;border:1px solid var(--bar-border);border-radius:4px;padding:.3rem .7rem;cursor:pointer}
+.bar button:focus-visible,.bar input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+.book{max-width:1480px;margin:0 auto;padding:1.5rem 1rem 4rem}
+.spread{display:grid;grid-template-columns:1fr 1fr;margin:0 auto 1.6rem;max-width:1440px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.spread.single{grid-template-columns:1fr;max-width:720px}
+.page{container-type:inline-size;aspect-ratio:210/297;background:var(--paper);color:var(--ink);position:relative;overflow:hidden;font-size:1.6cqw;line-height:1.72}
+.spread .page+.page{border-left:1px solid var(--rule)}
+.pno{position:absolute;bottom:2.8cqw;font-size:1.35cqw;color:var(--ink-3)}
+.pno.l{left:4.5cqw}.pno.r{right:4.5cqw}
+.hdr{position:absolute;top:2.6cqw;right:5cqw;font-size:1.2cqw;color:var(--ink-3);letter-spacing:.01em}
+.pad{padding:7cqw 7cqw 9cqw}
+h1,h2,h3,h4,p{margin:0}
+.en{font-family:"Nunito","Noto Sans KR",sans-serif}
+
+/* Point pages */
+.pt{font-family:"Nunito","Noto Sans KR",sans-serif;font-size:9.2cqw;font-weight:900;color:var(--navy);line-height:1;letter-spacing:-.04em}
+.pt-sub{font-size:3.3cqw;font-weight:700;color:var(--navy);margin-top:1cqw;letter-spacing:-.02em}
+.pt-head{font-size:3.1cqw;font-weight:700;line-height:1.45;letter-spacing:-.02em;word-break:keep-all;color:var(--ink)}
+.pt-head u{text-decoration:none;background:linear-gradient(transparent 82%,var(--blue) 82%)}
+.cols{columns:2;column-gap:3.4cqw;font-size:1.6cqw;line-height:1.75;color:var(--ink-2);word-break:keep-all}
+.cols p+p{margin-top:1.2cqw}
+.cesco{color:var(--blue);font-weight:900;letter-spacing:.03em}
+.em{color:var(--blue-ink);font-weight:700;text-decoration:underline;text-underline-offset:.25em;text-decoration-thickness:.08em}
+.emb{font-weight:700;color:var(--ink)}
+.ref{font-size:1.05cqw;color:var(--ink-3);line-height:1.5;margin-top:1.6cqw;word-break:break-all}
+.ss{background:var(--tint);border-radius:1.6cqw;padding:3cqw 3.4cqw;margin-top:2.6cqw}
+.ss-t{display:flex;align-items:center;gap:1.4cqw;font-size:1.9cqw;font-weight:700;color:var(--navy)}
+.ss-t span{background:var(--navy);color:#fff;font-size:1.15cqw;font-weight:700;padding:.35cqw 1.4cqw;border-radius:2cqw;letter-spacing:.02em}
+.tip{margin-top:2cqw}
+.tip h4{font-size:1.75cqw;font-weight:700;color:var(--ink);word-break:keep-all;line-height:1.5}
+.tip h4 b{color:var(--navy);font-weight:900;margin-right:.5em}
+.tip h4 i{font-style:normal;color:var(--blue-ink)}
+.tip p{font-size:1.3cqw;color:var(--ink-2);line-height:1.65;margin-top:.5cqw;word-break:keep-all}
+.ph{position:relative;background:repeating-linear-gradient(135deg,#e3e8ef 0 1.2cqw,#ebeff4 1.2cqw 2.4cqw);color:var(--ink-3);display:flex;align-items:flex-end;padding:1.6cqw;font-size:1.25cqw;line-height:1.45;word-break:keep-all}
+.ph::before{content:"";position:absolute;inset:0;border:1px dashed #b7c0cc;pointer-events:none}
+.ph.full{position:absolute;inset:0;padding:5cqw 7cqw}
+.ph.dark{background:repeating-linear-gradient(135deg,#2b3340 0 1.2cqw,#333c4a 1.2cqw 2.4cqw);color:#aab4c3}
+.ph.r{border-radius:0 0 0 6cqw}
+
+/* seasonal */
+.chk{padding:1.8cqw 0;border-top:1px solid var(--rule)}
+.chk:last-child{border-bottom:1px solid var(--rule)}
+.chk b{display:block;font-size:1.9cqw;font-weight:900;color:var(--navy);word-break:keep-all}
+.chk b::before{content:"☑ ";color:var(--blue)}
+.chk p{font-size:1.4cqw;color:var(--ink-2);margin-top:.5cqw;word-break:keep-all;padding-left:2.6cqw}
+
+/* bridge */
+.sothat{display:flex;align-items:center;gap:2cqw;margin-top:4cqw}
+.sothat b{font-size:4.6cqw;font-weight:900;color:var(--navy);letter-spacing:-.03em;white-space:nowrap}
+.sothat i{flex:0 0 7cqw;height:1px;background:var(--ink-3)}
+.sothat p{font-size:2cqw;line-height:1.6;word-break:keep-all;color:var(--ink)}
+
+/* blue */
+.bluepg{background:var(--blue-page);color:#fff}
+.bluepg .top{font-size:2.5cqw;line-height:1.55;word-break:keep-all}
+.bluepg .top b{font-weight:900}
+.bluepg .big{position:absolute;left:7cqw;bottom:10cqw;font-family:"Nunito","Noto Sans KR",sans-serif;font-size:9cqw;font-weight:900;line-height:1.02;letter-spacing:-.03em}
+.bluepg .script{position:absolute;right:-2cqw;bottom:9cqw;font-family:"Caveat",cursive;font-size:9cqw;color:rgba(255,255,255,.22);transform:rotate(-8deg);white-space:nowrap}
+.bluepg .curve{position:absolute;right:0;bottom:0;width:30cqw;height:14cqw;background:#fff;border-radius:14cqw 0 0 0}
+
+/* product pages */
+.step{font-size:1.9cqw;font-weight:700;color:var(--ink);word-break:keep-all}
+.step b{font-family:"Nunito","Noto Sans KR",sans-serif;font-weight:900;color:var(--navy);margin-right:1em;font-size:2.1cqw}
+.pname{font-size:3.6cqw;font-weight:900;color:var(--navy);letter-spacing:-.03em;line-height:1.2;margin-top:2cqw}
+.pname small{display:block;font-family:"Nunito","Noto Sans KR",sans-serif;font-size:1.4cqw;color:var(--ink-3);font-weight:800;letter-spacing:.05em;margin-bottom:.6cqw}
+.pdesc{font-size:1.75cqw;line-height:1.6;word-break:keep-all;margin-top:1.4cqw;color:var(--ink)}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:1cqw;margin-top:1.6cqw}
+.feat div{background:var(--tint);border-radius:1cqw;padding:1.2cqw 1.6cqw;font-size:1.25cqw;line-height:1.5;color:var(--ink-2);word-break:keep-all}
+.feat div b{display:table;color:#fff;background:var(--blue);padding:.2cqw 1cqw;border-radius:.4cqw;font-size:1.45cqw;margin-top:.6cqw;font-weight:900}
+.qrrow{display:grid;grid-template-columns:9cqw 1fr;gap:2cqw;align-items:start;margin-top:2cqw}
+.qr{aspect-ratio:1;background:#fff;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:1.1cqw;color:var(--ink-3);text-align:center;line-height:1.3}
+.qrrow small{display:block;font-size:1.05cqw;color:var(--ink-3);margin-bottom:.4cqw}
+.ck{list-style:none;margin:0;padding:0;font-size:1.3cqw;color:var(--ink-2);line-height:1.6}
+.ck li::before{content:"☑ ";color:var(--blue)}
+.ck b{color:var(--ink)}
+.quote{background:#5b6472;color:#fff;border-radius:1.2cqw;padding:2cqw 2.6cqw;margin-top:2cqw;display:grid;grid-template-columns:12cqw 1fr;gap:2.4cqw;align-items:center}
+.quote .ph{aspect-ratio:1;border-radius:.8cqw;background:repeating-linear-gradient(135deg,#6f7a89 0 1.2cqw,#788394 1.2cqw 2.4cqw);color:#d7dde6}
+.quote p{font-size:1.5cqw;line-height:1.65;word-break:keep-all;text-align:right}
+.quote p::before{content:"“ ";font-size:2.6cqw;color:#9fb0c6}
+.quote p b{color:#fff;background:var(--blue);padding:0 .3em;border-radius:.3cqw}
+.tipband{margin-top:2.2cqw}
+.tipband h4{font-size:1.6cqw;font-weight:700;color:var(--ink)}
+.tipband h4 b{color:var(--blue-ink)}
+.use{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2cqw;margin-top:1cqw}
+.use div{font-size:1.2cqw;color:var(--ink-2);line-height:1.5;word-break:keep-all}
+.use .ph{aspect-ratio:16/8;border-radius:.8cqw;margin-bottom:.6cqw}
+.fn{font-size:.95cqw;color:#a0a8b4;line-height:1.45;margin-top:2cqw;word-break:keep-all}
+
+/* dark product page */
+.darkpg{background:#2a313c;color:#fff}
+.darkpg .ph.full{background:repeating-linear-gradient(135deg,#2a313c 0 1.2cqw,#313947 1.2cqw 2.4cqw);color:#97a2b3}
+.darkpg .hdr{color:#97a2b3}
+.card{background:rgba(255,255,255,.96);color:var(--ink);border-radius:1cqw;padding:1.8cqw 2cqw;font-size:1.2cqw;line-height:1.5;word-break:keep-all}
+.card b{display:block;color:var(--navy);font-size:1.5cqw;font-weight:900;margin-bottom:.5cqw}
+.card i{font-style:normal;display:inline-block;background:var(--blue);color:#fff;padding:.15cqw .8cqw;border-radius:.4cqw;font-weight:700;margin-top:.6cqw}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.2cqw}
+.darkhead{font-size:2.9cqw;font-weight:900;letter-spacing:-.03em;line-height:1.25}
+.darkhead small{display:block;font-size:1.6cqw;font-weight:700;color:#c9d3e2;margin-bottom:.6cqw}
+.darkhead u{text-decoration:none;color:#fff;background:linear-gradient(transparent 80%,var(--blue) 80%)}
+.band{background:#111722;border-radius:1cqw;padding:2cqw 2.4cqw;margin-top:1.6cqw;font-size:1.25cqw;line-height:1.6;color:#d7dde6;word-break:keep-all}
+.band b{display:block;color:#fff;font-size:1.5cqw;margin-bottom:.4cqw}
+.band b::before{content:"✚ ";color:var(--blue)}
+.band li{list-style:none}.band ul{margin:.4cqw 0 0;padding:0}.band li::before{content:"· "}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:.7cqw;margin-top:1cqw}
+.steps div{background:rgba(255,255,255,.1);border-radius:.6cqw;padding:.9cqw;font-size:1.05cqw;line-height:1.4;color:#d7dde6;word-break:keep-all}
+.steps div b{display:block;color:#fff;font-weight:900}
+.cta{margin-top:2cqw;font-size:1.7cqw;font-weight:700;line-height:1.6;word-break:keep-all;color:#fff}
+.cta small{display:block;font-weight:400;font-size:1.25cqw;color:#c9d3e2;margin-top:.5cqw}
+
+/* back cover */
+.backpg{background:var(--backcover);color:#fff}
+.backpg h4{font-size:1.55cqw;font-weight:700;text-decoration:underline;text-underline-offset:.3em;margin-top:2.6cqw}
+.backpg h4:first-child{margin-top:0}
+.backpg ul{list-style:none;margin:.8cqw 0 0;padding:0;font-size:1.45cqw;line-height:1.75}
+.backpg li::before{content:"‘"}.backpg li::after{content:"’"}
+.backpg .soon{font-family:"Nunito","Noto Sans KR",sans-serif;font-size:3.6cqw;font-weight:900;margin-top:3cqw}
+.backpg .logo{font-family:"Nunito",sans-serif;font-size:5cqw;font-weight:900;letter-spacing:.08em;line-height:1}
+.backpg .logo small{display:block;font-family:"Noto Sans KR",sans-serif;font-size:1.5cqw;font-weight:700;letter-spacing:.3em;margin-top:.4cqw}
+.backpg .info{font-size:1.15cqw;line-height:1.7;margin-top:2.6cqw;color:#f4f6fa}
+.backpg .info b{display:inline-block;width:5.5cqw;font-weight:500}
+
+.memo{display:inline-block;background:var(--memo-bg);color:var(--memo);border:1px solid var(--memo);border-radius:.5cqw;font-size:1.05cqw;font-weight:700;padding:.05cqw .8cqw;vertical-align:middle;line-height:1.6}
+.hide-memo .memo{display:none}
+
+/* cover */
+.cover-bg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cover{font-family:"Nunito","Noto Sans KR",sans-serif}
+.masthead{position:absolute;right:6.5cqw;top:5.5cqw;text-align:right;color:#fff;font-weight:900;line-height:.92;letter-spacing:-.035em;text-shadow:0 .3cqw 1.6cqw rgba(0,0,0,.18)}
+.mh-l1{font-size:17cqw}
+.mh-l2,.mh-l3{font-size:15.5cqw}
+.mh-badge{position:absolute;right:3.1cqw;top:5.6cqw;width:8.6cqw;height:8.6cqw;border:.55cqw solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2cqw;letter-spacing:0;line-height:1;background:rgba(255,255,255,.08)}
+.mh-by{font-size:2cqw;font-weight:800;letter-spacing:.02em;margin-top:2.2cqw;line-height:1}
+.cover-bl{position:absolute;left:6.5cqw;bottom:7cqw;right:40cqw;color:#fff;font-family:"Noto Sans KR",sans-serif;text-shadow:0 .2cqw 1.2cqw rgba(0,0,0,.35)}
+.cover-bl .vol{font-family:"Nunito","Noto Sans KR",sans-serif;font-size:5cqw;font-weight:900;letter-spacing:-.02em;line-height:1.1}
+.cover-bl .guide{font-size:2.1cqw;font-weight:800;letter-spacing:.04em;margin:1.2cqw 0 .8cqw}
+.h-cover{font-size:3.1cqw;font-weight:500;line-height:1.5;letter-spacing:-.02em;color:#fff;word-break:keep-all}
+.cover-br{position:absolute;right:6.5cqw;bottom:7cqw;text-align:right;color:#fff;font-family:"Noto Sans KR",sans-serif;font-size:1.45cqw;line-height:1.55;text-shadow:0 .2cqw 1.2cqw rgba(0,0,0,.35)}
+.cover-br .line{width:5cqw;height:.35cqw;background:#fff;margin:0 0 1.2cqw auto}
+.cover-br b{display:block;font-size:1.9cqw;font-weight:900;line-height:1.3}
+.cover-br p{color:#f1f4f8;margin:.4cqw 0 2.2cqw}
+.cover-br .brand{font-size:2.5cqw;font-weight:900;margin-top:3.4cqw;letter-spacing:-.02em}
+.cover-text{position:absolute;left:7cqw;right:27cqw;top:12cqw}
+.cover-text .kicker{color:#cfe0f7}
+.cover-text .vol{color:#9fb0c6;font-size:1.5cqw;margin-top:1.2cqw;letter-spacing:.1em}
+.cover-toc{position:absolute;right:6cqw;top:12cqw;width:20cqw;color:#fff;border-left:1px solid rgba(255,255,255,.4);padding-left:2.4cqw;font-size:1.35cqw;line-height:1.6}
+.cover-toc b{display:block;font-size:1.6cqw;font-weight:900;margin-top:2.6cqw;letter-spacing:.06em}
+.cover-toc b:first-child{margin-top:0}
+.cover-toc p{color:#cfe0f7;word-break:keep-all}
+.cover-logo{position:absolute;left:7cqw;bottom:6cqw;color:#fff;font-weight:900;font-size:2.4cqw;letter-spacing:.2em}
+.cover-logo small{display:block;font-weight:400;font-size:1.3cqw;letter-spacing:.1em;color:#cfe0f7}
+
+
+/* A안 전용 추가 단위: 용어 풀이 · Q&A · 공간 지도 */
+.gl{display:grid;grid-template-columns:repeat(4,1fr);gap:1cqw;margin-top:2.4cqw}
+.gl div{background:var(--tint);border-radius:1cqw;padding:1.3cqw 1.4cqw;font-size:1.2cqw;line-height:1.5;color:var(--ink-2);word-break:keep-all}
+.gl div b{display:block;color:var(--navy);font-size:1.45cqw;font-weight:900;margin-bottom:.4cqw}
+.gl div small{display:block;font-family:"Nunito","Noto Sans KR",sans-serif;font-size:1cqw;color:var(--blue);font-weight:800;letter-spacing:.04em}
+.qa{border-top:1px solid var(--rule);padding:1.7cqw 0}
+.qa:last-of-type{border-bottom:1px solid var(--rule)}
+.qa>b{display:block;font-size:1.8cqw;font-weight:900;color:var(--navy);word-break:keep-all;line-height:1.45}
+.qa>b::before{content:"Q. ";font-family:"Nunito","Noto Sans KR",sans-serif;color:var(--blue)}
+.qa p{font-size:1.4cqw;color:var(--ink-2);margin-top:.6cqw;word-break:keep-all;line-height:1.65;padding-left:2.4cqw;position:relative}
+.qa p::before{content:"A.";font-family:"Nunito","Noto Sans KR",sans-serif;font-weight:900;color:var(--ink-3);position:absolute;left:0}
+.map{display:grid;grid-template-columns:repeat(3,1fr);gap:1cqw;margin-top:1cqw}
+.map div{background:var(--tint);border-radius:1cqw;padding:1.3cqw 1.5cqw;font-size:1.2cqw;line-height:1.5;color:var(--ink-2);word-break:keep-all}
+.map div small{display:block;font-size:1.05cqw;color:var(--ink-3);margin-bottom:.3cqw}
+.map div b{display:block;color:var(--navy);font-size:1.4cqw;font-weight:900;margin-bottom:.4cqw}
+.map div i{font-style:normal;display:inline-block;background:var(--blue);color:#fff;font-size:1.1cqw;font-weight:700;padding:.1cqw .8cqw;border-radius:.4cqw;margin-top:.5cqw}
+
+@media (max-width:900px){
+  .spread{grid-template-columns:1fr;max-width:720px}
+  .spread .page+.page{border-left:0;border-top:1px solid var(--rule)}
+}
+@media print{
+  body{background:#fff}.bar{display:none}.book{padding:0}
+  .spread{box-shadow:none;display:block;margin:0}
+  .page{width:210mm;height:297mm;aspect-ratio:auto;page-break-after:always;font-size:3.36mm}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <strong>세스코 라이프케어 매거진 Vol.15(가칭) · 미세플라스틱 특집 16P 디자인 시안</strong>
+  <span>A안 · 주제만 전달 (스토리라인 미제공)</span>
+  <span>2026.10.27 · 1차 시안</span>
+  <span class="sp"></span>
+  <label><input type="checkbox" id="memoToggle" checked> 확인 필요 표시</label>
+  <button type="button" onclick="window.print()">인쇄 / PDF</button>
+</div>
+
+<main class="book" id="book">
+
+<!-- p.1 COVER -->
+<section class="spread single">
+  <div class="page cover">
+    <svg class="cover-bg" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="wallA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f1e9"/><stop offset=".55" stop-color="#e6dfd3"/><stop offset="1" stop-color="#8e867b"/></linearGradient>
+        <radialGradient id="sunA" cx=".3" cy=".2" r=".55"><stop offset="0" stop-color="#fff9ec" stop-opacity="1"/><stop offset=".5" stop-color="#fff1d8" stop-opacity=".55"/><stop offset="1" stop-color="#fff1d8" stop-opacity="0"/></radialGradient>
+        <linearGradient id="tableA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8c7ad"/><stop offset="1" stop-color="#9c876a"/></linearGradient>
+        <linearGradient id="glassA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".85"/><stop offset="1" stop-color="#cfe0f2" stop-opacity=".9"/></linearGradient>
+        <linearGradient id="fadeA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2027" stop-opacity="0"/><stop offset=".55" stop-color="#1b2027" stop-opacity=".05"/><stop offset="1" stop-color="#1b2027" stop-opacity=".62"/></linearGradient>
+        <filter id="blA" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2"/></filter>
+      </defs>
+      <rect width="210" height="297" fill="url(#wallA)"/>
+      <!-- window on the left -->
+      <rect x="0" y="26" width="86" height="118" fill="#fff7e6" opacity=".9"/>
+      <g stroke="#cdbfae" stroke-width="1.2"><line x1="43" y1="26" x2="43" y2="144"/><line x1="0" y1="86" x2="86" y2="86"/></g>
+      <rect width="210" height="297" fill="url(#sunA)"/>
+      <!-- light beam across the table -->
+      <path d="M86 40 L 210 140 L 210 220 L 60 150 Z" fill="#fff3da" opacity=".32" filter="url(#blA)"/>
+      <!-- floor -->
+      <path d="M0 222 L210 212 L210 297 L0 297 Z" fill="#9b9183" opacity=".9"/>
+      <!-- table -->
+      <path d="M0 186 L 210 180 L 210 196 L 0 202 Z" fill="url(#tableA)"/>
+      <path d="M0 186 L 210 180" stroke="#eadfcc" stroke-width=".6" opacity=".7"/>
+      <rect x="14" y="200" width="6" height="60" fill="#6f6151" opacity=".8"/><rect x="186" y="195" width="6" height="60" fill="#6f6151" opacity=".8"/>
+      <!-- glass of water -->
+      <g transform="translate(78 152)">
+        <path d="M0 0 L 24 0 L 21 36 L 3 36 Z" fill="url(#glassA)" stroke="#b9cde3" stroke-width=".6"/>
+        <path d="M2 8 L 22 8 L 19.5 35 L 4.5 35 Z" fill="#bfd8ef" opacity=".7"/>
+        <ellipse cx="12" cy="8" rx="10" ry="1.6" fill="#e9f3fb" opacity=".9"/>
+      </g>
+      <!-- tea cup with tag -->
+      <g transform="translate(126 166)">
+        <path d="M0 0 L 30 0 L 27 20 Q 15 24 3 20 Z" fill="#f4f1ec" stroke="#cfc6bb" stroke-width=".6"/>
+        <path d="M30 4 Q 40 6 36 14 Q 33 18 27 16" fill="none" stroke="#cfc6bb" stroke-width="1.4"/>
+        <ellipse cx="15" cy="0" rx="15" ry="2" fill="#c9a66b" opacity=".6"/>
+        <line x1="22" y1="0" x2="34" y2="-14" stroke="#d6cdc0" stroke-width=".5"/><rect x="32" y="-18" width="7" height="5" fill="#fff" stroke="#cfc6bb" stroke-width=".4"/>
+      </g>
+      <!-- folded fleece blanket on the chair -->
+      <g transform="translate(150 204) rotate(-3)">
+        <rect x="0" y="0" width="52" height="16" rx="5" fill="#b8c4d6"/>
+        <rect x="5" y="-9" width="42" height="14" rx="5" fill="#cdd7e6"/>
+        <path d="M6 -3 Q 26 2 46 -3" stroke="#8fa0ba" stroke-width=".5" fill="none" opacity=".7"/>
+      </g>
+      <!-- particles in the beam -->
+      <g fill="#ffffff" opacity=".85">
+        <circle cx="96" cy="70" r=".6"/><circle cx="112" cy="84" r=".45"/><circle cx="128" cy="96" r=".7"/><circle cx="146" cy="104" r=".4"/><circle cx="104" cy="110" r=".5"/><circle cx="122" cy="118" r=".4"/><circle cx="138" cy="128" r=".6"/><circle cx="160" cy="120" r=".45"/><circle cx="176" cy="134" r=".55"/><circle cx="92" cy="130" r=".4"/><circle cx="116" cy="140" r=".55"/><circle cx="152" cy="146" r=".45"/><circle cx="170" cy="156" r=".5"/><circle cx="190" cy="150" r=".45"/><circle cx="136" cy="156" r=".4"/><circle cx="184" cy="170" r=".4"/><circle cx="100" cy="94" r=".4"/><circle cx="164" cy="92" r=".5"/>
+      </g>
+      <rect width="210" height="297" fill="url(#fadeA)"/>
+    </svg>
+
+    <div class="masthead" style="color:#1e2a44;text-shadow:none">
+      <div class="mh-l1">CESCO</div><div class="mh-badge" style="border-color:#1e2a44">CESCO</div>
+      <div class="mh-l2">Lifecare</div>
+      <div class="mh-l3">Magazine</div>
+      <div class="mh-by">by CESCO SCIENCE</div>
+    </div>
+
+    <div class="cover-bl">
+      <div class="vol">vol 15 <span class="memo">호수 확인</span></div>
+      <div class="guide">〈 HOMECARE GUIDE 〉</div>
+      <h1 class="h-cover">아침 물 한 잔부터 밤 이불 속까지,<br>미세플라스틱은 하루에 몇 번이나 만날까요?<br>주방·세탁실·거실, 공간마다 다른 발생원을<br>공간별로 점검하는<br>우리집 관리법!</h1>
+    </div>
+
+    <aside class="cover-br">
+      <div class="line"></div>
+      <b>01 Check Point</b>
+      <p>미세플라스틱,<br>우리집에선 어디서 만날까요?</p>
+      <b>02 CESCO<br>Professional Solution</b>
+      <div class="brand">세스코 라이프케어 매거진</div>
+    </aside>
+  </div>
+</section>
+
+<!-- p.2-3 BRAND -->
+<section class="spread">
+  <div class="page">
+    <div class="pad" style="display:flex;flex-direction:column;justify-content:center;height:100%">
+      <p class="en" style="font-size:1.6cqw;font-weight:800;color:var(--blue);letter-spacing:.14em">CESCO SCIENCE, ON LIFE</p>
+      <h2 style="font-size:4.6cqw;font-weight:900;color:var(--navy);line-height:1.3;margin-top:1.6cqw;letter-spacing:-.03em">세스코 과학으로<br>켜집니다.</h2>
+      <p style="margin-top:2.4cqw;color:var(--ink-3);font-size:1.3cqw">기존 호 p.2 브랜드 고정 지면 <span class="memo">고정 요소 확인</span></p>
+    </div>
+    <span class="pno l">02</span>
+  </div>
+  <div class="page">
+    <div class="ph full">[브랜드 지면] Smile with CESCO · CI 마크</div>
+    <div class="en" style="position:absolute;left:7cqw;bottom:14cqw;font-size:3.4cqw;font-weight:900;color:var(--navy)">Smile with CESCO</div>
+    <span class="pno r">03</span>
+  </div>
+</section>
+
+<!-- p.4-5 -->
+<section class="spread">
+  <div class="page">
+    <div class="pad">
+      <p class="en" style="font-size:3cqw;font-weight:900;color:var(--navy);letter-spacing:-.02em">01 Check Point</p>
+      <h2 style="font-size:3.4cqw;font-weight:700;line-height:1.4;margin-top:3cqw;letter-spacing:-.02em;word-break:keep-all">미세플라스틱,<br>우리집에선 어디서 만날까요?</h2>
+      <div style="margin:3cqw 0;font-size:2.7cqw;font-weight:900;color:var(--navy);line-height:1.9;letter-spacing:-.02em">
+        <div><span class="en" style="color:var(--blue);margin-right:1.2em">01</span>주방·식탁 · 담고, 데우고, 우려내는 사이에</div>
+        <div><span class="en" style="color:var(--blue);margin-right:1.2em">02</span>세탁실·옷장 · 세탁 한 번, 건조 한 번마다</div>
+        <div><span class="en" style="color:var(--blue);margin-right:1.2em">03</span>거실·침실 · 집먼지의 또 다른 이름</div>
+      </div>
+      <p style="font-size:1.6cqw;line-height:1.8;word-break:keep-all;color:var(--ink-2)">미세플라스틱은 바다와 생수병 이야기로 처음 알려졌지만, 요즘 연구가 향하는 곳은 집 안입니다. 플라스틱 용기를 데우고, 합성섬유 옷을 세탁하고, 카펫 위에서 아이가 노는 평범한 하루 속에서 눈에 보이지 않는 조각이 생기고, 떠다니고, 가라앉습니다. 몸에 어떤 영향을 주는지는 아직 연구가 진행 중이지만, 한 가지는 분명합니다. <span class="em">어디서 생기는지를 알면 줄일 수 있는 양이 있다</span>는 것입니다. 이번 호는 미세플라스틱을 '경로'가 아니라 <b class="emb">'공간'</b>으로 나눠 살핍니다. 주방에서 세탁실, 거실과 침실까지, 우리집 평면도를 한 바퀴 돌며 발생원과 관리법을 정리했습니다.</p>
+      <div class="gl">
+        <div><small>MICROPLASTICS</small><b>미세플라스틱</b>크기 5 mm 미만의 플라스틱 조각. 눈에 보이는 알갱이부터 현미경으로만 보이는 입자까지 포함합니다. <span class="memo">정의 출처</span></div>
+        <div><small>NANOPLASTICS</small><b>나노플라스틱</b>1 ㎛보다 작은 입자. 크기가 작을수록 몸속 깊이 들어오기 쉬워 최근 연구가 집중되는 영역입니다. <span class="memo">기준 확인</span></div>
+        <div><small>PRIMARY · SECONDARY</small><b>1차 · 2차</b>처음부터 작게 만들어진 것이 1차, 큰 플라스틱이 닳고 부서져 생긴 것이 2차입니다. 집 안에서 생기는 대부분은 2차입니다.</div>
+        <div><small>MICROFIBERS</small><b>미세섬유</b>폴리에스터·나일론·아크릴 같은 합성섬유에서 떨어져 나온 실 모양의 미세플라스틱. 세탁실과 옷장의 주인공입니다.</div>
+      </div>
+      <p class="step" style="margin-top:3cqw;font-size:1.8cqw"><b style="font-size:1.9cqw">DAILY.</b>하루 동선으로 보는 우리집 접점 네 곳</p>
+      <div style="margin-top:1cqw">
+        <div class="chk"><b>07:00 주방 · 생수병을 열고, 플라스틱 용기에 담긴 반찬을 전자레인지에 데웁니다</b><p>열이 닿는 순간이 하루 중 첫 번째 접점입니다. → Point 1</p></div>
+        <div class="chk"><b>09:00 세탁실 · 플리스 집업과 운동복을 세탁기에 넣고 건조기까지 돌립니다</b><p>물로 빠져나가는 미세섬유와 보풀 필터에 남는 미세섬유가 함께 생깁니다. → Point 2</p></div>
+        <div class="chk"><b>18:00 거실 · 소파 쿠션을 털고 러그 위에서 아이와 놉니다</b><p>가라앉아 있던 집먼지가 떠오르는 시간입니다. → Point 3</p></div>
+        <div class="chk"><b>23:00 침실 · 이불을 펴고 눕습니다</b><p>세탁할 수 없는 가장 큰 섬유 제품, 매트리스 위에서 하루가 끝납니다. → Point 3</p></div>
+      </div>
+    </div>
+    <span class="pno l">04</span>
+  </div>
+  <div class="page">
+    <div class="ph full">[LIFE IMAGE] 아침 햇살이 드는 식탁, 물컵과 찻잔 · 문구 없음</div>
+    <span class="pno r">05</span>
+  </div>
+</section>
+
+<!-- p.6-7 -->
+<section class="spread">
+  <div class="page">
+    <div class="pad" style="padding-top:6cqw">
+      <p class="pt">Point 1.</p>
+      <p class="pt-sub">주방 · 식탁</p>
+      <h2 class="pt-head" style="margin-top:5cqw">먹는 것보다 먼저,<br><u>담는 것을 살펴보세요.</u></h2>
+      <div class="cols" style="margin-top:2.4cqw">
+        <p><span class="cesco">CESCO.</span> 식탁 위 미세플라스틱 이야기는 소금, 해산물, 생수 같은 '먹는 것'에서 시작됐습니다. 그런데 집 안에서 양을 좌우하는 것은 오히려 <span class="em">음식을 담고 데우고 우려내는 도구</span>입니다. 플라스틱 용기에 담아 전자레인지로 데울 때, 칼자국이 깊게 난 플라스틱 도마를 쓸 때, 플라스틱 소재 티백을 뜨거운 물에 우릴 때 입자가 나온다는 연구가 잇따라 보도됐습니다.¹⁾</p>
+        <p>공통점은 <b class="emb">열과 마찰</b>입니다. 플라스틱은 뜨거워지거나 긁힐 때 가장 많이 부서집니다. 그래서 주방 관리의 핵심은 플라스틱을 모두 없애는 것이 아니라, 열이 닿는 자리와 칼이 닿는 자리에서만 재질을 바꾸는 일입니다. 생수를 고를 때도 병 재질과 보관 온도가 함께 거론됩니다. 햇빛 아래 차 안에 둔 생수병이 대표적인 예입니다.</p>
+      </div>
+      <div class="ph r" style="aspect-ratio:16/9;margin-top:2cqw;width:52cqw">[컷] 전자레인지 앞 플라스틱 용기와 유리 용기 나란히</div>
+      <p class="ref">1) 플라스틱 티백 1개당 방출 입자 수(캐나다 맥길대, 2019), 전자레인지 가열 시 용기 방출량(미국 네브래스카대, 2023), 생수 1 L당 나노플라스틱 수(미국 컬럼비아대, 2024) 보도 — 수치는 원문 확인 후 기재 <span class="memo">출처·수치 확인 필요</span></p>
+      <div class="ss">
+        <div class="ss-t"><span>Self Solution</span>열과 칼이 닿는 자리부터 바꾸기</div>
+        <div class="tip"><h4><b>TIP 1.</b>데우고 끓일 때는 <i>유리·도자기·스테인리스로 옮겨서</i></h4><p>배달 용기째 데우지 않습니다. '전자레인지 사용 가능' 표시는 용기가 녹지 않는다는 뜻이지, 입자가 나오지 않는다는 뜻은 아닙니다. <span class="memo">표현 확인 필요</span></p></div>
+        <div class="tip"><h4><b>TIP 2.</b>칼자국이 깊어진 도마, 뿌옇게 긁힌 용기는 <i>교체 시기</i>로 보기</h4><p>마모된 표면일수록 조각이 떨어지기 쉽습니다. 도마는 용도별로 나눠 쓰면 마모가 늦춰집니다. <span class="memo">근거 확인 필요</span></p></div>
+        <div class="tip"><h4><b>TIP 3.</b>티백은 <i>소재를 확인</i>하고, 생수는 <i>서늘한 곳에</i> 두기</h4><p>삼각 티백 중에는 플라스틱 소재가 있습니다. 생수병은 직사광선과 차 안 고온을 피해 보관해 주세요. <span class="memo">근거 확인 필요</span></p></div>
+      </div>
+    </div>
+    <span class="pno l">06</span>
+  </div>
+
+  <div class="page">
+    <span class="hdr">CESCO Lifecare Magazine vol 15</span>
+    <div class="ph r" style="position:absolute;right:0;top:0;width:40cqw;aspect-ratio:1;border-radius:0 0 0 50%">[컷] 세탁기 문 안쪽에 비치는 플리스 옷</div>
+    <div class="pad" style="padding-top:6cqw">
+      <p class="pt">Point 2.</p>
+      <p class="pt-sub">세탁실 · 옷장</p>
+      <h2 class="pt-head" style="margin-top:12cqw">세탁 한 번에<br><u>미세섬유 수십만 가닥이 나옵니다.</u></h2>
+      <div class="cols" style="margin-top:2.4cqw">
+        <p><span class="cesco">CESCO.</span> 우리 옷장의 절반 이상은 합성섬유입니다. 폴리에스터·나일론·아크릴 옷을 세탁할 때마다 미세섬유가 물과 함께 빠져나가며, 한 번의 세탁으로 <b class="emb">수십만 가닥</b>이 나온다는 연구 결과가 여러 차례 보도됐습니다.¹⁾ 특히 <span class="em">새 옷의 첫 세탁, 보풀이 잘 이는 플리스 소재, 뜨거운 물과 긴 코스</span>에서 양이 늘어납니다.</p>
+        <p>세탁기에서 나간 미세섬유는 하수처리장을 거쳐 하천과 바다로 흘러가고, 일부는 다시 식탁으로 돌아옵니다. 집 안에서도 끝이 아닙니다. 건조기 필터에 쌓이는 보풀, 옷을 개고 털 때 날리는 보푸라기가 실내 공기 속 미세섬유의 큰 발생원입니다. 세탁실은 집에서 나가는 미세플라스틱과 집 안에 남는 미세플라스틱이 갈라지는 자리입니다.</p>
+      </div>
+      <p class="ref">1) 합성섬유 세탁 1회당 미세섬유 방출량 연구(영국 플리머스대 2016, 이탈리아 국립연구회 2018 등) — 세탁 조건별 수치는 원문 확인 후 기재 <span class="memo">출처·수치 확인 필요</span></p>
+      <div class="ss">
+        <div class="ss-t"><span>Self Solution</span>덜 떨어지게 빨고, 떨어진 것은 모아서 버리기</div>
+        <div class="tip"><h4><b>TIP 1.</b>합성섬유 옷은 <i>찬물·짧은 코스·적정량</i>으로</h4><p>온도가 낮고 마찰이 적을수록 방출이 줄어듭니다. 세탁물을 너무 적게 넣으면 옷끼리 더 부딪힙니다. <span class="memo">근거 확인 필요</span></p></div>
+        <div class="tip"><h4><b>TIP 2.</b>플리스·기모 의류는 <i>세탁망이나 미세섬유 포집망</i>에 넣기</h4><p>마찰을 줄이고 떨어진 섬유를 한곳에 모읍니다. 망에 모인 보풀은 하수구가 아니라 쓰레기통으로 보내 주세요.</p></div>
+        <div class="tip"><h4><b>TIP 3.</b>건조기 보풀 필터는 <i>매 회 비우고</i>, 옷은 창가에서 털기</h4><p>필터의 보풀은 그 자체가 미세섬유 뭉치입니다. 옷을 털고 개는 시간에는 창문을 열어 두세요. <span class="memo">근거 확인 필요</span></p></div>
+      </div>
+      <p class="step" style="margin-top:2.6cqw;font-size:1.7cqw"><b style="font-size:1.8cqw">LABEL.</b>옷장 라벨, 이렇게 읽습니다</p>
+      <div class="feat" style="margin-top:1cqw">
+        <div>폴리에스터 · 나일론 · 아크릴 · 폴리우레탄(스판덱스)<b>합성섬유 · 미세섬유 발생</b>플리스·기모·극세사처럼 보풀이 잘 이는 가공일수록 양이 늘어납니다. <span class="memo">근거 확인 필요</span></div>
+        <div>면 · 마 · 울 · 실크 · 레이온(재생섬유)<b style="background:#8a94a3">천연·재생섬유</b>세탁 시 섬유가 빠져나와도 플라스틱이 아닙니다. 다만 혼방 비율을 함께 확인해 주세요.</div>
+      </div>
+    </div>
+    <span class="pno r">07</span>
+  </div>
+</section>
+
+<!-- p.8-9 -->
+<section class="spread">
+  <div class="page">
+    <div class="pad" style="padding-top:6cqw;text-align:right">
+      <p class="pt">Point 3.</p>
+      <p class="pt-sub">거실 · 침실</p>
+    </div>
+    <div class="pad" style="padding-top:0;margin-top:-4cqw">
+      <h2 class="pt-head">집먼지를 털면<br><u>미세플라스틱도 함께 날립니다.</u></h2>
+      <div class="cols" style="margin-top:2.4cqw">
+        <p><span class="cesco">CESCO.</span> 소파 원단, 커튼, 카펫, 침구, 아이 장난감, 전자제품 외장까지 거실과 침실은 플라스틱으로 둘러싸인 공간입니다. 이것들이 닳아서 생긴 조각은 집먼지에 섞여 바닥과 침구에 쌓입니다. 실내 먼지 속 미세플라스틱 농도가 바깥보다 높게 측정됐다는 연구가 여러 나라에서 보고됐습니다.¹⁾</p>
+        <p>문제는 쌓인 먼지가 다시 떠오르는 순간입니다. 이불을 털고, 소파에 앉고, 빗자루로 쓸 때 가라앉았던 입자가 공기 중으로 올라옵니다. 바닥 가까이에서 생활하고 손을 입에 자주 가져가는 <span class="em">영유아와 반려동물은 같은 공간에서도 노출량이 더 크다</span>고 알려져 있습니다.²⁾ 거실·침실 관리의 핵심은 '털지 않고 걷어 내는' 청소와, 떠오른 입자를 내보내는 환기입니다.</p>
+      </div>
+      <div class="ph" style="aspect-ratio:16/6;margin-top:2cqw;border-radius:.8cqw">[컷] 역광 속 소파와 떠오르는 먼지, 바닥에서 노는 아이의 손</div>
+      <p class="ref">1) 실내 먼지·실내 공기 중 미세플라스틱 농도 연구(호주 매쿼리대 2021, 프랑스 파리 동부대 2017 등) 2) 영유아 노출량 추정 연구(미국 뉴욕대 2021 등) — 수치는 원문 확인 후 기재 <span class="memo">출처·수치 확인 필요</span></p>
+      <div class="ss">
+        <div class="ss-t"><span>Self Solution</span>털지 말고 걷어 내고, 걷어 낸 뒤 내보내기</div>
+        <div class="tip"><h4><b>TIP 1.</b>빗자루·먼지떨이 대신 <i>물걸레와 헤파 필터 청소기</i>로</h4><p>쓸고 터는 동작은 먼지를 다시 띄웁니다. 바닥은 청소기 뒤 물걸레 순서로, 청소기 먼지통은 밖에서 비워 주세요. <span class="memo">근거 확인 필요</span></p></div>
+        <div class="tip"><h4><b>TIP 2.</b>침구 정리와 청소 뒤에는 <i>10분 환기</i>를 세트로</h4><p>입자가 가장 많이 떠오른 직후에 내보내는 것이 효율적입니다. 청소는 가족이 없는 시간에 하는 것도 방법입니다. <span class="memo">근거 확인 필요</span></p></div>
+        <div class="tip"><h4><b>TIP 3.</b>아이가 입에 넣는 장난감과 러그는 <i>재질과 마모 상태</i>를 확인하기</h4><p>표면이 거칠어지거나 가루가 묻어나면 교체 시기입니다. 합성섬유 러그는 세탁 가능한 것으로 고르면 관리가 쉽습니다.</p></div>
+      </div>
+    </div>
+    <span class="pno l">08</span>
+  </div>
+
+  <div class="page">
+    <span class="hdr">CESCO Lifecare Magazine vol 15</span>
+    <div class="pad" style="padding-top:7cqw">
+      <p class="pt" style="font-size:6cqw">Q&amp;A.</p>
+      <p class="pt-sub">미세플라스틱, 독자들이 가장 많이 묻는 다섯 가지</p>
+      <p style="margin-top:1.6cqw;font-size:1.5cqw;line-height:1.7;color:var(--ink-2);word-break:keep-all">기사마다 숫자가 다르고, 전문가마다 말이 달라 혼란스럽다는 분이 많습니다. 지금까지 알려진 것과 아직 모르는 것을 나눠 정리했습니다.</p>
+      <div style="margin-top:2.4cqw">
+        <div class="qa"><b>물을 끓이면 미세플라스틱이 없어지나요?</b><p>없어지지는 않습니다. 다만 센물(경수)을 끓일 때 생기는 석회 침전물에 입자가 붙어 함께 가라앉는다는 연구가 보도된 적이 있습니다. 끓인 뒤 가라앉힌 물을 따라 쓰는 정도의 효과이며, 연수에서는 효과가 작습니다. <span class="memo">연구 출처·효과 범위 확인</span></p></div>
+        <div class="qa"><b>몸에 들어오면 어떤 영향이 있나요?</b><p>사람의 혈액·태반·폐 조직에서 미세플라스틱이 검출됐다는 보고는 있지만, 어느 정도 양에서 어떤 건강 영향이 나타나는지는 아직 연구가 진행 중입니다. 세계보건기구도 추가 연구가 필요하다는 입장입니다. 그래서 지금 할 수 있는 일은 '불필요한 노출을 줄이는 것'입니다. <span class="memo">WHO 입장 표현 확인</span></p></div>
+        <div class="qa"><b>생수와 수돗물, 어느 쪽이 나을까요?</b><p>병에 든 생수에서 수돗물보다 많은 입자가 검출됐다는 연구가 여럿 있지만, 분석 방법과 입자 크기 기준에 따라 결과가 크게 달라집니다. 어느 쪽이든 '공인된 방법으로 측정한 결과인지'를 보는 것이 먼저입니다. <span class="memo">연구 출처 확인</span></p></div>
+        <div class="qa"><b>정수기나 공기청정기로 거를 수 있나요?</b><p>필터 방식과 입자 크기에 따라 다릅니다. 제품마다 '어떤 크기의 입자를, 어떤 기관이, 어떤 조건에서' 시험했는지가 성능 표시에 함께 적혀 있어야 비교할 수 있습니다. 시험 조건이 없는 숫자는 판단 근거가 되기 어렵습니다.</p></div>
+        <div class="qa"><b>집 안 플라스틱을 다 치워야 하나요?</b><p>그럴 필요는 없습니다. 열이 닿는 주방 도구, 마찰이 큰 세탁과 청소, 아이가 입에 넣는 물건처럼 <b class="emb">입자가 많이 생기는 자리부터 순서대로</b> 바꾸는 것이 현실적인 관리입니다.</p></div>
+      </div>
+    </div>
+    <span class="pno r">09</span>
+  </div>
+</section>
+
+<!-- p.10-11 -->
+<section class="spread">
+  <div class="page">
+    <div class="pad" style="padding-top:8cqw">
+      <p style="font-size:2cqw;line-height:1.6;word-break:keep-all;font-weight:500">우리 가족의 건강한 생활을 위해<br>Check Point 세 가지를 꼭 확인해 주세요.</p>
+      <p style="font-size:1.7cqw;line-height:1.7;word-break:keep-all;color:var(--ink-2);margin-top:2.4cqw">열이 닿는 주방 도구에서, 합성섬유를 세탁하는 세탁실에서,<br>먼지가 쌓이고 다시 떠오르는 거실과 침실에서<br>미세플라스틱은 저마다 다른 방식으로 생깁니다.<br>공간마다 관리법이 다르지만 공통점은 하나입니다.<br>눈에 보이지 않아서, 얼마나 있는지 세어 보지 않으면<br>줄었는지도 알 수 없다는 것입니다.</p>
+      <div class="sothat">
+        <b>그래서 세스코는,</b><i></i>
+        <p>보이지 않는 것을 세는 일에서 시작합니다.<br>식품 이물과 생활화학제품 미세플라스틱에 이어,<br>국제표준 ISO 16094-2에 따라<br><span class="em">물 중 미세플라스틱을 공인 시험하는 기관으로</span><br><span class="em">국내에서 처음 인정받았습니다.</span><br>세어 본 기준으로 마시는 물과 실내 공기, 침구까지<br>공간별 솔루션을 검증합니다. <span class="memo">인정 범위·문구 확인</span></p>
+      </div>
+    </div>
+    <div class="ph" style="position:absolute;left:0;right:0;bottom:0;height:40cqw">[컷] 여과 멤브레인 위 입자를 현미경으로 세는 장면(기존 호 p.10 비주얼 계열)</div>
+    <span class="pno l" style="z-index:1">10</span>
+  </div>
+  <div class="page">
+    <div class="ph full dark">[RESEARCH IMAGE] 이물분석센터 미세플라스틱 시험 장면(현미경·여과) · 연출 이미지면 고지 문구 삽입</div>
+    <span class="pno r" style="color:#aab4c3">11</span>
+  </div>
+</section>
+
+<!-- p.12-13 -->
+<section class="spread">
+  <div class="page bluepg">
+    <div class="pad" style="padding-top:9cqw">
+      <p class="top">집 안 어디에나 있다면,<br>공간마다 다른 방법이 필요합니다.<br>미세플라스틱을 측정하고 검증해 온<br><b>세스코의 기준으로<br>우리집 물·공기·침구를 관리해 주세요.</b></p>
+    </div>
+    <div class="script">by cesco science</div>
+    <div class="curve"></div>
+    <div class="big">02<br>CESCO<br>Professional<br>Solution</div>
+  </div>
+
+  <div class="page">
+    <span class="hdr">CESCO Lifecare Magazine vol 15</span>
+    <div class="pad" style="padding-top:6cqw">
+      <p class="step"><b>LAB.</b>세어 본 사람만이 줄일 수 있습니다</p>
+      <p class="pname" style="font-size:3cqw"><small>CESCO FOREIGN MATTER ANALYSIS CENTER</small>미세플라스틱을 '공인된 방법'으로 세는 세스코 이물분석센터</p>
+      <p class="pdesc" style="font-size:1.45cqw;color:var(--ink-2)">같은 물, 같은 공기라도 어떤 크기의 입자를 어떤 방법으로 세느냐에 따라 숫자가 달라집니다. 그래서 미세플라스틱은 <span class="em">공인된 시험 방법으로 측정했는지</span>가 중요합니다. 세스코 이물분석센터는 한국인정기구(KOLAS)로부터 국제표준 <b class="emb">ISO 16094-2 '물 중 미세플라스틱 분석'</b>에 대한 공인시험기관 인정을 국내 최초로 취득했습니다. 공인시험기관의 결과는 국제시험기관인정협력체(ILAC)에 가입된 나라들 사이에서 서로 인정됩니다. <span class="memo">인정 일자·대외 문구 승인</span></p>
+
+      <p class="step" style="margin-top:2.2cqw;font-size:1.7cqw">식품에서 물까지, 넓혀 온 인정 범위</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1cqw;margin-top:1cqw">
+        <div class="feat" style="display:block;margin:0"><div><span class="en" style="font-weight:900;color:var(--navy)">2016</span> · 최초 인정<b style="background:#8a94a3">식품 중 이물분석</b><br>AOAC 규격 · 국내 유일 식품 이물분석 공인시험기관 <span class="memo">연도 확인</span></div></div>
+        <div class="feat" style="display:block;margin:0"><div><span class="en" style="font-weight:900;color:var(--navy)">2022</span> · 범위 확대<b style="background:#8a94a3">생활화학제품 중 미세플라스틱 분석</b><br>국립환경과학원 고시 표준시험법 <span class="memo">연도 확인</span></div></div>
+        <div class="feat" style="display:block;margin:0"><div style="background:var(--tint-2);border:1px solid var(--blue)"><span class="en" style="font-weight:900;color:var(--blue)">2026</span> · 범위 확대<b>ISO 16094-2 · 물 중 미세플라스틱 분석</b><br>첫 국제표준규격 · 국내 최초 <span class="memo">연도 확인</span></div></div>
+      </div>
+
+      <p class="step" style="margin-top:2.2cqw;font-size:1.7cqw">공간별 솔루션 지도 · 앞에서 본 세 공간, 세스코는 이렇게 연결합니다</p>
+      <div class="map">
+        <div><small>Point 1. 주방 · 식탁</small><b>마시는 물</b>미세플라스틱 불검출을 이물분석센터와 외부 공인기관에서 2중 검증한 정수기<i>p.14</i></div>
+        <div><small>Point 3. 거실 · 침실</small><b>실내 공기</b>공기 중 미세플라스틱 저감 성능을 공인시험기관에서 시험한 공기청정기<i>p.15</i></div>
+        <div><small>Point 2·3. 세탁 · 침구</small><b>침구 · 매트리스</b>집먼지가 가장 오래 쌓이는 매트리스를 진단부터 집진까지 관리하는 서비스<i>p.15</i></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2cqw;margin-top:2cqw"><div class="ph" style="aspect-ratio:4/3;border-radius:.8cqw">[컷] KOLAS 인정서</div><div class="ph" style="aspect-ratio:4/3;border-radius:.8cqw">[컷] 여과 멤브레인 위 미세플라스틱 현미경 이미지</div></div>
+      <p class="fn">※ 세탁 시 미세섬유 방출을 줄이는 제품·서비스는 이번 호에 포함하지 않았습니다. 세스코 마이랩 세탁 관련 제품 연계 여부는 별도 검토 <span class="memo">편집 판단 확인</span></p>
+    </div>
+    <span class="pno r">13</span>
+  </div>
+</section>
+
+<!-- p.14-15 -->
+<section class="spread">
+  <div class="page">
+    <div class="pad" style="padding-top:5cqw;padding-bottom:4cqw">
+      <p class="step"><b>STEP 1.</b>주방 · 식탁 — 마시는 물부터 세어 본 기준으로</p>
+      <div style="display:grid;grid-template-columns:1fr 15cqw;gap:2cqw;align-items:start">
+        <div>
+          <p class="pname"><small>STERILIZING WATER PURIFIER</small>세스코 살균온 정수기 5중안심 <span class="memo">표기(살균ON/살균온) 확인</span></p>
+          <p class="pdesc">걸러 주는 정수기는 많습니다. 다른 점은 <span class="em">미세플라스틱이 나오지 않는지를 세스코 이물분석센터와 외부 공인시험기관에서 2중으로 검증</span>했다는 것입니다.</p>
+        </div>
+        <div class="ph" style="aspect-ratio:3/5;border-radius:.8cqw">[컷] 살균온 정수기 제품</div>
+      </div>
+      <div class="feat">
+        <div>세스코 이물분석센터 주관 시험(20 ㎛ 이상 기준)¹⁾<b>미세플라스틱 불검출</b></div>
+        <div>KOTITI시험연구원 주관 시험(27~35 ㎛ 입자 투입)²⁾<b>2중 검증</b></div>
+        <div>물이 나오는 코크³⁾<b>1시간마다 UV 살균</b></div>
+        <div>물이 흐르는 유로³⁾<b>3일마다 살균</b></div>
+      </div>
+      <div class="qrrow">
+        <div><small>상세내용 더 보기</small><div class="qr">QR<br><span class="memo" style="font-size:.9cqw">목적지 확인</span></div></div>
+        <ul class="ck">
+          <li><b>해결 역할</b> 끓여도 없어지지 않는 물속 입자를 걸러 내고, 걸러진 물이 흐르는 길까지 살균</li>
+          <li><b>함께 할 것</b> 데우는 용기와 티백 재질 바꾸기(p.6)는 정수기가 대신할 수 없는 주방 관리입니다</li>
+          <li><b>확인할 것</b> 시험 기관·입자 크기 기준이 적힌 성적서</li>
+        </ul>
+      </div>
+      <div class="quote">
+        <div class="ph">[컷] 주방 정수기 앞 물컵</div>
+        <p>생수와 수돗물 중 어느 쪽이 낫냐고 묻기 전에, <b>공인된 방법으로 세어 본 물인지</b>를 먼저 물어봐 주세요.</p>
+      </div>
+      <p class="fn">※ 상기 성능은 시험 조건 기준이며, 실제 사용 환경에 따라 달라질 수 있습니다. 1) 20 ㎛ 이상 시험기준 설정 시 미세플라스틱 불검출 성적(세스코 이물분석센터 주관 시험) 2) 27~35 ㎛ 미세플라스틱 투입 시험(KOTITI시험연구원 주관 시험) 3) 살균온 정수기 5중안심 기준 · 모델·성적서 번호 확인 <span class="memo">성적서 대조</span></p>
+      <div class="ph" style="aspect-ratio:16/8;margin-top:2cqw;border-radius:.8cqw">[컷] 아침 식탁, 정수기 물을 유리컵에 받는 장면</div>
+    </div>
+    <span class="pno l">14</span>
+  </div>
+
+  <div class="page darkpg">
+    <div class="ph full">[배경 컷] 침실 창가의 공기청정기와 정돈된 침대 · 어두운 톤 실내 사진</div>
+    <span class="hdr">CESCO Lifecare Magazine vol 15</span>
+    <div class="pad" style="position:relative;padding-top:6cqw;padding-bottom:4cqw">
+      <p class="darkhead"><small>STEP 2. 거실 · 침실 — 공기</small>털지 않고 걷어 내도<br><u>떠 있는 입자는 걸러서 내보냅니다</u></p>
+      <div class="cards" style="margin-top:2cqw">
+        <div class="card"><b>세스코 트루살균 공기청정기 판테온</b>공기 중 미세플라스틱(0.3 ㎛ 폴리스티렌 입자) 저감 성능을 KOTITI시험연구원에서 시험했습니다.<i>25평형 18분 · 20평형 21분에 99.9% 저감¹⁾</i></div>
+        <div class="card"><b>걸러내는 기능과 살균 기능은 따로</b>미세플라스틱은 필터로 걸러내고, 부유 바이러스·세균·곰팡이는 살균 기능으로 관리합니다. 시험도 따로, 역할도 따로입니다.<i>부유 바이러스·세균 99.9% 살균²⁾</i></div>
+      </div>
+
+      <p class="darkhead" style="margin-top:3cqw"><small>STEP 3. 침실 — 침구 · 매트리스</small>집먼지가 가장 오래 쌓이는 곳,<br><u>진단부터 집진까지</u></p>
+      <p style="font-size:1.4cqw;color:#c9d3e2;margin-top:1cqw;word-break:keep-all">매트리스는 세탁할 수 없는 가장 큰 섬유 제품입니다. 털 수도 없어 먼지가 가장 오래 머무릅니다.</p>
+      <div class="cards" style="margin-top:1.4cqw;grid-template-columns:1fr 1fr 1fr 1fr">
+        <div class="card"><b>STEP 01</b>환경조사 및 진단 · 매트리스 오염도 모니터링</div>
+        <div class="card"><b>STEP 02</b>약제 분무 · 정향유 성분 세릭스 내추럴액</div>
+        <div class="card"><b>STEP 03</b>매트리스 집진 · 표면과 속 먼지 흡입</div>
+        <div class="card"><b>STEP 04</b>프레임 클리닝 · 침대 틀과 바닥 먼지까지</div>
+      </div>
+      <div class="band"><b>세스코 매트리스 케어 솔루션은 집먼지 진드기와 침구 먼지를 관리하는 서비스입니다. 미세플라스틱 제거량을 별도로 측정한 결과는 아니며, 집먼지와 함께 쌓인 입자를 걷어 내는 관리를 제안하는 것입니다. <span class="memo">서비스 단계·문구 확인</span></b></div>
+
+      <div style="display:grid;grid-template-columns:1fr 9cqw;gap:2cqw;align-items:end;margin-top:2.4cqw">
+        <p class="cta">주방의 물은 걸러서, 거실의 공기는 걸러서 내보내고, 침실의 먼지는 걷어 냅니다.<br>공간마다 다른 세스코의 솔루션으로 우리집 미세플라스틱 관리를 시작해 보세요!<small>고객센터 1588-1119 · 상세내용 더 보기</small></p>
+        <div><div class="qr">QR<br><span class="memo" style="font-size:.9cqw">목적지 확인</span></div></div>
+      </div>
+      <p class="fn" style="color:#8e99a9">※ 상기 성능은 시험 환경 기준이며, 실제 사용 환경에 따라 달라질 수 있습니다. 1) KOTITI시험연구원, 29.5±0.5 m³ 챔버 · 23±3℃ · 50±10%RH 조건, 25평형 EADS731 / 20평형 EADS531 2) 부유바이러스·부유세균 시험 분석(KTL) · 부유곰팡이 시험 분석(KCL) <span class="memo">성적서 대조</span></p>
+    </div>
+    <span class="pno r" style="color:#aab4c3">15</span>
+  </div>
+</section>
+
+<!-- p.16 BACK COVER -->
+<section class="spread single">
+  <div class="page backpg">
+    <div class="ph" style="position:absolute;right:0;top:0;bottom:0;width:36cqw;background:repeating-linear-gradient(135deg,#7d889d 0 1.2cqw,#86919f 1.2cqw 2.4cqw);color:#dfe4ec">[컷] 뒷표지 생활 컷 · 정돈된 침실</div>
+    <div class="pad" style="width:64cqw;display:flex;flex-direction:column;justify-content:space-between;height:100%;padding-top:7cqw">
+      <div>
+        <h4>더 읽어 보기 <span class="memo">출처 확정 후 기재</span></h4>
+        <ul><li>플라스틱 티백·전자레인지 용기·생수 속 미세플라스틱 연구 보도(2019~2024)</li><li>합성섬유 세탁 1회당 미세섬유 방출량 연구(2016~2018)</li><li>실내 먼지 속 미세플라스틱과 영유아 노출량 연구(2017~2021)</li></ul>
+        <h4>Homecare Guide</h4>
+        <ul><li>우리 아이의 건강을 위협하는 위해요소 세 가지 필수 관리 포인트</li><li>모두가 건강한 반려생활을 위한 실내 공기, 악취관리 솔루션</li><li>빈틈없는 위생케어로 완성하는 건강하고 활기찬 라이프 스타일</li><li>아늑하고 편안해야 할 우리집에 불청객이? 주택 위생관리 포인트</li></ul>
+        <h4>일상생활 위생 솔루션</h4>
+        <ul><li>알레르기를 유발하는 침구 속 집먼지 진드기, 효과적으로 제거하는 방법</li><li>확산을 알아차리기 어려운 빈대의 침입으로부터 우리집을 지키는 방법</li><li>매일 마시는 물, 세균 걱정 없이 깨끗하게 마시는 방법</li><li>결로 현상으로 인한 실내 곰팡이가 발생을 방지하는 관리 방법</li></ul>
+        <h4>카케어 가이드 · 미세플라스틱 가이드 <span class="memo">신규</span></h4>
+        <ul><li>세차로는 닿지 않는 차 안 33곳, 집과 같은 기준으로 관리하는 방법</li><li>주방·세탁실·거실, 공간별로 점검하는 우리집 미세플라스틱 관리법</li></ul>
+        <p class="soon">… coming soon!</p>
+      </div>
+      <div>
+        <div class="logo">CESCO<small>세스코</small></div>
+        <div class="info">
+          <b>주 소</b> 서울시 강동구 상일로 10길 46(상일동) 세스코 디지털센터<br>
+          <b>대표전화</b> 1588-1119 | Fax 02-488-1720<br>
+          <b>고객센터</b> 월~금 08:30~18:00 | 토 09:00~13:00 | 일·공휴일 휴무<br>
+          <b>홈페이지</b> www.cesco.co.kr | www.cescomall.co.kr <span class="memo">기존 호 정보, 최신 확인</span><br>
+          <span style="font-size:1cqw;color:#dfe4ec">© CES_LIFECARE_MGZ_v15_2026.11 CESCO Co.,Ltd All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<script>
+(function(){
+  var t=document.getElementById('memoToggle'),b=document.getElementById('book');
+  function apply(){ b.classList.toggle('hide-memo',!t.checked); try{localStorage.setItem('memo',t.checked?'1':'0');}catch(e){} }
+  try{ if(localStorage.getItem('memo')==='0'){t.checked=false;} }catch(e){}
+  t.addEventListener('change',apply); apply();
+})();
+</script>
+</body>
+</html>
