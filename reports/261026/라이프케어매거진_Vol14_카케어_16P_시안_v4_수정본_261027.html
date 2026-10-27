@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>세스코 라이프케어 매거진 Vol.14 · 카케어 16P 시안</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Nunito:wght@800;900&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#dfe3e8; --bar:#ffffff; --bar-text:#1c2430; --bar-border:#c9d0d8;
+  --navy:#1e2a44; --blue:#3a7bd5; --blue-page:#4a86d9; --blue-ink:#2a63bd; --tint:#f1f4f8; --tint-2:#e7ecf3;
+  --ink:#242b36; --ink-2:#4b5563; --ink-3:#8a94a3; --rule:#dde3ea; --paper:#ffffff; --backcover:#8b96ab;
+  --memo:#d9640a; --memo-bg:#fff3e6;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ color-scheme: dark; --bg:#14181e; --bar:#1b2129; --bar-text:#e6e9ee; --bar-border:#2b333d; }
+}
+:root[data-theme="dark"]{ color-scheme: dark; --bg:#14181e; --bar:#1b2129; --bar-text:#e6e9ee; --bar-border:#2b333d; }
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bar)}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bar);color:var(--bar-text);border-bottom:1px solid var(--bar-border);padding:.7rem 1rem;display:flex;flex-wrap:wrap;gap:.5rem 1rem;align-items:center;font-size:.85rem}
+.bar strong{font-weight:700}.bar .sp{flex:1}
+.bar label{display:flex;align-items:center;gap:.4rem;cursor:pointer;user-select:none}
+.bar button{font:inherit;background:transparent;color:inherit;border:1px solid var(--bar-border);border-radius:4px;padding:.3rem .7rem;cursor:pointer}
+.bar button:focus-visible,.bar input:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+.book{max-width:1480px;margin:0 auto;padding:1.5rem 1rem 4rem}
+.spread{display:grid;grid-template-columns:1fr 1fr;margin:0 auto 1.6rem;max-width:1440px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.spread.single{grid-template-columns:1fr;max-width:720px}
+.page{container-type:inline-size;aspect-ratio:210/297;background:var(--paper);color:var(--ink);position:relative;overflow:hidden;font-size:1.6cqw;line-height:1.72}
+.spread .page+.page{border-left:1px solid var(--rule)}
+.pno{position:absolute;bottom:2.8cqw;font-size:1.35cqw;color:var(--ink-3)}
+.pno.l{left:4.5cqw}.pno.r{right:4.5cqw}
+.hdr{position:absolute;top:2.6cqw;right:5cqw;font-size:1.2cqw;color:var(--ink-3);letter-spacing:.01em}
+.pad{padding:7cqw 7cqw 9cqw}
+h1,h2,h3,h4,p{margin:0}
+.en{font-family:"Nunito","Noto Sans KR",sans-serif}
+
+/* Point pages */
+.pt{font-family:"Nunito","Noto Sans KR",sans-serif;font-size:9.2cqw;font-weight:900;color:var(--navy);line-height:1;letter-spacing:-.04em}
+.pt-sub{font-size:3.3cqw;font-weight:700;color:var(--navy);margin-top:1cqw;letter-spacing:-.02em}
+.pt-head{font-size:3.1cqw;font-weight:700;line-height:1.45;letter-spacing:-.02em;word-break:keep-all;color:var(--ink)}
+.pt-head u{text-decoration:none;background:linear-gradient(transparent 82%,var(--blue) 82%)}
+.cols{columns:2;column-gap:3.4cqw;font-size:1.6cqw;line-height:1.75;color:var(--ink-2);word-break:keep-all}
+.cols p+p{margin-top:1.2cqw}
+.cesco{color:var(--blue);font-weight:900;letter-spacing:.03em}
+.em{color:var(--blue-ink);font-weight:700;text-decoration:underline;text-underline-offset:.25em;text-decoration-thickness:.08em}
+.emb{font-weight:700;color:var(--ink)}
+.ref{font-size:1.05cqw;color:var(--ink-3);line-height:1.5;margin-top:1.6cqw;word-break:break-all}
+.ss{background:var(--tint);border-radius:1.6cqw;padding:3cqw 3.4cqw;margin-top:2.6cqw}
+.ss-t{display:flex;align-items:center;gap:1.4cqw;font-size:1.9cqw;font-weight:700;color:var(--navy)}
+.ss-t span{background:var(--navy);color:#fff;font-size:1.15cqw;font-weight:700;padding:.35cqw 1.4cqw;border-radius:2cqw;letter-spacing:.02em}
+.tip{margin-top:2cqw}
+.tip h4{font-size:1.75cqw;font-weight:700;color:var(--ink);word-break:keep-all;line-height:1.5}
+.tip h4 b{color:var(--navy);font-weight:900;margin-right:.5em}
+.tip h4 i{font-style:normal;color:var(--blue-ink)}
+.tip p{font-size:1.3cqw;color:var(--ink-2);line-height:1.65;margin-top:.5cqw;word-break:keep-all}
+.ph{position:relative;background:repeating-linear-gradient(135deg,#e3e8ef 0 1.2cqw,#ebeff4 1.2cqw 2.4cqw);color:var(--ink-3);display:flex;align-items:flex-end;padding:1.6cqw;font-size:1.25cqw;line-height:1.45;word-break:keep-all}
+.ph::before{content:"";position:absolute;inset:0;border:1px dashed #b7c0cc;pointer-events:none}
+.ph.full{position:absolute;inset:0;padding:5cqw 7cqw}
+.ph.dark{background:repeating-linear-gradient(135deg,#2b3340 0 1.2cqw,#333c4a 1.2cqw 2.4cqw);color:#aab4c3}
+.ph.r{border-radius:0 0 0 6cqw}
+
+/* seasonal */
+.chk{padding:1.8cqw 0;border-top:1px solid var(--rule)}
+.chk:last-child{border-bottom:1px solid var(--rule)}
+.chk b{display:block;font-size:1.9cqw;font-weight:900;color:var(--navy);word-break:keep-all}
+.chk b::before{content:"☑ ";color:var(--blue)}
+.chk p{font-size:1.4cqw;color:var(--ink-2);margin-top:.5cqw;word-break:keep-all;padding-left:2.6cqw}
+
+/* bridge */
+.sothat{display:flex;align-items:center;gap:2cqw;margin-top:4cqw}
+.sothat b{font-size:4.6cqw;font-weight:900;color:var(--navy);letter-spacing:-.03em;white-space:nowrap}
+.sothat i{flex:0 0 7cqw;height:1px;background:var(--ink-3)}
+.sothat p{font-size:2cqw;line-height:1.6;word-break:keep-all;color:var(--ink)}
+
+/* blue */
+.bluepg{background:var(--blue-page);color:#fff}
+.bluepg .top{font-size:2.5cqw;line-height:1.55;word-break:keep-all}
+.bluepg .top b{font-weight:900}
+.bluepg .big{position:absolute;left:7cqw;bottom:10cqw;font-family:"Nunito","Noto Sans KR",sans-serif;font-size:9cqw;font-weight:900;line-height:1.02;letter-spacing:-.03em}
+.bluepg .script{position:absolute;right:-2cqw;bottom:9cqw;font-family:"Caveat",cursive;font-size:9cqw;color:rgba(255,255,255,.22);transform:rotate(-8deg);white-space:nowrap}
+.bluepg .curve{position:absolute;right:0;bottom:0;width:30cqw;height:14cqw;background:#fff;border-radius:14cqw 0 0 0}
+
+/* product pages */
+.step{font-size:1.9cqw;font-weight:700;color:var(--ink);word-break:keep-all}
+.step b{font-family:"Nunito","Noto Sans KR",sans-serif;font-weight:900;color:var(--navy);margin-right:1em;font-size:2.1cqw}
+.pname{font-size:3.6cqw;font-weight:900;color:var(--navy);letter-spacing:-.03em;line-height:1.2;margin-top:2cqw}
+.pname small{display:block;font-family:"Nunito","Noto Sans KR",sans-serif;font-size:1.4cqw;color:var(--ink-3);font-weight:800;letter-spacing:.05em;margin-bottom:.6cqw}
+.pdesc{font-size:1.75cqw;line-height:1.6;word-break:keep-all;margin-top:1.4cqw;color:var(--ink)}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:1cqw;margin-top:1.6cqw}
+.feat div{background:var(--tint);border-radius:1cqw;padding:1.2cqw 1.6cqw;font-size:1.25cqw;line-height:1.5;color:var(--ink-2);word-break:keep-all}
+.feat div b{display:table;color:#fff;background:var(--blue);padding:.2cqw 1cqw;border-radius:.4cqw;font-size:1.45cqw;margin-top:.6cqw;font-weight:900}
+.qrrow{display:grid;grid-template-columns:9cqw 1fr;gap:2cqw;align-items:start;margin-top:2cqw}
+.qr{aspect-ratio:1;background:#fff;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:1.1cqw;color:var(--ink-3);text-align:center;line-height:1.3}
+.qrrow small{display:block;font-size:1.05cqw;color:var(--ink-3);margin-bottom:.4cqw}
+.ck{list-style:none;margin:0;padding:0;font-size:1.3cqw;color:var(--ink-2);line-height:1.6}
+.ck li::before{content:"☑ ";color:var(--blue)}
+.ck b{color:var(--ink)}
+.quote{background:#5b6472;color:#fff;border-radius:1.2cqw;padding:2cqw 2.6cqw;margin-top:2cqw;display:grid;grid-template-columns:12cqw 1fr;gap:2.4cqw;align-items:center}
+.quote .ph{aspect-ratio:1;border-radius:.8cqw;background:repeating-linear-gradient(135deg,#6f7a89 0 1.2cqw,#788394 1.2cqw 2.4cqw);color:#d7dde6}
+.quote p{font-size:1.5cqw;line-height:1.65;word-break:keep-all;text-align:right}
+.quote p::before{content:"“ ";font-size:2.6cqw;color:#9fb0c6}
+.quote p b{color:#fff;background:var(--blue);padding:0 .3em;border-radius:.3cqw}
+.tipband{margin-top:2.2cqw}
+.tipband h4{font-size:1.6cqw;font-weight:700;color:var(--ink)}
+.tipband h4 b{color:var(--blue-ink)}
+.use{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2cqw;margin-top:1cqw}
+.use div{font-size:1.2cqw;color:var(--ink-2);line-height:1.5;word-break:keep-all}
+.use .ph{aspect-ratio:16/8;border-radius:.8cqw;margin-bottom:.6cqw}
+.fn{font-size:.95cqw;color:#a0a8b4;line-height:1.45;margin-top:2cqw;word-break:keep-all}
+
+/* dark product page */
+.darkpg{background:#2a313c;color:#fff}
+.darkpg .ph.full{background:repeating-linear-gradient(135deg,#2a313c 0 1.2cqw,#313947 1.2cqw 2.4cqw);color:#97a2b3}
+.darkpg .hdr{color:#97a2b3}
+.card{background:rgba(255,255,255,.96);color:var(--ink);border-radius:1cqw;padding:1.8cqw 2cqw;font-size:1.2cqw;line-height:1.5;word-break:keep-all}
+.card b{display:block;color:var(--navy);font-size:1.5cqw;font-weight:900;margin-bottom:.5cqw}
+.card i{font-style:normal;display:inline-block;background:var(--blue);color:#fff;padding:.15cqw .8cqw;border-radius:.4cqw;font-weight:700;margin-top:.6cqw}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.2cqw}
+.darkhead{font-size:2.9cqw;font-weight:900;letter-spacing:-.03em;line-height:1.25}
+.darkhead small{display:block;font-size:1.6cqw;font-weight:700;color:#c9d3e2;margin-bottom:.6cqw}
+.darkhead u{text-decoration:none;color:#fff;background:linear-gradient(transparent 80%,var(--blue) 80%)}
+.band{background:#111722;border-radius:1cqw;padding:2cqw 2.4cqw;margin-top:1.6cqw;font-size:1.25cqw;line-height:1.6;color:#d7dde6;word-break:keep-all}
+.band b{display:block;color:#fff;font-size:1.5cqw;margin-bottom:.4cqw}
+.band b::before{content:"✚ ";color:var(--blue)}
+.band li{list-style:none}.band ul{margin:.4cqw 0 0;padding:0}.band li::before{content:"· "}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:.7cqw;margin-top:1cqw}
+.steps div{background:rgba(255,255,255,.1);border-radius:.6cqw;padding:.9cqw;font-size:1.05cqw;line-height:1.4;color:#d7dde6;word-break:keep-all}
+.steps div b{display:block;color:#fff;font-weight:900}
+.cta{margin-top:2cqw;font-size:1.7cqw;font-weight:700;line-height:1.6;word-break:keep-all;color:#fff}
+.cta small{display:block;font-weight:400;font-size:1.25cqw;color:#c9d3e2;margin-top:.5cqw}
+
+/* back cover */
+.backpg{background:var(--backcover);color:#fff}
+.backpg h4{font-size:1.55cqw;font-weight:700;text-decoration:underline;text-underline-offset:.3em;margin-top:2.6cqw}
+.backpg h4:first-child{margin-top:0}
+.backpg ul{list-style:none;margin:.8cqw 0 0;padding:0;font-size:1.45cqw;line-height:1.75}
+.backpg li::before{content:"‘"}.backpg li::after{content:"’"}
+.backpg .soon{font-family:"Nunito","Noto Sans KR",sans-serif;font-size:3.6cqw;font-weight:900;margin-top:3cqw}
+.backpg .logo{font-family:"Nunito",sans-serif;font-size:5cqw;font-weight:900;letter-spacing:.08em;line-height:1}
+.backpg .logo small{display:block;font-family:"Noto Sans KR",sans-serif;font-size:1.5cqw;font-weight:700;letter-spacing:.3em;margin-top:.4cqw}
+.backpg .info{font-size:1.15cqw;line-height:1.7;margin-top:2.6cqw;color:#f4f6fa}
+.backpg .info b{display:inline-block;width:5.5cqw;font-weight:500}
+
+.memo{display:inline-block;background:var(--memo-bg);color:var(--memo);border:1px solid var(--memo);border-radius:.5cqw;font-size:1.05cqw;font-weight:700;padding:.05cqw .8cqw;vertical-align:middle;line-height:1.6}
+.hide-memo .memo{display:none}
+
+/* cover */
+.cover-bg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.cover{font-family:"Nunito","Noto Sans KR",sans-serif}
+.masthead{position:absolute;right:6.5cqw;top:5.5cqw;text-align:right;color:#fff;font-weight:900;line-height:.92;letter-spacing:-.035em;text-shadow:0 .3cqw 1.6cqw rgba(0,0,0,.18)}
+.mh-l1{font-size:17cqw}
+.mh-l2,.mh-l3{font-size:15.5cqw}
+.mh-badge{position:absolute;right:3.1cqw;top:5.6cqw;width:8.6cqw;height:8.6cqw;border:.55cqw solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2cqw;letter-spacing:0;line-height:1;background:rgba(255,255,255,.08)}
+.mh-by{font-size:2cqw;font-weight:800;letter-spacing:.02em;margin-top:2.2cqw;line-height:1}
+.cover-bl{position:absolute;left:6.5cqw;bottom:7cqw;right:40cqw;color:#fff;font-family:"Noto Sans KR",sans-serif;text-shadow:0 .2cqw 1.2cqw rgba(0,0,0,.35)}
+.cover-bl .vol{font-family:"Nunito","Noto Sans KR",sans-serif;font-size:5cqw;font-weight:900;letter-spacing:-.02em;line-height:1.1}
+.cover-bl .guide{font-size:2.1cqw;font-weight:800;letter-spacing:.04em;margin:1.2cqw 0 .8cqw}
+.h-cover{font-size:3.1cqw;font-weight:500;line-height:1.5;letter-spacing:-.02em;color:#fff;word-break:keep-all}
+.cover-br{position:absolute;right:6.5cqw;bottom:7cqw;text-align:right;color:#fff;font-family:"Noto Sans KR",sans-serif;font-size:1.45cqw;line-height:1.55;text-shadow:0 .2cqw 1.2cqw rgba(0,0,0,.35)}
+.cover-br .line{width:5cqw;height:.35cqw;background:#fff;margin:0 0 1.2cqw auto}
+.cover-br b{display:block;font-size:1.9cqw;font-weight:900;line-height:1.3}
+.cover-br p{color:#f1f4f8;margin:.4cqw 0 2.2cqw}
+.cover-br .brand{font-size:2.5cqw;font-weight:900;margin-top:3.4cqw;letter-spacing:-.02em}
+.cover-text{position:absolute;left:7cqw;right:27cqw;top:12cqw}
+.cover-text .kicker{color:#cfe0f7}
+.cover-text .vol{color:#9fb0c6;font-size:1.5cqw;margin-top:1.2cqw;letter-spacing:.1em}
+.cover-toc{position:absolute;right:6cqw;top:12cqw;width:20cqw;color:#fff;border-left:1px solid rgba(255,255,255,.4);padding-left:2.4cqw;font-size:1.35cqw;line-height:1.6}
+.cover-toc b{display:block;font-size:1.6cqw;font-weight:900;margin-top:2.6cqw;letter-spacing:.06em}
+.cover-toc b:first-child{margin-top:0}
+.cover-toc p{color:#cfe0f7;word-break:keep-all}
+.cover-logo{position:absolute;left:7cqw;bottom:6cqw;color:#fff;font-weight:900;font-size:2.4cqw;letter-spacing:.2em}
+.cover-logo small{display:block;font-weight:400;font-size:1.3cqw;letter-spacing:.1em;color:#cfe0f7}
+
+
+
+@media (max-width:900px){
+  .spread{grid-template-columns:1fr;max-width:720px}
+  .spread .page+.page{border-left:0;border-top:1px solid var(--rule)}
+}
+@media print{
+  body{background:#fff}.bar{display:none}.book{padding:0}
+  .spread{box-shadow:none;display:block;margin:0}
+  .page{width:210mm;height:297mm;aspect-ratio:auto;page-break-after:always;font-size:3.36mm}
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <strong>세스코 라이프케어 매거진 Vol.14(가칭) · 카케어 16P 디자인 시안</strong>
+  <span>2026.10.27 · 3차 시안(최종 위생 가이드북 반영 · 문제→위험→셀프→한계→프로페셔널)</span>
+  <span class="sp"></span>
+  <label><input type="checkbox" id="memoToggle" checked> 확인 필요 표시</label>
+  <button type="button" onclick="window.print()">인쇄 / PDF</button>
+</div>
+
+<main class="book" id="book">
+<!-- p.1 COVER -->
+<section class="spread single">
+  <div class="page cover">
+    <svg class="cover-bg" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="day" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe6ee"/><stop offset=".38" stop-color="#c7d3df"/><stop offset=".62" stop-color="#9aa7b4"/><stop offset="1" stop-color="#5f6a76"/></linearGradient>
+        <radialGradient id="sun" cx=".3" cy=".18" r=".6"><stop offset="0" stop-color="#fff5e3" stop-opacity=".95"/><stop offset=".45" stop-color="#ffe9c9" stop-opacity=".35"/><stop offset="1" stop-color="#ffe9c9" stop-opacity="0"/></radialGradient>
+        <linearGradient id="dash2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4b545f"/><stop offset="1" stop-color="#2a3139"/></linearGradient>
+        <linearGradient id="seat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9ccd1"/><stop offset="1" stop-color="#8e949c"/></linearGradient>
+        <linearGradient id="bottom" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b2027" stop-opacity="0"/><stop offset="1" stop-color="#1b2027" stop-opacity=".6"/></linearGradient>
+        <filter id="blur2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.4"/></filter>
+        <filter id="soft2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation=".9"/></filter>
+      </defs>
+      <rect width="210" height="297" fill="url(#day)"/>
+      <rect width="210" height="297" fill="url(#sun)"/>
+      <!-- windshield light, out of focus trees -->
+      <g filter="url(#blur2)">
+        <ellipse cx="120" cy="90" rx="110" ry="40" fill="#f6f1e6" opacity=".5"/>
+        <ellipse cx="40" cy="70" rx="42" ry="30" fill="#b9c7b4" opacity=".35"/>
+        <ellipse cx="185" cy="75" rx="40" ry="26" fill="#aebcc6" opacity=".35"/>
+      </g>
+      <!-- roof / pillars -->
+      <path d="M0 0 L210 0 L210 34 Q 105 14 0 34 Z" fill="#3a414b"/>
+      <path d="M0 0 L0 170 Q 10 80 70 58 L 0 0 Z" fill="#2f353d"/>
+      <path d="M210 0 L210 165 Q 198 86 150 62 L 210 0 Z" fill="#2f353d" opacity=".9"/>
+      <!-- dashboard -->
+      <path d="M-10 148 Q 60 120 110 124 Q 168 128 220 150 L 220 300 L -10 300 Z" fill="url(#dash2)"/>
+      <path d="M-10 148 Q 60 120 110 124 Q 168 128 220 150" fill="none" stroke="#b8c0c9" stroke-width=".7" opacity=".55"/>
+      <rect x="114" y="144" width="44" height="25" rx="2" fill="#20262e" stroke="#7a8490" stroke-width=".4"/>
+      <rect x="117" y="147" width="38" height="19" rx="1" fill="#2e4a73"/>
+      <rect x="120" y="151" width="12" height="1.8" fill="#dce8ff" opacity=".8"/><rect x="120" y="156" width="20" height="1.2" fill="#9fb8e0" opacity=".7"/>
+      <g fill="#262c34" stroke="#8a939e" stroke-width=".35"><rect x="100" y="131" width="10" height="7" rx="1"/><rect x="160" y="133" width="10" height="7" rx="1"/></g>
+      <!-- passenger seat with child seat, soft -->
+      <g transform="translate(140 175)" filter="url(#soft2)">
+        <path d="M0 95 Q -4 30 14 0 Q 34 -22 60 2 Q 74 30 66 97 Z" fill="url(#seat)"/>
+        <path d="M14 6 Q 36 -12 56 8 Q 62 36 56 78 L 14 78 Q 8 36 14 6 Z" fill="#6d7681"/>
+        <path d="M20 20 L 50 20" stroke="#e6ebf1" stroke-width="1.4" opacity=".8"/>
+        <path d="M24 40 L 46 40" stroke="#e6ebf1" stroke-width="1" opacity=".6"/>
+        <rect x="30" y="50" width="9" height="6.5" rx="1" fill="#dfe4ea"/>
+      </g>
+      <!-- steering wheel with hand -->
+      <g transform="translate(64 212) rotate(-8)">
+        <circle r="58" fill="none" stroke="#1d2229" stroke-width="13"/>
+        <circle r="58" fill="none" stroke="#2c333c" stroke-width="10"/>
+        <circle r="63" fill="none" stroke="#cdd4dc" stroke-width=".8" opacity=".8"/>
+        <path d="M-52 -6 L -16 -4 L 16 -4 L 52 -6 L 52 6 L 18 10 L 10 48 L -10 48 L -18 10 L -52 6 Z" fill="#232a33" stroke="#4a535e" stroke-width=".5"/>
+        <circle r="16" fill="#1a1f26" stroke="#aab3bd" stroke-width=".7"/>
+        <path d="M-40 -42 A 58 58 0 0 1 26 -52" fill="none" stroke="#ffffff" stroke-width="1.6" opacity=".55" filter="url(#soft2)"/>
+      </g>
+      <rect width="210" height="297" fill="url(#bottom)"/>
+    </svg>
+
+    <div class="masthead">
+      <div class="mh-l1">CESCO</div><div class="mh-badge">CESCO</div>
+      <div class="mh-l2">Lifecare</div>
+      <div class="mh-l3">Magazine</div>
+      <div class="mh-by">by CESCO SCIENCE</div>
+    </div>
+
+    <div class="cover-bl">
+      <div class="vol">vol 14 <span class="memo">호수 확인</span></div>
+      <div class="guide">〈 CARCARE GUIDE 〉 <span class="memo">라벨 확인</span></div>
+      <h1 class="h-cover">세차를 마치고 방향제까지 두었는데<br>핸들에 남은 균, 시트에 밴 냄새,<br>바닥에 고인 습기는 그대로라면?<br>차가 깨끗하다는 것과<br>위생이 관리되었다는 것은 다른 문제입니다!</h1>
+    </div>
+
+    <aside class="cover-br">
+      <div class="line"></div>
+      <b>01 Check Point</b>
+      <p>매일 타는 차 안,<br>놓치고 있던 세 가지 위생 포인트</p>
+      <b>02 CESCO<br>Professional Solution</b>
+      <div class="brand">세스코 라이프케어 매거진</div>
+    </aside>
+  </div>
+</section>
+
+
+
+<!-- p.2-3 BRAND -->
+<section class="spread">
+  <div class="page">
+    <div class="pad" style="display:flex;flex-direction:column;justify-content:center;height:100%">
+      <p class="en" style="font-size:1.6cqw;font-weight:800;color:var(--blue);letter-spacing:.14em">CESCO SCIENCE, ON LIFE</p>
+      <h2 style="font-size:4.6cqw;font-weight:900;color:var(--navy);line-height:1.3;margin-top:1.6cqw;letter-spacing:-.03em">세스코 과학으로<br>켜집니다.</h2>
+      <p style="margin-top:2.4cqw;color:var(--ink-3);font-size:1.3cqw">기존 호 p.2 브랜드 고정 지면 <span class="memo">고정 요소 확인</span></p>
+    </div>
+    <span class="pno l">02</span>
+  </div>
+  <div class="page">
+    <div class="ph full">[브랜드 지면] Smile with CESCO · CI 마크</div>
+    <div class="en" style="position:absolute;left:7cqw;bottom:14cqw;font-size:3.4cqw;font-weight:900;color:var(--navy)">Smile with CESCO</div>
+    <span class="pno r">03</span>
+  </div>
+</section>
+
+<!-- p.4-5 CHECK POINT (문제) / LIFE + 아이·반려동물 -->
+<section class="spread">
+  <div class="page">
+    <div class="pad">
+      <p class="en" style="font-size:3cqw;font-weight:900;color:var(--navy);letter-spacing:-.02em">01 Check Point</p>
+      <h2 style="font-size:3.4cqw;font-weight:700;line-height:1.4;margin-top:2.6cqw;letter-spacing:-.02em;word-break:keep-all">매일 타는 차 안,<br>놓치고 있던 세 가지 위생 포인트</h2>
+      <div style="margin:2.6cqw 0;font-size:2.7cqw;font-weight:900;color:var(--navy);line-height:1.9;letter-spacing:-.02em">
+        <div><span class="en" style="color:var(--blue);margin-right:1.2em">01</span>접촉면의 세균·바이러스</div>
+        <div><span class="en" style="color:var(--blue);margin-right:1.2em">02</span>배어드는 냄새</div>
+        <div><span class="en" style="color:var(--blue);margin-right:1.2em">03</span>정체된 습기</div>
+      </div>
+      <p style="font-size:1.7cqw;line-height:1.8;word-break:keep-all;color:var(--ink-2)">매일 반복되는 출퇴근부터 아이의 등하원, 주말 외출과 장거리 여행까지. 차 안에서도 우리의 일상은 이어집니다. 하루에도 몇 번씩 타고 내리면서 핸들과 버튼을 만지고, 시트에 앉고, 때론 음식을 먹고 음료를 마시기도 합니다.</p>
+      <p style="font-size:1.7cqw;line-height:1.8;word-break:keep-all;color:var(--ink-2);margin-top:1.4cqw">외관은 세차하고 눈에 보이는 먼지는 쉽게 닦을 수 있지만, <b class="emb">손이 반복해서 닿는 표면, 자주 세탁하기 어려운 시트, 손이 닿지 않는 공조 시스템</b>까지 정기적으로 관리하기는 쉽지 않습니다. 집을 청소하듯, 차 안도 주기적인 관리가 필요합니다.</p>
+      <div class="ss" style="margin-top:2.4cqw">
+        <div class="ss-t"><span>Self Check</span>지금 내 차는 어떤 상태인지 체크해 보세요</div>
+        <ul class="ck" style="margin-top:1.2cqw;font-size:1.35cqw;line-height:1.75">
+          <li>핸들과 도어 손잡이를 언제 마지막으로 살균했는지 잘 기억나지 않아요.</li>
+          <li>에어컨을 켜면 퀴퀴하거나 이상한 냄새가 나요.</li>
+          <li>방향제를 써도 차 안 악취가 완전히 없어지지 않아요.</li>
+          <li>비 오는 날이나 지하 주차장에 오래 세워둔 뒤 차 안이 유독 습하고 꿉꿉해요.</li>
+          <li>아이 또는 반려동물과 함께 타다 보니 차 안 위생이 더 신경 쓰여요.</li>
+          <li>아이가 차 안에서 기침이나 눈 가려움을 호소할 때가 있어요.</li>
+        </ul>
+        <p style="font-size:1.3cqw;color:var(--navy);font-weight:700;margin-top:1.2cqw">하나라도 해당된다면, 지금 내 차의 위생 관리 상태를 점검해 볼 때입니다.</p>
+      </div>
+    </div>
+    <span class="pno l">04</span>
+  </div>
+  <div class="page">
+    <div class="ph" style="position:absolute;inset:0 0 auto 0;height:52cqw">[LIFE IMAGE] 카시트에 앉은 아이와 뒷좌석의 반려동물 · 문구 없음</div>
+    <div class="pad" style="padding-top:57cqw">
+      <h3 style="font-size:2.3cqw;font-weight:900;color:var(--navy);line-height:1.4;word-break:keep-all">사랑하는 아이, 반려동물과 함께라면<br>더 세심한 관리가 필요합니다.</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.6cqw;margin-top:1.8cqw;font-size:1.3cqw;line-height:1.65;color:var(--ink-2);word-break:keep-all">
+        <div style="background:var(--tint);border-radius:1cqw;padding:1.8cqw"><b style="display:block;color:var(--navy);font-size:1.5cqw;margin-bottom:.6cqw">어린 자녀와 함께 탄다면 · 카시트·손잡이</b>카시트는 아이 피부가 가장 오랜 시간, 가장 밀접하게 닿는 부분입니다. 패브릭 사이로 땀이나 기름기, 음식물이 스며들면 세균과 진드기가 번식하기 좋은 환경이 됩니다.<br>✔ 간식 부스러기와 음료 자국은 바로 제거하기<br>✔ 아이 손이 자주 닿는 부분의 손자국과 생활 오염 닦기<br>✔ 세탁 가능한 카시트 커버는 분리 세탁 후 충분히 건조하기</div>
+        <div style="background:var(--tint);border-radius:1cqw;padding:1.8cqw"><b style="display:block;color:var(--navy);font-size:1.5cqw;margin-bottom:.6cqw">반려동물과 함께 탄다면 · 카시트·켄넬·방석</b>산책 후 시트에 남은 흙먼지와 이물질, 배변 오염은 세균과 곰팡이가 번식하기 쉬운 환경을 만듭니다. 야외 활동 후에는 진드기 등 외부 오염원이 유입될 수 있습니다.<br>✔ 산책 후 발과 털의 흙·먼지를 털어낸 뒤 탑승하기<br>✔ 구토나 배설은 스며들기 전에 바로 닦고 충분히 건조하기<br>✔ 이동 용품과 차량 내부를 함께 관리하기</div>
+      </div>
+      <p class="ref">진드기와 아토피·천식, 라임병·바베시아 등 질환 연관 서술은 리플릿 확정 문안 기준. 매거진 심의 수준에 맞출지 확인 <span class="memo">질환 표현 수준 결정</span></p>
+    </div>
+    <span class="pno r">05</span>
+  </div>
+</section>
+
+<!-- p.6-7 POINT 1 / POINT 2 -->
+<section class="spread">
+  <div class="page">
+    <div class="pad" style="padding-top:6cqw">
+      <p class="pt">Point 1.</p>
+      <p class="pt-sub">접촉면의 세균·바이러스</p>
+      <h2 class="pt-head" style="margin-top:5cqw">매일 잡는 핸들,<br><u>닦았는데 왜 찝찝할까?</u></h2>
+      <div class="cols" style="margin-top:2.4cqw">
+        <p><b class="emb">세차만으로는 세균·냄새·습기까지 관리하기 어렵습니다.</b> 일반적인 청소는 눈에 보이는 오염을 제거하는 데 집중합니다. 하지만 눈에 보이지 않는 세균과 바이러스는 닦아내는 것만으로 해결하기 어렵습니다.</p>
+        <p>핸들은 손이 가장 많이 접촉하는 영역으로, 한 조사에서는 핸들커버의 오염도가 검사소 화장실 변기보다 <b class="emb">약 26배</b> 높게 측정되기도 했습니다.¹⁾ <span class="em">식중독이나 독성 쇼크 증후군 등을 일으키는 황색포도상구균·대장균부터 인플루엔자·코로나바이러스 등 호흡기 감염을 일으키는 바이러스까지</span> 수백 종의 세균과 바이러스가 존재합니다. 손이 직접 닿는 핸들·변속 기어·레버, 습기와 먼지가 쌓이는 송풍구·손잡이, 비말이 내려앉는 대시보드·안전벨트 버클·버튼은 저마다 남는 균이 다릅니다.</p>
+      </div>
+      <div class="ph r" style="aspect-ratio:16/7;margin-top:2cqw;width:46cqw">[컷] 핸들을 잡은 손 · 접촉면</div>
+      <p class="ref">1) 한국교통안전공단 차량 내부 세균 오염도 조사(2012): 핸들커버 평균 5,300 RLU, 검사소 화장실 변기 200 RLU(오염도 측정값, 세균 수 아님) <span class="memo">리플릿 본문 '최대 250배'와 각주 불일치, 확인 필요</span></p>
+      <div class="ss">
+        <div class="ss-t"><span>Self Solution</span>손이 닿는 곳부터, 정기적으로 세균과 표면 오염 제거하기</div>
+        <div class="tip"><h4><b>TIP 1.</b>주행 후나 동승자가 내린 뒤, <i>핸들·기어·도어 손잡이·버튼류</i>부터 먼저 닦기</h4><p>외부 세균은 혼자 탈 때도, 동승자가 탈 때도 계속 유입됩니다. 눈에 보이는 오염이 없어도 손이 닿는 표면을 먼저 관리해 주세요.</p></div>
+        <div class="tip"><h4><b>TIP 2.</b>아이가 입으로 가져가는 안전벨트 버클·창문 버튼은 <i>닦은 뒤 살균까지</i> 하기</h4><p>닦기는 먼지와 손때를 걷어내고, 살균은 남은 균을 줄이는 서로 다른 관리입니다.</p></div>
+        <p style="margin-top:1.8cqw;padding-top:1.4cqw;border-top:1px dashed #c9d4e3;font-size:1.35cqw;color:var(--navy);font-weight:700;word-break:keep-all">하지만, 눈에 보이는 오염을 닦아내도 표면에 세균과 바이러스가 남을 수 있습니다. 손과 피부가 자주 닿는 차 안에서는 살균 효과는 물론 성분까지 검증된 방법이 필요합니다.</p>
+      </div>
+    </div>
+    <span class="pno l">06</span>
+  </div>
+
+  <div class="page">
+    <span class="hdr">CESCO Lifecare Magazine vol 14</span>
+    <div class="ph r" style="position:absolute;right:0;top:0;width:40cqw;aspect-ratio:1;border-radius:0 0 0 50%">[컷] 시트에 밴 냄새 · 방향제</div>
+    <div class="pad" style="padding-top:6cqw">
+      <p class="pt">Point 2.</p>
+      <p class="pt-sub">배어드는 냄새</p>
+      <h2 class="pt-head" style="margin-top:12cqw">방향제를 뿌렸는데<br><u>냄새가 더 불쾌해졌다면 집중!</u></h2>
+      <div class="cols" style="margin-top:2.4cqw">
+        <p>시트·천장·바닥 매트 등 차량 패브릭에는 땀·체취·음식물부터 담배까지 다양한 냄새가 반복적으로 배어듭니다. 특히 담배 냄새는 섬유 깊숙이 배어 쉽게 빠지지 않으며, <span class="em">차량 내부 온도가 높아질수록 내장재에 밴 냄새 성분이 퍼지면서 더욱 강해질 수 있습니다.</span></p>
+        <p>냄새의 발원지는 한 곳 더 있습니다. 에어컨 필터는 외부에서 유입되는 먼지와 오염물질을 걸러주지만, 필터에 먼지와 습기가 뒤엉키면 곰팡이가 번식하고 불쾌한 냄새가 생기기 쉬운 환경이 됩니다. <b class="emb">필터를 교체하더라도 공조 시스템 안쪽에 남아 있는 쾌쾌한 냄새는 에어컨과 히터 바람을 타고 차량 실내로 다시 퍼질 수 있습니다.</b> 방향제로 냄새를 덮어도 악취 원인은 남아 있을 수 있고, 강한 향은 호흡기에 자극을 줄 수 있습니다.²⁾</p>
+      </div>
+      <p class="ref">2) 악취 노출과 두통·메스꺼움·스트레스 연관: Guadalupe-Fernandez V 외, Environ Health 2021;20:108 / Schiffman SS, Williams CM, J Environ Qual 2005;34(1):129–138 (리플릿 각주)</p>
+      <div class="ss">
+        <div class="ss-t"><span>Self Solution</span>덮지 말고 원인을 줄이기</div>
+        <div class="tip"><h4><b>TIP 1.</b>음식물이나 음료를 흘렸다면 <i>냄새와 오염이 남기 전에 바로 닦고</i> 충분히 건조하기</h4><p>그대로 두면 악취가 고착될 수 있습니다. 바로 세탁하기 어려운 시트나 매트는 오염물을 먼저 닦아내고 말린 뒤 남은 냄새를 관리해 주세요.</p></div>
+        <div class="tip"><h4><b>TIP 2.</b>호흡기 건강을 위해 <i>에어컨 필터는 연 2회 이상 교체</i>하기</h4><p>필터에 먼지와 습기가 쌓이기 전에 바꿔 주세요.</p></div>
+        <div class="tip"><h4><b>TIP 3.</b>필터를 바꿨는데도 에어컨을 켤 때마다 퀴퀴한 냄새가 난다면 <i>공조 시스템 안쪽(증발기, 에바포레이터)</i>을 점검하기</h4><p>필터를 교체해도 남는 냄새는 공조 내부에 쌓인 곰팡이와 오염이 원인일 수 있습니다. 공조 내부 순환 탈취나 정비소의 증발기 세척 점검을 받아 주세요. <span class="memo">증발기 관련 문장 근거 미확보: 원천(리플릿·상세페이지)에는 '공조 시스템 안쪽' 까지만 있음. 제조사 정비 안내 등 출처 확인 전 지면 사용 보류</span></p></div>
+        <p style="margin-top:1.8cqw;padding-top:1.4cqw;border-top:1px dashed #c9d4e3;font-size:1.35cqw;color:var(--navy);font-weight:700;word-break:keep-all">하지만, 섬유 깊숙이 밴 담배 냄새와 손이 닿지 않는 공조 안쪽은 닦거나 향으로 덮는 것만으로 해결하기 어렵습니다. 냄새의 원인부터 제거하는 탈취 관리가 필요합니다.</p>
+      </div>
+    </div>
+    <span class="pno r">07</span>
+  </div>
+</section>
+
+<!-- p.8-9 POINT 3 / SEASONAL 여름·겨울 -->
+<section class="spread">
+  <div class="page">
+    <div class="pad" style="padding-top:6cqw;text-align:right">
+      <p class="pt">Point 3.</p>
+      <p class="pt-sub">정체된 습기</p>
+    </div>
+    <div class="pad" style="padding-top:0;margin-top:-4cqw">
+      <h2 class="pt-head">차 안 습기,<br><u>장마철만의 문제가 아닙니다.</u></h2>
+      <div class="cols" style="margin-top:2.4cqw">
+        <p>젖은 우산이나 신발, 눈·비에 젖은 매트 등으로 들어온 수분은 밀폐된 차 안에 머물며 눅눅함과 꿉꿉한 냄새의 원인이 될 수 있습니다. 장마철이나 눈·비가 오는 날, 지하 주차장에서 유입된 습기는 곰팡이와 미생물이 번식하기 좋은 환경을 만듭니다.</p>
+        <p>특히 공기 흐름이 정체된 시트 아래나 도어 포켓, 에어컨 필터는 습도가 높아지기 쉽고, 이는 곧 차량 전체에 퀴퀴한 냄새가 퍼지는 주요 원인이 됩니다. <span class="em">곰팡이는 습도가 60%를 넘으면 빠르게 번식</span>하고,³⁾ 이렇게 자란 곰팡이 포자는 천식·알레르기 비염 등 호흡기 질환을 악화시킬 수 있습니다. <span class="memo">질환 표현 수준 결정</span></p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.2cqw;margin-top:2cqw">
+        <div class="ph" style="aspect-ratio:4/3;border-radius:.8cqw">[컷] 시트 밑</div><div class="ph" style="aspect-ratio:4/3;border-radius:.8cqw">[컷] 도어 포켓</div><div class="ph" style="aspect-ratio:4/3;border-radius:.8cqw">[컷] 트렁크 틈새</div>
+      </div>
+      <p class="ref">3) 미국 환경보호청(EPA) 곰팡이·습기 관리 안내: 곰팡이 증식 저감을 위해 실내 습도 60% 미만(권장 30~50%) 유지</p>
+      <div class="ss">
+        <div class="ss-t"><span>Self Solution</span>공기가 멈추는 자리를 비워 두기</div>
+        <div class="tip"><h4><b>TIP 1.</b>젖은 우산이나 신발은 <i>장시간 차 안에 두지 말고</i>, 매트에 남은 물기는 충분히 말리기</h4><p>비·눈 오는 날 젖은 우산이나 신발을 실었다면 차량 내부를 충분히 환기해 주세요.</p></div>
+        <div class="tip"><h4><b>TIP 2.</b>차 안이 눅눅하게 느껴질 때 <i>시트 아래·도어 포켓·트렁크</i> 등 공기 흐름이 적은 곳을 확인하기</h4><p>평상시 제습 관리로 적정 습도를 유지하는 것만으로도 곰팡이와 미생물 번식을 억제할 수 있습니다.</p></div>
+        <p style="margin-top:1.8cqw;padding-top:1.4cqw;border-top:1px dashed #c9d4e3;font-size:1.35cqw;color:var(--navy);font-weight:700;word-break:keep-all">하지만, 시동이 꺼진 뒤에는 에어컨으로 말릴 수 없고, 공기가 잘 통하지 않는 틈새까지 습기가 쌓이지 않도록 하려면 꾸준한 제습 관리가 필요합니다.</p>
+      </div>
+    </div>
+    <span class="pno l">08</span>
+  </div>
+
+  <div class="page">
+    <span class="hdr">CESCO Lifecare Magazine vol 14</span>
+    <div class="pad" style="padding-top:7cqw">
+      <p class="pt" style="font-size:6cqw">Seasonal<br>Check.</p>
+      <p class="pt-sub">여름과 겨울, 차 안 관리가 달라지는 이유</p>
+      <p style="margin-top:2cqw;font-size:1.55cqw;color:var(--ink-2);word-break:keep-all;line-height:1.75">사계절이 뚜렷한 우리나라에서는 냉난방을 위해 창문을 닫은 채로 이동하는 날이 많습니다. 계절에 따라 냄새가 두드러지는 부위와 습기가 들어오는 길이 달라집니다.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.6cqw;margin-top:2.2cqw">
+        <div style="background:#fff5e8;border-radius:1.2cqw;padding:2.2cqw">
+          <p class="en" style="font-size:1.4cqw;font-weight:800;color:#c0742a;letter-spacing:.1em">SUMMER</p>
+          <p style="font-size:2cqw;font-weight:900;color:var(--navy);margin-top:.4cqw">여름 · 열기와 장마</p>
+          <div class="chk"><b>시트·천장에서 올라오는 냄새</b><p>내부 온도가 높아질수록 내장재에 밴 냄새 성분이 퍼지면서 강해집니다. 여름에는 시트 등 냄새가 배기 쉬운 곳을 중심으로 관리해 주세요.</p></div>
+          <div class="chk"><b>장마철·지하 주차장 습기</b><p>눅눅한 공기와 젖은 우산이 들어오는 계절. 시트 아래·도어 포켓 등 공기 흐름이 정체된 곳의 습도부터 확인해 주세요.</p></div>
+          <div class="chk"><b>에어컨 필터의 먼지와 습기</b><p>필터에 먼지와 습기가 뒤엉키면 곰팡이와 냄새가 생기기 쉬운 환경이 됩니다. 에어컨을 자주 켜는 계절에 필터 상태를 점검해 주세요.</p></div>
+        </div>
+        <div style="background:#eef3fb;border-radius:1.2cqw;padding:2.2cqw">
+          <p class="en" style="font-size:1.4cqw;font-weight:800;color:var(--blue);letter-spacing:.1em">WINTER</p>
+          <p style="font-size:2cqw;font-weight:900;color:var(--navy);margin-top:.4cqw">겨울 · 히터와 결로</p>
+          <div class="chk"><b>히터를 처음 켤 때 올라오는 냄새</b><p>공조 안쪽에 남아 있는 냄새는 히터 바람을 타고 실내로 다시 퍼질 수 있습니다. 에어컨에서 히터로 바꾸는 시점에 송풍구를 모두 열고 냄새부터 확인해 주세요.</p></div>
+          <div class="chk"><b>바닥 매트로 내려가는 냄새</b><p>겨울에는 바닥 매트 등 냄새가 배기 쉬운 곳이 달라집니다. 시트보다 발매트와 바닥을 먼저 살펴 주세요.</p></div>
+          <div class="chk"><b>눈에 젖은 매트와 아침 결로</b><p>차량 안팎 온도 차로 유리와 내장재에 결로가 생기고, 눈에 젖은 매트의 수분이 밀폐된 차 안에 머뭅니다. 물기를 충분히 말려 주세요.</p></div>
+        </div>
+      </div>
+      <p class="ref">계절별 냄새 부위(여름 시트, 겨울 바닥 매트), 온도와 냄새 확산, 필터·공조 냄새 재확산, 장마철·지하 주차장 습기: 리플릿 확정 문안. 겨울 결로: 제습제 상세 최종본.</p>
+    </div>
+    <span class="pno r">09</span>
+  </div>
+</section>
+
+<!-- p.10-11 BRIDGE (세스코 첫 등장) / RESEARCH IMAGE -->
+<section class="spread">
+  <div class="page">
+    <div class="pad" style="padding-top:8cqw">
+      <p style="font-size:2cqw;line-height:1.6;word-break:keep-all;font-weight:500">매일 타는 차 안의 건강한 생활을 위해<br>Check Point 세 가지를 꼭 확인해 주세요.</p>
+      <p style="font-size:1.7cqw;line-height:1.7;word-break:keep-all;color:var(--ink-2);margin-top:2.4cqw">닦아내도 표면에 남는 접촉면의 세균과 바이러스,<br>향으로 덮어도 원인이 남는 섬유와 공조 안쪽의 냄새,<br>시동이 꺼진 사이 틈새에 머무는 습기.<br>셀프 관리는 오염을 줄이지만, 세균·냄새·습기의 원인까지<br>없애려면 효과와 성분이 검증된 관리가 필요합니다.</p>
+      <div class="sothat">
+        <b>그래서 세스코는,</b><i></i>
+        <p>집부터 사무실, 식당부터 병원까지,<br>사람이 머무는 공간을 50여 년 관리해 온 방식 그대로<br>때로는 집보다 오래 머무르는 1.5평의 작은 거실, 차량에서도<br>안심할 수 있도록 <span class="em">이동 공간을 위한 위생 과학을 연구합니다.</span> <span class="memo">'50여 년' 표기 확인</span></p>
+      </div>
+    </div>
+    <div class="ph" style="position:absolute;left:0;right:0;bottom:0;height:40cqw">[컷] 실험실 유리기구 · 차량 악취 성분 포집 장비</div>
+    <span class="pno l" style="z-index:1">10</span>
+  </div>
+  <div class="page">
+    <div class="ph full dark">[RESEARCH IMAGE] 실차 악취 성분 포집·분석 장면 · 연출 이미지면 고지 문구 삽입</div>
+    <span class="pno r" style="color:#aab4c3">11</span>
+  </div>
+</section>
+
+<!-- p.12-13 -->
+<section class="spread">
+  <div class="page bluepg">
+    <div class="pad" style="padding-top:9cqw">
+      <p class="top">세차와 방향제로는 닿지 않는 차 안 33곳,<br>단순한 차량용품 개발이 아닌<br><b>공간 위생관리 전문성을 차량으로 확장한 것.<br>이것이 세스코 카케어의 출발점입니다.</b></p>
+    </div>
+    <div class="script">by cesco science</div>
+    <div class="curve"></div>
+    <div class="big">02<br>CESCO<br>Professional<br>Solution</div>
+  </div>
+
+  <div class="page">
+    <span class="hdr">CESCO Lifecare Magazine vol 14</span>
+    <div class="pad" style="padding-top:6cqw">
+      <p class="step"><b>WHY.</b>세스코가 차량 위생관리를 시작한 이유</p>
+      <p class="pname"><small>CESCO MYLAB CAR CARE PROGRAM</small>세스코 마이랩 카케어 프로그램</p>
+      <p class="pdesc" style="font-size:1.5cqw;color:var(--ink-2)">세스코는 공간을 청소하거나 약제를 쓰는 대상으로만 보지 않습니다. 50여 년간 가정과 사업장 등 다양한 공간의 특성과 오염 원인을 분석하고, 진단 결과에 따라 적합한 위생관리 방법을 설계해 왔습니다. 세스코는 <span class="em">차량 역시 사람이 머무르고 생활하는 하나의 실내 공간</span>으로 바라봤습니다.</p>
+
+      <p class="step" style="margin-top:2.2cqw;font-size:1.7cqw">기존 카케어와 무엇이 다른가</p>
+      <p class="pdesc" style="font-size:1.45cqw;color:var(--ink-2);margin-top:.6cqw">지금까지의 카케어는 광택·스크래치·얼룩처럼 눈으로 보는 겉모습을 관리하는 일이었습니다. 세스코 카케어는 세균·바이러스·악취 원인을 기준으로 증명해야 하는 위생 관리입니다. <b class="emb">차가 깨끗하다는 것과 위생이 관리되었다는 것은 다른 문제</b>이기 때문입니다.</p>
+      <div class="feat">
+        <div>기존 루틴<b style="background:#8a94a3">외관 세차 → 내부 진공청소·물걸레질 → 방향제 거치</b></div>
+        <div>세스코가 제안하는 완결 루틴<b>외관 세차 → 내부 정돈 → 보이지 않는 균·악취·습기 제어</b></div>
+      </div>
+
+      <p class="step" style="margin-top:2.2cqw;font-size:1.7cqw">차 안을 보는 세스코만의 기준</p>
+      <p class="pdesc" style="font-size:1.45cqw;color:var(--ink-2);margin-top:.6cqw">세스코는 차량 실내를 하나의 공간이 아닌, <b class="emb">33개의 위생 관리 포인트</b>로 세분화했습니다. 손이 닿는 접촉면부터 생활 오염과 악취가 발생하는 곳까지, 각각의 오염 특성에 맞는 위생 관리 방법을 제안합니다. 고빈도 접촉면 13곳, 생활오염 구역 11곳, 냄새 관리 구역 9곳. 각 구역에 맞는 전용 제품을 개발하고, 전문 인력이 이를 활용해 차량 내부를 관리하는 서비스로 확장했습니다.</p>
+      <div class="ph" style="aspect-ratio:16/5;margin-top:1.2cqw;border-radius:.8cqw">[도해] 차량 실내 33곳 맵 · 13·11·9 색 구분</div>
+
+      <p class="step" style="margin-top:2.2cqw;font-size:1.7cqw">실험실을 넘어, 실제 차량에서 확인한 효과</p>
+      <p class="pdesc" style="font-size:1.45cqw;color:var(--ink-2);margin-top:.6cqw">가장 험난한 렌터카·중고차 현장에서 오염 원인을 분석하고, 반복 테스트를 통해 제품의 효과부터 성분 특성까지 꼼꼼하게 확인했습니다. 국내 대형 렌터카 기업 SK렌터카의 실제 차량을 대상으로 <span class="em">사계절 반복 테스트</span>를 진행했고, K Car·오토핸즈 등 주요 모빌리티 기업에도 도입되어 활용되고 있습니다. <span class="memo">사명 공개 동의</span></p>
+      <div class="feat">
+        <div>PROJECT 1<b>악취 원인 분석 · 실제 차량의 악취 성분 정밀 분석</b></div>
+        <div>PROJECT 2<b>가혹 조건 테스트 · 대형 렌터카·중고차 반복 테스트</b></div>
+        <div>PROJECT 3<b>사계절 탈취력 · 여름부터 겨울까지 4번의 필드 테스트</b></div>
+        <div>PROJECT 4<b>소재 안전성 · 주요 내장재 손상·변색 검증</b></div>
+      </div>
+    </div>
+    <span class="pno r">13</span>
+  </div>
+</section>
+
+<!-- p.14-15 PRODUCTS -->
+<section class="spread">
+  <div class="page">
+    <div class="pad" style="padding-top:5cqw;padding-bottom:4cqw">
+      <h2 class="h-sub" style="font-size:2.6cqw">밀폐된 차 안이니까,<br>성분부터 효과까지 꼼꼼하게</h2>
+      <div class="trust" style="display:grid;grid-template-columns:1fr 1fr;gap:.6cqw 1.6cqw"><span>피부 저자극 테스트 완료 ① ②</span><span>주요 유해물질 4종 불검출 확인 ① ② ③ ④</span><span>기후에너지환경부 승인 살생물제품 ①</span><span>악취 원인물질 탈취 성능 확인 ③ ④ ⑤</span></div>
+      <p class="foot">* 가습기 살균제 이슈 성분: CMIT · MIT · BKC · DDAC</p>
+
+      <div class="care"><b>살균 케어</b><span>핸들·기어·버튼의 세균과 바이러스 살균, 컵홀더·대시보드 오염을 물얼룩 없이 세정·살균</span></div>
+
+      <div class="prod">
+        <div class="ph">[컷] 핸들 분사</div>
+        <div>
+          <h4><small>①</small>세스코 마이랩 살균소독제 · 500 ml</h4>
+          <p class="intro">도어 손잡이·버튼 등 아이 손이 자주 닿는 곳에. 켄넬이나 이동장도 뿌리면 간편하게 살균소독.</p>
+          <div class="stat"><span>세균 14종·바이러스 2종 살균¹⁾</span><span>기후에너지환경부 승인 살생물제품</span><span>100% 식품첨가물 성분 처방</span></div>
+          <ul class="spec">
+            <li><b>해결 역할</b><span>고빈도 접촉면 13곳. 인플루엔자 A·코로나19 바이러스까지 살균 효과 검증</span></li>
+            <li><b>사용 안내</b><span>단단한 표면에 15~20 cm 거리에서 분사하고 5분간 방치. 송풍구처럼 손이 닿지 않는 곳은 고르게 분사한 뒤 가볍게 닦기</span></li>
+          </ul>
+          <p class="foot" style="margin-top:.6cqw">※ 본 제품은 비다공성 표면에만 사용 가능하며, 공기소독 용도로는 사용할 수 없습니다.</p>
+        </div>
+      </div>
+
+      <div class="prod" style="border-bottom:0">
+        <div class="ph">[컷] 대시보드 닦기</div>
+        <div>
+          <h4><small>②</small>세스코 마이랩 다용도 살균클리닝 티슈 · 50매</h4>
+          <p class="intro">한 장으로 오염 제거와 살균을 동시에. 아이 손이 자주 닿는 부분의 손자국과 생활 오염에.</p>
+          <div class="stat"><span>유해세균 4종 99.999% 살균²⁾</span><span>피부 저자극 테스트 완료</span><span>식품첨가물 100% 성분 처방</span></div>
+          <ul class="spec">
+            <li><b>해결 역할</b><span>생활오염 구역 11곳. 세정과 살균을 한 장으로 간편하게</span></li>
+            <li><b>특징</b><span>차량 내장재에 사용하기 좋은 원단 <span class="memo">리플릿 '엠보싱' vs 상세 '멜트블로운' 표기 통일</span></span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="fn">1) 생활시설 표면 살균·살바이러스(비다공성). 세균 14종·바이러스 2종(Influenza A virus H1N1, SARS-CoV-2 XBB.1.5), 균주 목록은 상세페이지와 동일 표기 2) 대장균·황색포도상구균·녹농균·장내구균 99.999% 살균</p>
+    </div>
+    <span class="pno l">14</span>
+  </div>
+
+  <div class="page">
+    <span class="hdr">CESCO Lifecare Magazine vol 14</span>
+    <div class="pad" style="padding-top:5cqw;padding-bottom:4cqw">
+      <div class="care" style="margin-top:0"><b>악취 케어</b><span>시트·바닥 매트에 깊숙이 밴 악취 원인까지 탈취, 에어컨 속 숨은 냄새까지 구석구석 순환 탈취</span></div>
+
+      <div class="prod">
+        <div class="ph">[컷] 시트 분사</div>
+        <div>
+          <h4><small>③</small>세스코 마이랩 마스터 차량용 전문탈취제 · 500 ml</h4>
+          <p class="intro">가장 빼기 어려운 담배 냄새까지 근본 원인 제거. 실제 중고차 차량의 냄새 원인 분석 및 계절·소재별 테스트 완료.</p>
+          <div class="stat"><span>생활 악취 원인 물질 99% 이상 탈취³⁾</span><span>24시간 후 탈취력 지속 확인</span></div>
+          <ul class="spec">
+            <li><b>사용 안내</b><span>계절에 따라 냄새가 두드러지는 부위가 달라질 수 있어, 여름에는 시트, 겨울에는 바닥 매트 등 냄새가 배기 쉬운 곳을 중심으로 분사. 시트와 매트는 수시로</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="ph">[컷] 뒷좌석 바닥 탈취캔</div>
+        <div>
+          <h4><small>④</small>세스코 마이랩 마스터 차량용 탈취캔 · 150 g</h4>
+          <p class="intro">미세 입자가 공기 흐름을 타고 손이 닿지 않는 에어컨 내부 깊숙한 곳까지 순환 탈취. 고함량 탈취 성분으로 효과를 오래 유지.</p>
+          <div class="stat"><span>악취 원인 물질 99% 초과 탈취⁴⁾</span><span>월 1회 순환 탈취 권장</span><span>세차장 없이 20분</span></div>
+          <ul class="spec">
+            <li><b>사용 안내</b><span>한 달에 한 번, 에어컨 최대 세기·내부 순환 모드로 켜고 뒷좌석 바닥에 세워 분사. 분사 종료 5분 후 시동 오프, 15분 이상 환기. 에어컨↔히터 전환 시점과 장거리 여행 뒤에도</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="care"><b>습기 케어</b><span>틈새에 고인 습기와 꿉꿉한 냄새를 함께 제거</span></div>
+
+      <div class="prod" style="border-bottom:0">
+        <div class="ph">[컷] 콘솔 박스 거치</div>
+        <div>
+          <h4><small>⑤</small>세스코 마이랩 슬림형 탈취제습제 · 10개입</h4>
+          <p class="intro">시트 아래 틈새에 두는 것만으로 제습과 탈취를 한 번에. 좁은 틈새 어디든 쏙 들어가는 슬림한 사이즈.</p>
+          <div class="stat"><span>중량 대비 400% 흡습력</span><span>3대 주요 악취 성분 99% 제거⁵⁾</span></div>
+          <ul class="spec">
+            <li><b>사용 안내</b><span>시트 아래·도어 포켓·트렁크 등 습기가 머물기 쉬운 곳에 비치. 파우치가 부풀어 말랑해지면 교체(습한 환경 약 1개월, 건조한 환경 약 3개월)</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta">
+        <p>아무리 깨끗이 닦아도 찝찝했던 차 안의 냄새와 공기,<br>세차의 마지막 단계는 세스코 카케어 5종으로 완성하세요!<small>고객센터 1588-1119 · 내 차에 맞는 카케어 제품 확인 QR</small></p>
+        <div class="qr">QR<br><span class="memo" style="font-size:1cqw">목적지 확인</span></div>
+      </div>
+      <p class="fn">3) 4-에테닐피리딘(니코틴 유사오염원), 트리메틸아민, 암모니아 99% 탈취력 테스트 완료 4) 암모니아, 트리메틸아민 99% 탈취력 테스트 완료 5) 암모니아, 트리메틸아민, 이소발레릭산(발냄새의 원인) 99% 탈취력 테스트 완료</p>
+    </div>
+    <span class="pno r">15</span>
+  </div>
+</section>
+
+<!-- p.16 BACK COVER -->
+<section class="spread single">
+  <div class="page backpg">
+    <div class="ph" style="position:absolute;right:0;top:0;bottom:0;width:36cqw;background:repeating-linear-gradient(135deg,#7d889d 0 1.2cqw,#86919f 1.2cqw 2.4cqw);color:#dfe4ec">[컷] 뒷표지 생활 컷</div>
+    <div class="pad" style="width:64cqw;display:flex;flex-direction:column;justify-content:space-between;height:100%;padding-top:7cqw">
+      <div>
+        <h4>세스코몰 회원 혜택</h4>
+        <ul><li>혜택 01 · 제품을 구매할 때마다 결제금액의 3% 적립</li><li>혜택 02 · 위생 전문가 진단 서비스 1종 무료 이용권(해충 정밀진단 / 플러스알파케어 체험 / 실내 공기질·라돈 진단 중 택1)</li><li>혜택 03 · 첫 구매 100원 + 앱 전용 5% 할인 쿠폰</li></ul>
+        <p style="font-size:1.35cqw;line-height:1.7;margin-top:1cqw;word-break:keep-all">집에서 가능한 전문가 수준의 위생 관리, 세스코몰에서 간편하게 시작해 보세요. <span class="memo">혜택 조건·기간 확인</span></p>
+        <h4>Homecare Guide</h4>
+        <ul><li>우리 아이의 건강을 위협하는 위해요소 세 가지 필수 관리 포인트</li><li>모두가 건강한 반려생활을 위한 실내 공기, 악취관리 솔루션</li><li>빈틈없는 위생케어로 완성하는 건강하고 활기찬 라이프 스타일</li><li>아늑하고 편안해야 할 우리집에 불청객이? 주택 위생관리 포인트</li></ul>
+        <h4>일상생활 위생 솔루션</h4>
+        <ul><li>알레르기를 유발하는 침구 속 집먼지 진드기, 효과적으로 제거하는 방법</li><li>매일 마시는 물, 세균 걱정 없이 깨끗하게 마시는 방법</li><li>결로 현상으로 인한 실내 곰팡이가 발생을 방지하는 관리 방법</li></ul>
+        <h4>카케어 가이드 <span class="memo">신규 항목</span></h4>
+        <ul><li>세차로는 닿지 않는 차 안 33곳, 집과 같은 기준으로 관리하는 방법</li></ul>
+        <p class="soon">… coming soon!</p>
+      </div>
+      <div>
+        <div class="logo">CESCO<small>세스코</small></div>
+        <div class="info">
+          <b>주 소</b> 서울시 강동구 상일로 10길 46(상일동) 세스코 디지털센터<br>
+          <b>대표전화</b> 1588-1119 | Fax 02-488-1720<br>
+          <b>고객센터</b> 월~금 08:30~18:00 | 토 09:00~13:00 | 일·공휴일 휴무<br>
+          <b>홈페이지</b> www.cesco.co.kr | www.cescomall.co.kr <span class="memo">기존 호 정보, 최신 확인</span><br>
+          <span style="font-size:1cqw;color:#dfe4ec">© CES_LIFECARE_MGZ_v14_2026.11 CESCO Co.,Ltd All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<script>
+(function(){
+  var t=document.getElementById('memoToggle'),b=document.getElementById('book');
+  function apply(){ b.classList.toggle('hide-memo',!t.checked); try{localStorage.setItem('memo',t.checked?'1':'0');}catch(e){} }
+  try{ if(localStorage.getItem('memo')==='0'){t.checked=false;} }catch(e){}
+  t.addEventListener('change',apply); apply();
+})();
+</script>
+</body>
+</html>
