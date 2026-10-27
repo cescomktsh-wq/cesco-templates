@@ -241,14 +241,17 @@ renderDeck(document.getElementById('cover'), COVERS);
 
 const tabs=[...document.querySelectorAll('.tabs button')];
 const desc=document.getElementById('desc');
-function show(v){
+function show(v, fromClick){
   tabs.forEach(b=>b.setAttribute('aria-selected', b.dataset.v===v?'true':'false'));
   ['main','cover','post'].forEach(id=>{ document.getElementById(id).hidden=(id!==v); });
   desc.textContent=DESCS[v];
   window.scrollTo({top:0});
+  if(fromClick) history.replaceState(null,'','#'+v); // 탭 딥링크: 스크롤 없이 해시만 갱신
 }
-tabs.forEach(b=>b.addEventListener('click',()=>show(b.dataset.v)));
-show('main');
+tabs.forEach(b=>b.addEventListener('click',()=>show(b.dataset.v,true)));
+const initV=location.hash.slice(1);
+if(initV){ history.replaceState(null,'',location.pathname+location.search); addEventListener('load',()=>{history.replaceState(null,'','#'+initV); scrollTo(0,0);},{once:true}); } // 해시로 열어도 섹션으로 점프하지 않고 상단부터(브라우저 자동 스크롤 방지 후 해시 복원)
+show(DESCS[initV]?initV:'main');
 const memoBtn=document.getElementById('memoBtn');
 memoBtn.addEventListener('click',()=>{
   const hidden=document.body.classList.toggle('hide-memo');
