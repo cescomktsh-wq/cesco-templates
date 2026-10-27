@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>환경위생용품 세스코 마이랩 | 세스코</title>
+<!-- v3: 기획 메모(.memo) 포함 검토본. 게시 전 .memo 요소를 삭제하세요. -->
+<meta name="description" content="세스코 마이랩은 세스코 과학연구소의 50여 년 노하우를 통째로 담은 환경위생용품 브랜드입니다.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{
+  /* 컬러: 세스코 마이랩 실제 페이지(2026-10) 화면에서 추출 */
+  --navy:#0A1840;       /* 주 컬러: 앵커 바·제목·강조 본문·버튼 */
+  --navy-mid:#1E2D5C;   /* 버튼 hover */
+  --navy-tint:#EEF0F6;  /* 네이비 틴트 배경(태그·hover) */
+  --red:#EE2929;        /* 포인트: 섹션 제목 위 짧은 선, 로고, '이럴 때' 라벨 */
+  --ink:#0A1840; --body:#4B5163; --sub:#74747C; --mute:#9A9AA2;
+  --line:#E4E4EA; --bg-gray:#F0EFF2; --max:1200px;
+  /* 연구소 컬러: bar = 카드 상단 띠(브랜드 원색), tx = 흰 배경 위 글자용(명도 대비 3:1 이상으로 어둡게) */
+  --lab1:#FFA400; --lab1-tx:#A86C00;  /* 식품안전 */
+  --lab2:#43B02A; --lab2-tx:#2F8A1C;  /* 생활과학 */
+  --lab3:#93328E; --lab3-tx:#93328E;  /* 바이러스 */
+  --lab4:#00205B; --lab4-tx:#00205B;  /* 해충방제 */
+  --lab5:#9795C7; --lab5-tx:#6C69AA;  /* 향기 */
+  --tabs-top:142px;     /* 상품 탭 고정 위치: GNB + 앵커 바 높이. JS가 실제 높이로 다시 계산 */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
+body{font-family:Pretendard,"Noto Sans KR",-apple-system,"Malgun Gothic",sans-serif;color:var(--body);background:#fff;line-height:1.7;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font:inherit}
+.inner{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* ===== Header (GNB) ===== */
+.util{background:#000;font-size:13px;color:#9A9AA2}
+.util .inner{display:flex;justify-content:flex-end;gap:20px;height:36px;align-items:center}
+.util a:hover{color:#fff}
+header.gnb{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line)}
+.gnb .inner{display:flex;align-items:center;height:76px;gap:56px}
+.logo{position:relative;font-size:30px;font-weight:900;letter-spacing:-1px;color:var(--navy);padding-bottom:4px}
+.logo::after{content:"";position:absolute;left:2px;right:38%;bottom:0;height:3px;border-radius:2px;background:var(--red)}
+.gnb nav{display:flex;gap:40px;flex:1}
+.gnb nav a{font-size:17px;font-weight:600;color:#3A3F4C;position:relative;padding:26px 0}
+.gnb nav a.on{color:var(--navy);font-weight:700}
+.gnb nav a.on::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--navy)}
+.gnb .mall{font-size:14px;font-weight:600;border:1px solid var(--navy);border-radius:20px;padding:6px 16px;color:var(--navy)}
+.gnb .burger{display:none;width:28px;height:20px;position:relative;margin-left:auto}
+.gnb .burger span,.gnb .burger::before,.gnb .burger::after{content:"";position:absolute;left:0;right:0;height:2px;background:var(--ink)}
+.gnb .burger::before{top:0}.gnb .burger span{top:9px}.gnb .burger::after{bottom:0}
+
+/* ===== Breadcrumb ===== */
+.crumb{font-size:13px;color:var(--mute);padding:22px 0 0}
+.crumb span+span::before{content:"›";margin:0 8px;color:#ccc}
+.crumb span:last-child{color:var(--ink);font-weight:600}
+
+/* ===== Main visual ===== */
+.mv{padding:40px 0 72px}
+.mv .eyebrow{display:inline-block;font-size:16px;font-weight:700;color:var(--navy);letter-spacing:.3px;margin-bottom:14px}
+.mv .eyebrow b{color:var(--red);font-weight:800}
+.mv h1{font-size:52px;line-height:1.25;font-weight:800;color:var(--ink);letter-spacing:-1.5px}
+.mv h1 em{font-style:normal;color:var(--navy)}
+.mv .def{font-size:20px;color:var(--body);margin:20px 0 32px;max-width:720px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:56px;padding:0 32px;border-radius:4px;font-size:17px;font-weight:700;transition:.2s}
+.btn-red{background:var(--navy);color:#fff}
+.btn-red:hover{background:var(--navy-mid)}
+.btn-line{border:1px solid var(--navy);color:var(--navy);background:#fff}
+.btn-line:hover{background:var(--navy);color:#fff}
+.btn .arr{font-size:20px;line-height:1}
+.mv-visual{margin-top:48px;height:440px;border-radius:8px;position:relative;overflow:hidden;
+  background:linear-gradient(120deg,#F6E3B8 0%,#E2BD7A 50%,#C39A57 100%)}
+.mv-visual::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 70% 30%,rgba(255,255,255,.45) 0%,transparent 55%)}
+.bottles{position:absolute;left:50%;bottom:0;transform:translateX(-50%);display:flex;align-items:flex-end;gap:22px}
+.bottles i{display:block;background:#fff;border-radius:14px 14px 4px 4px;box-shadow:0 10px 30px rgba(120,80,20,.18)}
+.bottles i:nth-child(1){width:70px;height:170px}
+.bottles i:nth-child(2){width:90px;height:240px;border-bottom:44px solid var(--lab1)}
+.bottles i:nth-child(3){width:80px;height:200px;border-bottom:36px solid var(--lab1)}
+.bottles i:nth-child(4){width:64px;height:140px}
+.bottles i:nth-child(5){width:110px;height:120px;border-radius:8px 8px 4px 4px}
+.mv-visual .cap{position:absolute;left:24px;top:20px;font-size:12px;color:#7A5A22;background:rgba(255,255,255,.7);padding:4px 10px;border-radius:3px}
+
+/* ===== Anchor tabs ===== */
+.anchor{position:sticky;top:76px;z-index:40;background:var(--navy);box-shadow:0 4px 14px rgba(10,24,64,.18)}
+.anchor ul{display:flex;align-items:center;gap:8px;list-style:none;max-width:var(--max);margin:0 auto;padding:0 24px;overflow-x:auto;scrollbar-width:none}
+.anchor ul::-webkit-scrollbar{display:none}
+.anchor li{min-width:max-content}
+.anchor a{display:block;text-align:center;padding:18px 14px;font-size:16px;font-weight:500;color:rgba(255,255,255,.75);border-bottom:3px solid transparent}
+.anchor a:hover{color:#fff}
+.anchor a.on{color:#fff;font-weight:700;border-color:#fff}
+.anchor li.go{margin-left:auto}
+.anchor li.go a{background:#fff;color:var(--navy);font-weight:600;border:0;border-radius:4px;padding:10px 22px;font-size:15px}
+.anchor li.go a:hover{background:var(--navy-tint)}
+
+/* ===== Sections ===== */
+section{padding:110px 0}
+section.gray{background:var(--bg-gray)}
+.sec-label{font-size:14px;font-weight:700;color:var(--sub);letter-spacing:.5px;margin-bottom:12px}
+.sec-label::before{content:"";display:block;width:28px;height:2px;background:var(--red);margin-bottom:16px}
+h2{font-size:40px;line-height:1.35;font-weight:800;color:var(--ink);letter-spacing:-1px}
+.lead{font-size:19px;color:var(--body);margin-top:18px;max-width:780px}
+
+/* S4 Why */
+.hazards{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.hz{border-top:2px solid var(--navy);padding:28px 4px 0}
+.hz .k{font-size:15px;color:var(--sub)}
+.hz .t{font-size:24px;font-weight:700;color:var(--ink);margin-top:6px}
+.hz .n{display:block;font-size:13px;font-weight:700;color:var(--sub);margin-bottom:14px}
+.because{margin-top:64px;font-size:24px;line-height:1.6;font-weight:500;color:var(--body)}
+.because strong{color:var(--navy);font-weight:800}
+.stats{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:8px}
+.stat{padding:36px 24px;text-align:center}
+.stat+.stat{border-left:1px solid var(--line)}
+.stat b{display:block;font-size:42px;font-weight:800;color:var(--ink);letter-spacing:-1px;line-height:1.2}
+.stat b small{font-size:20px;font-weight:700;margin-left:2px}
+.stat span{font-size:15px;color:var(--sub)}
+
+/* S5 Declaration */
+.declare{background:linear-gradient(180deg,#F4F3F6 0%,#E6E5EA 100%);color:var(--navy);text-align:center;padding:130px 0}
+.declare h2{color:var(--navy);font-size:64px;letter-spacing:-2px}
+.declare h2 span{display:inline-block;margin:0 10px}
+.declare p{margin-top:24px;font-size:20px;color:var(--body)}
+
+/* S6 Labs
+   템플릿 규칙: 연구소 카드는 5장 모두 같은 너비·같은 높이·같은 이미지 비율(4:3).
+   데스크톱에서는 5장이 한 줄에 모두 보이게 둔다. 한 장만 가로형으로 바꾸거나 높이를 줄이지 않는다.
+   마지막 줄에 카드가 1장 남으면 같은 너비로 가운데 정렬한다. */
+.labs{margin-top:56px;display:grid;grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr;gap:16px}
+.lab{--lc:var(--navy);--lt:var(--navy);background:#fff;border:1px solid var(--line);border-top:6px solid var(--lc);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.lab:nth-child(1){--lc:var(--lab1);--lt:var(--lab1-tx)}
+.lab:nth-child(2){--lc:var(--lab2);--lt:var(--lab2-tx)}
+.lab:nth-child(3){--lc:var(--lab3);--lt:var(--lab3-tx)}
+.lab:nth-child(4){--lc:var(--lab4);--lt:var(--lab4-tx)}
+.lab:nth-child(5){--lc:var(--lab5);--lt:var(--lab5-tx)}
+.lab .ph{aspect-ratio:4/3;flex:none;display:flex;align-items:center;justify-content:center;font-size:12px;color:#7d8899;text-align:center;padding:0 12px;
+  background:linear-gradient(135deg,#F4F4F6 0%,#E4E4E8 100%);border-bottom:1px solid var(--line)}
+.lab .bd{padding:26px 24px 32px;display:flex;flex-direction:column;flex:1}
+.lab:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(10,24,64,.08)}
+.lab .no{font-size:15px;font-weight:800;color:var(--lt)}
+.lab .name{font-size:20px;font-weight:700;color:var(--navy);margin:6px 0 24px}
+.lab .head{font-size:22px;font-weight:800;line-height:1.4;color:var(--lt);padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:18px;min-height:88px}
+.lab .desc{font-size:15px;color:var(--sub);line-height:1.65;flex:1}
+
+/* S7 상품 종류 + 이럴 때는 이 제품을 씁니다
+   규칙: 프로그램(카테고리)별로 묶어 세스코 마이랩 전 상품을 보여 준다.
+   카드 = '이럴 때'(고객 구어 질문, 말풍선) → '이 제품을 씁니다'(제품명) → 쓰는 법 1문장(~합니다체) → 상세페이지 바로가기.
+   상품·문구는 아래 <script>의 PRODUCTS 표 한 곳에서 고친다. */
+.ptabs-wrap{position:sticky;top:var(--tabs-top);z-index:30;background:#fff;margin:40px -24px 0;padding:14px 24px;border-bottom:1px solid var(--line)}
+.ptabs-row{display:flex;align-items:center;gap:16px}
+.ptabs{display:flex;flex-wrap:wrap;gap:8px;flex:1;min-width:0}
+.pall{flex:none;height:42px;padding:0 16px;border:0;background:none;font-size:14px;font-weight:700;color:var(--navy);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.pall:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.ptab{display:inline-flex;align-items:center;gap:7px;height:42px;padding:0 16px;border:1px solid var(--line);border-radius:21px;background:#fff;font-size:15px;font-weight:600;color:var(--body);cursor:pointer;transition:.2s;white-space:nowrap}
+.ptab svg{width:18px;height:18px;flex:none}
+.ptab .c{font-size:12px;font-weight:700;color:var(--mute)}
+.ptab:hover{border-color:var(--navy);color:var(--navy)}
+.ptab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.ptab[aria-selected="true"] .c{color:rgba(255,255,255,.7)}
+.ptab:focus-visible,.pc .go:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+
+/* 프로그램 묶음: 기본은 접힘. 머리(버튼)를 누르면 카드가 펼쳐진다 */
+.pgroups{margin-top:32px;display:flex;flex-direction:column;gap:12px}
+.pgroup[hidden]{display:none}
+.pg-title{font-size:inherit;font-weight:inherit}
+.pg-head{width:100%;display:flex;align-items:center;gap:18px;padding:20px 24px;background:#fff;border:1px solid var(--line);border-left:6px solid var(--lc);border-radius:10px;cursor:pointer;text-align:left;font:inherit;color:inherit;transition:.2s}
+.pg-head:hover{border-color:#B9BFD0;border-left-color:var(--lc);box-shadow:0 8px 20px rgba(10,24,64,.06)}
+.pg-head:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.pgroup.open .pg-head{background:var(--navy-tint);border-color:var(--navy-tint);border-left-color:var(--lc)}
+.pg-ic{width:56px;height:56px;border-radius:50%;background:var(--navy-tint);color:var(--navy);display:grid;place-items:center;flex:none}
+.pgroup.open .pg-ic{background:#fff}
+.pg-ic svg{width:28px;height:28px}
+.pg-txt{flex:1;min-width:0}
+.pg-head .en{display:block;font-size:13px;font-weight:700;color:var(--sub);letter-spacing:.3px}
+.pg-head .ko{display:block;font-size:24px;font-weight:800;color:var(--ink);line-height:1.3;letter-spacing:-.5px}
+.pg-head .ko small{font-size:15px;font-weight:600;color:var(--mute);margin-left:8px;letter-spacing:0}
+.pg-names{display:block;font-size:14px;color:var(--sub);margin-top:4px;line-height:1.5}
+.pgroup.open .pg-names{display:none}
+.pg-lab{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--sub);white-space:nowrap}
+.pg-lab i{width:10px;height:10px;border-radius:50%;background:var(--lc)}
+.pg-lab b{color:var(--lt);font-weight:700}
+.pg-tog{flex:none;display:flex;align-items:center;gap:8px;min-width:76px;justify-content:flex-end;font-size:14px;font-weight:700;color:var(--navy)}
+.pg-tog::after{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-3px) rotate(45deg);transition:.25s}
+.pgroup.open .pg-tog::after{transform:translateY(2px) rotate(-135deg)}
+.pg-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.pgroup.open .pg-body{grid-template-rows:1fr}
+.pg-body>div{overflow:hidden;margin:0 -8px;padding:0 8px}
+@media (prefers-reduced-motion:reduce){.pg-body,.pg-tog::after{transition:none}}
+
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:20px 0 28px}
+.pc{background:#fff;border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;transition:.25s}
+.pc:hover{border-color:#CDD1DE;box-shadow:0 14px 30px rgba(10,24,64,.08);transform:translateY(-3px)}
+.pc-q{position:relative;background:var(--bg-gray);border-radius:10px 10px 0 0;padding:22px 24px 22px}
+.pc-q::after{content:"";position:absolute;left:34px;bottom:-10px;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--bg-gray)}
+.pc-q .when{display:inline-block;font-size:12px;font-weight:800;color:var(--red);letter-spacing:.3px}
+.pc-q h4{font-size:18px;font-weight:700;line-height:1.45;color:var(--navy);margin-top:4px;letter-spacing:-.3px}
+.pc-p{display:flex;gap:16px;align-items:center;padding:26px 24px 0}
+.pc .thumb{width:68px;height:68px;border-radius:8px;flex:none;background:linear-gradient(135deg,#F4F4F6,#E4E4E8);border:1px solid var(--line);display:grid;place-items:center;font-size:10px;color:#9aa3b2}
+.pc .use{display:block;font-size:12px;font-weight:600;color:var(--sub)}
+.pc .pname{display:block;font-size:18px;font-weight:800;line-height:1.35;color:var(--ink);letter-spacing:-.3px}
+.pc .opts{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.pc .opts span{font-size:12px;border:1px solid var(--line);border-radius:12px;padding:1px 9px;color:var(--body);background:#fff}
+.pc .desc{padding:16px 24px 0;font-size:15px;color:var(--body);line-height:1.7}
+.pc .desc b{color:var(--navy);font-weight:700}
+.pc .pts{display:flex;flex-wrap:wrap;gap:6px;padding:14px 24px 0;list-style:none}
+.pc .pts li{font-size:12.5px;font-weight:700;color:var(--navy);background:var(--navy-tint);border-radius:4px;padding:3px 9px}
+.pc .how{margin:16px 24px 0;padding-top:14px;border-top:1px dashed var(--line);font-size:14.5px;color:var(--body);line-height:1.65}
+.pc .how b{display:block;font-size:12px;font-weight:800;color:var(--sub);margin-bottom:2px}
+.pc .vs{margin:14px 24px 0;padding:12px 14px;border-left:3px solid var(--red);background:#FFF6F6;border-radius:0 6px 6px 0;font-size:14px;color:var(--body);line-height:1.6}
+.pc .vs b{display:block;font-size:12px;font-weight:800;color:var(--red);margin-bottom:2px}
+.pc .with{margin:14px 24px 0;padding:12px 14px;border-left:3px solid var(--navy);background:var(--navy-tint);border-radius:0 6px 6px 0;font-size:14px;color:var(--body);line-height:1.6}
+.pc .with>b{display:block;font-size:12px;font-weight:800;color:var(--navy);margin-bottom:2px}
+.pc .with strong{color:var(--navy);font-weight:700}
+.pc .with .sets{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:6px}
+.pc .with .sets a{font-size:13px;font-weight:700;color:var(--navy);text-decoration:underline;text-underline-offset:3px}
+.pc .with .sets a:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.pc .with .so{font-size:12px;font-weight:600;color:var(--mute);margin-left:4px}
+.pc .sp{flex:1}
+.pc .go{margin:20px 24px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-radius:6px;background:var(--navy-tint);color:var(--navy);font-size:14px;font-weight:700;transition:.2s}
+.pc .go:hover{background:var(--navy);color:#fff}
+.pc .go .arr{font-size:17px}
+.p-note{font-size:13px;color:var(--mute);margin-top:28px}
+.center-cta{text-align:center;margin-top:56px}
+
+/* S8 ESG */
+.esg{margin-top:56px;display:grid;grid-template-columns:1fr 1.4fr;gap:24px}
+.part{background:#fff;border-radius:8px;padding:44px 40px;border:1px solid var(--line)}
+.part .pn{font-size:14px;font-weight:800;color:var(--sub)}
+.part h3{font-size:26px;font-weight:800;color:var(--ink);line-height:1.4;margin:8px 0 18px}
+.part p{font-size:16px;color:var(--body)}
+.part .when{display:inline-block;margin:20px 0 28px;font-size:14px;font-weight:700;color:var(--navy);background:var(--navy-tint);padding:6px 14px;border-radius:3px}
+.part .q{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.pkg{list-style:none;margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.pkg li{background:var(--bg-gray);border-radius:6px;padding:22px 22px 24px}
+.pkg b{display:block;font-size:17px;color:var(--ink);margin-bottom:8px}
+.pkg p{font-size:14px;color:var(--sub);line-height:1.65}
+.pkg .bin{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--navy);border:1px solid var(--navy);border-radius:3px;padding:2px 8px}
+.pkg .num{color:var(--navy);font-weight:800}
+
+/* 유튜브 영상: 썸네일만 먼저 보여 주고, 누르면 그 자리에서 재생(페이지 로딩을 가볍게) */
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;border-radius:8px;overflow:hidden;cursor:pointer;
+  background:#0A1840 center/cover no-repeat;font:inherit;color:#fff;text-align:left}
+.yt::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,24,64,0) 45%,rgba(10,24,64,.75) 100%);transition:.2s}
+.yt-play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.94);box-shadow:0 6px 20px rgba(0,0,0,.25);transition:.2s}
+.yt-play::after{content:"";position:absolute;left:50%;top:50%;margin:-10px 0 0 -6px;border-left:18px solid var(--navy);border-top:10px solid transparent;border-bottom:10px solid transparent}
+.yt:hover .yt-play{transform:scale(1.08)}
+.yt:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.yt-t{position:absolute;left:16px;right:16px;bottom:12px;font-size:14px;font-weight:700;line-height:1.4;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.yt-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000}
+.yt-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* 연구소 섹션 브랜드 필름 */
+.brand-film{max-width:880px;margin:48px auto 0}
+.brand-film .yt-play{width:84px;height:84px;margin:-42px 0 0 -42px}
+.brand-film .yt-play::after{margin:-13px 0 0 -8px;border-left-width:24px;border-top-width:13px;border-bottom-width:13px}
+.brand-film .yt-t{left:24px;bottom:20px;font-size:18px}
+.film-more{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:12px;font-size:14px;color:var(--sub)}
+.film-more a{font-weight:700;color:var(--navy);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+/* 카드 속 영상 */
+.pc .pv{margin:18px 24px 0}
+.pc .pv .yt-play{width:52px;height:52px;margin:-26px 0 0 -26px}
+.pc .pv .yt-play::after{margin:-8px 0 0 -5px;border-left-width:15px;border-top-width:8px;border-bottom-width:8px}
+.pc .pv .yt-t{font-size:13px}
+.pg-vid{display:inline-flex;align-items:center;gap:5px;margin-left:10px;font-size:12px;font-weight:700;color:#fff;background:var(--red);border-radius:10px;padding:2px 9px;vertical-align:3px;letter-spacing:0}
+.pg-vid::before{content:"";border-left:7px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent}
+/* ESG 영상 */
+.part .yt{margin:4px 0 20px}
+
+/* 기획 메모: 검토용. 게시 전 .memo 요소 삭제 */
+.memo{margin:56px 0 0;border:1px dashed #A9B0C4;border-radius:10px;background:#fff;padding:28px 32px 26px}
+section:not(.gray) .memo{background:#FAFAFC}
+.memo-tag{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--navy);border-radius:3px;padding:3px 10px;letter-spacing:.3px}
+.memo h3{font-size:20px;font-weight:800;color:var(--ink);line-height:1.45;margin:12px 0 6px}
+.memo-lead{font-size:15px;color:var(--body);margin-bottom:4px}
+.memo ol{margin:12px 0 0 20px;display:flex;flex-direction:column;gap:14px}
+.memo li{font-size:15px;color:var(--body);line-height:1.7;padding-left:4px}
+.memo li>b:first-child{color:var(--navy)}
+.memo li b{color:var(--ink)}
+.memo-src{display:block;margin-top:4px;font-size:12.5px;color:var(--mute)}
+.memo-src a{color:var(--sub);text-decoration:underline;text-underline-offset:2px}
+.memo-ref{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--sub);line-height:1.6}
+.memo-ref b{display:block;font-size:12.5px;color:var(--ink);margin-bottom:4px}
+.memo-ref ul{margin-left:16px}
+.memo-ref li{font-size:12.5px;color:var(--sub);padding:0;line-height:1.6}
+.memo-ref a{color:var(--sub);word-break:break-all;text-decoration:underline;text-underline-offset:2px}
+.memo-lim{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;color:var(--sub)}
+.film-memo{max-width:880px;margin-left:auto;margin-right:auto;margin-top:24px}
+/* 새 창 안내: 화면에는 ↗, 스크린리더에는 "새 창" */
+.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* S10 FAQ */
+.faq{margin-top:48px;border-top:2px solid var(--navy);background:#fff}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:20px;padding:28px 24px;font-size:18px;font-weight:700;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .qq{font-size:22px;font-weight:800;color:var(--navy);width:24px;flex:none}
+.faq summary::after{content:"";margin-left:auto;width:10px;height:10px;border-right:2px solid var(--sub);border-bottom:2px solid var(--sub);transform:rotate(45deg);transition:.2s;flex:none}
+.faq details[open] summary::after{transform:rotate(-135deg)}
+.faq .a{display:flex;gap:20px;padding:24px 24px 30px;background:#F7F7F9;color:var(--body);font-size:16px}
+.faq .a .aa{font-size:22px;font-weight:800;color:var(--sub);width:24px;flex:none;line-height:1.3}
+.faq .a a{text-decoration:underline}
+
+/* Bottom CTA */
+.bottom-cta{background:var(--navy);color:#fff;padding:80px 0}
+.bottom-cta .inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.bottom-cta h2{color:#fff;font-size:34px}
+.bottom-cta p{margin-top:6px;font-size:17px;opacity:.85}
+.bottom-cta .btn{background:#fff;color:var(--navy)}
+.bottom-cta .btn:hover{background:var(--navy-tint)}
+.basis{font-size:13px;color:var(--mute);padding:20px 0;text-align:right}
+
+/* Footer */
+footer{background:#070F2B;color:#8C95AB;font-size:13px;padding:48px 0 56px}
+footer .links{display:flex;gap:24px;margin-bottom:22px;color:#D5D8DD;font-weight:600}
+footer .logo{color:#fff;opacity:.9;font-size:24px;margin-bottom:16px;display:inline-block}
+
+/* Responsive */
+@media (max-width:1024px){
+  .labs{grid-template-columns:repeat(2,1fr)}
+  .lab .head{min-height:0}
+  .lab:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 8px)}
+  .esg{grid-template-columns:1fr}
+  .pgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:768px){
+  html{scroll-padding-top:120px}
+  .util{display:none}
+  .gnb .inner{height:60px;gap:0}
+  .gnb nav,.gnb .mall{display:none}
+  .gnb .burger{display:block}
+  .anchor{top:60px}
+  .anchor a{padding:14px 10px;font-size:14px}
+  .anchor li.go{display:none}
+  .inner,.anchor ul{padding:0 16px}
+  .mv{padding:24px 0 48px}
+  .mv h1{font-size:34px}
+  .mv .def{font-size:17px}
+  .mv-visual{height:260px;margin-top:32px}
+  .bottles{gap:10px;transform:translateX(-50%) scale(.6);transform-origin:bottom center}
+  section{padding:72px 0}
+  h2{font-size:28px}
+  .lead{font-size:16px}
+  .hazards{grid-template-columns:1fr;gap:28px}
+  .because{font-size:19px;margin-top:44px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .stat b{font-size:30px}
+  .declare{padding:88px 0}
+  .declare h2{font-size:38px}
+  .declare h2 span{display:block;margin:0}
+  .declare p{font-size:16px}
+  .labs{grid-template-columns:1fr}
+  .lab:last-child:nth-child(odd){width:100%}
+  .ptabs-wrap{margin:32px -16px 0;padding:10px 16px}
+  .ptabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .ptabs::-webkit-scrollbar{display:none}
+  .ptab{height:38px;padding:0 13px;font-size:14px}
+  .pall{display:none}
+  .pgroups{margin-top:24px;gap:10px}
+  .pg-head{flex-wrap:wrap;gap:12px;padding:16px 16px 16px 14px}
+  .pg-ic{width:44px;height:44px}
+  .pg-ic svg{width:22px;height:22px}
+  .pg-head .ko{font-size:19px}
+  .pg-names{font-size:13px}
+  .pg-lab{order:3;width:100%;font-size:13px;padding-left:56px}
+  .pg-tog{min-width:0}
+  .pgrid{grid-template-columns:1fr}
+  .pc-q{padding:18px 20px}
+  .pc-q h4{font-size:17px}
+  .pc-p{padding:22px 20px 0}
+  .pc .desc,.pc .pts{padding-left:20px;padding-right:20px}
+  .pc .how,.pc .vs,.pc .with{margin-left:20px;margin-right:20px}
+  .pc .go{margin:18px 20px 20px}
+  .part{padding:32px 24px}
+  .pkg{grid-template-columns:1fr}
+  .brand-film{margin-top:32px}
+  .brand-film .yt-play{width:64px;height:64px;margin:-32px 0 0 -32px}
+  .brand-film .yt-t{left:16px;bottom:12px;font-size:15px}
+  .film-more{flex-direction:column;align-items:flex-start;gap:4px}
+  .pc .pv{margin-left:20px;margin-right:20px}
+  .memo{padding:22px 18px 20px}
+  .memo h3{font-size:17px}
+  .memo li{font-size:14px}
+  .faq summary{font-size:16px;padding:22px 12px;gap:14px}
+  .faq .a{padding:20px 12px 24px;gap:14px}
+  .bottom-cta{padding:56px 0}
+  .bottom-cta h2{font-size:26px}
+  .bottom-cta .btn{width:100%;justify-content:center}
+  .btn{height:52px;font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="util"><div class="inner">
+  <a href="#">로그인</a><a href="#">회원가입</a><a href="#">고객센터</a><a href="#">ENGLISH</a>
+</div></div>
+
+<header class="gnb"><div class="inner">
+  <a href="#" class="logo" aria-label="세스코 홈">CESCO</a>
+  <nav aria-label="주 메뉴">
+    <a href="#">해충방제</a>
+    <a href="#">위생</a>
+    <a href="#">환경가전</a>
+    <a href="#" class="on">환경위생용품</a>
+    <a href="#">세스코 이야기</a>
+  </nav>
+  <a href="https://www.cescomall.co.kr" class="mall" target="_blank" rel="noopener">세스코몰</a>
+  <span class="burger" aria-hidden="true"><span></span></span>
+</div></header>
+
+<main>
+<!-- S1 Breadcrumb -->
+<div class="inner crumb" aria-label="현재 위치"><span>홈</span><span>환경위생용품</span><span>세스코 마이랩</span></div>
+
+<!-- S2 Main visual -->
+<div class="mv"><div class="inner">
+  <span class="eyebrow"><b>CESCO</b> Mylab</span>
+  <h1>환경위생용품<br><em>세스코 마이랩</em></h1>
+  <p class="def">세스코 마이랩은 세스코 과학연구소의 50여 년 노하우를 통째로 담은 환경위생용품 브랜드입니다.</p>
+  <a href="https://www.cescomall.co.kr" class="btn btn-red" target="_blank" rel="noopener">Mylab 상품 보기 <span class="arr">→</span></a>
+  <div class="mv-visual" role="img" aria-label="실험실 배경의 세스코 마이랩 제품군 연출 이미지">
+    <span class="cap">제품군 연출 이미지 (실험실 배경 제품 컷)</span>
+    <div class="bottles"><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+</div></div>
+
+<!-- S3 Anchor -->
+<nav class="anchor" aria-label="페이지 목차"><ul>
+  <li><a href="#why">Why CESCO Mylab</a></li>
+  <li><a href="#about">Mylab 소개</a></li>
+  <li><a href="#products">상황별 제품 찾기</a></li>
+  <li><a href="#esg">ESG 도전</a></li>
+  <li><a href="#faq">FAQ</a></li>
+  <li class="go"><a href="https://www.cescomall.co.kr" target="_blank" rel="noopener">Mylab 상품 보기</a></li>
+</ul></nav>
+
+<!-- S4 Why CESCO Mylab -->
+<section id="why" class="gray"><div class="inner">
+  <p class="sec-label">Why CESCO Mylab</p>
+  <h2>세스코 마이랩을 만든 이유</h2>
+  <p class="lead">전문가가 관리하던 위생을 집에서도 같은 기준으로 할 수 있어야 한다고 생각했기 때문입니다.</p>
+
+  <div class="hazards">
+    <div class="hz"><span class="n">01</span><p class="k">인간을 공격하는 감염체</p><p class="t">바이러스와 세균</p></div>
+    <div class="hz"><span class="n">02</span><p class="k">감염균을 옮기는 매개체</p><p class="t">해충</p></div>
+    <div class="hz"><span class="n">03</span><p class="k">그리고 새로운 위해물질까지</p><p class="t">미세먼지와 미세플라스틱</p></div>
+  </div>
+
+  <p class="because">그래서 세스코는 전문가 수준의 위생을 누구나 집에서 스스로 할 수 있도록,<br><strong>세스코 마이랩</strong>을 만들었습니다.</p>
+
+  <div class="stats">
+    <div class="stat"><b>50<small>여 년</small></b><span>환경위생 연구</span></div>
+    <div class="stat"><b>120<small>만 개</small></b><span>매장 관리</span></div>
+    <div class="stat"><b>200<small>명</small></b><span>연구원</span></div>
+    <div class="stat"><b>3,127<small>가지</small></b><span>위생 솔루션</span></div>
+  </div>
+</div></section>
+
+<!-- S5 Declaration -->
+<div class="declare"><div class="inner">
+  <h2><span>누구나.</span><span>집에서.</span><span>스스로.</span></h2>
+  <p>전문가 수준의 위생을 누릴 수 있어야 한다는 세스코의 생각</p>
+</div></div>
+
+<!-- S6 Mylab 소개: 다섯 연구소를 한 화면에 -->
+<section id="about" class="gray"><div class="inner">
+  <p class="sec-label">Mylab Laboratory</p>
+  <h2>세스코 과학연구소를 내 손 안으로</h2>
+  <p class="lead">세스코 마이랩은 다섯 연구소가 함께 만듭니다. 주방세제는 식품안전 연구소가, 살균소독제는 바이러스 연구소가 기준을 세웁니다.</p>
+
+  <div class="brand-film">
+    <button type="button" class="yt" data-yt="ZPVpFu42nt4" data-title="MyLab '기억을 잃은 연구원' 브랜드 필름" aria-label="영상 재생: MyLab '기억을 잃은 연구원' 브랜드 필름" style="background-image:url(https://i.ytimg.com/vi/ZPVpFu42nt4/hqdefault.jpg)"><span class="yt-play" aria-hidden="true"></span><span class="yt-t">MyLab '기억을 잃은 연구원' 브랜드 필름</span></button>
+    <p class="film-more"><span>누구나, 집에서 스스로 전문가 수준의 위생을 누리는 방법</span><a href="https://www.youtube.com/playlist?list=PLZodA5Bv63MfzRyBosijfz009AihS0Kr6" target="_blank" rel="noopener">마이랩 영상 더 보기 <span aria-hidden="true">↗</span><span class="sr">(새 창)</span></a></p>
+  </div>
+  <aside class="memo film-memo" aria-label="기획 메모">
+    <p class="memo-tag">기획 메모 · 게시 전 삭제</p>
+    <h3>브랜드 필름을 연구소 섹션 맨 앞에 둔 이유</h3>
+    <ol>
+      <li><b>페이지 앞쪽일수록 더 많이 봅니다.</b> NN/g 시선추적 연구(2018)에서 페이지를 보는 시간의 <b>57%가 첫 화면</b>, <b>74%가 첫 두 화면</b>에 몰렸고, 첫 화면 아래로 주목이 급격히 떨어지는 패턴은 2010년 연구와 같았습니다. 기존처럼 상품·ESG 뒤 하단에 두면 대부분의 방문자가 영상에 닿지 못합니다.<span class="memo-src">출처: <a href="https://www.nngroup.com/articles/scrolling-and-attention/" target="_blank" rel="noopener">Fessenden, NN/g (2018)</a></span></li>
+      <li><b>영상의 메시지가 섹션 메시지와 같습니다.</b> 이 브랜드 필름의 설명문은 "누구나, 집에서 스스로 전문가 수준의 위생"으로 끝나고, 영상이 속한 재생목록 이름도 "세스코 과학연구소를 내 손 안으로"로 섹션 제목과 같습니다. 섹션 제목이 영상을 소개하고, 영상이 브랜드를 보여 주고, 아래 연구소 카드가 내용을 풀어 주는 흐름입니다.</li>
+      <li><b>자동 재생 대신 제목을 보여 주고 직접 누르게 했습니다.</b> NN/g 영상 사용성 가이드는 사용자가 볼지 말지를 재생 전에 판단하므로 <b>제목·주제·길이를 미리 알리고</b>, 동의 없는 <b>자동 재생은 피하라</b>고 권합니다.<span class="memo-src">출처: <a href="https://www.nngroup.com/articles/video-usability/" target="_blank" rel="noopener">Schade, NN/g (2014)</a></span></li>
+      <li><b>썸네일만 먼저 불러옵니다.</b> Google web.dev에 따르면 유튜브 플레이어를 그대로 넣으면 약 <b>540KB</b>를 불러오지만, 썸네일(파사드)로 대신하면 약 <b>3KB</b>만 불러오고 누를 때 플레이어를 띄웁니다.<span class="memo-src">출처: <a href="https://developer.chrome.com/docs/lighthouse/performance/third-party-facades" target="_blank" rel="noopener">Google Chrome for Developers</a></span></li>
+    </ol>
+    <div class="memo-ref"><b>참고 자료</b><ul><li>Therese Fessenden, "Scrolling and Attention", Nielsen Norman Group, 2018.4.15. 시선추적 연구: 참가자 120명, 시선 고정 13만 건 이상, 1920×1080 화면. <a href="https://www.nngroup.com/articles/scrolling-and-attention/" target="_blank" rel="noopener">https://www.nngroup.com/articles/scrolling-and-attention/</a></li><li>Amy Schade, "Video Usability", Nielsen Norman Group, 2014.11.16. <a href="https://www.nngroup.com/articles/video-usability/" target="_blank" rel="noopener">https://www.nngroup.com/articles/video-usability/</a></li><li>Google Chrome for Developers(구 web.dev), "Lazy load third-party resources with facades", Lighthouse 문서, 2020.12.1 최종 수정. <a href="https://developer.chrome.com/docs/lighthouse/performance/third-party-facades" target="_blank" rel="noopener">https://developer.chrome.com/docs/lighthouse/performance/third-party-facades</a></li></ul></div>
+  </aside>
+
+
+  <div class="labs">
+    <article class="lab"><div class="ph" role="img" aria-label="식품안전 연구소 이미지">주방 오염 시료 채취 장면 (4:3)</div><div class="bd"><span class="no">01</span><p class="name">식품안전 연구소</p>
+      <p class="head">120만 개의 주방에서<br>120만 가지 오염을 채취</p>
+      <p class="desc">세스코 식품안전 연구소에서는 3,021개 식품안전 관리 기준으로 주방 오염의 종류와 제거 조건을 연구합니다.</p></div></article>
+    <article class="lab"><div class="ph" role="img" aria-label="생활과학 연구소 이미지">세탁·청소 성분 검증 장면 (4:3)</div><div class="bd"><span class="no">02</span><p class="name">생활과학 연구소</p>
+      <p class="head">3,127가지<br>맞춤 위생 솔루션</p>
+      <p class="desc">세스코 생활과학 연구소에서는 세탁·청소·개인위생 각 장면에 맞는 성분 조합을 검증합니다.</p></div></article>
+    <article class="lab"><div class="ph" role="img" aria-label="바이러스 연구소 이미지">살균 성분 시험 장면 (4:3)</div><div class="bd"><span class="no">03</span><p class="name">바이러스 연구소</p>
+      <p class="head">200명 연구원의<br>맞춤 처방</p>
+      <p class="desc">세스코 바이러스 연구소에서는 생활 공간의 바이러스와 세균을 대상으로 살균 성분과 사용 조건을 연구합니다.</p></div></article>
+    <article class="lab"><div class="ph" role="img" aria-label="해충방제 연구소 이미지">해충 퇴치·기피 시험 장면 (4:3)</div><div class="bd"><span class="no">04</span><p class="name">해충방제 연구소</p>
+      <p class="head">2,193가지<br>해충방제 방법</p>
+      <p class="desc">세스코 해충방제 연구소에서는 집 안으로 들어오는 해충의 종류별 퇴치·기피 방법을 연구합니다.</p></div></article>
+    <article class="lab"><div class="ph" role="img" aria-label="향기 연구소 이미지">공간별 향 설계 장면 (4:3)</div><div class="bd"><span class="no">05</span><p class="name">향기 연구소</p>
+      <p class="head">102개 업종별<br>공간·고객 특성 분석</p>
+      <p class="desc">세스코 향기 연구소에서는 공간의 용도와 머무는 사람에 맞는 향을 설계합니다.</p></div></article>
+  </div>
+
+  <aside class="memo" aria-label="기획 메모">
+    <p class="memo-tag">기획 메모 · 게시 전 삭제</p>
+    <h3>다섯 연구소를 한 화면에 나란히 보여 주는 이유</h3>
+    <p class="memo-lead">기존 페이지는 연구소를 탭으로 하나씩 보여 줬습니다. 이번 구성은 5곳을 같은 모양의 카드로 한 줄에 모두 보여 줍니다.</p>
+    <ol>
+      <li><b>탭 속 내용은 놓치기 쉽습니다.</b> Baymard Institute의 대규모 상품 상세페이지 사용성 테스트에서 참가자들은 가로 탭 안에서만 볼 수 있는 핵심 콘텐츠를 <b>반복적으로 놓쳤습니다.</b> 상품 상세페이지 연구라 맥락은 다르지만, 탭 뒤에 가린 정보는 일부 방문자에게 아예 보이지 않는다는 점은 같습니다. 탭 구성에서는 첫 번째 연구소를 뺀 4곳이 이 위험을 안습니다.<span class="memo-src">출처: <a href="https://baymard.com/blog/avoid-horizontal-tabs" target="_blank" rel="noopener">Blackwood, Baymard (2018)</a></span></li>
+      <li><b>보이게 두면 기억할 필요가 없습니다.</b> NN/g의 <b>기억보다 알아보기(Recognition rather than recall)</b> 원칙은 선택지와 내용을 화면에 보이게 두라고 권합니다. 보이는 정보는 단서가 많아 머리로 떠올리는 것보다 알아보기 쉽기 때문입니다. 5곳이 한 화면에 있으면 탭을 오가며 앞 내용을 기억할 필요 없이 비교할 수 있고, "다섯 연구소가 함께 만든다"는 규모가 한 번에 전달됩니다.<span class="memo-src">출처: <a href="https://www.nngroup.com/articles/recognition-and-recall/" target="_blank" rel="noopener">Budiu, NN/g (2024)</a></span></li>
+      <li><b>같은 모양은 한 팀으로, 다른 색은 각자의 전문성으로 읽힙니다.</b> NN/g가 설명하는 <b>게슈탈트 유사성 원리</b>에 따르면 색·모양·크기 같은 시각적 특징을 공유하는 요소는 서로 관련된 것으로 인식됩니다. 카드 5장의 크기·이미지 비율·구조를 똑같이 맞춰 '하나의 세스코 과학연구소'로 묶어 보이게 하고, 위쪽 색 띠만 연구소마다 달리해 각 연구소를 구분합니다. 이 색은 아래 상품 묶음의 '기준을 세운 연구소' 표시와도 이어집니다.<span class="memo-src">출처: <a href="https://www.nngroup.com/articles/gestalt-similarity/" target="_blank" rel="noopener">Harley, NN/g (2020)</a></span></li>
+    </ol>
+    <div class="memo-ref"><b>참고 자료</b><ul><li>Alan Blackwood, "Avoid Horizontal Tabs", Baymard Institute, 2018.10.17 게재(2026.7.8 개정). 대규모 상품 상세페이지 사용성 테스트(데스크톱·모바일). <a href="https://baymard.com/blog/avoid-horizontal-tabs" target="_blank" rel="noopener">https://baymard.com/blog/avoid-horizontal-tabs</a></li><li>Raluca Budiu, "Memory Recognition and Recall in User Interfaces", Nielsen Norman Group, 2024.1.15. <a href="https://www.nngroup.com/articles/recognition-and-recall/" target="_blank" rel="noopener">https://www.nngroup.com/articles/recognition-and-recall/</a></li><li>Aurora Harley, "The Principle of Similarity", Nielsen Norman Group, 2020.9.6. <a href="https://www.nngroup.com/articles/gestalt-similarity/" target="_blank" rel="noopener">https://www.nngroup.com/articles/gestalt-similarity/</a></li></ul></div>
+  </aside>
+</div></section>
+
+<!-- S7 상품 종류 + 이럴 때는 이 제품을 씁니다 -->
+<!-- 카드 문구 출처: 세스코몰 상품명 문구·상품고시(주요 사양·성분·허가), 2026-10 확인.
+     확인 필요: 세스코몰에서 찾지 못한 모기 에어로솔·멀티나방 트랩·디퓨저 플라워 마켓은 문구를 일반적으로 썼음. 사용법 세부(시간·양)는 제품 라벨과 대조. 프로그램별 담당 연구소 확정 필요 -->
+<section id="products"><div class="inner">
+  <p class="sec-label">Mylab Program</p>
+  <h2>이럴 때는 이 제품을 사용해 보세요</h2>
+  <p class="lead">세스코 마이랩 전 상품을 9개 프로그램으로 나눴습니다. 집에서 겪는 상황을 찾으면 그때 맞는 제품과 특장점, 비슷한 제품과의 차이까지 함께 볼 수 있습니다.</p>
+
+  <div class="ptabs-wrap"><div class="ptabs-row"><div class="ptabs" role="tablist" aria-label="프로그램 선택" id="ptabs"></div><button type="button" class="pall" id="pall" aria-pressed="false">모두 펼치기</button></div></div>
+  <div class="pgroups" id="pgroups"></div>
+  <noscript><p class="p-note">상품 목록을 보려면 자바스크립트를 켜 주세요. 전 상품은 <a href="https://www.cescomall.co.kr">세스코몰</a>에서도 볼 수 있습니다.</p></noscript>
+
+  <p class="p-note">↗ 표시가 있는 바로가기는 세스코몰 상세페이지를 새 창으로 엽니다. 이 페이지는 그대로 남아 있어 다른 상황을 이어서 찾을 수 있습니다. 제품 구성은 2026년 10월 기준입니다.</p>
+  <div class="center-cta"><a href="https://www.cescomall.co.kr" class="btn btn-line" target="_blank" rel="noopener">세스코몰에서 전 상품 보기 <span class="arr" aria-hidden="true">↗</span><span class="sr">(새 창)</span></a></div>
+
+  <aside class="memo" aria-label="기획 메모">
+    <p class="memo-tag">기획 메모 · 게시 전 삭제</p>
+    <h3>영상을 상품 카드 안에 붙이고, 묶음을 접어 두고, 바로가기를 새 창으로 연 이유</h3>
+    <ol>
+      <li><b>하단 영상 섹션은 도달률이 낮습니다.</b> NN/g 시선추적 연구에서 보는 시간의 <b>74%가 첫 두 화면</b>에 몰렸고, 첫 화면 아래로 갈수록 주목이 급격히 떨어졌습니다. 기존 영상 섹션은 상품 34개와 ESG를 지나야 나와 대부분의 방문자가 보지 못합니다.<span class="memo-src">출처: <a href="https://www.nngroup.com/articles/scrolling-and-attention/" target="_blank" rel="noopener">Fessenden, NN/g (2018)</a></span></li>
+      <li><b>영상을 고민을 읽는 바로 그 자리에 둡니다.</b> 카드 속 영상은 고객이 "배수구에 나방파리가 나오나요?" 같은 고민을 읽는 순간 바로 옆에 있습니다. NN/g 영상 사용성 가이드는 사용자가 볼지 말지를 재생 전에 판단하므로 <b>무엇에 관한 영상인지 미리 알려야 한다</b>고 권합니다. 카드의 '이럴 때' 질문과 제품명, 썸네일 위 영상 제목이 그 역할을 합니다.<span class="memo-src">출처: <a href="https://www.nngroup.com/articles/video-usability/" target="_blank" rel="noopener">Schade, NN/g (2014)</a></span></li>
+      <li><b>카드당 가로 영상 1편으로 통일했습니다.</b> 영상 수와 화면 비율이 카드마다 다르면 묶음 안의 시각적 통일감이 깨집니다(게슈탈트 유사성 원리). 그래서 쇼츠(세로형)는 빼고, 영상이 여러 편인 제품은 가장 완성도 높은 1편만 골랐습니다.<span class="memo-src">출처: <a href="https://www.nngroup.com/articles/gestalt-similarity/" target="_blank" rel="noopener">Harley, NN/g (2020)</a></span></li>
+      <li><b>34개 상품은 묶음만 먼저 보여 줍니다.</b> 연구소 5곳과 달리 34개 카드를 모두 펼치면 페이지가 지나치게 길어집니다. NN/g의 <b>점진적 공개(Progressive disclosure)</b> 원칙에 따라 처음에는 9개 묶음과 그 안의 제품명만 보여 주고, 상세 카드는 펼칠 때 보여 줍니다. 접힌 상태에서도 제품명이 보여 '기억보다 알아보기' 원칙도 지킵니다. 영상이 있는 묶음은 '▶ 영상 N' 배지로 펼치기를 유도합니다.<span class="memo-src">출처: <a href="https://www.nngroup.com/articles/progressive-disclosure/" target="_blank" rel="noopener">Nielsen, NN/g (2006)</a> · <a href="https://www.nngroup.com/articles/recognition-and-recall/" target="_blank" rel="noopener">Budiu, NN/g (2024)</a></span></li>
+      <li><b>썸네일만 먼저 불러옵니다.</b> 유튜브 플레이어 대신 썸네일(약 3KB)을 먼저 보여 주고 누를 때 플레이어(약 540KB)를 띄웁니다. 영상 11편을 넣어도 처음 불러오는 양은 썸네일 수준입니다.<span class="memo-src">출처: <a href="https://developer.chrome.com/docs/lighthouse/performance/third-party-facades" target="_blank" rel="noopener">Google Chrome for Developers</a></span></li>
+      <li><b>세스코몰 바로가기는 새 창으로 엽니다.</b> NN/g는 링크를 기본적으로 같은 창에서 열라고 권하지만, <b>쇼핑 중 여러 상품 페이지를 따로 열어 두고 비교할 때</b>와 <b>원래 페이지를 출발점으로 두고 여러 곳을 오갈 때</b>는 새 창(탭)이 적절하다고 봅니다. 이 페이지는 상황별로 제품을 고르는 출발점이고, 세스코몰은 다른 사이트이므로 새 창으로 열어 방문자가 상품을 보고 돌아와 다른 상황을 이어서 찾을 수 있게 했습니다. 새 창은 미리 알려야 하므로(NN/g, W3C WCAG G201) 바로가기에 ↗ 표시와 "새 창" 안내를 달았습니다.<span class="memo-src">출처: <a href="https://www.nngroup.com/articles/new-browser-windows-and-tabs/" target="_blank" rel="noopener">Nielsen·Kaley, NN/g (2020)</a> · <a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G201" target="_blank" rel="noopener">W3C WAI, WCAG 2.2 G201</a></span></li>
+    </ol>
+    <p class="memo-lim">영상 위치만 바꿔 효과를 비교한 공개 연구는 찾지 못했습니다. 영상 배치는 위의 주목도·맥락·성능 근거를 조합한 판단입니다.</p>
+    <div class="memo-ref"><b>참고 자료</b><ul><li>Therese Fessenden, "Scrolling and Attention", Nielsen Norman Group, 2018.4.15. 시선추적 연구: 참가자 120명, 시선 고정 13만 건 이상, 1920×1080 화면. <a href="https://www.nngroup.com/articles/scrolling-and-attention/" target="_blank" rel="noopener">https://www.nngroup.com/articles/scrolling-and-attention/</a></li><li>Amy Schade, "Video Usability", Nielsen Norman Group, 2014.11.16. <a href="https://www.nngroup.com/articles/video-usability/" target="_blank" rel="noopener">https://www.nngroup.com/articles/video-usability/</a></li><li>Aurora Harley, "The Principle of Similarity", Nielsen Norman Group, 2020.9.6. <a href="https://www.nngroup.com/articles/gestalt-similarity/" target="_blank" rel="noopener">https://www.nngroup.com/articles/gestalt-similarity/</a></li><li>Jakob Nielsen, "Progressive Disclosure", Nielsen Norman Group, 2006.12.3. <a href="https://www.nngroup.com/articles/progressive-disclosure/" target="_blank" rel="noopener">https://www.nngroup.com/articles/progressive-disclosure/</a></li><li>Raluca Budiu, "Memory Recognition and Recall in User Interfaces", Nielsen Norman Group, 2024.1.15. <a href="https://www.nngroup.com/articles/recognition-and-recall/" target="_blank" rel="noopener">https://www.nngroup.com/articles/recognition-and-recall/</a></li><li>Google Chrome for Developers(구 web.dev), "Lazy load third-party resources with facades", Lighthouse 문서, 2020.12.1 최종 수정. <a href="https://developer.chrome.com/docs/lighthouse/performance/third-party-facades" target="_blank" rel="noopener">https://developer.chrome.com/docs/lighthouse/performance/third-party-facades</a></li><li>Jakob Nielsen·Anna Kaley, "Opening Links in New Browser Windows and Tabs", Nielsen Norman Group, 2020.9.27. <a href="https://www.nngroup.com/articles/new-browser-windows-and-tabs/" target="_blank" rel="noopener">https://www.nngroup.com/articles/new-browser-windows-and-tabs/</a></li><li>W3C Web Accessibility Initiative, "G201: Giving users advanced warning when opening a new window", WCAG 2.2 Techniques (권장 기법, 관련 기준 2.4.4·3.2.5 등). <a href="https://www.w3.org/WAI/WCAG22/Techniques/general/G201" target="_blank" rel="noopener">https://www.w3.org/WAI/WCAG22/Techniques/general/G201</a></li></ul></div>
+  </aside>
+</div></section>
+
+<!-- S8 ESG -->
+<section id="esg" class="gray"><div class="inner">
+  <p class="sec-label">ESG Challenge</p>
+  <h2>ESG 도전</h2>
+
+  <div class="esg">
+    <div class="part">
+      <span class="pn">Part 1</span>
+      <h3>100원 환경 기부 프로그램<br>'백투더퓨처'</h3>
+      <p>백투더퓨처는 세스코 마이랩 구매 또는 이벤트 참여를 바탕으로 기부금을 적립하여 지구 환경 지킴이 활동을 위해 사용하는 환경 기부 프로그램입니다.</p>
+      <span class="when">기부금 집행: 매년 12월</span>
+      <button type="button" class="yt" data-yt="eRiqweZsePk" data-title="100 to the Future" aria-label="영상 재생: 100 to the Future" style="background-image:url(https://i.ytimg.com/vi/eRiqweZsePk/hqdefault.jpg)"><span class="yt-play" aria-hidden="true"></span><span class="yt-t">100 to the Future</span></button>
+      
+      <a href="#" class="btn btn-line" target="_blank" rel="noopener">함께 모은 기부금액 확인하러 가기 <span class="arr">→</span></a>
+    </div>
+
+    <div class="part">
+      <span class="pn">Part 2</span>
+      <h3>지속가능한 패키지</h3>
+      <!-- 톤 규칙: 이 섹션은 설명하는 말투로 한 단계 낮추되 질문형("알고 계셨나요?") 대신 ~합니다체 사실 문장으로 연다. -->
+      <p class="q">분리배출은 용기 속 작은 부품 하나에서 막히기도 합니다.</p>
+      <p>펌프 용기 안의 금속 스프링 때문에 용기 전체를 재활용하지 못하는 경우가 있습니다. 세스코 마이랩은 패키지를 아래처럼 바꿨습니다.</p>
+      <ul class="pkg">
+        <li><b>메탈프리 펌프</b><p>스프링까지 100% 플라스틱으로 만들어 펌프째 플라스틱으로 분리배출합니다.</p><span class="bin">플라스틱 배출</span></li>
+        <li><b>수분리·이지필 라벨</b><p>투명 용기는 물에 분리되는 라벨, HDPE 용기는 쉽게 떼어지는 라벨을 써 라벨을 떼고 배출합니다.</p><span class="bin">라벨 분리 후 배출</span></li>
+        <li><b>리필 파우치</b><p>500 ml 용기 4개 대신 1 L 리필 1개를 쓰면 플라스틱을 <span class="num">88%</span> 줄입니다. 파우치는 비닐로 배출합니다.</p><span class="bin">비닐 배출</span></li>
+        <li><b>종이 완충재·종이테이프</b><p>택배 상자 안 완충재와 테이프를 종이로 바꿔 상자째 종이로 배출합니다.</p><span class="bin">종이 배출</span></li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+
+<!-- S10 FAQ -->
+<section id="faq" class="gray"><div class="inner">
+  <p class="sec-label">FAQ</p>
+  <h2>자주 묻는 질문</h2>
+  <div class="faq">
+    <details open><summary><span class="qq">Q</span>세스코 마이랩은 세스코 서비스와 무엇이 다른가요?</summary>
+      <div class="a"><span class="aa">A</span><p>세스코 마이랩은 고객이 집에서 직접 쓰는 제품이고, 세스코 서비스는 서비스 컨설턴트가 방문해 수행합니다. 해충이 이미 번식한 상황이라면 제품만으로는 부족할 수 있어 무료진단을 권합니다.</p></div></details>
+    <details><summary><span class="qq">Q</span>어떤 제품을 골라야 할지 모르겠어요.</summary>
+      <div class="a"><span class="aa">A</span><p>이 페이지의 <a href="#products">상황별 제품 찾기</a>에서 지금 겪는 상황과 비슷한 카드를 찾으면 됩니다. 카드마다 그 상황에 쓰는 제품과 쓰는 법을 적었습니다.</p></div></details>
+    <details><summary><span class="qq">Q</span>어디서 살 수 있나요?</summary>
+      <div class="a"><span class="aa">A</span><p><a href="https://www.cescomall.co.kr" target="_blank" rel="noopener">세스코몰</a>에서 구매할 수 있습니다. 세스코몰은 새 창으로 열립니다.</p></div></details>
+    <details><summary><span class="qq">Q</span>마스터 제품은 누구를 위한 제품인가요?</summary>
+      <div class="a"><span class="aa">A</span><p>마스터 제품은 식당·매장처럼 사용량이 많은 사업장을 위한 업소용 라인입니다. 쓰기 전에 제품 라벨의 사용량과 주의사항을 확인합니다.</p></div></details>
+    <details><summary><span class="qq">Q</span>제품의 살균력이나 시험 결과는 어디서 보나요?</summary>
+      <div class="a"><span class="aa">A</span><p>제품별 상세페이지에서 확인할 수 있습니다. 이 페이지에는 브랜드와 연구소, 상품 구성을 담았습니다.</p></div></details>
+    <details><summary><span class="qq">Q</span>백투더퓨처 기부금은 어떻게 쓰이나요?</summary>
+      <div class="a"><span class="aa">A</span><p>세스코 마이랩 구매와 이벤트 참여로 적립한 기부금을 매년 12월 지구 환경 지킴이 활동에 사용합니다.</p></div></details>
+  </div>
+</div></section>
+
+<!-- Bottom CTA -->
+<div class="bottom-cta"><div class="inner">
+  <div><h2>세스코 마이랩 전 상품은 세스코몰에서</h2><p>www.cescomall.co.kr</p></div>
+  <a href="https://www.cescomall.co.kr" class="btn" target="_blank" rel="noopener">Mylab 상품 보기 <span class="arr">→</span></a>
+</div></div>
+<div class="inner basis">2026년 10월 기준</div>
+</main>
+
+<footer><div class="inner">
+  <span class="logo">CESCO</span>
+  <div class="links"><a href="#">개인정보처리방침</a><a href="#">이용약관</a><a href="#">고객센터</a></div>
+  <p>© CESCO. All rights reserved.</p>
+</div></footer>
+
+<script>
+// 세스코몰 주소: 상품 상세페이지는 PRODUCTS 표의 url로 연결됩니다. url이 없으면 세스코몰 첫 화면으로 연결됩니다.
+var MALL='https://www.cescomall.co.kr';
+
+// 아이콘(선형, 24px 기준)
+var ICON={
+  kitchen:'<path d="M4 10h16v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M2 10h20M9 7V4M15 7V4M12 7V5"/>',
+  bath:'<path d="M9 3h5l-1 4h-3z"/><path d="M8 7h7l1 4v9a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-9z"/><path d="M14 3h4M18 3v2"/>',
+  fabric:'<path d="M8 3 4 6l2 4 2-1v12h8V9l2 1 2-4-4-3c0 1.7-1.8 3-4 3S8 4.7 8 3z"/>',
+  virus:'<path d="M12 3 5 6v6c0 4 3 7 7 9 4-2 7-5 7-9V6z"/><path d="m9 12 2 2 4-4"/>',
+  personal:'<path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/><path d="M9.5 15a2.5 2.5 0 0 0 2.5 2.5"/>',
+  pet:'<circle cx="6.5" cy="10" r="1.8"/><circle cx="10" cy="6" r="1.8"/><circle cx="14" cy="6" r="1.8"/><circle cx="17.5" cy="10" r="1.8"/><path d="M8 17.5c0-2.8 1.8-5 4-5s4 2.2 4 5a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2z"/>',
+  insect:'<ellipse cx="12" cy="13.5" rx="4" ry="5.5"/><path d="M12 8V5M10 5h4M8 10 4 8M16 10l4-2M8 14H3M16 14h5M8.5 17.5 5 20M15.5 17.5 19 20"/>',
+  fragrance:'<path d="M8 21h8l-1-8H9z"/><path d="M11 13 9 3M13 13l2-10M12 13V2"/>',
+  b2b:'<path d="M3 9 5 4h14l2 5"/><path d="M4 9v11h16V9M3 9h18"/><path d="M10 20v-6h4v6"/>',
+  all:'<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>'
+};
+function svg(k){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICON[k]+'</svg>';}
+
+// 프로그램(카테고리): 순서 = 화면 순서. lab = 기준을 세운 연구소(1~5, 확인 필요)
+var PROGRAMS=[
+  {key:'kitchen',  en:'Clean Care Program',            ko:'주방',          lab:1},
+  {key:'bath',     en:'Clean Care Program',            ko:'청소',          lab:2},
+  {key:'fabric',   en:'Fabric Care Program',           ko:'세탁·섬유케어', lab:2},
+  {key:'virus',    en:'Virus Care Program',            ko:'살균·소독',     lab:3},
+  {key:'personal', en:'Personal Care Program',         ko:'개인위생',      lab:3},
+  {key:'pet',      en:'Pet Care Program',              ko:'반려동물 케어', lab:4},
+  {key:'insect',   en:'Flying Insect Control Program', ko:'해충퇴치',      lab:4},
+  {key:'fragrance',en:'Fragrance Care Program',        ko:'방향',          lab:5},
+  {key:'b2b',      en:'B2B Care Program',              ko:'사업장용 마스터', lab:1}
+];
+var LAB_NAME=['','식품안전 연구소','생활과학 연구소','바이러스 연구소','해충방제 연구소','향기 연구소'];
+
+// 상품 표
+//  cat  = 프로그램 key        q    = 이럴 때(고객 구어 질문)
+//  desc = 제품 설명 2~3문장(~합니다체). **굵게** = 특장점 강조
+//  pts  = 특장점 칩            how  = 사용법 1~2문장
+//  vs   = 헷갈리는 제품과의 차이(선택)   opts = 종류·향 칩(선택)
+//  url  = 세스코몰 상세페이지 주소
+//  video = 유튜브 영상(가로형 일반 영상만, 쇼츠 제외) {id, title}
+//  with = 함께 쓰면 좋은 제품(세스코몰 묶음 상품 기준). text = 설명, sets = 세트 상품 링크
+// 출처: 세스코몰 상품명 문구와 상품고시(주요 사양·성분·허가번호), 2026-10 확인
+var PRODUCTS=[
+  // 주방
+  {cat:'kitchen', url:'https://www.cescomall.co.kr/products/view/G2000000838', name:'주방세제',
+   q:'하루에도 몇 번씩 하는 설거지, 손에 닿는 세제 자극이 신경 쓰이나요?',
+   desc:'세스코가 관리하는 120만 개 식당의 식기 세척을 연구해 만든 기본 주방세제입니다. **인체 피부 저자극 판정**을 받아 자주 설거지해도 부담이 적고, 과일·채소 세척에도 쓸 수 있습니다.',
+   pts:['피부 저자극 판정','과일·채소 세척'],
+   how:'물에 적신 수세미에 조금 덜어 거품을 낸 뒤 닦고, 흐르는 물에 충분히 헹굽니다.',
+   vs:'찌개·볶음처럼 기름진 한식 설거지가 많다면 <b>주방세제 프리미엄</b>이 더 잘 맞습니다.'},
+  {cat:'kitchen', url:'https://www.cescomall.co.kr/products/view/G2000000869', name:'주방세제 프리미엄', video:{id:'TSUhgulEJHo', title:'주방세제 프리미엄 - 전국 식당 아카이브'}, with:{"text":"삼겹살 구운 코팅 팬도 마음 편히 닦아요. <strong>주방세제 프리미엄</strong>이 찐득한 기름을 풀어 주고, <strong>주방수세미 망사</strong>는 코팅에 흠집을 남기지 않아 아끼는 팬을 오래 쓸 수 있어요.","sets":[{"label":"주방세제 프리미엄 + 주방수세미 세트 보기","url":"https://www.cescomall.co.kr/products/view/G2000000967"}]},
+   q:'찌개·볶음·전처럼 기름진 한식 설거지가 많나요?',
+   desc:'**한식의 찐득한 기름까지** 씻어 내도록 세정 성분을 보강한 프리미엄 주방세제입니다. 알킬폴리글루코시드와 프로폴리스 추출물을 담았고, 은은한 사과향이 납니다. 과일·채소 세척에도 쓸 수 있습니다.',
+   pts:['한식 기름때','프로폴리스 추출물','리필 2L'],
+   how:'물에 적신 수세미에 조금 덜어 거품을 낸 뒤 닦고, 흐르는 물에 충분히 헹굽니다.',
+   vs:'기름이 적은 일상 설거지라면 피부 저자극 판정을 받은 기본 <b>주방세제</b>로도 충분합니다.'},
+  {cat:'kitchen', url:'https://www.cescomall.co.kr/products/view/G2000001543', name:'식기세척기 세제 올인원', with:{"text":"저녁 먹고 식기세척기를 돌리는 동안 <strong>기름때세정제 파워</strong>로 렌지후드를 한 번 닦고, 다 씻은 도마와 수저에는 <strong>곡물발효 살균소독제</strong>를 뿌려 두세요. 설거지, 기름때 청소, 소독까지 저녁 주방 정리가 한 번에 끝나요.","sets":[{"label":"주방 스타트팩 보기","url":"https://www.cescomall.co.kr/products/view/G2000001572"}]},
+   q:'식기세척기를 쓰는데 세제를 매번 계량하기 번거롭나요?',
+   desc:'1회분 10g씩 65개가 들어 있는 **올인원 태블릿** 식기세척기 세제입니다. **기름기부터 물 얼룩까지** 한 알로 처리해, 계량할 필요 없이 한 번에 하나씩 넣으면 됩니다.',
+   pts:['올인원 태블릿','기름기·물 얼룩','65회분'],
+   how:'식기를 넣은 뒤 세제 칸에 1개를 넣고 평소 코스로 돌립니다.'},
+  {cat:'kitchen', url:'https://www.cescomall.co.kr/products/view/G2000001116', name:'기름때세정제 파워', video:{id:'Bpw905xUg0Q', title:'기름때세정제 파워'}, with:{"text":"주말 대청소 날 렌지후드 기름때만 지워도 주방 정리가 반은 끝나요. 평소 설거지는 <strong>식기세척기 세제 올인원</strong>에 맡기고, 도마·수저는 <strong>곡물발효 살균소독제</strong>로 헹굼 없이 소독하면 주방 관리가 훨씬 가벼워져요.","sets":[{"label":"주방 스타트팩 보기","url":"https://www.cescomall.co.kr/products/view/G2000001572"}]},
+   q:'가스레인지·렌지후드·오븐에 기름때가 눌어붙어 안 지워지나요?',
+   desc:'**뿌리기만 해도 눌어붙은 기름때를 강력하게 분해**하는 알칼리성 세정제입니다. 렌지후드, 오븐, 주방 바닥, 배수관처럼 기름때가 오래 쌓인 곳에 씁니다.',
+   pts:['렌지후드·오븐','눌어붙은 기름때','리필 4L'],
+   how:'기름때에 뿌리고 잠시 불린 뒤 닦아 내고, 물걸레로 한 번 더 닦습니다. 고무장갑을 끼고 사용합니다.',
+   vs:'매일 닦는 상판·식탁의 가벼운 얼룩에는 <b>다목적 주방세정제</b>가 맞습니다.'},
+  {cat:'kitchen', url:'https://www.cescomall.co.kr/products/view/G2000001119', name:'다목적 주방세정제',
+   q:'싱크대 상판·식탁·가전 겉면을 매일 가볍게 닦고 싶나요?',
+   desc:'**세정부터 탈취까지 한 번에** 하는 주방용 올인원 세정제입니다. 매일 생기는 얼룩과 음식 냄새를 함께 정리합니다.',
+   pts:['세정+탈취','매일 사용'],
+   how:'닦을 곳에 뿌리고 마른 행주로 닦아 냅니다.',
+   vs:'오래 눌어붙은 기름때에는 <b>기름때세정제 파워</b>를 쓰세요.'},
+  {cat:'kitchen', url:'https://www.cescomall.co.kr/products/view/G2000000317', name:'주방수세미 망사', with:{"text":"새로 산 코팅 팬, 긁힐까 봐 살살 닦고 있나요? <strong>주방수세미 망사</strong>에 <strong>주방세제 프리미엄</strong>을 덜어 쓰면 기름진 한식 설거지도 팬 코팅 걱정 없이 끝낼 수 있어요.","sets":[{"label":"주방세제 프리미엄 + 주방수세미 세트 보기","url":"https://www.cescomall.co.kr/products/view/G2000000967"}]},
+   q:'코팅 프라이팬이나 그릇에 흠집이 날까 걱정되나요?',
+   desc:'**세척력은 그대로, 흠집은 남기지 않도록** 만든 망사 수세미입니다. 코팅 팬처럼 긁히기 쉬운 식기도 안심하고 닦습니다.',
+   pts:['흠집 없는 망사','3개입'],
+   how:'주방세제를 덜어 거품을 낸 뒤 닦고, 쓰고 나면 물기를 짜서 말립니다.'},
+  // 청소
+  {cat:'bath', url:'https://www.cescomall.co.kr/products/view/G2000000845', name:'다목적 욕실세정제',
+   q:'욕실 타일·세면대·수전에 물때와 비누때가 끼었나요?',
+   desc:'**물때와 비누때 세정에 특화**한 욕실 세정제입니다. 타일, 세면대, 수전, 욕조처럼 물이 자주 닿는 곳에 씁니다.',
+   pts:['물때·비누때','욕실 전용'],
+   how:'더러운 곳에 뿌리고 잠시 둔 뒤 솔이나 스펀지로 문지르고 물로 헹굽니다.'},
+  {cat:'bath', url:'https://www.cescomall.co.kr/products/view/G2000001715', name:'배수구클리너', video:{id:'ehnnXdwpCI4', title:'배수구클리너'},
+   q:'욕실 배수구에서 나방파리가 나오거나 냄새가 올라오나요?',
+   desc:'배수관 안쪽 오염은 물론 **나방파리 같은 벌레 알까지 세정**하는 분말형 배수구 세정제입니다. 1회분 40g씩 나뉘어 있어 하나씩 뜯어 쓰면 됩니다.',
+   pts:['벌레 알까지 세정','1회분 40g'],
+   how:'배수구에 1회분을 붓고 물을 조금 부어 둔 뒤, 시간이 지나면 물을 충분히 흘려보냅니다. 2주 간격으로 쓰면 좋습니다.',
+   vs:'식당·매장처럼 배수관이 크고 쓰는 물이 많다면 액체형 <b>마스터 배수관세정제</b>가 맞습니다.'},
+  {cat:'bath', url:'https://www.cescomall.co.kr/products/view/G2000000763', name:'다용도 살균클리닝 티슈',
+   q:'장난감·리모컨·식탁을 세제 없이 한 장으로 바로 닦고 싶나요?',
+   desc:'**살균과 세정을 한 장으로** 하는 티슈입니다. 어린이용품, 주방, 욕실, 전자기기 겉면까지 쓸 수 있어 물걸레질이 번거로운 곳을 바로 닦습니다.',
+   pts:['살균+세정','어린이용품 사용','20×20cm'],
+   how:'한 장 뽑아 닦을 곳을 문지르고, 쓴 뒤에는 뚜껑을 닫아 마르지 않게 둡니다.',
+   vs:'손과 얼굴을 닦을 때는 피부 저자극 테스트를 마친 <b>위생물티슈</b>를 쓰세요.'},
+  // 세탁·섬유케어
+  {cat:'fabric', url:'https://www.cescomall.co.kr/products/view/G2000001784', name:'세탁세제 프리미엄', with:{"text":"아이 흰 체육복과 알록달록한 양말, 이제 한 번에 돌려도 돼요. <strong>세탁세제 프리미엄</strong>이 쉰내 원인균을 씻어 내고, 함께 넣은 <strong>이염방지시트</strong>가 빠져나온 염료를 붙잡아 줘요.","sets":[{"label":"퍼펙트 세탁 세트 보기","url":"https://www.cescomall.co.kr/products/view/G2000001785"}]},
+   q:'실내에서 말린 빨래에서 퀴퀴한 냄새가 나나요?',
+   desc:'빨래 냄새의 원인으로 꼽히는 **모락셀라균을 97% 세척**하는 액체 세탁세제입니다. 옷은 물론 신발 세탁과 얼룩 제거에도 씁니다.',
+   pts:['모락셀라균 97% 세척','신발·얼룩 제거','리필 1.7L'],
+   how:'세탁물 양에 맞춰 세제 칸에 넣고 세탁합니다.'},
+  {cat:'fabric', url:'https://www.cescomall.co.kr/products/view/G2000000851', name:'섬유유연제',
+   q:'빨래가 뻣뻣하고 입을 때마다 정전기가 나나요?',
+   desc:'**옷감 손상과 정전기를 줄여** 주는 섬유유연제입니다. 향기 캡슐 없이 은은한 향만 남깁니다.',
+   pts:['정전기 방지','향기 캡슐 없음'],
+   how:'마지막 헹굼 때 들어가도록 유연제 칸에 넣습니다.'},
+  {cat:'fabric', url:'https://www.cescomall.co.kr/products/view/G2000001781', name:'이염방지시트', with:{"text":"빨래 바구니를 색깔별로 나누는 수고를 덜어 보세요. <strong>이염방지시트</strong>를 <strong>세탁세제 프리미엄</strong>과 함께 넣으면 물빠짐 걱정도, 실내에서 말린 빨래의 쉰내 걱정도 한 번에 줄일 수 있어요.","sets":[{"label":"퍼펙트 세탁 세트 보기","url":"https://www.cescomall.co.kr/products/view/G2000001785"}]},
+   q:'색깔 옷과 흰 옷을 나눠 빨기 번거롭나요?',
+   desc:'세탁 중 빠져나온 **염료와 형광증백제를 시트가 흡착**해 다른 옷에 물드는 것을 막습니다. 색깔 옷과 흰 옷을 한 번에 빨 때 함께 넣습니다.',
+   pts:['염료 흡착','형광증백제 흡착','40매'],
+   how:'세탁물과 함께 시트를 넣고 평소처럼 세탁합니다.'},
+  {cat:'fabric', url:'https://www.cescomall.co.kr/products/view/G2000001645', name:'섬유탈취제', with:{"text":"출근 전 외투에 <strong>섬유탈취제</strong>를 뿌리고, 옷장 안에는 <strong>슬림형 탈취제습제</strong>를 넣어 두세요. 장마철 눅눅한 옷장 냄새까지 함께 잡아 줘요. 거실에 <strong>에어퍼퓸 디퓨저</strong>를 두면 냄새를 없앤 자리에 좋아하는 향이 남아요.","sets":[{"label":"섬유탈취제 + 탈취제습제 세트 보기","url":"https://www.cescomall.co.kr/products/view/G2000001574"},{"label":"섬유탈취제 + 디퓨저 세트 보기","url":"https://www.cescomall.co.kr/products/view/G2000001555"}]},
+   q:'매일 빨기 어려운 소파·커튼·외투에서 냄새가 나나요?',
+   desc:'향으로 덮는 대신 **냄새의 원인부터 99% 탈취**하는 섬유탈취제입니다. 감잎·녹차 추출물을 담았고 은은한 향이 남으며, 차 안 시트에도 쓸 수 있습니다.',
+   pts:['냄새 원인 99% 탈취','차량 실내 사용'],
+   how:'30cm쯤 떨어져 골고루 뿌리고 바람이 통하는 곳에서 말립니다.',
+   vs:'반려동물 배변 냄새에는 향료를 넣지 않은 <b>반려동물 탈취제</b>가 맞습니다.'},
+  {cat:'fabric', url:'https://www.cescomall.co.kr/products/view/G2000001373', name:'탈취제습제', with:{"text":"장마철 신발장을 열 때마다 나는 꿉꿉한 냄새, 제습만으로는 아쉬울 때가 있어요. 신발장·옷장 안에는 <strong>탈취제습제</strong>를 두고 신발과 외투에는 <strong>섬유탈취제</strong>를 뿌리면 습기와 냄새를 함께 잡을 수 있어요.","sets":[{"label":"섬유탈취제 + 탈취제습제 세트 보기","url":"https://www.cescomall.co.kr/products/view/G2000001574"}]},
+   q:'옷장·신발장·서랍이 눅눅하고 퀴퀴한가요?',
+   desc:'습기를 빨아들이는 염화칼슘으로 **제습과 탈취를 한 번에** 합니다. 옷장처럼 넓은 곳에는 스탠드형(150g), 서랍·신발장처럼 좁은 곳에는 슬림형(30g)을 씁니다.',
+   pts:['제습+탈취','좁은 곳은 슬림형'],
+   opts:['스탠드형 150g','슬림형 30g'],
+   how:'공간 안쪽에 두고, 안에 물이 가득 차면 새것으로 바꿉니다.'},
+  {cat:'fabric', url:'https://www.cescomall.co.kr/products/view/G2000000867', name:'세탁조클리너',
+   q:'빨래에서 쉰내가 나거나 검은 찌꺼기가 묻어 나오나요?',
+   desc:'**강력한 발포력**으로 세탁조 안쪽에 낀 오염을 떼어 내는 분말형 세탁조 세정제입니다. 1회분 90g씩 나뉘어 있습니다.',
+   pts:['강력 발포','1회분 90g'],
+   how:'빈 세탁기에 1회분을 넣고 통세척 코스로 돌립니다.'},
+  // 살균·소독
+  {cat:'virus', url:'https://www.cescomall.co.kr/products/view/G2000001117', name:'곡물발효 살균소독제', with:{"text":"식기세척기에서 꺼낸 수저와 도마에 칙칙 뿌리고 그대로 말리면 끝이에요. <strong>식기세척기 세제 올인원</strong>으로 씻고 <strong>기름때세정제 파워</strong>로 가스레인지 주변까지 닦아 두면, 매번 끓는 물에 소독하지 않아도 주방이 깔끔해요.","sets":[{"label":"주방 스타트팩 보기","url":"https://www.cescomall.co.kr/products/view/G2000001572"}]},
+   q:'도마·수저·밀폐용기를 매번 끓는 물에 소독하기 번거롭나요?',
+   desc:'곡물을 발효한 **곡물주정 58.8%**에 감초·녹차 농축액과 유산균배양액을 더한 살균소독제입니다. 입에 닿는 식기와 조리도구를 **열탕 소독 없이, 헹굼 없이** 소독하도록 만들었습니다.',
+   pts:['곡물주정 58.8%','헹굼 없이 사용','식기·조리도구'],
+   how:'깨끗이 씻은 식기·도구에 골고루 뿌리고 그대로 말립니다.',
+   vs:'문손잡이·스위치처럼 생활 공간의 물체 표면까지 넓게 소독하려면 <b>살균소독제 70</b>을 고르세요.'},
+  {cat:'virus', url:'https://www.cescomall.co.kr/products/view/G2000001634', name:'살균소독제 70', with:{"text":"아이가 하원하고 돌아오면 현관 손잡이와 스위치는 <strong>살균소독제 70</strong>으로 닦고, 흙 묻은 운동화가 들어간 신발장에는 <strong>슬림형 탈취제습제</strong>를 넣어 두세요. 손이 닿는 곳의 세균부터 신발장 습기·냄새까지 함께 관리돼요.","sets":[{"label":"살균·탈취·제습 패키지 보기","url":"https://www.cescomall.co.kr/products/view/G2000001667"}]},
+   q:'문손잡이·스위치·리모컨처럼 가족 손이 자주 닿는 곳이 신경 쓰이나요?',
+   desc:'에탄올을 주성분으로 한 살균소독제입니다. **살생물제품(살균제) 승인과 기구 등의 살균소독제 허가를 함께** 받아, 생활 공간의 물체 표면부터 주방 기구까지 한 통으로 소독합니다.',
+   pts:['에탄올 주성분','살생물제품 승인','표면·기구 겸용','리필 4L'],
+   how:'소독할 곳에 뿌린 뒤 마른 천으로 닦거나 그대로 말립니다.',
+   vs:'입에 닿는 식기·조리도구를 헹굼 없이 소독하는 게 주목적이라면 <b>곡물발효 살균소독제</b>가 맞습니다.'},
+  // 개인위생
+  {cat:'personal', url:'https://www.cescomall.co.kr/products/view/G2000000940', name:'항균 핸드워시 폼',
+   q:'자주 손을 씻다 보니 손이 당기고 건조한가요?',
+   desc:'**유해세균 99.9% 항균**, 세정, 보습을 한 번에 하는 거품형 핸드워시입니다. 판테놀과 글리세린을 담아 자주 씻어도 당김이 적고, **합성향료를 넣지 않은 무향**입니다.',
+   pts:['유해세균 99.9% 항균','무향','리필 1L'],
+   how:'펌프를 눌러 나온 거품으로 손바닥·손등·손가락 사이까지 30초 이상 씻습니다.'},
+  {cat:'personal', url:'https://www.cescomall.co.kr/products/view/G2000000860', name:'손소독제 겔',
+   q:'밖에서 손 씻을 곳이 마땅치 않을 때가 많나요?',
+   desc:'물 없이 쓰는 겔 타입 손소독제로 **유해세균을 99.9% 제거**합니다. 식약처 허가를 받은 제품이며, 향과 자극을 줄였습니다.',
+   pts:['유해세균 99.9% 제거','식약처 허가','무향'],
+   how:'손에 적당량 덜어 손 전체에 골고루 문지르고 마를 때까지 둡니다.',
+   vs:'손이 아닌 물건 표면은 <b>살균소독제 70</b>이나 <b>다용도 살균클리닝 티슈</b>로 소독합니다.'},
+  {cat:'personal', url:'https://www.cescomall.co.kr/products/view/G2000001245', name:'항균 풋샴푸', video:{id:'yaDoDqD6YnE', title:'항균 풋샴푸'},
+   q:'하루 종일 신발 속에 있던 발의 냄새와 각질이 신경 쓰이나요?',
+   desc:'발을 깨끗하게 씻는 항균 풋샴푸로, **건조한 발부터 민감한 발까지 각질을 함께 케어**합니다. 뿌리고 비비기만 하면 됩니다.',
+   pts:['항균','각질 케어','490ml'],
+   how:'젖은 발에 뿌리고 발가락 사이까지 비벼 거품을 낸 뒤 물로 헹굽니다.'},
+  {cat:'personal', url:'https://www.cescomall.co.kr/products/view/G2000000561', name:'위생물티슈',
+   q:'외출 중 손과 입 주변을 바로 닦아야 할 때가 많나요?',
+   desc:'**인체 피부 저자극 테스트를 완료**한 위생물티슈입니다. 손과 얼굴처럼 피부에 직접 닿는 곳을 닦을 때 씁니다.',
+   pts:['피부 저자극 테스트 완료','1000매'],
+   opts:['스탠다드','컴팩트'],
+   how:'한 장 뽑아 닦고, 쓴 뒤에는 뚜껑을 닫아 마르지 않게 둡니다.',
+   vs:'식탁·장난감 같은 물건을 살균하려면 <b>다용도 살균클리닝 티슈</b>를 쓰세요.'},
+  // 반려동물
+  {cat:'pet', url:'https://www.cescomall.co.kr/products/view/G2000000839', name:'반려동물 탈취제', with:{"text":"산책 나가기 전에는 <strong>반려견용 기피제</strong>로 모기·진드기를 막고, 돌아와서는 배변 패드 자리와 방석에 <strong>반려동물 탈취제</strong>를 뿌려 주세요. 산책부터 집 안 냄새까지 반려견과 보내는 하루를 한 번에 챙길 수 있어요.","sets":[{"label":"반려견 전용 패키지 보기","url":"https://www.cescomall.co.kr/products/view/G2000001601"}]},
+   q:'배변 자리·방석·켄넬에서 냄새가 가시지 않나요?',
+   desc:'향기로 덮지 않고 **냄새의 원인을 99% 탈취**합니다. 냄새에 예민한 반려동물을 생각해 **향료를 넣지 않았습니다.**',
+   pts:['냄새 원인 99% 탈취','향료 없음'],
+   how:'냄새가 나는 곳에 뿌리고 마를 때까지 둡니다. 반려동물 몸에는 직접 뿌리지 않습니다.',
+   vs:'사람 옷·소파 냄새에는 은은한 향이 남는 <b>섬유탈취제</b>를 쓰세요.'},
+  {cat:'pet', url:'https://www.cescomall.co.kr/products/view/G2000001130', name:'모기·진드기 기피제 반려견용', video:{id:'nf6sVgAjg_E', title:'모기·진드기 기피제 반려견용'}, with:{"text":"풀숲 산책을 좋아하는 아이라면 나가기 전엔 <strong>반려견용 기피제</strong>를, 돌아와 쉬는 방석과 켄넬엔 <strong>반려동물 탈취제</strong>를 써 보세요. 둘 다 향을 넣지 않아 냄새에 예민한 반려견도 부담이 적어요.","sets":[{"label":"반려견 전용 패키지 보기","url":"https://www.cescomall.co.kr/products/view/G2000001601"}]},
+   q:'산책이나 캠핑 때 반려견에게 모기·진드기가 붙을까 걱정되나요?',
+   desc:'농림축산검역본부 허가를 받은 **동물용 의약외품** 기피제입니다. 유효성분 IR3535(에틸부틸아세틸아미노프로피오네이트) 12.4%를 담았고, 반려견이 거부감을 덜 느끼도록 **무향**으로 만들었습니다.',
+   pts:['동물용 의약외품','무향','120ml'],
+   how:'산책 전 털에 골고루 뿌리고, 눈·코·입 주변은 피합니다.',
+   vs:'사람에게는 사람용 <b>모기 기피제</b>를 따로 쓰세요.'},
+  // 해충퇴치
+  {cat:'insect', url:'https://www.cescomall.co.kr/products/view/G2000000475', name:'모기 에어로솔', video:{id:'6eqSkhsuecU', title:'아웃도어 미스트'},
+   q:'아이와 함께 캠핑·공원에 갈 때, 온 가족에게 골고루 뿌릴 모기 기피제가 필요한가요?',
+   desc:'**미세한 안개처럼 분사**되는 아웃도어 미스트 에어로솔 모기 기피제입니다. 넓은 면적에 산뜻하게 골고루 뿌려지고, **유아·임산부까지 온 가족**이 쓸 수 있습니다.',
+   pts:['의약외품 기피제','미세 안개 분사','100ml'],
+   how:'외출 전 드러난 피부와 옷에서 조금 떨어져 골고루 뿌리고, 얼굴에는 직접 뿌리지 않습니다.',
+   vs:'가방에 넣어 다니며 수시로 뿌리려면 기내 반입이 되는 펌프형 <b>모기 기피제 70ml</b>가 편합니다.'},
+  {cat:'insect', url:'https://www.cescomall.co.kr/products/view/G2000001071', name:'모기 기피제', video:{id:'wtwdM4zdFoY', title:'모기로부터 나만 투명인간 되는 법'}, with:{"text":"집에는 <strong>290ml 대용량</strong>을 두고, 외출할 땐 <strong>70ml</strong>를 가방에 쏙 넣어 다니세요. 다 쓴 70ml 용기는 대용량으로 다시 채우면 되고, 70ml는 기내 반입도 돼서 여름휴가 짐 챙길 때도 편해요.","sets":[{"label":"모기 기피제 70ml + 290ml 보기","url":"https://www.cescomall.co.kr/products/view/G2000001417"}]},
+   q:'캠핑·산책·여행 갈 때 모기에 물릴까 걱정되나요?',
+   desc:'식약처 허가 **의약외품** 인체용 모기 기피제로, 유효성분 IR3535 12.4%를 담았습니다. 들고 다니기 좋은 70ml는 **기내 반입**이 되고, 290ml 대용량으로 70ml 용기를 채워 쓸 수 있습니다.',
+   pts:['식약처 허가 의약외품','기내 반입(70ml)','290ml 리필 호환'],
+   opts:['70ml','290ml 대용량'],
+   how:'외출 전 드러난 피부와 옷에 골고루 뿌리고, 얼굴은 손에 덜어 바릅니다.',
+   vs:'넓은 면적을 온 가족이 함께 뿌린다면 미세 안개형 <b>모기 에어로솔(아웃도어 미스트)</b>이 편합니다.'},
+  {cat:'insect', url:'https://www.cescomall.co.kr/products/view/G2000000815', name:'멀티나방 트랩',
+   q:'쌀통·곡물 수납장 주변에 작은 나방이 날아다니나요?',
+   desc:'쌀·곡물 주변에 생기는 **여러 종류의 저곡나방을 하나로** 잡는 트랩입니다. 약제를 뿌리기 어려운 쌀통·곡물 수납장·옷장 주변에 둡니다.',
+   pts:['다양한 저곡나방','3개입'],
+   how:'나방이 보이는 곳 가까이에 걸거나 두고, 붙은 벌레가 많아지면 새것으로 바꿉니다.'},
+  {cat:'insect', url:'https://www.cescomall.co.kr/products/view/G2000000292', name:'플라이 스틱', video:{id:'bvf5s_unrQM', title:'플라이 스틱 & 초파리 유인제'}, with:{"text":"여름철 과일 바구니와 음식물 쓰레기통 옆에 <strong>초파리 유인제</strong>를 두고, 바로 옆에 <strong>플라이 스틱</strong>을 세워 두세요. 여기저기 날던 초파리가 한곳에 모여 끈끈이에 붙어요.","sets":[{"label":"플라이 스틱 + 초파리 유인제 세트 보기","url":"https://www.cescomall.co.kr/products/view/G2000001069"}]},
+   q:'창가·주방·베란다에 파리와 날파리가 꼬이나요?',
+   desc:'세스코가 독자 개발한 **3D 패턴 강력 끈끈이**로 파리와 초파리를 빠르게 붙잡습니다. 유인력을 높여 날벌레가 다니는 곳에 세워 두기만 하면 됩니다.',
+   pts:['3D 패턴','강력 끈끈이'],
+   how:'날벌레가 다니는 창가나 쓰레기통 근처에 세워 두거나 붙여 둡니다.',
+   vs:'과일·음식물 주변에 초파리만 꼬인다면 <b>초파리 유인제</b>를 함께 두세요.'},
+  {cat:'insect', url:'https://www.cescomall.co.kr/products/view/G2000001069', name:'초파리 유인제', video:{id:'bvf5s_unrQM', title:'플라이 스틱 & 초파리 유인제'}, with:{"text":"<strong>초파리 유인제</strong>로 주방 곳곳의 초파리를 한곳에 모으고, 옆에 세운 <strong>플라이 스틱</strong>의 3D 패턴 끈끈이로 바로 잡아요. 바로가기 상품이 두 제품을 묶은 세트예요."},
+   q:'과일과 음식물 쓰레기 주변에 초파리가 꼬이나요?',
+   desc:'흩어져 있는 초파리를 **한곳으로 불러 모으는** 유인제입니다. 플라이 스틱과 함께 두면 모인 초파리를 끈끈이로 바로 잡을 수 있습니다.',
+   pts:['초파리 유인','플라이 스틱 세트'],
+   how:'초파리가 모이는 자리 가까이에 두고, 옆에 플라이 스틱을 함께 세웁니다.'},
+  // 방향
+  {cat:'fragrance', url:'https://www.cescomall.co.kr/categories/index/diffuser', name:'에어퍼퓸 디퓨저', with:{"text":"손님 오기 전, 소파와 커튼에 <strong>섬유탈취제</strong>를 먼저 뿌려 묵은 냄새를 없애고 <strong>에어퍼퓸 디퓨저</strong>를 두세요. 생활 냄새와 섞이지 않아 향이 더 깔끔하게 퍼져요.","sets":[{"label":"섬유탈취제 + 브라이덜 플라워 세트 보기","url":"https://www.cescomall.co.kr/products/view/G2000001555"},{"label":"섬유탈취제 + 클리어 코튼 세트 보기","url":"https://www.cescomall.co.kr/products/view/G2000001560"}]},
+   q:'현관·거실·드레스룸에 공간과 어울리는 향을 두고 싶나요?',
+   desc:'**세스코 향기연구소가 추천**하는 180ml 디퓨저입니다. 묵직한 우디향의 오리엔탈 우드, 프레쉬하고 생동감 있는 브라이덜 플라워 등 4가지 향 중 공간 분위기에 맞게 고릅니다.',
+   pts:['향기연구소 추천','180ml'],
+   opts:['브라이덜 플라워','플라워 마켓','클리어 코튼','오리엔탈 우드'],
+   how:'리드를 병에 꽂아 두고, 향이 약해지면 리드를 뒤집어 꽂습니다.'},
+  // 사업장용 마스터
+  {cat:'b2b', url:'https://www.cescomall.co.kr/products/view/G2000001048', name:'마스터 주방세제',
+   q:'식당 주방처럼 하루 설거지 양이 많나요?',
+   desc:'사업장 주방을 위한 **4L 대용량** 주방세제입니다. 설거지 양이 많은 업장에서 덜어 쓰기 편합니다.',
+   pts:['4L 대용량','업소용'],
+   how:'라벨의 사용량대로 덜어 설거지하고 흐르는 물에 헹굽니다.'},
+  {cat:'b2b', url:'https://www.cescomall.co.kr/products/view/G2000001050', name:'마스터 기름때세정제 파우더',
+   q:'튀김기·오븐·후드에 찌든 기름때가 겹겹이 쌓였나요?',
+   desc:'**튀김기와 오븐 구석구석의 찌든 오염**에 맞춘 분말형 세정제입니다. 과탄산나트륨과 탄산나트륨이 주성분이며 17kg 업소용입니다.',
+   pts:['튀김기·오븐','분말형 17kg'],
+   how:'라벨의 비율대로 물에 녹여 오염 부위를 불린 뒤 닦아 냅니다.',
+   vs:'가정 주방의 기름때에는 뿌리는 타입의 <b>기름때세정제 파워</b>가 편합니다.'},
+  {cat:'b2b', url:'https://www.cescomall.co.kr/products/view/G2000001049', name:'마스터 배수관세정제',
+   q:'영업장 배수관에서 냄새가 올라오고 물이 잘 안 빠지나요?',
+   desc:'**붓기만 하면 되는** 액체형 배수관 세정제로, 세정과 탈취를 함께 합니다. 욕실·변기·주방 바닥 세정에도 씁니다.',
+   pts:['붓기만 하면 끝','세정+탈취','2L'],
+   how:'영업이 끝난 뒤 배수구에 붓고, 시간이 지나면 물을 흘려보냅니다.',
+   vs:'가정 욕실 배수구에는 1회분씩 나뉜 <b>배수구클리너</b>가 맞습니다.'},
+  {cat:'b2b', url:'https://www.cescomall.co.kr/products/view/G2000001047', name:'마스터 락스',
+   q:'매장 바닥·화장실의 세균과 곰팡이를 매일 관리해야 하나요?',
+   desc:'차아염소산나트륨 성분으로 **유해세균과 곰팡이 살균에 특화**한 락스입니다. 배수관 살균과 섬유·신발 표백에도 씁니다.',
+   pts:['세균·곰팡이 살균','표백','2L'],
+   how:'라벨의 비율대로 물에 희석해 쓰고, 다른 세정제와 절대 섞지 않습니다.'},
+  {cat:'b2b', url:'https://www.cescomall.co.kr/products/view/G2000001752', name:'마스터 차량용 탈취캔', with:{"text":"손님을 태우기 전, 차 안에 <strong>마스터 차량용 탈취캔</strong>을 뿌려 담배·음식 냄새를 빼고 핸들과 기어는 <strong>차량용 다용도 살균클리닝 티슈</strong>로 닦아 두세요. 트렁크에 <strong>차량용 슬림형 탈취제습제</strong>까지 넣으면 장마철 꿉꿉한 냄새도 줄어요.","sets":[{"label":"차량용 카케어 5종 풀세트 보기","url":"https://www.cescomall.co.kr/products/view/G2000001759"}]},
+   q:'영업용 차량 안에 담배·음식 냄새가 배었나요?',
+   desc:'차 안과 실내 공간, 물체에 두루 쓰는 **스프레이형 탈취캔**입니다.',
+   pts:['차량 실내','스프레이형 150g'],
+   how:'시트와 매트에 뿌린 뒤 문을 열어 환기합니다.'}
+];
+
+// 렌더링: 프로그램별 묶음은 기본 접힘. 머리를 누르면 카드가 펼쳐진다
+(function(){
+  var tabs=document.getElementById('ptabs'), wrap=document.getElementById('pgroups'), all=document.getElementById('pall');
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function ytBtn(id,title){
+    return '<button type="button" class="yt" data-yt="'+id+'" data-title="'+esc(title)+'" aria-label="영상 재생: '+esc(title)+'" style="background-image:url(https://i.ytimg.com/vi/'+id+'/hqdefault.jpg)"><span class="yt-play" aria-hidden="true"></span><span class="yt-t">'+esc(title)+'</span></button>';
+  }
+  var tabHtml='<button type="button" class="ptab" role="tab" aria-selected="true" data-cat="all">'+svg('all')+'전체<span class="c">'+PRODUCTS.length+'</span></button>';
+  var html='';
+  PROGRAMS.forEach(function(p){
+    var items=PRODUCTS.filter(function(x){return x.cat===p.key;});
+    if(!items.length) return;
+    tabHtml+='<button type="button" class="ptab" role="tab" aria-selected="false" data-cat="'+p.key+'">'+svg(p.key)+esc(p.ko)+'<span class="c">'+items.length+'</span></button>';
+    var names=items.map(function(x){return esc(x.name);}).join(' · ');
+    var vids=items.filter(function(x){return x.video;}).length;
+    html+='<div class="pgroup" data-cat="'+p.key+'" style="--lc:var(--lab'+p.lab+');--lt:var(--lab'+p.lab+'-tx)">'
+      +'<h3 class="pg-title"><button type="button" class="pg-head" aria-expanded="false" aria-controls="pg-'+p.key+'">'
+      +'<span class="pg-ic">'+svg(p.key)+'</span>'
+      +'<span class="pg-txt"><span class="en">'+esc(p.en)+'</span><span class="ko">'+esc(p.ko)+'<small>'+items.length+'개 상품</small>'+(vids?'<span class="pg-vid">영상 '+vids+'</span>':'')+'</span><span class="pg-names">'+names+'</span></span>'
+      +'<span class="pg-lab"><i></i><b>'+LAB_NAME[p.lab]+'</b></span>'
+      +'<span class="pg-tog">펼치기</span></button></h3>'
+      +'<div class="pg-body" id="pg-'+p.key+'" inert><div><div class="pgrid">';
+    items.forEach(function(x){
+      var opts=x.opts?'<span class="opts">'+x.opts.map(function(o){return '<span>'+esc(o)+'</span>';}).join('')+'</span>':'';
+      var pts=x.pts?'<ul class="pts" aria-label="특장점">'+x.pts.map(function(o){return '<li>'+esc(o)+'</li>';}).join('')+'</ul>':'';
+      var desc=esc(x.desc).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+      // with·vs 문구는 제품명 강조용 <strong>/<b>만 쓰므로 그대로 넣는다
+      var withBox='';
+      if(x.with){
+        var sets=(x.with.sets||[]).map(function(st){
+          return '<a href="'+st.url+'" target="_blank" rel="noopener" title="새 창 열림">'+esc(st.label)+' <span aria-hidden="true">↗</span><span class="sr">(새 창)</span></a>'+(st.so?'<span class="so">'+esc(st.so)+'</span>':'');
+        }).join('');
+        withBox='<div class="with"><b>함께 쓰면 좋아요</b>'+x.with.text+(sets?'<span class="sets">'+sets+'</span>':'')+'</div>';
+      }
+      var vs=x.vs?'<p class="vs"><b>헷갈린다면</b>'+x.vs+'</p>':'';
+      html+='<article class="pc"><div class="pc-q"><span class="when">이럴 때</span><h4>'+esc(x.q)+'</h4></div>'
+        +'<div class="pc-p"><span class="thumb" role="img" aria-label="'+esc(x.name)+' 제품 이미지">제품컷</span><span><span class="use">이 제품을 사용해 보세요</span><b class="pname">'+esc(x.name)+'</b>'+opts+'</span></div>'
+        +(x.video?'<div class="pv">'+ytBtn(x.video.id,x.video.title)+'</div>':'')
+        +'<p class="desc">'+desc+'</p>'+pts+withBox
+        +'<p class="how"><b>사용법</b>'+esc(x.how)+'</p>'+vs+'<span class="sp"></span>'
+        +'<a class="go" href="'+(x.url||MALL)+'" target="_blank" rel="noopener" title="새 창 열림">'+esc(x.name)+' 상세페이지 <span class="arr" aria-hidden="true">↗</span><span class="sr">(새 창)</span></a></article>';
+    });
+    html+='</div></div></div></div>';
+  });
+  tabs.innerHTML=tabHtml; wrap.innerHTML=html;
+
+  var groups=[].slice.call(wrap.querySelectorAll('.pgroup'));
+  var btns=[].slice.call(tabs.querySelectorAll('.ptab'));
+
+  function setOpen(g,open){
+    g.classList.toggle('open',open);
+    var h=g.querySelector('.pg-head'), body=g.querySelector('.pg-body');
+    h.setAttribute('aria-expanded',String(open));
+    h.querySelector('.pg-tog').textContent=open?'접기':'펼치기';
+    if(open) body.removeAttribute('inert'); else body.setAttribute('inert','');
+  }
+  function syncAll(){
+    var shown=groups.filter(function(g){return !g.hidden;});
+    var allOpen=shown.length>0 && shown.every(function(g){return g.classList.contains('open');});
+    all.textContent=allOpen?'모두 접기':'모두 펼치기';
+    all.setAttribute('aria-pressed',String(allOpen));
+  }
+  groups.forEach(function(g){
+    g.querySelector('.pg-head').addEventListener('click',function(){ setOpen(g,!g.classList.contains('open')); syncAll(); });
+  });
+  all.addEventListener('click',function(){
+    var open=all.getAttribute('aria-pressed')!=='true';
+    groups.forEach(function(g){ if(!g.hidden) setOpen(g,open); });
+    syncAll();
+  });
+
+  function select(cat){
+    btns.forEach(function(b){b.setAttribute('aria-selected',String(b.dataset.cat===cat));});
+    groups.forEach(function(g){
+      g.hidden=!(cat==='all'||g.dataset.cat===cat);
+      if(cat!=='all' && g.dataset.cat===cat) setOpen(g,true); // 프로그램 탭을 고르면 그 묶음을 바로 펼친다
+    });
+    syncAll();
+    // 탭이 화면 위에 붙어 있는 상태라면 목록 처음으로 올려 준다
+    var top=wrap.getBoundingClientRect().top, bar=tabs.closest('.ptabs-wrap').getBoundingClientRect().bottom;
+    if(top<bar) window.scrollTo({top:window.scrollY+top-bar-8,behavior:'smooth'});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){select(b.dataset.cat);});});
+})();
+
+// 유튜브 썸네일 → 누르면 플레이어로 교체 (youtube-nocookie, 관련 영상은 같은 채널 위주)
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.yt'); if(!b) return;
+  var f=document.createElement('div'); f.className='yt-frame';
+  var i=document.createElement('iframe');
+  i.src='https://www.youtube-nocookie.com/embed/'+b.dataset.yt+'?autoplay=1&rel=0&playsinline=1';
+  i.title=b.dataset.title||'유튜브 영상';
+  i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+  i.allowFullscreen=true;
+  f.appendChild(i); b.replaceWith(f); i.focus();
+});
+
+// 상품 탭 고정 위치 = GNB + 앵커 바 실제 높이
+(function(){
+  function fit(){
+    var h=document.querySelector('header.gnb').offsetHeight+document.querySelector('.anchor').offsetHeight;
+    document.documentElement.style.setProperty('--tabs-top',h+'px');
+  }
+  window.addEventListener('resize',fit); fit();
+})();
+
+// 페이지 밖으로 나가는 링크는 모두 새 창으로 열고, 새 창임을 알린다
+document.querySelectorAll('a[href^="http"]').forEach(function(a){
+  a.target='_blank'; a.rel='noopener';
+  if(!a.title) a.title='새 창 열림';
+});
+// 앵커 스크롤스파이
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.anchor a[href^="#"]'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function spy(){
+    var y=window.scrollY+160, idx=-1;
+    secs.forEach(function(s,i){ if(s && s.offsetTop<=y) idx=i; });
+    links.forEach(function(a,i){ a.classList.toggle('on',i===idx); });
+  }
+  window.addEventListener('scroll',spy,{passive:true}); spy();
+})();
+</script>
+</body>
+</html>
