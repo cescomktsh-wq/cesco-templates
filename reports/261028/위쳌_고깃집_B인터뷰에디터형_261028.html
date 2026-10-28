@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>위쳌 사업장 상세 — 고깃집 × B안 인터뷰·에디터형 (일도씨 정육식당, 10/28) ★ 완성 라이팅</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"><style>
+:root{--ink:#111111;--ink2:#1A1A1A;--txt:#555555;--muted:#8A8A8A;--line:#EEEEEE;--bg:#F6F7F4;--card:#FFFFFF;--red:#C8102E;--chip:#EDEFE9;--navy:#1A3668;--amber:#C77700;--amber-bg:#FFF6E8;--wc:#0072CE;--wc-bg:#EAF3FC;--wc-line:#CFE0F3}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#E9EBE7;color:var(--txt);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:13px;line-height:1.55;-webkit-font-smoothing:antialiased;word-break:keep-all}
+p{margin:0}
+.wrap{max-width:1320px;margin:0 auto;padding:20px 20px 60px}
+.desc{background:#fff;border-radius:12px;padding:14px 18px;margin-bottom:18px}
+.desc h1{margin:0;font-size:16px;font-weight:800;color:var(--ink)}
+.desc p{font-size:12.5px;color:var(--muted);margin-top:4px}
+.desc a{color:var(--wc)}
+.stage{display:flex;gap:28px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
+.stage > figure{margin:0}
+figcaption{font-size:12.5px;font-weight:800;color:var(--ink);margin:0 0 8px 4px}
+figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5px}
+.phone{width:390px;background:var(--bg);border-radius:28px;box-shadow:0 10px 30px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.06);overflow:hidden;position:relative}
+.fold{position:absolute;left:0;right:0;top:844px;border-top:2px dashed #C8102E;pointer-events:none;z-index:5}
+.fold span{position:absolute;right:10px;top:-9px;background:#C8102E;color:#fff;font-size:9.5px;font-weight:800;border-radius:4px;padding:1px 6px}
+.appbar{height:52px;background:#fff;display:flex;align-items:center;padding:0 12px;gap:8px;border-bottom:1px solid var(--line)}
+.appbar .back{width:36px;height:36px;border-radius:50%;border:0;background:#fff;display:flex;align-items:center;justify-content:center}
+.appbar .t{flex:1;font-size:15px;font-weight:800;color:var(--ink);text-align:center;margin-right:36px}
+.head{background:#fff;padding:12px 16px 0}
+.head .nm{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.head h2{margin:0;font-size:19px;font-weight:900;color:var(--ink)}
+.head .cat{font-size:12px;color:#595959}
+.head .rv{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--txt);margin-top:4px}
+.head .rv b{color:var(--ink2);font-weight:700}
+.tabs{display:flex;background:#fff;border-bottom:1px solid var(--line);margin-top:10px}
+.tabs span{flex:1;height:42px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#595959}
+.tabs span.on{border-bottom:3px solid var(--wc);font-weight:900;color:var(--wc)}
+.body{padding:12px 16px 16px;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--card);border-radius:14px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.05);position:relative}
+/* AI 요약 */
+.ai{background:#fff;border:1px solid var(--wc-line);border-radius:14px;padding:11px 13px}
+.ai .lb{display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:900;color:var(--wc);letter-spacing:.04em}
+.ai .lb small{margin-left:auto;font-weight:600;color:var(--muted);letter-spacing:0;font-size:10px}
+.ai ul{margin:7px 0 0;padding:0;list-style:none}
+.ai li{font-size:12.5px;color:var(--ink2);line-height:1.5;padding:3px 0 3px 14px;position:relative}
+.ai li:before{content:"";position:absolute;left:2px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--wc)}
+/* 위생 정보 카드 (261027 사업장 상세 시안의 공통 카드 + 실측 2열, 위쳌 파란색) */
+.hc{background:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.hc .top{display:flex;align-items:center;gap:10px}
+.grade{width:46px;height:46px;border-radius:50%;background:var(--wc);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.grade b{font-size:19px;line-height:1}
+.grade span{font-size:8px;font-weight:800;margin-top:2px}
+.hc .top .t{flex:1}
+.hc .top .t b{display:block;font-size:13.5px;font-weight:900;color:var(--ink);line-height:1.3}
+.hc .top .t span{font-size:10.5px;color:var(--muted)}
+.hc .pt{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.hc .pill{display:inline-block;font-size:10px;font-weight:900;color:#595959;background:var(--chip);border-radius:6px;padding:2px 7px}
+.hc .pill+small{float:right;font-size:10px;color:var(--muted)}
+.hc .hl{font-size:13px;font-weight:900;color:var(--ink);margin-top:6px}
+.hc .ds{font-size:11.5px;color:var(--txt);line-height:1.5;margin-top:3px}
+.hc .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.hc .m{border:1px solid var(--wc-line);border-radius:12px;padding:10px 11px}
+.hc .m .k{display:flex;align-items:center;justify-content:space-between;font-size:10.5px;font-weight:700;color:#595959}
+.hc .m .k i{font-style:normal;font-size:9px;font-weight:900;color:#fff;background:var(--wc);border-radius:5px;padding:2px 6px}
+.hc .m .v{font-size:19px;font-weight:900;color:var(--wc);line-height:1;margin-top:5px}
+.hc .m .v small{font-size:10.5px;font-weight:700}
+.hc .m .bar{height:6px;border-radius:3px;background:#E6EDF5;margin-top:6px;position:relative}
+.hc .m .bar i{display:block;height:6px;border-radius:3px;background:var(--wc)}
+.hc .m .b{font-size:9.5px;color:var(--muted);margin-top:4px;line-height:1.3}
+.hc .sum{display:flex;align-items:center;gap:8px;background:var(--wc-bg);border-radius:10px;padding:9px 11px;margin-top:10px;font-size:11.5px;color:var(--ink2);line-height:1.45}
+.hc .sum b{color:var(--ink);font-weight:900}
+/* 사업주 영역 표시 (검토용 표식 · 실제 서비스에는 노출 안 됨) */
+.own-tag{position:absolute;right:10px;top:-8px;z-index:2;font-size:9.5px;font-weight:900;color:#fff;background:var(--amber);border-radius:999px;padding:2px 8px;white-space:nowrap}
+.own-in{outline:1.5px dashed var(--amber);outline-offset:3px;border-radius:14px;position:relative}
+.own-tag.l{right:auto;left:10px}
+.lg{display:flex;gap:12px;flex-wrap:wrap;font-size:10px;color:var(--muted);font-weight:700;padding:0 2px}
+.lg i{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle;margin-right:4px}
+/* 결과 카드 (B안 계기판형) */
+.sh2{display:flex;align-items:baseline;gap:8px;padding:4px 2px 0}
+.sh2 b{font-size:13.5px;font-weight:900;color:var(--ink)}
+.sh2 small{margin-left:auto;font-size:10.5px;color:var(--muted);font-weight:600}
+.res{display:flex;flex-direction:column;gap:8px}
+.r{background:#fff;border:1px solid var(--wc-line);border-radius:12px;padding:10px 12px}
+.r .k{font-size:10.5px;font-weight:700;color:#6B7684}
+.r .vd{display:flex;align-items:flex-start;gap:5px;margin-top:3px;font-size:16px;font-weight:900;color:var(--wc);line-height:1.25}
+.r .vd svg{flex-shrink:0;margin-top:3px;background:var(--wc);color:#fff;border-radius:50%;padding:2px}
+.mt{margin-top:7px}
+.mrow{display:flex;align-items:baseline;gap:3px}
+.mrow b{font-size:17px;font-weight:900;color:var(--ink);line-height:1}
+.mrow small{font-size:10px;font-weight:700;color:var(--muted)}
+.pill2{margin-left:auto;font-size:9.5px;font-weight:800;color:var(--wc);background:var(--wc-bg);border-radius:999px;padding:2px 7px;white-space:nowrap}
+.mb{position:relative;height:7px;border-radius:4px;background:#E6EDF5;margin-top:6px}
+.mb i{display:block;height:7px;border-radius:4px;background:var(--wc)}
+.mb:after{content:"";position:absolute;right:0;top:-3px;width:2px;height:13px;background:#1A1A1A;border-radius:1px}
+.ml{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-top:4px;font-weight:600}
+.ml span:last-child{color:var(--ink2);font-weight:800}
+.r .why1{font-size:10.5px;color:var(--txt);margin-top:5px;padding-top:5px;border-top:1px dashed var(--wc-line);line-height:1.4}
+.r .why1 b{color:var(--ink2);font-weight:800}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.two .card .lb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:var(--wc)}
+.two .card .big{font-size:14px;font-weight:900;color:var(--ink);line-height:1.25;margin-top:3px}
+.two .card .big em{font-style:normal;color:var(--wc)}
+.two .card .sm{font-size:10.5px;color:var(--muted);margin-top:4px;line-height:1.4}
+/* 점검 이력표 (E안) */
+.hist .lb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:var(--wc)}
+.hist table{width:100%;border-collapse:collapse;margin-top:8px;table-layout:fixed}
+.hist th,.hist td{padding:0;text-align:center;font-weight:600}
+.hist th{font-size:9px;color:var(--muted);padding-bottom:6px;font-weight:700}
+.hist th:first-child,.hist td:first-child{text-align:left;width:88px}
+.hist td{height:30px;border-top:1px solid var(--line)}
+.hist td:first-child{font-size:11px;font-weight:800;color:var(--ink)}
+.hist td i{display:inline-block;width:16px;height:16px;border-radius:50%;background:var(--wc);vertical-align:middle;position:relative}
+.hist td i:after{content:"";position:absolute;left:5px;top:3px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.hist td.now{background:var(--wc-bg)}
+.hist th.now{color:var(--wc)}
+.hist .ft{font-size:10px;color:var(--muted);margin-top:8px;line-height:1.45}
+/* 한 줄 목록 */
+.list{padding:4px 14px}
+.list .hd{display:flex;align-items:center;gap:8px;padding:8px 0 4px}
+.list .hd b{font-size:12.5px;font-weight:900;color:var(--ink)}
+.list .hd span{font-size:10px;color:var(--muted);font-weight:700;margin-left:auto}
+.list .row{display:grid;grid-template-columns:16px 1fr auto;gap:0 8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.list .row:last-child{border-bottom:0}
+.list .ok{width:16px;height:16px;border-radius:50%;background:var(--wc);display:flex;align-items:center;justify-content:center}
+.list .ok.o{background:#fff;border:1.5px solid #C9D0D8}
+.list .k{font-size:12.5px;font-weight:900;color:var(--ink)}
+.list .k small{display:block;font-weight:600;color:var(--muted);font-size:10.5px;margin-top:1px}
+.list .tag{font-size:9.5px;font-weight:800;color:var(--wc);background:var(--wc-bg);border-radius:6px;padding:2px 6px;white-space:nowrap}
+.list .tag.o{color:var(--muted);background:#F2F4F7}
+.list .num{width:16px;height:16px;border-radius:50%;background:var(--ink);color:#fff;font-size:9.5px;font-weight:900;display:flex;align-items:center;justify-content:center}
+/* 사진 자리 · 팩트 칩 · 바이라인 */
+.ph{border:1.5px dashed #C9D0D8;border-radius:12px;background:#F2F4F7;display:flex;align-items:center;justify-content:center;color:#8A95A3;font-size:10.5px;font-weight:700;text-align:center;line-height:1.4;padding:6px}
+.ph.wide{aspect-ratio:16/9;margin-top:10px}
+.ph.sq{aspect-ratio:1}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.cap2{font-size:10.5px;color:var(--muted);margin-top:5px;line-height:1.4}
+.fact{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;color:var(--wc);background:var(--wc-bg);border-radius:999px;padding:3px 9px;margin-top:8px}
+.fact i{width:12px;height:12px;border-radius:50%;background:var(--wc);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.byline{display:flex;align-items:center;gap:8px}
+.byline .av{width:30px;height:30px;border-radius:50%;background:var(--wc-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.byline b{display:block;font-size:12px;font-weight:900;color:var(--ink)}
+.byline span{font-size:10.5px;color:var(--muted)}
+/* 인터뷰·에디터형 (J안·I안) */
+.iv-hero{background:#fff;border-radius:14px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.05);position:relative}
+.iv-hero .ph{height:150px}
+.iv-hero .eb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:var(--wc);margin-top:10px}
+.iv-hero h3{margin:4px 0 0;font-size:18px;font-weight:900;color:var(--ink);line-height:1.3;letter-spacing:-.01em}
+.iv-hero .who{font-size:11px;color:var(--muted);margin-top:6px}
+.intro p{font-size:12.5px;color:var(--ink2);line-height:1.65}
+.intro p+p{margin-top:8px}
+.intro p b{font-weight:900;color:var(--ink)}
+.iv .it{padding:10px 0;border-top:1px solid var(--line)}
+.iv .it:first-child{border-top:0;padding-top:0}
+.iv .it:last-child{padding-bottom:0}
+.iv .q{font-size:12.5px;font-weight:900;color:var(--ink);line-height:1.4}
+.iv .q:before{content:"Q";color:var(--red);font-weight:900;margin-right:7px}
+.iv .a{font-size:12.5px;color:var(--ink2);line-height:1.65;margin-top:6px;padding-left:18px;position:relative}
+.iv .a:before{content:"A";position:absolute;left:0;top:0;color:var(--wc);font-weight:900}
+.iv .a small{display:block;color:var(--muted);font-size:10.5px;margin-top:3px}
+.iv .fact{margin-left:18px;margin-top:6px}
+.pull{background:var(--navy);border-radius:14px;padding:14px 16px;color:#fff}
+.pull p{font-size:15px;font-weight:900;line-height:1.4;letter-spacing:-.01em}
+.pull span{display:block;font-size:10.5px;color:#9FB4DC;margin-top:6px}
+.say{background:#FFF8E8;border:1px solid #F3E2B8}
+.say .lb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:#9A6B12}
+.say p{font-size:13px;color:var(--ink);line-height:1.6;margin-top:6px;font-weight:600}
+.say .sg{font-size:10.5px;color:var(--muted);margin-top:6px}
+.say .ph{height:96px;margin-top:8px}
+.report{display:flex;align-items:center;gap:10px;border:1px dashed #C9CFD6;border-radius:14px;padding:10px 12px;background:#fff}
+.report .t{flex:1;font-size:12px;color:var(--ink2);font-weight:700}
+.report .t small{display:block;color:var(--muted);font-size:10.5px;font-weight:500}
+.btn{display:inline-block;border-radius:10px;padding:8px 12px;font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap}
+.btn.sec{background:#fff;color:var(--ink);border:1px solid #E3E6E1}
+.fine{font-size:10px;color:var(--muted);line-height:1.5}
+.actions{background:#fff;border-top:1px solid var(--line);padding:10px 16px 14px;display:flex;gap:8px;align-items:center}
+.actions .ico{width:44px;height:44px;border-radius:12px;border:1px solid #E3E6E1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9.5px;color:#595959;gap:2px}
+.actions .cta{flex:1;height:44px;border-radius:12px;background:var(--wc);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center}
+/* 상세페이지형 (M안 풀블리드) */
+.dp{background:#fff;color:#222}
+.dp .pho{background:linear-gradient(160deg,#E6EAEF 0%,#CBD3DC 100%);position:relative;display:flex;align-items:flex-end;padding:12px 14px;color:#6B7684;font-size:10.5px;font-weight:700;line-height:1.4}
+.dp .pho:before{content:"";position:absolute;inset:10px;border:1px dashed rgba(107,118,132,.45);border-radius:6px;pointer-events:none}
+.dp .hr{position:relative;height:400px}
+.dp .hr .pho{position:absolute;inset:0;height:auto;align-items:flex-start}
+.dp .hr .ov{position:absolute;left:0;right:0;bottom:0;padding:28px 24px 30px;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.62) 100%);color:#fff}
+.dp .hr .lab{color:#BFD6F2}
+.dp .hr h1{margin:8px 0 6px;font-size:26px;font-weight:900;line-height:1.25;letter-spacing:-.02em;color:#fff}
+.dp .hr .sub{font-size:13px;color:#E3EAF2;font-weight:600}
+.dp .sec{padding:36px 24px 32px;text-align:center;position:relative}
+.dp .lab{display:block;font-size:10.5px;letter-spacing:.2em;font-weight:800;color:var(--wc)}
+.dp h2{margin:10px 0 14px;font-size:22px;font-weight:900;line-height:1.3;letter-spacing:-.02em;color:#111}
+.dp p{font-size:13.5px;line-height:1.8;color:#444;word-break:keep-all}
+.dp p b{font-weight:800;color:#111}
+.dp .alt{background:#F4F5F2}
+.dp .strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #E6E8E4;border-bottom:1px solid #E6E8E4;margin-top:26px}
+.dp .strip div{padding:12px 4px;border-right:1px solid #E6E8E4}
+.dp .strip div:last-child{border-right:0}
+.dp .strip b{display:block;font-size:10px;color:#8A8A8A;font-weight:800;letter-spacing:.06em}
+.dp .strip span{display:block;font-size:11.5px;color:#222;font-weight:700;margin-top:4px;line-height:1.35}
+.dp .pt{position:relative}
+.dp .pt .pho{height:250px}
+.dp .pt .tx{padding:28px 24px 36px;text-align:center}
+.dp .pt .num{font-size:11px;letter-spacing:.2em;font-weight:900;color:var(--wc)}
+.dp .pt h3{margin:8px 0 12px;font-size:21px;font-weight:900;line-height:1.3;letter-spacing:-.02em;color:#111}
+.dp .pt .fx{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:11px;font-weight:800;color:var(--wc);border:1px solid var(--wc-line);border-radius:999px;padding:5px 12px;background:#fff}
+.dp .pt .fx i{width:14px;height:14px;border-radius:50%;background:var(--wc);display:inline-flex;align-items:center;justify-content:center}
+.dp .pt .own-tag{top:10px;right:14px}
+.dp .qt{position:relative;height:340px}
+.dp .qt .pho{position:absolute;inset:0;height:auto;align-items:flex-start}
+.dp .qt .ov{position:absolute;left:0;right:0;bottom:0;padding:30px 24px 32px;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.7) 100%);color:#fff;text-align:left}
+.dp .qt .ov .lab{color:#BFD6F2}
+.dp .qt .ov .q{font-size:21px;font-weight:900;line-height:1.35;letter-spacing:-.02em;margin-top:8px}
+.dp .qt .ov .by{font-size:11.5px;color:#D6DEE8;margin-top:10px}
+.dp .qa{padding:8px 24px 32px;text-align:left}
+.dp .qa .it{padding:16px 0;border-bottom:1px solid #ECEEEA}
+.dp .qa .it:last-child{border-bottom:0}
+.dp .qa .q{font-size:14px;font-weight:900;color:#111;line-height:1.45}
+.dp .qa .a{font-size:13.5px;color:#444;line-height:1.75;margin-top:8px}
+.dp .daily{padding:32px 24px 36px;text-align:left}
+.dp .daily .lab,.dp .daily h2{text-align:center}
+.dp .daily .it{display:grid;grid-template-columns:20px 1fr auto;gap:0 10px;align-items:center;padding:12px 0;border-bottom:1px solid #E6E8E4}
+.dp .daily .it:last-child{border-bottom:0}
+.dp .daily .ok{width:20px;height:20px;border-radius:50%;background:var(--wc);display:flex;align-items:center;justify-content:center}
+.dp .daily .ok.o{background:#fff;border:1.5px solid #C9D0D8}
+.dp .daily .k{font-size:13px;font-weight:800;color:#111}
+.dp .daily .k small{display:block;font-size:10.5px;color:#8A8A8A;font-weight:600;margin-top:1px}
+.dp .daily .tag{font-size:9.5px;font-weight:800;color:var(--wc);white-space:nowrap}
+.dp .daily .tag.o{color:#9AA3AE}
+.dp .rep{margin:0 24px 28px;display:flex;align-items:center;gap:12px;border:1px solid #E6E8E4;border-radius:12px;padding:14px;text-align:left}
+.dp .rep .t{flex:1;font-size:12.5px;font-weight:800;color:#111}
+.dp .rep .t small{display:block;font-size:10.5px;color:#8A8A8A;font-weight:500}
+.dp .fine2{padding:0 24px 24px;font-size:10px;color:#9AA3AE;line-height:1.5;text-align:left}
+.dp .sec .own-in{outline-offset:6px}
+/* 옆 메모 */
+.side{width:300px;font-size:12.5px;color:#3E444A;line-height:1.6}
+.side h3{margin:0 0 8px;font-size:13px;font-weight:800;color:var(--ink)}
+.side ol,.side ul{margin:0;padding-left:16px}
+.side li{margin-bottom:6px}
+.side .flag{display:inline-block;background:var(--amber-bg);color:var(--amber);font-weight:800;border-radius:3px;padding:0 5px;font-size:10.5px;margin-right:3px}
+.side p{margin-bottom:8px}
+.side p b{color:var(--ink)}
+.side .nav{margin-top:14px;padding-top:10px;border-top:1px solid #D9DCD6;font-size:12px}
+.side .nav a{color:var(--wc);text-decoration:none;font-weight:700}
+.side .nav a+a{margin-left:8px}
+@media (max-width:760px){.wrap{padding:12px 0 40px}.desc{border-radius:0}.phone{width:100%;border-radius:0;box-shadow:none}.side{width:auto;padding:16px}}
+</style></head>
+<body><div class="wrap">
+<div class="desc"><h1>위쳌 사업장 상세 — 고깃집 × B안 인터뷰·에디터형 (일도씨 정육식당, 10/28) ★ 완성 라이팅</h1><p>상단은 AI 요약 + 위생 정보 카드(기존 재사용), 본문은 에디터 방문기 + 사장님 문답. 상호·인터뷰는 시안용 창작 · 이 조합은 실제 게시 수준까지 라이팅을 완성한 1차본 · <a href="index.html">9개 조합 비교로 돌아가기</a></p></div>
+<div class="stage">
+<figure><figcaption>B안 · 고깃집 · 일도씨 정육식당 ★ 완성 라이팅<small>방문기 · 인용 · 문답 · 사업주 선택 3 · 사장님 한마디 · 매장 루틴</small></figcaption>
+<div class="phone"><div class="fold"><span>첫 화면 끝</span></div>
+<div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">일도씨 정육식당</div></div>
+<div class="head"><div class="nm"><h2>일도씨 정육식당</h2><span class="cat">돼지고기 구이·삼겹살</span></div>
+<div class="rv"><svg width="13" height="13" viewBox="0 0 24 24" fill="#C77700" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.5L12 16.8 6.1 20l1.3-6.5L2.5 9l6.6-.8z"/></svg><b>4.6</b><span>리뷰 1,318 · 마포</span></div>
+<div class="tabs"><span class="">홈</span><span class="">메뉴</span><span class="">리뷰</span><span class="">사진</span><span class="on">위생</span></div></div>
+<div class="body"><div class="ai"><div class="lb"><svg width="12" height="12" viewBox="0 0 24 24" fill="#0072CE" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8zM19 16l.9 2.6L22.5 19.5l-2.6.9L19 23l-.9-2.6-2.6-.9 2.6-.9z"/></svg>AI 요약<small>리뷰 · 세스코 리포트 · 사장님 기록 기준</small></div><ul><li>리뷰에서 가장 많이 나오는 말은 "불판을 계속 바꿔 준다"예요. 손님마다 새 불판, 한 테이블에 세 번까지도요.</li><li>세스코가 10월 14일에 숙성고·불판·집게·반찬 냉장·공기 5가지를 직접 재서 모두 기준 안이었어요. 4회 연속이에요.</li><li>정육점 9년 하다 연 집이에요. 사장님이 적은 루틴 6개 중 4개를 이번 점검에서 세스코가 실제로 봤어요.</li></ul></div><div class="hc">
+<div class="top"><div class="grade"><b>A</b><span>위생 등급</span></div><div class="t"><b>세스코 전문가 실측 · 10.14 · 5가지 모두 기준 안</b><span>위생점검 리포트 No. 2026-1014-0287 · 다음 점검 11월</span></div></div>
+<div class="pt"><span class="pill">고깃집 공통 위생 포인트</span><small>CESCO 위쳌 기준</small><div class="hl">오늘 구워 드시는 고기, 보관 온도부터 확인했어요</div><div class="ds">생고기는 교차 오염되기 쉽고 기름과 연기가 쌓이면 세균·해충이 번식하기 좋아져요. 축산물 품질, 반찬 재사용 금지, 조리도구 청결, 주방 조리 환경, 연기 속 유해물질 5가지를 집중 관리해요.</div></div>
+<div class="grid"><div class="m"><div class="k">숙성고 온도<i>적합</i></div><div class="v">1 <small>℃</small></div><div class="bar"><i style="width:10%"></i></div><div class="b">식육 냉장 기준 10℃ 이하 · 24시간 센서</div></div><div class="m"><div class="k">세척 불판 오염도<i>적합</i></div><div class="v">90 <small>RLU</small></div><div class="bar"><i style="width:45%"></i></div><div class="b">관리 기준 200 이하 (ATP)</div></div><div class="m"><div class="k">집게·가위 오염도<i>적합</i></div><div class="v">110 <small>RLU</small></div><div class="bar"><i style="width:55%"></i></div><div class="b">관리 기준 200 이하 (ATP)</div></div><div class="m"><div class="k">공기 중 부유세균<i>적합</i></div><div class="v">260 <small>CFU/㎥</small></div><div class="bar"><i style="width:32%"></i></div><div class="b">기준 800 이하</div></div></div>
+<div class="sum"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0072CE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>5개 항목 모두 기준 안</b> — 세스코 전문가가 10.14에 측정기(온도계·ATP·부유균)로 직접 쟀어요</div></div>
+</div><div class="lg"><span><i style="background:#C77700"></i>주황 표식 = 사업주가 고르거나 적는 자리 (검토용, 실제 화면엔 안 보임)</span></div>
+<div class="iv-hero own-in"><span class="own-tag">사업주 사진 (없으면 점검 때 촬영)</span><div class="ph">사장님 사진 · 숙성고 앞, 고기 든 모습 · 세로</div><div class="eb">위쳌 에디터 방문기 · 10.14 점검 동행</div><h3>숙성고 온도가<br>폰 잠금화면인 사장님</h3><div class="who">일도씨 정육식당 · 이재형 사장님 · 글 위쳌 에디터 · 인터뷰는 녹음을 풀어 사장님이 확인했어요</div></div>
+<div class="card intro"><p>일도씨 정육식당은 마포 골목 안쪽, 테이블 여섯 개짜리 삼겹살집이에요. 간판에 '정육식당'이 붙은 건 사장님이 정육점을 9년 했기 때문이고, '일도씨'는 숙성고 온도예요. 1도. 단골들이 붙인 별명이 그대로 상호가 됐대요.</p><p>10월 14일 오전 열 시, 세스코 점검에 따라 들어갔어요. 문 열기 일곱 시간 전이라 홀은 불이 꺼져 있고 주방만 환했어요. 사장님은 숙성고 앞에 서 있다가 "오늘은 2.4kg짜리가 제일 좋아요" 하고 먼저 말했어요. 물어보지도 않았는데요.</p><div class="pair"><div class="ph sq">숙성고 문 연 모습 · 1℃</div><div class="ph sq">손글씨 라벨 · 10/13 삼겹 4.2kg</div></div><div class="cap2">글씨가 급해요. 월요일 아홉 시에 받으면서 쓴 거래요.</div><p>점검은 한 시간 반 걸렸어요. 전문가가 숙성고, 불판, 집게, 반찬 냉장고, 홀 공기 순서로 재는 동안 사장님은 뒤에서 팔짱을 끼고 보다가 숫자가 나올 때마다 "네" 했어요. 라디오는 두 시간 내내 켜져 있었고요. 숫자는 위에 카드로 있으니 여기선 안 적을게요. 대신 사장님한테 물어본 걸 그대로 옮겨요.</p></div>
+<div class="pull"><p>"손님 자리에서 안 보이는 데가<br>전부예요."</p><span>이재형 사장님 · 정육점 9년, 고기집 3년</span></div>
+<div class="card iv"><div class="it"><div class="q">폰 잠금화면이 숙성고 온도라면서요.</div><div class="a">네. (폰을 보여 주며) 지금 1.1이네요. 새벽에 깨면 이거부터 봐요. 2년 전에 정전으로 4도까지 올라간 적이 있어요. 그날 들어 있던 고기 다 뺐어요. 그 뒤로 센서 달고, 알림 오게 하고, 잠금화면으로요.</div><div class="fact"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 숙성고 24시간 센서 기록 확인</div></div><div class="it"><div class="q">월요일 고기가 화요일에 제일 맛있다는 얘기를 들었어요.</div><div class="a">정육점 할 때부터 그랬어요. 돼지는 1도에 두면 이틀째가 제일 쫀쫀해요. 사흘 넘어가면 육즙이 빠지기 시작해서 안 내요. 그래서 라벨에 날짜를 써요. 수요일 저녁에 월요일 고기가 남으면 직원들이 먹어요. (웃음) 그게 제일 아까워요.<small>숙성 설명은 사장님 경험담이에요. 위쳌이 사실로 단정하는 문장이 아니에요.</small></div></div><div class="it"><div class="q">불판은 손님마다 바꿔요?</div><div class="a">한 테이블에 세 번 바꿀 때도 있어요. 불판만 닦으시는 분이 두 시에 오세요. 오셔서 제일 먼저 불판을 세요. 마흔 장 아래면 저한테 문자가 와요.<br>— 오늘은 몇 장이에요?<br>마흔세 장이요.</div><div class="fact"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 실측 · 세척 불판 ATP 기준 안</div></div><div class="it"><div class="q">집게가 두 개 나오던데요.</div><div class="a">빨간 손잡이가 생고기용이에요. 처음 오신 분한텐 직원이 말해 드려요. 근데 손님들이 자꾸 바꿔 쓰세요. 그래서 익은 고기는 저희가 거의 다 구워 드려요. 그게 제일 확실해요.</div></div><div class="it"><div class="q">파절이가 저녁에 더 맛있다는 리뷰가 있어요.</div><div class="a">다섯 시에 한 번 더 무쳐요. 점심에 무친 건 그때 버리고요. 남은 반찬은 그 자리에서 다 버려요. 아까워도요. 정육점 할 때 반찬 다시 내는 집들 많이 봤거든요. 그게 싫어서 시작한 거라.</div><div class="fact"><i><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></i>세스코 확인 · 남은 반찬 폐기 · 소분 냉장</div></div><div class="it"><div class="q">된장찌개는 왜 맛있어요?</div><div class="a">어머니가 담근 된장이에요. 1년에 한 번 가져와요. 그 이상은 저도 몰라요. 여쭤봤는데 안 알려 주세요.</div></div><div class="it"><div class="q">정육점 때랑 뭐가 제일 달라요?</div><div class="a">거기선 고기만 보면 됐어요. 여기는 손님 자리에서 안 보이는 데가 전부예요. 불판 닦는 데, 숙성고 안, 집게 통. 보이는 데는 손님이 봐 주시니까 괜찮아요.</div></div></div>
+<div class="card intro"><div class="byline"><div class="av"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0072CE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div><div><b>에디터 메모</b><span>점검 동행 · 10.14</span></div></div><p style="margin-top:8px">나오는 길에 사장님이 문 앞까지 나왔어요. 저녁에 다시 가서 2인분 먹었어요. 두 번째 불판부터는 사장님이 직접 구워 주셨고, 삼겹살은 쫀득했어요. 된장찌개는 그냥 맛있었어요. 이유는 결국 못 물어봤어요. 라디오 주파수는 알려 주셨는데 그건 여기 안 적을게요.</p></div>
+<div class="card list own-in"><span class="own-tag">사업주 선택 TOP 3</span><div class="hd"><b>사장님이 고른 세 가지</b><span>업종 공통 항목 중 사업주가 상위 3개 선택</span></div><div class="row"><div class="num">1</div><div class="k">숙성고 1도, 사흘 규칙<small>입고일·부위·무게 손글씨 라벨 · 사흘 넘기면 안 냄</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="num">2</div><div class="k">손님마다 새 불판<small>불판만 닦는 분이 오후 2시 출근 · 숯도 같이</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="num">3</div><div class="k">남은 반찬은 그 자리에서 버려요<small>파절이는 다섯 시에 한 번 더 · 소분 냉장</small></div><span class="tag">세스코 확인</span></div></div>
+<div class="card say own-in"><span class="own-tag">사업주 입력</span><div class="lb">사장님 한마디</div><p>"고기는 온도로 먹는 거예요. 숙성고 1도, 불판 새것, 반찬 새것. 이 세 개는 정육점 때부터 안 바꿨습니다."</p><div class="sg">이재형 사장님 · 사업주가 직접 적는 한 줄 (선택)</div><div class="ph">사장님이 올린 사진 · 선택 (예: 숙성고 라벨, 불판 더미)</div></div>
+<div class="card list"><div class="hd"><b>매장이 매일 하는 일</b><span>사장님 기록</span></div><div class="row"><div class="ok o"></div><div class="k">입고 때 색·온도 확인<small>월요일 9시 사장님 직접 · 2도 넘으면 반품</small></div><span class="tag o">매장 기록</span></div><div class="row"><div class="ok"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><div class="k">숙성고 사흘 규칙<small>입고일 라벨 · 사흘 넘기면 폐기</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="ok"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><div class="k">손님마다 새 불판<small>전담 세척 · 숯도 같이</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="ok"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><div class="k">남은 반찬 폐기 · 파절이 재무침<small>다섯 시 · 소분 냉장</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="ok"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><div class="k">집게 두 종류 안내<small>빨간 손잡이는 생고기용</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="ok o"></div><div class="k">후드 테이블별 · 소화기 둘<small>화덕 옆 · 올해 교체분 1</small></div><span class="tag o">매장 기록</span></div></div>
+<div class="report"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. 2026-1014-0287<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
+<p class="fine">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 매장 기록은 사장님이 적은 내용이고, 세스코 확인 표시가 있는 것만 이번 점검에서 실제로 봤어요. 방문기는 위쳌 에디터가 점검에 동행해 쓴 글이에요.</p></div>
+<div class="actions"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.9 2z"/></svg>전화</div><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>저장</div><div class="cta">이 가게 방역 알림 받기</div></div>
+</div></figure>
+<aside class="side"><h3>B안 · 인터뷰·에디터형 — 고깃집 ★ 완성 라이팅</h3>
+<p>수치는 상단 카드에 두고, 본문은 <b>에디터 방문기 + 사장님 문답</b>으로 "왜 이 집이 관리되는지"를 사람 말로 전달합니다. 위생 사실이 답에 섞여 나올 때만 파란 팩트 칩을 붙이고 숫자는 다시 쓰지 않습니다.</p>
+<ol>
+<li><b>방문기 도입</b> 2~3문단 + 글 중간 사진 두 장. 점검 동행 장면이라 "세스코가 봤다"는 근거가 글 자체에 있습니다.</li>
+<li><b>인용 한 줄 + 문답 7개</b>. 질문은 업종별 질문 풀에서 사장님이 고른 것. 위생 밖 질문(된장찌개·태명·손등)이 하나 이상.</li>
+<li><span class="flag">사업주 선택</span>문답 아래 "사장님이 고른 세 가지". 업종 공통 항목 8~10개 중 상위 3개.</li>
+<li><span class="flag">사업주 입력</span>헤드 사진 1장, 한마디 1줄, 사진 1장(선택). 비어 있으면 점검 때 전문가가 찍은 사진과 인용으로 채웁니다.</li>
+</ol>
+<p><b>장점</b> 집마다 다른 글이 나오고 생성문 티가 가장 적음. 위생이 자랑이 아니라 이야기의 증거로 읽힘. <b>단점</b> 전문가 현장 양식(본 것·잰 것·사장님 말·질문 2~3개)이 비면 못 쓰고, 사장님 확인 단계가 필요.</p>
+<p><b>이 조합을 완성 라이팅으로 고른 이유</b> — 고깃집은 숙성고 온도·불판·반찬처럼 사장님이 매일 손으로 하는 일이 많아 문답만으로도 위생 근거가 자연스럽게 따라 나오고, 상호(일도씨)·잠금화면·마흔세 장 같은 고유 디테일이 생성문 티를 가장 잘 지웁니다.</p>
+<div class="nav"><a href="위쳌_고깃집_A수치형_261028.html">같은 업종 A안 →</a><a href="위쳌_고깃집_C상세페이지형_261028.html">같은 업종 C안 →</a><a href="위쳌_치킨집_B인터뷰에디터형_261028.html">치킨집 B안 →</a><a href="위쳌_산후조리원_B인터뷰에디터형_261028.html">산후조리원 B안 →</a></div></aside>
+</div></div></body></html>

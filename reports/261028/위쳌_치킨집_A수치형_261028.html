@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>위쳌 사업장 상세 — 치킨집 × A안 수치형 (열한시 치킨, 10/28)</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"><style>
+:root{--ink:#111111;--ink2:#1A1A1A;--txt:#555555;--muted:#8A8A8A;--line:#EEEEEE;--bg:#F6F7F4;--card:#FFFFFF;--red:#C8102E;--chip:#EDEFE9;--navy:#1A3668;--amber:#C77700;--amber-bg:#FFF6E8;--wc:#0072CE;--wc-bg:#EAF3FC;--wc-line:#CFE0F3}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#E9EBE7;color:var(--txt);font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:13px;line-height:1.55;-webkit-font-smoothing:antialiased;word-break:keep-all}
+p{margin:0}
+.wrap{max-width:1320px;margin:0 auto;padding:20px 20px 60px}
+.desc{background:#fff;border-radius:12px;padding:14px 18px;margin-bottom:18px}
+.desc h1{margin:0;font-size:16px;font-weight:800;color:var(--ink)}
+.desc p{font-size:12.5px;color:var(--muted);margin-top:4px}
+.desc a{color:var(--wc)}
+.stage{display:flex;gap:28px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
+.stage > figure{margin:0}
+figcaption{font-size:12.5px;font-weight:800;color:var(--ink);margin:0 0 8px 4px}
+figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5px}
+.phone{width:390px;background:var(--bg);border-radius:28px;box-shadow:0 10px 30px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.06);overflow:hidden;position:relative}
+.fold{position:absolute;left:0;right:0;top:844px;border-top:2px dashed #C8102E;pointer-events:none;z-index:5}
+.fold span{position:absolute;right:10px;top:-9px;background:#C8102E;color:#fff;font-size:9.5px;font-weight:800;border-radius:4px;padding:1px 6px}
+.appbar{height:52px;background:#fff;display:flex;align-items:center;padding:0 12px;gap:8px;border-bottom:1px solid var(--line)}
+.appbar .back{width:36px;height:36px;border-radius:50%;border:0;background:#fff;display:flex;align-items:center;justify-content:center}
+.appbar .t{flex:1;font-size:15px;font-weight:800;color:var(--ink);text-align:center;margin-right:36px}
+.head{background:#fff;padding:12px 16px 0}
+.head .nm{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.head h2{margin:0;font-size:19px;font-weight:900;color:var(--ink)}
+.head .cat{font-size:12px;color:#595959}
+.head .rv{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--txt);margin-top:4px}
+.head .rv b{color:var(--ink2);font-weight:700}
+.tabs{display:flex;background:#fff;border-bottom:1px solid var(--line);margin-top:10px}
+.tabs span{flex:1;height:42px;display:flex;align-items:center;justify-content:center;font-size:13px;color:#595959}
+.tabs span.on{border-bottom:3px solid var(--wc);font-weight:900;color:var(--wc)}
+.body{padding:12px 16px 16px;display:flex;flex-direction:column;gap:10px}
+.card{background:var(--card);border-radius:14px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.05);position:relative}
+/* AI 요약 */
+.ai{background:#fff;border:1px solid var(--wc-line);border-radius:14px;padding:11px 13px}
+.ai .lb{display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:900;color:var(--wc);letter-spacing:.04em}
+.ai .lb small{margin-left:auto;font-weight:600;color:var(--muted);letter-spacing:0;font-size:10px}
+.ai ul{margin:7px 0 0;padding:0;list-style:none}
+.ai li{font-size:12.5px;color:var(--ink2);line-height:1.5;padding:3px 0 3px 14px;position:relative}
+.ai li:before{content:"";position:absolute;left:2px;top:10px;width:5px;height:5px;border-radius:50%;background:var(--wc)}
+/* 위생 정보 카드 (261027 사업장 상세 시안의 공통 카드 + 실측 2열, 위쳌 파란색) */
+.hc{background:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.hc .top{display:flex;align-items:center;gap:10px}
+.grade{width:46px;height:46px;border-radius:50%;background:var(--wc);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.grade b{font-size:19px;line-height:1}
+.grade span{font-size:8px;font-weight:800;margin-top:2px}
+.hc .top .t{flex:1}
+.hc .top .t b{display:block;font-size:13.5px;font-weight:900;color:var(--ink);line-height:1.3}
+.hc .top .t span{font-size:10.5px;color:var(--muted)}
+.hc .pt{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.hc .pill{display:inline-block;font-size:10px;font-weight:900;color:#595959;background:var(--chip);border-radius:6px;padding:2px 7px}
+.hc .pill+small{float:right;font-size:10px;color:var(--muted)}
+.hc .hl{font-size:13px;font-weight:900;color:var(--ink);margin-top:6px}
+.hc .ds{font-size:11.5px;color:var(--txt);line-height:1.5;margin-top:3px}
+.hc .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.hc .m{border:1px solid var(--wc-line);border-radius:12px;padding:10px 11px}
+.hc .m .k{display:flex;align-items:center;justify-content:space-between;font-size:10.5px;font-weight:700;color:#595959}
+.hc .m .k i{font-style:normal;font-size:9px;font-weight:900;color:#fff;background:var(--wc);border-radius:5px;padding:2px 6px}
+.hc .m .v{font-size:19px;font-weight:900;color:var(--wc);line-height:1;margin-top:5px}
+.hc .m .v small{font-size:10.5px;font-weight:700}
+.hc .m .bar{height:6px;border-radius:3px;background:#E6EDF5;margin-top:6px;position:relative}
+.hc .m .bar i{display:block;height:6px;border-radius:3px;background:var(--wc)}
+.hc .m .b{font-size:9.5px;color:var(--muted);margin-top:4px;line-height:1.3}
+.hc .sum{display:flex;align-items:center;gap:8px;background:var(--wc-bg);border-radius:10px;padding:9px 11px;margin-top:10px;font-size:11.5px;color:var(--ink2);line-height:1.45}
+.hc .sum b{color:var(--ink);font-weight:900}
+/* 사업주 영역 표시 (검토용 표식 · 실제 서비스에는 노출 안 됨) */
+.own-tag{position:absolute;right:10px;top:-8px;z-index:2;font-size:9.5px;font-weight:900;color:#fff;background:var(--amber);border-radius:999px;padding:2px 8px;white-space:nowrap}
+.own-in{outline:1.5px dashed var(--amber);outline-offset:3px;border-radius:14px;position:relative}
+.own-tag.l{right:auto;left:10px}
+.lg{display:flex;gap:12px;flex-wrap:wrap;font-size:10px;color:var(--muted);font-weight:700;padding:0 2px}
+.lg i{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle;margin-right:4px}
+/* 결과 카드 (B안 계기판형) */
+.sh2{display:flex;align-items:baseline;gap:8px;padding:4px 2px 0}
+.sh2 b{font-size:13.5px;font-weight:900;color:var(--ink)}
+.sh2 small{margin-left:auto;font-size:10.5px;color:var(--muted);font-weight:600}
+.res{display:flex;flex-direction:column;gap:8px}
+.r{background:#fff;border:1px solid var(--wc-line);border-radius:12px;padding:10px 12px}
+.r .k{font-size:10.5px;font-weight:700;color:#6B7684}
+.r .vd{display:flex;align-items:flex-start;gap:5px;margin-top:3px;font-size:16px;font-weight:900;color:var(--wc);line-height:1.25}
+.r .vd svg{flex-shrink:0;margin-top:3px;background:var(--wc);color:#fff;border-radius:50%;padding:2px}
+.mt{margin-top:7px}
+.mrow{display:flex;align-items:baseline;gap:3px}
+.mrow b{font-size:17px;font-weight:900;color:var(--ink);line-height:1}
+.mrow small{font-size:10px;font-weight:700;color:var(--muted)}
+.pill2{margin-left:auto;font-size:9.5px;font-weight:800;color:var(--wc);background:var(--wc-bg);border-radius:999px;padding:2px 7px;white-space:nowrap}
+.mb{position:relative;height:7px;border-radius:4px;background:#E6EDF5;margin-top:6px}
+.mb i{display:block;height:7px;border-radius:4px;background:var(--wc)}
+.mb:after{content:"";position:absolute;right:0;top:-3px;width:2px;height:13px;background:#1A1A1A;border-radius:1px}
+.ml{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-top:4px;font-weight:600}
+.ml span:last-child{color:var(--ink2);font-weight:800}
+.r .why1{font-size:10.5px;color:var(--txt);margin-top:5px;padding-top:5px;border-top:1px dashed var(--wc-line);line-height:1.4}
+.r .why1 b{color:var(--ink2);font-weight:800}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.two .card .lb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:var(--wc)}
+.two .card .big{font-size:14px;font-weight:900;color:var(--ink);line-height:1.25;margin-top:3px}
+.two .card .big em{font-style:normal;color:var(--wc)}
+.two .card .sm{font-size:10.5px;color:var(--muted);margin-top:4px;line-height:1.4}
+/* 점검 이력표 (E안) */
+.hist .lb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:var(--wc)}
+.hist table{width:100%;border-collapse:collapse;margin-top:8px;table-layout:fixed}
+.hist th,.hist td{padding:0;text-align:center;font-weight:600}
+.hist th{font-size:9px;color:var(--muted);padding-bottom:6px;font-weight:700}
+.hist th:first-child,.hist td:first-child{text-align:left;width:88px}
+.hist td{height:30px;border-top:1px solid var(--line)}
+.hist td:first-child{font-size:11px;font-weight:800;color:var(--ink)}
+.hist td i{display:inline-block;width:16px;height:16px;border-radius:50%;background:var(--wc);vertical-align:middle;position:relative}
+.hist td i:after{content:"";position:absolute;left:5px;top:3px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.hist td.now{background:var(--wc-bg)}
+.hist th.now{color:var(--wc)}
+.hist .ft{font-size:10px;color:var(--muted);margin-top:8px;line-height:1.45}
+/* 한 줄 목록 */
+.list{padding:4px 14px}
+.list .hd{display:flex;align-items:center;gap:8px;padding:8px 0 4px}
+.list .hd b{font-size:12.5px;font-weight:900;color:var(--ink)}
+.list .hd span{font-size:10px;color:var(--muted);font-weight:700;margin-left:auto}
+.list .row{display:grid;grid-template-columns:16px 1fr auto;gap:0 8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.list .row:last-child{border-bottom:0}
+.list .ok{width:16px;height:16px;border-radius:50%;background:var(--wc);display:flex;align-items:center;justify-content:center}
+.list .ok.o{background:#fff;border:1.5px solid #C9D0D8}
+.list .k{font-size:12.5px;font-weight:900;color:var(--ink)}
+.list .k small{display:block;font-weight:600;color:var(--muted);font-size:10.5px;margin-top:1px}
+.list .tag{font-size:9.5px;font-weight:800;color:var(--wc);background:var(--wc-bg);border-radius:6px;padding:2px 6px;white-space:nowrap}
+.list .tag.o{color:var(--muted);background:#F2F4F7}
+.list .num{width:16px;height:16px;border-radius:50%;background:var(--ink);color:#fff;font-size:9.5px;font-weight:900;display:flex;align-items:center;justify-content:center}
+/* 사진 자리 · 팩트 칩 · 바이라인 */
+.ph{border:1.5px dashed #C9D0D8;border-radius:12px;background:#F2F4F7;display:flex;align-items:center;justify-content:center;color:#8A95A3;font-size:10.5px;font-weight:700;text-align:center;line-height:1.4;padding:6px}
+.ph.wide{aspect-ratio:16/9;margin-top:10px}
+.ph.sq{aspect-ratio:1}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.cap2{font-size:10.5px;color:var(--muted);margin-top:5px;line-height:1.4}
+.fact{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;color:var(--wc);background:var(--wc-bg);border-radius:999px;padding:3px 9px;margin-top:8px}
+.fact i{width:12px;height:12px;border-radius:50%;background:var(--wc);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.byline{display:flex;align-items:center;gap:8px}
+.byline .av{width:30px;height:30px;border-radius:50%;background:var(--wc-bg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.byline b{display:block;font-size:12px;font-weight:900;color:var(--ink)}
+.byline span{font-size:10.5px;color:var(--muted)}
+/* 인터뷰·에디터형 (J안·I안) */
+.iv-hero{background:#fff;border-radius:14px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.05);position:relative}
+.iv-hero .ph{height:150px}
+.iv-hero .eb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:var(--wc);margin-top:10px}
+.iv-hero h3{margin:4px 0 0;font-size:18px;font-weight:900;color:var(--ink);line-height:1.3;letter-spacing:-.01em}
+.iv-hero .who{font-size:11px;color:var(--muted);margin-top:6px}
+.intro p{font-size:12.5px;color:var(--ink2);line-height:1.65}
+.intro p+p{margin-top:8px}
+.intro p b{font-weight:900;color:var(--ink)}
+.iv .it{padding:10px 0;border-top:1px solid var(--line)}
+.iv .it:first-child{border-top:0;padding-top:0}
+.iv .it:last-child{padding-bottom:0}
+.iv .q{font-size:12.5px;font-weight:900;color:var(--ink);line-height:1.4}
+.iv .q:before{content:"Q";color:var(--red);font-weight:900;margin-right:7px}
+.iv .a{font-size:12.5px;color:var(--ink2);line-height:1.65;margin-top:6px;padding-left:18px;position:relative}
+.iv .a:before{content:"A";position:absolute;left:0;top:0;color:var(--wc);font-weight:900}
+.iv .a small{display:block;color:var(--muted);font-size:10.5px;margin-top:3px}
+.iv .fact{margin-left:18px;margin-top:6px}
+.pull{background:var(--navy);border-radius:14px;padding:14px 16px;color:#fff}
+.pull p{font-size:15px;font-weight:900;line-height:1.4;letter-spacing:-.01em}
+.pull span{display:block;font-size:10.5px;color:#9FB4DC;margin-top:6px}
+.say{background:#FFF8E8;border:1px solid #F3E2B8}
+.say .lb{font-size:9.5px;font-weight:900;letter-spacing:.1em;color:#9A6B12}
+.say p{font-size:13px;color:var(--ink);line-height:1.6;margin-top:6px;font-weight:600}
+.say .sg{font-size:10.5px;color:var(--muted);margin-top:6px}
+.say .ph{height:96px;margin-top:8px}
+.report{display:flex;align-items:center;gap:10px;border:1px dashed #C9CFD6;border-radius:14px;padding:10px 12px;background:#fff}
+.report .t{flex:1;font-size:12px;color:var(--ink2);font-weight:700}
+.report .t small{display:block;color:var(--muted);font-size:10.5px;font-weight:500}
+.btn{display:inline-block;border-radius:10px;padding:8px 12px;font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap}
+.btn.sec{background:#fff;color:var(--ink);border:1px solid #E3E6E1}
+.fine{font-size:10px;color:var(--muted);line-height:1.5}
+.actions{background:#fff;border-top:1px solid var(--line);padding:10px 16px 14px;display:flex;gap:8px;align-items:center}
+.actions .ico{width:44px;height:44px;border-radius:12px;border:1px solid #E3E6E1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:9.5px;color:#595959;gap:2px}
+.actions .cta{flex:1;height:44px;border-radius:12px;background:var(--wc);color:#fff;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center}
+/* 상세페이지형 (M안 풀블리드) */
+.dp{background:#fff;color:#222}
+.dp .pho{background:linear-gradient(160deg,#E6EAEF 0%,#CBD3DC 100%);position:relative;display:flex;align-items:flex-end;padding:12px 14px;color:#6B7684;font-size:10.5px;font-weight:700;line-height:1.4}
+.dp .pho:before{content:"";position:absolute;inset:10px;border:1px dashed rgba(107,118,132,.45);border-radius:6px;pointer-events:none}
+.dp .hr{position:relative;height:400px}
+.dp .hr .pho{position:absolute;inset:0;height:auto;align-items:flex-start}
+.dp .hr .ov{position:absolute;left:0;right:0;bottom:0;padding:28px 24px 30px;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.62) 100%);color:#fff}
+.dp .hr .lab{color:#BFD6F2}
+.dp .hr h1{margin:8px 0 6px;font-size:26px;font-weight:900;line-height:1.25;letter-spacing:-.02em;color:#fff}
+.dp .hr .sub{font-size:13px;color:#E3EAF2;font-weight:600}
+.dp .sec{padding:36px 24px 32px;text-align:center;position:relative}
+.dp .lab{display:block;font-size:10.5px;letter-spacing:.2em;font-weight:800;color:var(--wc)}
+.dp h2{margin:10px 0 14px;font-size:22px;font-weight:900;line-height:1.3;letter-spacing:-.02em;color:#111}
+.dp p{font-size:13.5px;line-height:1.8;color:#444;word-break:keep-all}
+.dp p b{font-weight:800;color:#111}
+.dp .alt{background:#F4F5F2}
+.dp .strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #E6E8E4;border-bottom:1px solid #E6E8E4;margin-top:26px}
+.dp .strip div{padding:12px 4px;border-right:1px solid #E6E8E4}
+.dp .strip div:last-child{border-right:0}
+.dp .strip b{display:block;font-size:10px;color:#8A8A8A;font-weight:800;letter-spacing:.06em}
+.dp .strip span{display:block;font-size:11.5px;color:#222;font-weight:700;margin-top:4px;line-height:1.35}
+.dp .pt{position:relative}
+.dp .pt .pho{height:250px}
+.dp .pt .tx{padding:28px 24px 36px;text-align:center}
+.dp .pt .num{font-size:11px;letter-spacing:.2em;font-weight:900;color:var(--wc)}
+.dp .pt h3{margin:8px 0 12px;font-size:21px;font-weight:900;line-height:1.3;letter-spacing:-.02em;color:#111}
+.dp .pt .fx{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:11px;font-weight:800;color:var(--wc);border:1px solid var(--wc-line);border-radius:999px;padding:5px 12px;background:#fff}
+.dp .pt .fx i{width:14px;height:14px;border-radius:50%;background:var(--wc);display:inline-flex;align-items:center;justify-content:center}
+.dp .pt .own-tag{top:10px;right:14px}
+.dp .qt{position:relative;height:340px}
+.dp .qt .pho{position:absolute;inset:0;height:auto;align-items:flex-start}
+.dp .qt .ov{position:absolute;left:0;right:0;bottom:0;padding:30px 24px 32px;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.7) 100%);color:#fff;text-align:left}
+.dp .qt .ov .lab{color:#BFD6F2}
+.dp .qt .ov .q{font-size:21px;font-weight:900;line-height:1.35;letter-spacing:-.02em;margin-top:8px}
+.dp .qt .ov .by{font-size:11.5px;color:#D6DEE8;margin-top:10px}
+.dp .qa{padding:8px 24px 32px;text-align:left}
+.dp .qa .it{padding:16px 0;border-bottom:1px solid #ECEEEA}
+.dp .qa .it:last-child{border-bottom:0}
+.dp .qa .q{font-size:14px;font-weight:900;color:#111;line-height:1.45}
+.dp .qa .a{font-size:13.5px;color:#444;line-height:1.75;margin-top:8px}
+.dp .daily{padding:32px 24px 36px;text-align:left}
+.dp .daily .lab,.dp .daily h2{text-align:center}
+.dp .daily .it{display:grid;grid-template-columns:20px 1fr auto;gap:0 10px;align-items:center;padding:12px 0;border-bottom:1px solid #E6E8E4}
+.dp .daily .it:last-child{border-bottom:0}
+.dp .daily .ok{width:20px;height:20px;border-radius:50%;background:var(--wc);display:flex;align-items:center;justify-content:center}
+.dp .daily .ok.o{background:#fff;border:1.5px solid #C9D0D8}
+.dp .daily .k{font-size:13px;font-weight:800;color:#111}
+.dp .daily .k small{display:block;font-size:10.5px;color:#8A8A8A;font-weight:600;margin-top:1px}
+.dp .daily .tag{font-size:9.5px;font-weight:800;color:var(--wc);white-space:nowrap}
+.dp .daily .tag.o{color:#9AA3AE}
+.dp .rep{margin:0 24px 28px;display:flex;align-items:center;gap:12px;border:1px solid #E6E8E4;border-radius:12px;padding:14px;text-align:left}
+.dp .rep .t{flex:1;font-size:12.5px;font-weight:800;color:#111}
+.dp .rep .t small{display:block;font-size:10.5px;color:#8A8A8A;font-weight:500}
+.dp .fine2{padding:0 24px 24px;font-size:10px;color:#9AA3AE;line-height:1.5;text-align:left}
+.dp .sec .own-in{outline-offset:6px}
+/* 옆 메모 */
+.side{width:300px;font-size:12.5px;color:#3E444A;line-height:1.6}
+.side h3{margin:0 0 8px;font-size:13px;font-weight:800;color:var(--ink)}
+.side ol,.side ul{margin:0;padding-left:16px}
+.side li{margin-bottom:6px}
+.side .flag{display:inline-block;background:var(--amber-bg);color:var(--amber);font-weight:800;border-radius:3px;padding:0 5px;font-size:10.5px;margin-right:3px}
+.side p{margin-bottom:8px}
+.side p b{color:var(--ink)}
+.side .nav{margin-top:14px;padding-top:10px;border-top:1px solid #D9DCD6;font-size:12px}
+.side .nav a{color:var(--wc);text-decoration:none;font-weight:700}
+.side .nav a+a{margin-left:8px}
+@media (max-width:760px){.wrap{padding:12px 0 40px}.desc{border-radius:0}.phone{width:100%;border-radius:0;box-shadow:none}.side{width:auto;padding:16px}}
+</style></head>
+<body><div class="wrap">
+<div class="desc"><h1>위쳌 사업장 상세 — 치킨집 × A안 수치형 (열한시 치킨, 10/28)</h1><p>상단은 AI 요약 + 위생 정보 카드(기존 재사용), 본문은 수치 중심. 상호·수치·순위는 시안용 예시 · <a href="index.html">9개 조합 비교로 돌아가기</a></p></div>
+<div class="stage">
+<figure><figcaption>A안 · 치킨집 · 열한시 치킨<small>계기판 · 동네 비교 · 점검 이력 · 사업주 선택 3 · 매장 루틴</small></figcaption>
+<div class="phone"><div class="fold"><span>첫 화면 끝</span></div>
+<div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">열한시 치킨</div></div>
+<div class="head"><div class="nm"><h2>열한시 치킨</h2><span class="cat">치킨·닭강정</span></div>
+<div class="rv"><svg width="13" height="13" viewBox="0 0 24 24" fill="#C77700" aria-hidden="true"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.5L12 16.8 6.1 20l1.3-6.5L2.5 9l6.6-.8z"/></svg><b>4.7</b><span>리뷰 2,041 · 성수동</span></div>
+<div class="tabs"><span class="">홈</span><span class="">메뉴</span><span class="">리뷰</span><span class="">사진</span><span class="on">위생</span></div></div>
+<div class="body"><div class="ai"><div class="lb"><svg width="12" height="12" viewBox="0 0 24 24" fill="#0072CE" aria-hidden="true"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8zM19 16l.9 2.6L22.5 19.5l-2.6.9L19 23l-.9-2.6-2.6-.9 2.6-.9z"/></svg>AI 요약<small>리뷰 · 세스코 리포트 · 사장님 기록 기준</small></div><ul><li>식어도 바삭하다는 말이 리뷰에 가장 자주 나와요. 사장님은 그 이유를 새 기름과 두 번 튀김이라고 적었어요.</li><li>세스코가 10월 16일에 기름·닭·도마·손·공기 5가지를 직접 재서 모두 기준 안이었어요. 6회 연속이에요.</li><li>사장님이 올린 매장 루틴 6개 중 4개를 이번 점검에서 세스코가 실제로 봤어요.</li></ul></div><div class="hc">
+<div class="top"><div class="grade"><b>A</b><span>위생 등급</span></div><div class="t"><b>세스코 전문가 실측 · 10.16 · 5가지 모두 기준 안</b><span>위생점검 리포트 No. 2026-1016-0512 · 다음 점검 11월</span></div></div>
+<div class="pt"><span class="pill">치킨집 공통 위생 포인트</span><small>CESCO 위쳌 기준</small><div class="hl">오늘 튀기는 기름, 산가까지 확인했어요</div><div class="ds">생닭은 교차 오염에 취약하고 오래 쓴 기름은 산패하기 쉬워 튀김유 산가, 생닭 보관 온도, 칼·도마 소독, 작업자 손 위생, 후드·배기 기름때를 집중 관리해요.</div></div>
+<div class="grid"><div class="m"><div class="k">튀김유 산가<i>적합</i></div><div class="v">0.8</div><div class="bar"><i style="width:27%"></i></div><div class="b">기준 3.0 이하 (식품위생법 시행규칙)</div></div><div class="m"><div class="k">생닭 냉장 온도<i>적합</i></div><div class="v">2 <small>℃</small></div><div class="bar"><i style="width:40%"></i></div><div class="b">기준 0~5℃ · 24시간 센서</div></div><div class="m"><div class="k">칼·도마 오염도<i>적합</i></div><div class="v">120 <small>RLU</small></div><div class="bar"><i style="width:60%"></i></div><div class="b">관리 기준 200 이하 (ATP)</div></div><div class="m"><div class="k">공기 중 부유세균<i>적합</i></div><div class="v">180 <small>CFU/㎥</small></div><div class="bar"><i style="width:22%"></i></div><div class="b">기준 800 이하</div></div></div>
+<div class="sum"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0072CE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><div><b>5개 항목 모두 기준 안</b> — 세스코 전문가가 10.16에 측정기(산가계·ATP·부유균)로 직접 쟀어요</div></div>
+</div><div class="lg"><span><i style="background:#C77700"></i>주황 표식 = 사업주가 고르거나 적는 자리 (검토용, 실제 화면엔 안 보임)</span></div>
+<div class="sh2"><b>항목별로 얼마나 여유 있나</b><small>10.16 세스코 실측 · 값과 기준선</small></div>
+<div class="res"><div class="r"><div class="k">튀김유 산가 · 바삭함의 기준</div><div class="vd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>아주 바삭바삭해요</div>
+<div class="mt"><div class="mrow"><b>0.8</b><span class="pill2">기준의 27% · 새 기름 수준</span></div><div class="mb"><i style="width:27%"></i></div><div class="ml"><span>0</span><span>기준선 3.0 (식품위생법)</span></div></div>
+<div class="why1"><b>왜 보나요?</b> 기름이 산화되면 눅눅해지고 냄새가 나요. 월·수·금 새벽에 전량 교체하는 집이라 재면 늘 이 수준이에요.</div></div><div class="r"><div class="k">생닭 보관 온도</div><div class="vd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>신선하게 보관되고 있어요</div>
+<div class="mt"><div class="mrow"><b>2</b><small>℃</small><span class="pill2">0~5℃ 범위 안 · 24시간 센서</span></div><div class="mb"><i style="width:40%"></i></div><div class="ml"><span>0℃</span><span>5℃</span></div></div>
+<div class="why1"><b>왜 보나요?</b> 온도가 오르면 세균이 빠르게 늘어요. 센서 기록을 보면 밤 세 시에도 2도 언저리예요.</div></div><div class="r"><div class="k">칼·도마 오염도</div><div class="vd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>청결하게 관리되고 있어요</div>
+<div class="mt"><div class="mrow"><b>120</b><small>RLU</small><span class="pill2">기준의 60%</span></div><div class="mb"><i style="width:60%"></i></div><div class="ml"><span>0</span><span>기준선 200</span></div></div>
+<div class="why1"><b>왜 보나요?</b> 생닭을 만진 도마가 완제품에 닿으면 교차 오염이 생겨요. 빨간 도마는 생닭 전용이에요.</div></div><div class="r"><div class="k">조리하는 손</div><div class="vd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>깨끗한 손으로 조리해요</div>
+<div class="mt"><div class="mrow"><b>60</b><small>RLU</small><span class="pill2">기준의 30%</span></div><div class="mb"><i style="width:30%"></i></div><div class="ml"><span>0</span><span>기준선 200</span></div></div>
+<div class="why1"><b>왜 보나요?</b> 손을 거친 교차 오염은 가장 흔한 경로예요. 닭을 만지면 바로 씻는 습관이 숫자로 보여요.</div></div><div class="r"><div class="k">공기 중 부유세균</div><div class="vd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>주방 공기도 깨끗해요</div>
+<div class="mt"><div class="mrow"><b>180</b><small>CFU/㎥</small><span class="pill2">기준의 23%</span></div><div class="mb"><i style="width:22%"></i></div><div class="ml"><span>0</span><span>기준선 800</span></div></div>
+<div class="why1"><b>왜 보나요?</b> 튀김 연기와 습기 많은 주방은 공기 중 세균이 늘기 쉬워요. 후드 안쪽을 2주마다 닦는 집이에요.</div></div></div>
+<div class="two"><div class="card"><div class="lb">동네에서 보면</div><div class="big">성수동 치킨집 <em>상위 3%</em></div><div class="sm">위쳌 측정 94곳 중 3위</div></div><div class="card"><div class="lb">꾸준한지 보면</div><div class="big"><em>6회 연속</em> 기준 통과</div><div class="sm">칼·도마 5월 190 → 10월 120 RLU</div></div></div>
+<div class="card hist"><div class="lb">점검 이력</div><table><thead><tr><th></th><th class="">5월</th><th class="">6월</th><th class="">7월</th><th class="">8월</th><th class="">9월</th><th class="now">10월</th></tr></thead><tbody><tr><td>튀김유 산가</td><td class=""><i></i></td><td class=""><i></i></td><td class=""><i></i></td><td class=""><i></i></td><td class=""><i></i></td><td class="now"><i></i></td></tr><tr><td>칼·도마</td><td class=""><i></i></td><td class=""><i></i></td><td class=""><i></i></td><td class=""><i></i></td><td class=""><i></i></td><td class="now"><i></i></td></tr><tr><td>공기</td><td class=""><i></i></td><td class=""><i></i></td><td class=""><i></i></td><td class=""><i></i></td><td class=""><i></i></td><td class="now"><i></i></td></tr></tbody></table><div class="ft">월 1회 세스코 정기 점검 · 6회 연속 기준 통과 · 다음 점검 11월</div></div>
+<div class="card list own-in"><span class="own-tag">사업주 선택 TOP 3</span><div class="hd"><b>이 집이 특히 신경 쓰는 세 가지</b><span>업종 공통 항목 중 사업주가 상위 3개 선택</span></div><div class="row"><div class="num">1</div><div class="k">월·수·금 새벽, 튀김 기름 전량 교체<small>새벽 4시 30분 · 폐유는 화요일 수거</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="num">2</div><div class="k">생닭은 들어온 날 다 써요<small>아침 7시 입고 → 바로 염지 12시간 · 다음 날로 안 넘김</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="num">3</div><div class="k">도마·칼은 색으로 구분<small>빨강은 생닭 전용, 하양은 완제품</small></div><span class="tag">세스코 확인</span></div></div>
+<div class="card say own-in"><span class="own-tag">사업주 입력</span><div class="lb">사장님 한마디</div><p>"기름은 새벽에 갈아요. 점검 오시는 날도, 안 오시는 날도요."</p><div class="sg">박OO 사장님 · 사업주가 직접 적는 한 줄 (선택)</div></div>
+<div class="card list"><div class="hd"><b>매장이 매일 하는 일</b><span>사장님 기록</span></div><div class="row"><div class="ok"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><div class="k">튀김 기름 월·수·금 전량 교체<small>새벽 4시 30분</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="ok"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><div class="k">생닭 당일 소진<small>다음 날로 안 넘김</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="ok"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><div class="k">도마·칼 색 구분<small>빨강은 생닭 전용</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="ok"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg></div><div class="k">후드 안쪽 청소<small>2주에 한 번 업체</small></div><span class="tag">세스코 확인</span></div><div class="row"><div class="ok o"></div><div class="k">홀 테이블 두 번 닦기<small>젖은 행주, 마른 행주</small></div><span class="tag o">매장 기록</span></div><div class="row"><div class="ok o"></div><div class="k">포장 상자 구멍 두 개<small>김 빠지게</small></div><span class="tag o">매장 기록</span></div></div>
+<div class="report"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. 2026-1016-0512<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
+<p class="fine">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 매장 기록은 사장님이 적은 내용이고, 세스코 확인 표시가 있는 것만 이번 점검에서 실제로 봤어요.</p></div>
+<div class="actions"><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.7a2 2 0 0 1 1.9 2z"/></svg>전화</div><div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#595959" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>저장</div><div class="cta">이 가게 방역 알림 받기</div></div>
+</div></figure>
+<aside class="side"><h3>A안 · 수치형 — 치킨집</h3>
+<p>위생 정보 카드의 수치를 본문에서 <b>계기판·추이·동네 비교</b>로 다시 풀어 보여 줍니다. 수치가 곧 콘텐츠라 글을 거의 안 써도 되고 40만 사업장에 자동으로 깔 수 있습니다.</p>
+<ol>
+<li><b>항목별 계기판</b> — 값 · 기준의 몇 % · 0~기준선 눈금 · "왜 보나요?" 한 줄. 상단 카드와 같은 수치가 반복됩니다(10/28 결정과 상충, 비교용으로 그대로 둠).</li>
+<li><b>동네 비교 · 연속 통과 · 점검 이력</b> — 수치형에서만 가능한 "꾸준함" 표현. 순위 수치는 예시.</li>
+<li><span class="flag">사업주 선택</span>업종 공통 항목 중 상위 3개. 수치형에서는 체크리스트로만 보여 집마다 차이가 작게 보입니다.</li>
+<li><span class="flag">사업주 입력</span>한 줄 멘트 하나. 사진 자리는 없습니다.</li>
+</ol>
+<p><b>장점</b> 근거가 또렷하고 자동 생성 가능. <b>단점</b> 상단 카드와 중복, 집마다 비슷해 보임, "왜 이 집인지"가 숫자 뒤에 숨음.</p>
+<div class="nav"><a href="위쳌_치킨집_B인터뷰에디터형_261028.html">같은 업종 B안 →</a><a href="위쳌_치킨집_C상세페이지형_261028.html">같은 업종 C안 →</a><a href="위쳌_고깃집_A수치형_261028.html">고깃집 A안 →</a><a href="위쳌_산후조리원_A수치형_261028.html">산후조리원 A안 →</a></div></aside>
+</div></div></body></html>
