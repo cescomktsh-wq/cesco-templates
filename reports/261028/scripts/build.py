@@ -119,9 +119,9 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
 .hist .ft{font-size:10px;color:var(--muted);margin-top:8px;line-height:1.45}
 /* 한 줄 목록 */
 .list{padding:4px 14px}
-.list .hd{display:flex;align-items:center;gap:8px;padding:8px 0 4px}
+.list .hd{display:flex;align-items:center;gap:8px;padding:8px 0 4px;flex-wrap:wrap}
 .list .hd b{font-size:12.5px;font-weight:900;color:var(--ink)}
-.list .hd span{font-size:10px;color:var(--muted);font-weight:700;margin-left:auto}
+.list .hd span{font-size:10px;color:var(--muted);font-weight:700;margin-left:auto;text-align:right}
 .list .row{display:grid;grid-template-columns:16px 1fr auto;gap:0 8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
 .list .row:last-child{border-bottom:0}
 .list .ok{width:16px;height:16px;border-radius:50%;background:var(--wc);display:flex;align-items:center;justify-content:center}
@@ -232,7 +232,7 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
 .dp .rep .t{flex:1;font-size:12.5px;font-weight:800;color:#111}
 .dp .rep .t small{display:block;font-size:10.5px;color:#8A8A8A;font-weight:500}
 .dp .fine2{padding:0 24px 24px;font-size:10px;color:#9AA3AE;line-height:1.5;text-align:left}
-.dp .sec .own-in{outline-offset:6px}
+.dp .sec .own-in{outline-offset:0;padding:16px 10px 8px;margin-top:4px}
 /* 옆 메모 */
 .side{width:300px;font-size:12.5px;color:#3E444A;line-height:1.6}
 .side h3{margin:0 0 8px;font-size:13px;font-weight:800;color:var(--ink)}
@@ -716,6 +716,8 @@ th{{background:var(--soft);font-weight:700;font-size:13px;color:var(--ink2);whit
 .chip .type{{font-size:10px;font-weight:600;opacity:.75;letter-spacing:.02em}}
 .st{{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:4px;white-space:nowrap;vertical-align:middle;margin-left:4px}}
 .st.done{{background:var(--green-soft);color:var(--green)}}
+.tbl{{overflow-x:auto}}
+.tbl table{{min-width:640px}}
 .opts{{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}}
 .opt{{border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:13.5px}}
 .opt b{{display:block;margin-bottom:6px}}
@@ -735,15 +737,15 @@ th{{background:var(--soft);font-weight:700;font-size:13px;color:var(--ink2);whit
 <div class="box"><b class="h">완성 라이팅으로 고른 조합 — 고깃집 × B안(인터뷰·에디터형)</b>고깃집은 숙성고 온도·불판·반찬처럼 사장님이 매일 손으로 하는 일이 많아 문답만으로 위생 근거가 자연스럽게 따라 나오고, 상호(일도씨)·폰 잠금화면·마흔세 장 같은 고유 디테일이 생성문 티를 가장 잘 지워서 골랐습니다. 나머지 8개는 비교 가능한 초안입니다.</div>
 
 <h2><span class="num">01</span>9개 조합 (업종 × 유형)</h2>
-<table><thead><tr><th style="width:22%">업종 · 가상 사업장</th><th>A안 · 수치형</th><th>B안 · 인터뷰·에디터형</th><th>C안 · 상세페이지형</th></tr></thead><tbody>{rows}</tbody></table>
+<div class="tbl"><table><thead><tr><th style="width:22%">업종 · 가상 사업장</th><th>A안 · 수치형</th><th>B안 · 인터뷰·에디터형</th><th>C안 · 상세페이지형</th></tr></thead><tbody>{rows}</tbody></table></div>
 <p class="small">상호는 모두 가상이며 검색으로 동일 상호가 확인되지 않은 것으로 골랐습니다(열한시 치킨 · 일도씨 정육식당 · 볕드는집 산후조리원). 10/26~28 시안의 바삭마을 치킨·화로마당·포근 산후조리원은 실존 상호와 겹칠 수 있어 바꿨습니다. 수치·순위·점검 횟수는 시안용 예시입니다.</p>
 
 <h2><span class="num">02</span>유형별 역할과 장단점</h2>
-<table><thead><tr><th style="width:16%">유형</th><th style="width:30%">본문이 하는 일</th><th>장점</th><th>단점 · 전제</th></tr></thead><tbody>
+<div class="tbl"><table><thead><tr><th style="width:16%">유형</th><th style="width:30%">본문이 하는 일</th><th>장점</th><th>단점 · 전제</th></tr></thead><tbody>
 <tr><td><b>A · 수치형</b></td><td>위생 카드의 수치를 계기판(값·기준의 몇 %·눈금)·동네 비교·점검 이력으로 다시 풀어 "얼마나 여유 있는지"를 읽게 함</td><td>근거가 또렷하고 글 없이 자동 생성 가능. 꾸준함(연속 통과·추이)을 보여 줄 수 있는 유일한 유형</td><td>상단 카드와 수치가 중복(10/28 결정과 상충). 집마다 비슷해 보이고 "왜 이 집인지"가 숫자 뒤에 숨음</td></tr>
 <tr><td><b>B · 인터뷰·에디터형</b></td><td>에디터 방문기 + 사장님 문답. 위생 사실은 답에 섞여 나올 때만 팩트 칩으로 표시, 숫자는 다시 안 씀</td><td>집마다 다른 글이 나오고 생성문 티가 가장 적음. 위생이 자랑이 아니라 이야기의 증거로 읽힘. 마케팅 콘텐츠로 2차 활용 가능</td><td>전문가 현장 양식(본 것·잰 것·사장님 말·질문 2~3개)이 비면 못 씀. 사장님 확인 단계 필요. 글 분량이 가장 김</td></tr>
 <tr><td><b>C · 상세페이지형</b></td><td>풀블리드 사진 + 큰 카피. 소개 → 특장점 3(사업주 선택) → 인터뷰 → 매일 하는 일. 수치는 맨 위 카드에만</td><td>가장 "마케팅 페이지"답고 사진이 일을 함. 선택 항목 + 기본 문안 구조라 40만 사업장에 자동 적용 가능</td><td>세로 사진 5장 필요, 없으면 회색 상자가 길게 남음. 기본 문안만 쓰면 B보다 집마다 비슷해 보임</td></tr>
-</tbody></table>
+</tbody></table></div>
 
 <h2><span class="num">03</span>사업주 선택 항목 (업종별 특장점 리스트 초안)</h2>
 <p>업종마다 공통 항목 8~10개를 두고 사업주가 <b>상위 3개</b>를 고르면 본문(B안 "사장님이 고른 세 가지", C안 POINT 01~03)에 우선 노출됩니다. 항목마다 기본 제목·카피 한 벌을 두고, 사장님 말이 있으면 바꿔 넣습니다. 세스코가 이번 점검에서 실제로 본 항목에만 파란 "세스코 확인" 칩이 붙고, 나머지는 회색 "매장 기록"으로 남습니다.</p>
