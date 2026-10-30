@@ -28,6 +28,8 @@ CSS = r"""
 .opts td .cs.o{color:var(--muted)}
 .opts td.cp{color:var(--txt)}
 .row3{display:flex;gap:20px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
+.row3 .ed{width:390px}
+@media (max-width:760px){.row3 .ed{width:100%}}
 .row3 figure{margin:0}
 .row3 figcaption b{display:block;font-size:13px}
 .row3 figcaption small{font-size:11px}
@@ -48,7 +50,7 @@ def build():
     secs = ''
     for bk in ['chicken', 'care']:
         t = T.TPL[bk]; reg = t['reg']
-        figs = ''
+        figs = f'<figure><figcaption><b>{t["owner"]} 선택 화면</b><small>위쳌 사업주용 · 2~3개 체크 · 기본 문안이 미리 들어 있음 · 여기서 바꾸면 오른쪽 3개가 같이 바뀜</small></figcaption><div class="ed"><div class="bar">위생 페이지 관리<span class="sv">저장</span></div><div class="in" data-ed data-biz="{bk}"></div></div></figure>'
         for code, nm, ds in TYPES:
             figs += f'<figure><figcaption><b>{nm}</b><small>{ds}</small></figcaption><div class="phone"><div class="fold"><span>첫 화면 끝</span></div><div data-static data-biz="{bk}" data-t="{code}"></div></div></figure>'
         secs += f'<section class="bizsec"><h2>{t["key"]} · {reg["name"]}</h2><div class="sub">기본 템플릿 상태 = {t["owner"]} 입력 없음. 상단 AI 요약 + 위생 정보 카드는 세 유형 공통, 그 아래만 다릅니다. 상호·수치는 시안용 예시.</div>{opts_table(bk)}<div class="row3">{figs}</div></section>'
@@ -57,7 +59,7 @@ def build():
 <title>위쳌 기본 템플릿 — 치킨집·산후조리원 × 3유형 한눈에 (10/28)</title>{B.FONT}<style>{B.CSS}{T.EXTRA_CSS}{CSS}</style></head>
 <body>
 <div class="top"><div class="desc"><h1>위쳌 사업장 상세 — 기본 템플릿 × 3유형, 치킨집·산후조리원 한눈에</h1>
-<p>클릭 없이 보는 판입니다. 업종마다 <b>사장님 선택 항목 10개(기본 문안·질문 포함)</b>를 먼저 두고, 그 아래 같은 데이터로 만든 <b>수치형 · 인터뷰형 · 상세페이지형</b> 손님 화면을 나란히 놓았습니다. 세 화면 모두 사장님이 아무것도 안 고치고 기본 선택 3개만 적용된 상태입니다. 직접 골라 보고 고쳐 보는 판은 <a href="위쳌_기본템플릿_사장님선택수정_261028.html">편집 시연 페이지</a>에 있습니다.</p></div></div>
+<p>클릭 없이 보는 판입니다. 업종마다 <b>사장님 선택 항목 10개(기본 문안·질문 포함)</b>를 먼저 두고, 그 아래 같은 데이터로 만든 <b>수치형 · 인터뷰형 · 상세페이지형</b> 손님 화면을 나란히 놓았습니다. 맨 왼쪽이 <b>사장님 선택 화면</b>입니다. 처음엔 기본 선택 3개만 켜진 상태이고, 거기서 체크를 바꾸거나 글을 고치면 오른쪽 화면 3개가 같이 바뀝니다.</p></div></div>
 {secs}
 <script>{T.js_block()}</script>
 </body></html>'''

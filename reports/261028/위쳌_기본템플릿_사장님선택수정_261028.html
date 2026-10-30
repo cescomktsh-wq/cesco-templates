@@ -302,8 +302,8 @@ mark.ed{background:var(--amber-bg);color:inherit;box-shadow:0 0 0 2px var(--ambe
 <div class="top"><div class="desc"><h1>위쳌 사업장 상세 — 기본 템플릿은 이미 채워져 있고, 사장님은 2~3개만 고르고, 원하면 고친다</h1>
 <p>왼쪽은 <b>사장님 편집 화면</b>, 오른쪽은 <b>손님이 보는 화면</b>입니다. 업종을 고르면 기본 문안이 다 들어간 페이지가 바로 나오고(0 입력 상태), 특장점을 체크하면 그 순서대로 POINT가 바뀌고, 입력칸의 글을 고치면 오른쪽에 바로 반영됩니다. 고친 곳은 주황색으로 보입니다(검토용). "사장님이 고친 예시 넣기"를 누르면 실제 사장님이 손본 상태가 어떻게 달라지는지 볼 수 있습니다. 세스코 측정값·등급·점검일·등록 정보는 사장님이 못 건드립니다.</p></div></div>
 <div class="two-col">
-<div class="col"><h3>사장님 편집 화면<small>위쳌 사업주용 · 기본 문안이 미리 들어 있음</small></h3><div class="ed"><div class="bar">위생 페이지 관리<span class="sv">저장</span></div><div class="in" id="ed-in"></div></div></div>
-<div class="col"><h3>손님이 보는 화면<small>같은 데이터로 유형만 바꿔 봅니다 · 편집 즉시 반영</small></h3><div class="tsel"><button type="button" data-t="A">수치형</button><button type="button" data-t="B">인터뷰형</button><button type="button" data-t="C" class="on">상세페이지형</button></div><div class="phone"><div class="fold"><span>첫 화면 끝</span></div><div id="pv"></div></div></div>
+<div class="col"><h3>사장님 편집 화면<small>위쳌 사업주용 · 기본 문안이 미리 들어 있음</small></h3><div class="ed"><div class="bar">위생 페이지 관리<span class="sv">저장</span></div><div class="in" id="ed-in" data-ed data-withbiz data-biz="chicken"></div></div></div>
+<div class="col"><h3>손님이 보는 화면<small>같은 데이터로 유형만 바꿔 봅니다 · 편집 즉시 반영</small></h3><div class="tsel"><button type="button" data-t="A">수치형</button><button type="button" data-t="B">인터뷰형</button><button type="button" data-t="C" class="on">상세페이지형</button></div><div class="phone"><div class="fold"><span>첫 화면 끝</span></div><div id="pv" data-static data-biz="chicken" data-t="C"></div></div></div>
 </div>
 <div class="memo"><h2>구조 메모</h2>
 <div class="tw"><table><thead><tr><th style="width:18%">단계</th><th style="width:32%">누가 무엇을</th><th>화면에 나오는 것</th></tr></thead><tbody>
@@ -331,10 +331,10 @@ Object.keys(D).forEach(init);
 window.addEventListener('hashchange',()=>{const k=location.hash.slice(1); if(k in D){cur=k;render();}});
 function mark(txt, base){ return txt!==base ? '<mark class="ed">'+esc(txt)+'</mark>' : esc(txt); }
 
-function renderEditor(){
-  const t=D[cur], s=state[cur], reg=t.reg;
+function editorHtml(bk, s, withBiz){
+  const t=D[bk], reg=t.reg;
   let h='';
-  h+='<div class="fs"><div class="lb">업종<small>등록 정보로 자동 선택</small></div><div class="seg">'+['chicken','care'].map(k=>`<button type="button" data-biz="${k}" class="${k===cur?'on':''}">${D[k].key}</button>`).join('')+'</div></div>';
+  if(withBiz) h+='<div class="fs"><div class="lb">업종<small>등록 정보로 자동 선택</small></div><div class="seg">'+['chicken','care'].map(k=>`<button type="button" data-biz="${k}" class="${k===bk?'on':''}">${D[k].key}</button>`).join('')+'</div></div>';
   h+=`<div class="lock"><b>세스코가 입력 · ${t.owner}은 수정 불가</b><br>위생 등급 A · 점검일 ${reg.date} · 실측 ${reg.n}항목 · 리포트 No. ${reg.report}<br><b>등록 정보에서 자동</b> ${reg.name} · ${reg.cat} · ${reg.town} · ${reg.years}년 · 영업시간 · 메뉴 · 주차</div>`;
   h+='<div class="fs"><div class="lb">① 우리 ${t.place}가 특히 신경 쓰는 것<small>2~3개 선택 · 고른 순서대로 노출</small></div><div class="chk">';
   t.items.forEach((it,i)=>{const on=s.sel.includes(i); const dis=!on&&s.sel.length>=3;
@@ -347,7 +347,7 @@ function renderEditor(){
   h+=`<div class="fs"><div class="lb">④ ${t.owner} 한마디<small>선택 · 40자</small></div><input type="text" data-f="say" value="${esc(s.say)}" placeholder="비워 두면 이 칸은 손님 화면에 안 나와요" class="${s.say?'changed':''}"><div class="cnt">${s.say.length}/40</div></div>`;
   h+='<div class="btns"><button type="button" data-act="reset">기본 문안으로 되돌리기</button><button type="button" class="ex" data-act="example">${t.owner}이 고친 예시 넣기</button></div>';
   h+='<div class="note">저장하면 손님 화면에 바로 반영돼요. 세스코 측정값·등급·점검일은 ${t.owner}이 바꿀 수 없어요. 주황색 칸이 ${t.owner}이 고친 곳이에요.</div>';
-  document.getElementById('ed-in').innerHTML=h;
+  return h;
 }
 
 function previewHtml(bk, typ, s){
@@ -403,36 +403,43 @@ ${repRow}${fine}</div>`;
   const body = typ==='A'?bodyA : typ==='B'?bodyB : bodyC;
   return headHtml + body + `<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
 }
-function renderPreview(){
-  document.getElementById('pv').innerHTML = previewHtml(cur, typ, state[cur]);
-  document.querySelectorAll('.tsel button').forEach(b=>b.classList.toggle('on',b.dataset.t===typ));
+function refreshPreviews(bk){
+  document.querySelectorAll('[data-static]').forEach(el=>{ if(el.dataset.biz===bk) el.innerHTML=previewHtml(bk, el.dataset.t, state[bk]); });
 }
-function render(){renderEditor();renderPreview();}
-if(document.getElementById('ed-in')){
-document.getElementById('ed-in').addEventListener('click',e=>{
+function refresh(bk){
+  document.querySelectorAll('[data-ed]').forEach(el=>{ if(el.dataset.biz===bk) el.innerHTML=editorHtml(bk, state[bk], el.hasAttribute('data-withbiz')); });
+  refreshPreviews(bk);
+}
+const edIn=document.getElementById('ed-in'), pv=document.getElementById('pv');
+function render(){
+  if(edIn){ edIn.dataset.biz=cur; pv.dataset.biz=cur; pv.dataset.t=typ; document.querySelectorAll('.tsel button').forEach(b=>b.classList.toggle('on',b.dataset.t===typ)); }
+  Object.keys(D).forEach(refresh);
+}
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tsel button[data-t]'); if(tb){typ=tb.dataset.t; render(); return;}
+  const ed=e.target.closest('[data-ed]'); if(!ed) return; const bk=ed.dataset.biz;
   const b=e.target.closest('button[data-biz]'); if(b){cur=b.dataset.biz;history.replaceState(null,'','#'+cur);render();return;}
   const a=e.target.closest('button[data-act]'); if(!a) return;
-  const t=D[cur]; if(a.dataset.act==='reset'){init(cur);} else {const s=state[cur]; s.about=t.edit.about; Object.entries(t.edit.pts).forEach(([i,c])=>{i=+i; if(!s.sel.includes(i)) s.sel=[i,...s.sel].slice(0,3); s.pts[i]=c;}); s.say=t.edit.say;}
-  render();
+  const t=D[bk]; if(a.dataset.act==='reset'){init(bk);} else {const s=state[bk]; s.about=t.edit.about; Object.entries(t.edit.pts).forEach(([i,c])=>{i=+i; if(!s.sel.includes(i)) s.sel=[i,...s.sel].slice(0,3); s.pts[i]=c;}); s.say=t.edit.say;}
+  refresh(bk);
 });
-document.getElementById('ed-in').addEventListener('change',e=>{
-  const c=e.target; if(c.type!=='checkbox') return; const s=state[cur], i=+c.dataset.i;
+document.addEventListener('change',e=>{
+  const ed=e.target.closest('[data-ed]'); if(!ed) return; const bk=ed.dataset.biz;
+  const c=e.target; if(c.type!=='checkbox') return; const s=state[bk], i=+c.dataset.i;
   if(c.checked){ if(!s.sel.includes(i)&&s.sel.length<3) s.sel.push(i);} else s.sel=s.sel.filter(x=>x!==i);
-  render();
+  refresh(bk);
 });
-document.getElementById('ed-in').addEventListener('input',e=>{
-  const el=e.target, s=state[cur];
+document.addEventListener('input',e=>{
+  const ed=e.target.closest('[data-ed]'); if(!ed) return; const bk=ed.dataset.biz;
+  const el=e.target, s=state[bk];
   if(el.dataset.f==='about') s.about=el.value.slice(0,160);
   else if(el.dataset.f==='say') s.say=el.value.slice(0,40);
   else if(el.dataset.pt!==undefined) s.pts[+el.dataset.pt]=el.value.slice(0,140);
   else return;
-  const t=D[cur]; el.classList.toggle('changed', el.dataset.f==='about'? s.about!==fill(t.about,t.reg) : el.dataset.f==='say'? !!s.say : s.pts[+el.dataset.pt]!==t.items[+el.dataset.pt].copy);
+  const t=D[bk]; el.classList.toggle('changed', el.dataset.f==='about'? s.about!==fill(t.about,t.reg) : el.dataset.f==='say'? !!s.say : s.pts[+el.dataset.pt]!==t.items[+el.dataset.pt].copy);
   el.parentElement.querySelector('.cnt').textContent=el.value.length+'/'+(el.dataset.f==='about'?160:el.dataset.f==='say'?40:140);
-  renderPreview();
+  refreshPreviews(bk);
 });
-document.querySelector('.tsel').addEventListener('click',e=>{const b=e.target.closest('button[data-t]'); if(b){typ=b.dataset.t; renderPreview();}});
 render();
-}
-document.querySelectorAll('[data-static]').forEach(el=>{el.innerHTML=previewHtml(el.dataset.biz, el.dataset.t, state[el.dataset.biz]);});
 </script>
 </body></html>
