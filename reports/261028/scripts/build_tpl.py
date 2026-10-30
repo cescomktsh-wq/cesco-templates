@@ -89,6 +89,24 @@ TPL = {
             say='숫자는 세스코가 재요. 저는 복도에 붙이기만 해요.')),
 }
 
+
+# 위생 정보 카드 (스와이프). 산후조리원 = 10/23 개선안 최종 1안 원문. 치킨집 = 10/23 개선안에 행이 없어 같은 형식으로 쓴 초안.
+HCARDS = {
+'care': dict(src='10/23 개선안 1안 원문', cards=[
+  ('VIRUSCARE','신생아와 산모가 생활하는 모든 공간!','전문 방역업체가 월 1회 이상 살균·소독하고 집기는 수시로 살균·소독해요.','바이러스케어 솔루션','전문 살균'),
+  ('VIRUSCARE','우리 아기 젖병과 수건!','아기마다 개별로 구분해서 매일 고온 살균으로 관리해요.','바이러스케어 솔루션','신생아 용품 살균'),
+  ('VIRUSCARE','산모와 아기가 숨 쉬는 공기!','공기 중 부유세균을 150 CFU/m³ 이하로 유지해요. 산후조리원 법정 기준의 5분의 1 수준으로 낮아요.','바이러스케어 솔루션','공기 살균'),
+  ('BODYCARE','출산 후 감염에 약한 산모의 몸!','안심하고 회복할 수 있도록 청결 관리를 돕는 비데를 전 객실에 설치했어요.','바디케어 솔루션','비데 위생 관리'),
+  ('FOOD','아기에게까지 닿는 산모의 식사!','식자재 입고부터 조리, 배식, 보관까지 모든 과정을 국내 식품위생법 기준으로 운영해요.','식품안전 솔루션','산모 식재료 위생')]),
+'chicken': dict(src='초안 · 10/23 개선안에 치킨집 행이 없어 같은 형식으로 작성 [확인 필요]', cards=[
+  ('FOOD','오늘 튀기는 기름!','튀김유 산가를 측정해서 식품위생법 기준(3.0 이하) 안으로 관리해요.','식품안전 솔루션','튀김유 산가'),
+  ('FOOD','냉장고 안의 생닭!','생닭은 0~5℃ 냉장에서 보관하고 실온에 오래 두지 않아요.','식품안전 솔루션','생닭 보관 온도'),
+  ('FOOD','생닭을 손질한 칼과 도마!','생닭용 칼·도마를 따로 구분하고 쓰고 나면 세척·소독해요.','식품안전 솔루션','칼·도마 위생'),
+  ('FOOD','닭을 만지는 조리자의 손!','생닭을 만진 뒤에는 바로 손을 씻고 장갑을 바꿔 끼워요.','식품안전 솔루션','작업자 손 위생'),
+  ('IHM','기름 연기가 지나가는 후드!','기름때가 쌓이지 않도록 후드와 배기 덕트를 정기적으로 청소해요.','전문클리닝 솔루션','후드·배기 청소')]),
+'meat': dict(src='', cards=[]),
+}
+
 # 인터뷰형 질문(셀프 인터뷰) · 수치형 매핑(위생 카드 실측 항목 index, 없으면 -1)
 QS = {
 'chicken': ['기름은 언제 갈아요?','닭은 언제 들어오고 언제까지 써요?','염지는 어떻게 해요?','생닭 손질할 때 도마는요?','두 번 튀기는 이유가 있어요?','후드 청소는 누가, 얼마나 자주 해요?','포장하면 눅눅해지지 않나요?','어떤 닭을 쓰세요?','테이블이랑 소스통은요?','배달은 매장이랑 다른 게 있어요?'],
@@ -104,7 +122,7 @@ MET = {
 # JS로 넘길 데이터
 DATA = {}
 for k, t in TPL.items():
-    d = dict(t); d['place'] = '조리원' if k=='care' else '가게'; d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f, q=QS[k][i], metric=MET[k][i]) for i, (a, b, c, e, f) in enumerate(t['items'])]
+    d = dict(t); d['hcards'] = HCARDS[k]; d['place'] = '조리원' if k=='care' else '가게'; d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f, q=QS[k][i], metric=MET[k][i]) for i, (a, b, c, e, f) in enumerate(t['items'])]
     hc = t['hc']; d['hc'] = dict(pill=hc['pill'], hl=hc['hl'], ds=hc['ds'], sum=hc['sum'], metrics=[dict(k=m[0], v=m[1], u=m[2], pct=m[3], base=m[4]) for m in hc['metrics']])
     DATA[k] = d
 
@@ -147,6 +165,22 @@ EXTRA_CSS = r"""
 .ed .btns{display:flex;gap:6px}
 .ed .btns button{flex:1;font:inherit;font-size:11.5px;font-weight:800;padding:8px 0;border-radius:10px;border:1px solid #D9DCD6;background:#fff;color:var(--ink);cursor:pointer}
 .ed .btns button.ex{border-color:var(--amber);color:var(--amber);background:var(--amber-bg)}
+.hc{overflow:hidden;min-width:0}
+.hc .sw{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 14px;margin:12px -14px 0;padding:0 14px 4px;scrollbar-width:none}
+.hc .sw::-webkit-scrollbar{display:none}
+.hc .swc{flex:none;width:252px;scroll-snap-align:start;border:1px solid var(--wc-line);border-radius:14px;padding:13px 14px;background:#fff;display:flex;flex-direction:column}
+.hc .swt{display:flex;align-items:center;justify-content:space-between}
+.hc .swt .cat{font-size:9.5px;font-weight:900;letter-spacing:.08em;color:var(--wc);background:var(--wc-bg);border-radius:6px;padding:2px 7px}
+.hc .swt .no{font-size:10px;color:var(--muted);font-weight:700}
+.hc .swc .hl{font-size:14.5px;font-weight:900;color:var(--ink);margin-top:9px;line-height:1.35}
+.hc .swc p{font-size:12px;color:var(--txt);line-height:1.6;margin-top:6px;flex:1}
+.hc .swc .ck{display:flex;align-items:flex-start;gap:6px;margin-top:10px;font-size:11px;color:var(--ink2);line-height:1.45}
+.hc .swc .ck svg{flex-shrink:0;background:var(--wc);border-radius:4px;padding:1px;margin-top:2px}
+.hc .swc .ck b{color:var(--wc);font-weight:800}
+.hc .swc .dt{font-size:10px;color:var(--muted);margin-top:4px;padding-left:18px}
+.hc .dots{display:flex;gap:5px;justify-content:center;margin-top:8px}
+.hc .dots i{width:6px;height:6px;border-radius:50%;background:#D5DCE4}
+.hc .dots i.on{width:16px;border-radius:3px;background:var(--wc)}
 .tsel{display:flex;gap:6px;margin:0 0 10px}
 .tsel button{flex:1;font:inherit;font-size:12px;font-weight:800;padding:8px 0;border-radius:10px;border:1px solid #D9DCD6;background:#fff;color:var(--ink);cursor:pointer}
 .tsel button.on{background:var(--ink);border-color:var(--ink);color:#fff}
@@ -215,7 +249,10 @@ function previewHtml(bk, typ, s){
 <div class="head"><div class="nm"><h2>${reg.name}</h2><span class="cat">${reg.cat}</span></div><div class="rv"><svg width="13" height="13" viewBox="0 0 24 24" fill="#C77700"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.5L12 16.8 6.1 20l1.3-6.5L2.5 9l6.6-.8z"/></svg><b>${reg.rating}</b><span>${reg.rv} · ${reg.town}</span></div><div class="tabs">${tabs}</div></div>
 <div class="body" style="padding-bottom:12px">
 <div class="ai"><div class="lb">AI 요약<small>세스코 리포트 · 사장님 선택 · 리뷰</small></div><ul>${ai}</ul></div>
-<div class="hc"><div class="top"><div class="grade"><b>A</b><span>위생 등급</span></div><div class="t"><b>세스코 전문가 실측 · ${reg.date} · ${reg.n}가지 모두 기준 안</b><span>위생점검 리포트 No. ${reg.report} · 다음 점검 11월</span></div></div><div class="pt"><span class="pill">${hc.pill}</span><small>CESCO 위쳌 기준</small><div class="hl">${hc.hl}</div><div class="ds">${hc.ds}</div></div>${typ==='A'?'<div class="grid">'+ms+'</div>':''}<div class="sum"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0072CE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><div>${hc.sum}</div></div></div>`;
+<div class="hc"><div class="top"><div class="grade"><b>A</b><span>위생 등급</span></div><div class="t"><b>세스코가 직접 체크했어요 · ${reg.date}</b><span>${t.key} 위생 정보 ${t.hcards.cards.length}가지 · 옆으로 넘겨 보세요</span></div></div>
+<div class="sw">${t.hcards.cards.map((c,ci)=>`<div class="swc"><div class="swt"><span class="cat">${c[0]}</span><span class="no">${ci+1}/${t.hcards.cards.length}</span></div><div class="hl">${c[1]}</div><p>${c[2]}</p><div class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>[${c[3]}]</b> ${c[4]} 체크 완료</span></div><div class="dt">최근 점검일 : 2026.${reg.date}</div></div>`).join('')}</div>
+<div class="dots">${t.hcards.cards.map((c,ci)=>`<i class="${ci===0?'on':''}"></i>`).join('')}</div>
+${typ==='A'?'<div class="grid">'+ms+'</div>':''}</div>`;
   const bodyC=`<div class="dp">
 <div class="hr"><div class="pho">사진 자리 · 대표 세로 컷 (사장님 또는 점검 촬영)</div><div class="ov"><span class="lab">${fill(t.hero_lab,reg)}</span><h1>${t.hero}</h1><div class="sub">${reg.name} · 세스코 위생 실측 A</div></div></div>
 <div class="sec"><span class="lab">ABOUT</span><h2>${t.about_h}</h2><p>${mark(s.about, fill(t.about,reg))}</p><div class="strip">${strip}</div></div>
@@ -292,6 +329,7 @@ document.addEventListener('input',e=>{
   el.parentElement.querySelector('.cnt').textContent=el.value.length+'/'+(el.dataset.f==='about'?160:el.dataset.f==='say'?40:140);
   refreshPreviews(bk);
 });
+document.addEventListener('scroll',e=>{const sw=e.target; if(!sw.classList||!sw.classList.contains('sw')) return; const w=sw.firstElementChild?sw.firstElementChild.offsetWidth+10:1; const k=Math.round(sw.scrollLeft/w); sw.parentElement.querySelectorAll('.dots i').forEach((d,i)=>d.classList.toggle('on',i===k));},true);
 render();
 """
 

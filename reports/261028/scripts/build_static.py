@@ -30,7 +30,7 @@ CSS = r"""
 .row3{display:flex;gap:20px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
 .row3 .ed{width:390px}
 @media (max-width:760px){.row3 .ed{width:100%}}
-.row3 figure{margin:0}
+.row3 figure{margin:0;width:390px;max-width:100%;min-width:0}
 .row3 figcaption b{display:block;font-size:13px}
 .row3 figcaption small{font-size:11px}
 @media (max-width:760px){.bizsec{padding:10px 0 30px}.opts{border-radius:0}.row3{gap:14px}}
