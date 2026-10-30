@@ -146,6 +146,13 @@ PLACE = {
    ('IHM','가습기는 정기적으로 소독해요','가습기에서 세균 가득한 수증기를 뿜지 않도록! 단순 청소가 아닌 정기 소독으로 관리하는 것을 체크했습니다.')]),
 'meat': dict(addr='',hours='',tel='',pay='',tags='',conv=[],checks=[]),
 }
+
+# 장소 정보 항목 메타(PLACE checks와 같은 순서): (아이콘, 그룹, 손님 질문, 칩 라벨)
+PLACE_META = {
+'chicken': [('👶','아이·모임','아이랑 가도 돼요?','유아의자'),('👥','아이·모임','여럿이 가도 돼요?','단체석 12명'),('🥬','먹거리','김치는 국내산이에요?','국내산 김치'),('🍗','먹거리','닭은 어디 거예요?','국내산 닭'),('🚭','사람·주방','조리하는 분이 담배 피우진 않죠?','조리자 비흡연'),('🧴','화장실','화장실에 손세정제 있어요?','손세정제'),('⚠️','먹거리','알레르기 표시 있어요?','알레르기 표기'),('🚻','화장실','화장실 깨끗해요?','하루 1회 청소'),('🧽','사람·주방','테이블은 매일 닦아요?','마감 살균'),('📋','사람·주방','위생 문제 있었던 곳은 아니죠?','위반 이력 없음')],
+'care': [('🍼','산모·아기','아기랑 같은 방 쓸 수 있어요?','모자동실'),('📹','산모·아기','신생아실 볼 수 있어요?','CCTV 24시간'),('🧼','청결','직원분들 손 소독은요?','손소독 기록'),('🛏️','청결','침대는 깨끗해요?','매트리스 스팀'),('🧺','청결','아기 수건은 뭘로 빨아요?','친환경 세제'),('🚪','시설 관리','손잡이 같은 데 소독해요?','접촉면 3회 소독'),('🛁','시설 관리','좌욕기 같이 써도 괜찮아요?','좌욕기 즉시 소독'),('❄️','시설 관리','에어컨 청소는요?','에어컨 분해 세척'),('💨','시설 관리','가습기 관리해요?','가습기 소독')],
+'meat': [],
+}
 SVC_KO = {'VIRUSCARE':'바이러스케어','BODYCARE':'바디케어','FOOD':'식품안전','IHM':'전문클리닝','IPM':'종합방제','AIR':'에어','MYLAB':'마이랩','CHECK':'현장 문진'}
 
 # 도구 측정 블록(엑셀 ③시트) — 치킨집·산후조리원 각각 악취 + 배수구 오염도. 실제 수치 대신 기준 범위 안 통과 표시.
@@ -194,7 +201,7 @@ MET = {
 # JS로 넘길 데이터
 DATA = {}
 for k, t in TPL.items():
-    d = dict(t); d['hcards'] = HCARDS[k]; d['aicard'] = AICARD[k]; d['svc_en'] = SVC_EN; d['svc_ko'] = SVC_KO; d['members'] = MEMBERS; d['sticker'] = STICKER_NAME; d['placeinfo'] = PLACE[k]; d['tools'] = TOOLS[k]; d['place'] = '조리원' if k=='care' else '가게'; d['default_mt'] = 'white' if k=='chicken' else 'blue'; d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f, q=QS[k][i], metric=MET[k][i]) for i, (a, b, c, e, f) in enumerate(t['items'])]
+    d = dict(t); d['hcards'] = HCARDS[k]; d['aicard'] = AICARD[k]; d['svc_en'] = SVC_EN; d['svc_ko'] = SVC_KO; d['members'] = MEMBERS; d['sticker'] = STICKER_NAME; d['placeinfo'] = PLACE[k]; d['placemeta'] = PLACE_META[k]; d['tools'] = TOOLS[k]; d['place'] = '조리원' if k=='care' else '가게'; d['default_mt'] = 'white' if k=='chicken' else 'blue'; d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f, q=QS[k][i], metric=MET[k][i]) for i, (a, b, c, e, f) in enumerate(t['items'])]
     hc = t['hc']; d['hc'] = dict(pill=hc['pill'], hl=hc['hl'], ds=hc['ds'], sum=hc['sum'], metrics=[dict(k=m[0], v=m[1], u=m[2], pct=m[3], base=m[4]) for m in hc['metrics']])
     DATA[k] = d
 
@@ -335,6 +342,47 @@ EXTRA_CSS = r"""
 .pc p{font-size:10.5px;color:var(--muted);line-height:1.5;margin-top:4px;padding-left:23px}
 .pc-f{font-size:9.5px;color:var(--wc);font-weight:800;margin-top:3px;padding-left:23px}
 .pc-f .bx{width:12px;height:12px;border:1.3px solid var(--wc);border-radius:2px;font-size:8px;line-height:10px;text-align:center}
+
+/* 장소정보 A · 아이콘 그리드 */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:4px}
+.tile{position:relative;background:#F6F8FA;border:1.5px solid #E6EAEF;border-radius:12px;padding:10px 6px 8px;text-align:center;cursor:pointer}
+.tile .ic{font-size:20px;display:block}
+.tile b{display:block;font-size:10.5px;font-weight:800;color:var(--ink);line-height:1.3;margin-top:4px;word-break:keep-all}
+.tile i{position:absolute;right:5px;top:5px;width:13px;height:13px;border-radius:50%;background:var(--mc);color:#fff;font-size:8px;font-style:normal;font-weight:900;display:flex;align-items:center;justify-content:center}
+.tile.on{background:#fff;border-color:var(--mc);box-shadow:0 0 0 2px var(--wc-bg)}
+.sheet{margin-top:10px;background:#fff;border:1.5px solid var(--mc);border-radius:12px;padding:11px 12px;position:relative}
+.sheet:before{content:"";position:absolute;left:14%;top:-7px;width:12px;height:12px;background:#fff;border-left:1.5px solid var(--mc);border-top:1.5px solid var(--mc);transform:rotate(45deg)}
+.sh-h{display:flex;gap:8px;align-items:center}
+.sh-h .ic{font-size:22px}
+.sh-h b{display:block;font-size:12.5px;font-weight:900;color:var(--ink)}
+.sh-h small{font-size:10px;color:var(--mc);font-weight:800}
+.sheet p{font-size:11px;color:var(--txt);line-height:1.55;margin-top:7px}
+.sh-f{font-size:9.5px;color:var(--muted);margin-top:6px}
+/* 장소정보 B · 손님 질문형 */
+.qg{margin-top:8px}
+.qg-t{font-size:10px;font-weight:900;letter-spacing:.08em;color:var(--wc);padding:6px 0 2px}
+.qi{padding:8px 0;border-top:1px solid var(--line)}
+.qi .q{font-size:12px;font-weight:800;color:var(--ink);line-height:1.4}
+.qi .q:before{content:"Q";color:var(--red);font-weight:900;margin-right:6px}
+.qi .a{margin-top:4px;padding-left:16px;position:relative;line-height:1.5}
+.qi .a:before{content:"A";position:absolute;left:0;top:0;color:var(--mc);font-weight:900;font-size:11px}
+.qi .a b{display:block;font-size:12px;font-weight:800;color:var(--ink2)}
+.qi .a small{display:block;font-size:10px;color:var(--muted);margin-top:2px}
+.qi .a .chk{display:inline-block;font-size:9.5px;font-weight:800;color:var(--mc);margin-top:3px}
+/* 장소정보 C · 기본정보 통합 */
+.pl-t .badge{display:inline-block;font-size:9.5px;font-weight:800;color:#fff;background:var(--wc);border-radius:999px;padding:2px 8px;margin:0 0 0 8px;vertical-align:middle}
+.pl-chips i.cc{color:var(--mc);background:#fff;border:1.3px solid var(--mc);font-weight:800}
+.pl-chips i.cc.on{background:var(--mc);color:#fff}
+.lgc{font-size:9.5px;color:var(--muted);margin-top:8px}
+.lgc i{font-style:normal;font-size:9.5px;font-weight:800;color:var(--wc);border:1.3px solid var(--wc);border-radius:999px;padding:1px 6px;margin-right:2px}
+.pop{position:relative;margin-top:10px;background:#1A1A1A;color:#fff;border-radius:10px;padding:10px 12px}
+.pop-a{position:absolute;left:24px;top:-6px;width:12px;height:12px;background:#1A1A1A;transform:rotate(45deg)}
+.pop b{display:block;font-size:12px;font-weight:900}
+.pop p{font-size:10.5px;color:#D6DBE2;line-height:1.5;margin-top:4px}
+.pop small{display:block;font-size:9.5px;color:#9FB4DC;margin-top:5px;font-weight:700}
+.pvsel{display:flex;gap:5px;margin:0 0 8px}
+.pvsel button{flex:1;font:inherit;font-size:11px;font-weight:800;padding:6px 0;border-radius:8px;border:1px solid #D9DCD6;background:#fff;color:var(--ink);cursor:pointer}
+.pvsel button.on{background:var(--wc);border-color:var(--wc);color:#fff}
 .tsel{display:flex;gap:6px;margin:0 0 10px}
 .tsel button{flex:1;font:inherit;font-size:12px;font-weight:800;padding:8px 0;border-radius:10px;border:1px solid #D9DCD6;background:#fff;color:var(--ink);cursor:pointer}
 .tsel button.on{background:var(--ink);border-color:var(--ink);color:#fff}
@@ -409,8 +457,34 @@ function previewHtml(bk, typ, s, o){
   const mtabs=`<div class="mtabs">${t.members.map(m=>`<button type="button" class="mtab ${m.key===mt?'on':''}" data-mt="${m.key}" style="--mc:${m.color}">${m.name}<small>${t.hcards.cards.filter(c=>m.svcs.includes(c[0])).length}</small></button>`).join('')}</div>`;
   const cardsHtml=cards.map((c,ci)=>`<div class="swc" style="--mc:${mem.color};--mbg:${mem.bg};--ml:${mem.line}"><div class="swin"><div class="swt"><span class="logo"><b>CESCO</b><i>${t.svc_en[c[0]]||c[0]}</i></span><span class="stamp"><svg viewBox="0 0 44 44" width="40" height="40"><circle cx="22" cy="22" r="20" fill="none" stroke="#8FA3BF" stroke-width="1.4"/><circle cx="22" cy="22" r="15" fill="none" stroke="#8FA3BF" stroke-width=".8"/><text x="22" y="20" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CESCO</text><text x="22" y="28" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CHECK</text></svg></span></div><div class="hk">${c[1]}</div><div class="hl">${c[2]}</div><div class="ck"><span class="bx">✓</span><span>[${c[3]}] ${c[4]} 체크 완료</span></div><div class="dt">최근 점검일 : 2026.${reg.date}</div><div class="rp">ⓘ 점검 리포트 보기</div></div></div>`).join('');
   const toolsHtml=`<div class="tools"><div class="tl-h"><span class="gold">CESCO<br>전문<br>측정</span><div><b>세스코가 전문적으로 체크했습니다</b><small>전문 측정 장비로 직접 잰 결과예요 · 기준 범위 안이면 통과</small></div></div>${t.tools.map(x=>`<div class="tl"><div class="tl-k">${x.k}<small>${x.tool}</small><span class="pass">기준 안 · ${x.levels[0][0]}</span></div><p class="tl-e">${x.easy}</p><div class="scale">${x.levels.map((l,i)=>`<div class="lv ${i===0?'on':''}">${l[0]}</div>`).join('')}</div><div class="lvd">${x.levels.map(l=>`<div><b>${l[0]}</b><span>${l[1]}</span></div>`).join('')}</div><p class="tl-x">${x.ex}</p><div class="tl-d">체크일 ${x.date} · 다음 체크 때 갱신</div></div>`).join('')}</div>`;
-  const placeHtml=`<div class="place"><div class="pl-sec"><div class="pl-t">기본 정보</div><div class="pl-row"><span>주소</span><span>${P.addr}</span></div><div class="pl-row"><span>${t.key==='산후조리원'?'상담·면회':'영업시간'}</span><span>${P.hours}</span></div><div class="pl-row"><span>전화</span><span>${P.tel}</span></div><div class="pl-row"><span>결제</span><span>${P.pay}</span></div><div class="pl-row"><span>편의</span><span class="pl-chips">${P.conv.map(c=>`<i>${c}</i>`).join('')}</span></div><div class="pl-row"><span>태그</span><span>${P.tags}</span></div></div>
-<div class="pl-sec cesco"><div class="pl-t">세스코가 특별히 체크한 장소 정보<small>가 봐야만 알 수 있는 것들을 세스코가 현장에서 확인했어요 · ${P.checks.length}가지</small></div>${P.checks.map((c,i)=>`<div class="pc${i===0?' first':''}" style="--mc:${mcol(c[0])}"><div class="pc-h"><span class="ok">✓</span><b>${c[1]}</b><span class="svc">${t.svc_ko[c[0]]||c[0]}</span></div><p>${c[2]}</p><div class="pc-f">세스코 체크 완료 · 2026.${reg.date} · 유효 3개월</div></div>`).join('')}</div></div>`;
+  const M=t.placemeta, pv=o.pv||'list';
+  const chkRow=(c,i)=>`<div class="pc${i===0?' first':''}" style="--mc:${mcol(c[0])}"><div class="pc-h"><span class="ok">✓</span><b>${c[1]}</b><span class="svc">${t.svc_ko[c[0]]||c[0]}</span></div><p>${c[2]}</p><div class="pc-f">세스코 체크 완료 · 2026.${reg.date} · 유효 3개월</div></div>`;
+  const basicRows=`<div class="pl-row"><span>주소</span><span>${P.addr}</span></div><div class="pl-row"><span>${t.key==='산후조리원'?'상담·면회':'영업시간'}</span><span>${P.hours}</span></div><div class="pl-row"><span>전화</span><span>${P.tel}</span></div><div class="pl-row"><span>결제</span><span>${P.pay}</span></div>`;
+  const convRow=`<div class="pl-row"><span>편의</span><span class="pl-chips">${P.conv.map(c=>`<i>${c}</i>`).join('')}</span></div><div class="pl-row"><span>태그</span><span>${P.tags}</span></div>`;
+  const groups=[...new Set(M.map(m=>m[1]))];
+  const cescoHead=(sub)=>`<div class="pl-t">세스코가 특별히 체크한 장소 정보<small>${sub}</small></div>`;
+  let placeBody='';
+  if(pv==='A'){
+    const tiles=P.checks.map((c,i)=>`<div class="tile${i===0?' on':''}" style="--mc:${mcol(c[0])}"><span class="ic">${M[i][0]}</span><b>${M[i][3]}</b><i>✓</i></div>`).join('');
+    const c0=P.checks[0];
+    placeBody=`<div class="pl-sec"><div class="pl-t">기본 정보</div>${basicRows}${convRow}</div>
+<div class="pl-sec cesco">${cescoHead('가 봐야만 알 수 있는 것 '+P.checks.length+'가지 · 눌러서 자세히')}<div class="tiles">${tiles}</div>
+<div class="sheet" style="--mc:${mcol(c0[0])}"><div class="sh-h"><span class="ic">${M[0][0]}</span><div><b>${c0[1]}</b><small>${t.svc_ko[c0[0]]} · 세스코 체크 완료 2026.${reg.date}</small></div></div><p>${c0[2]}</p><div class="sh-f">유효 3개월 · 다음 점검 때 다시 확인해요</div></div></div>`;
+  } else if(pv==='B'){
+    const qa=groups.map(g=>`<div class="qg"><div class="qg-t">${g}</div>${P.checks.map((c,i)=>M[i][1]===g?`<div class="qi" style="--mc:${mcol(c[0])}"><div class="q">${M[i][2]}</div><div class="a"><b>${c[1]}</b><small>${c[2]}</small><span class="chk">✓ 세스코 확인 · 2026.${reg.date}</span></div></div>`:'').join('')}</div>`).join('');
+    placeBody=`<div class="pl-sec"><div class="pl-t">기본 정보</div>${basicRows}${convRow}</div>
+<div class="pl-sec cesco">${cescoHead('손님이 가기 전에 묻는 말에, 세스코가 현장에서 확인한 답을 붙였어요')}${qa}</div>`;
+  } else if(pv==='C'){
+    const rows=groups.map(g=>`<div class="pl-row"><span>${g}</span><span class="pl-chips">${P.checks.map((c,i)=>M[i][1]===g?`<i class="cc${i===0?' on':''}" style="--mc:${mcol(c[0])}">✓ ${M[i][3]}</i>`:'').join('')}</span></div>`).join('');
+    const c0=P.checks[0];
+    placeBody=`<div class="pl-sec"><div class="pl-t">기본 정보<small class="badge">세스코 체크 ${P.checks.length} · 2026.${reg.date} · 유효 3개월</small></div>${basicRows}<div class="pl-row"><span>편의</span><span class="pl-chips">${P.conv.map(c=>`<i>${c}</i>`).join('')}</span></div>${rows}<div class="pl-row"><span>태그</span><span>${P.tags}</span></div>
+<div class="lgc"><i>✓ 파란 칩</i> = 세스코가 현장에서 확인한 것 · 회색 = 등록 정보</div>
+<div class="pop" style="--mc:${mcol(c0[0])}"><div class="pop-a"></div><b>${c0[1]}</b><p>${c0[2]}</p><small>${t.svc_ko[c0[0]]} · 세스코 체크 완료 2026.${reg.date}</small></div></div>`;
+  } else {
+    placeBody=`<div class="pl-sec"><div class="pl-t">기본 정보</div>${basicRows}${convRow}</div>
+<div class="pl-sec cesco">${cescoHead('가 봐야만 알 수 있는 것들을 세스코가 현장에서 확인했어요 · '+P.checks.length+'가지')}${P.checks.map((c,i)=>chkRow(c,i)).join('')}</div>`;
+  }
+  const placeHtml=`<div class="place">${placeBody}</div>`;
   const headHtml=`
 <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">${reg.name}</div></div>
 <div class="head"><div class="pho2">사진 자리 · 대표 사진 (${t.owner} 업로드)</div><div class="nm" style="margin-top:12px"><span class="cat">${reg.cat}</span></div><div class="nm"><h2>${reg.name}</h2></div><div class="rv"><b>리뷰</b><span style="color:#0072CE;font-weight:700">${reg.rv.replace(/\D+/g,'')}개</span><span>· ${reg.town}</span></div></div>
@@ -464,7 +538,7 @@ ${repRow}${fine}</div>`;
   return headHtml + (tab==='place'?'':body) + `<div class="tools-wrap">${toolsHtml}</div>` + `<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
 }
 function refreshPreviews(bk){
-  document.querySelectorAll('[data-static]').forEach(el=>{ if(el.dataset.biz===bk) el.innerHTML=previewHtml(bk, el.dataset.t, state[bk], {tab:el.dataset.tab, mt:el.dataset.mt}); });
+  document.querySelectorAll('[data-static]').forEach(el=>{ if(el.dataset.biz===bk) el.innerHTML=previewHtml(bk, el.dataset.t, state[bk], {tab:el.dataset.tab, mt:el.dataset.mt, pv:el.dataset.pv}); });
 }
 function refresh(bk){
   document.querySelectorAll('[data-ed]').forEach(el=>{ if(el.dataset.biz===bk) el.innerHTML=editorHtml(bk, state[bk], el.hasAttribute('data-withbiz')); });
@@ -501,8 +575,9 @@ document.addEventListener('input',e=>{
   refreshPreviews(bk);
 });
 document.addEventListener('click',e=>{
-  const tb=e.target.closest('.tabs2 span[data-tab]'); if(tb){const el=tb.closest('[data-static]'); if(el){el.dataset.tab=tb.dataset.tab; el.innerHTML=previewHtml(el.dataset.biz, el.dataset.t, state[el.dataset.biz], {tab:el.dataset.tab, mt:el.dataset.mt});} return;}
-  const mb=e.target.closest('.mtab[data-mt]'); if(mb){const el=mb.closest('[data-static]'); if(el){el.dataset.mt=mb.dataset.mt; el.innerHTML=previewHtml(el.dataset.biz, el.dataset.t, state[el.dataset.biz], {tab:el.dataset.tab, mt:el.dataset.mt});} return;}
+  const tb=e.target.closest('.tabs2 span[data-tab]'); if(tb){const el=tb.closest('[data-static]'); if(el){el.dataset.tab=tb.dataset.tab; el.innerHTML=previewHtml(el.dataset.biz, el.dataset.t, state[el.dataset.biz], {tab:el.dataset.tab, mt:el.dataset.mt, pv:el.dataset.pv});} return;}
+  const pb=e.target.closest('.pvsel button[data-pv]'); if(pb){const el=document.querySelector(pb.closest('.pvsel').dataset.for); if(el){el.dataset.pv=pb.dataset.pv; el.dataset.tab='place'; el.innerHTML=previewHtml(el.dataset.biz, el.dataset.t, state[el.dataset.biz], {tab:el.dataset.tab, mt:el.dataset.mt, pv:el.dataset.pv}); pb.parentElement.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b===pb));} return;}
+  const mb=e.target.closest('.mtab[data-mt]'); if(mb){const el=mb.closest('[data-static]'); if(el){el.dataset.mt=mb.dataset.mt; el.innerHTML=previewHtml(el.dataset.biz, el.dataset.t, state[el.dataset.biz], {tab:el.dataset.tab, mt:el.dataset.mt, pv:el.dataset.pv});} return;}
 });
 function swGo(sw,k){const n=sw.children.length; k=(k+n)%n; const c=sw.children[k]; sw.scrollTo({left:c.offsetLeft-(sw.clientWidth-c.offsetWidth)/2-sw.offsetLeft*0,behavior:'smooth'});}
 document.addEventListener('click',e=>{

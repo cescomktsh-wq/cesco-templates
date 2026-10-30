@@ -126,6 +126,24 @@ def naming_block():
     return f'''<div class="blk" id="naming"><h2>네모 스티커 명칭 후보<small>팀 안에서 부르는 말을 하나로 정하기 위한 안 · 이 시안에서는 "{T.STICKER_NAME}"(가칭)으로 표기</small></h2>
 <div class="panel"><table class="names"><thead><tr><th style="width:18%">이름</th><th>이유</th><th style="width:32%">걸리는 점</th></tr></thead><tbody>{tr}</tbody></table></div></div>'''
 
+
+def place3_block():
+    rows = [
+        ('A','아이콘 그리드','네이버 "편의시설"을 세스코 항목으로 넓힌 모양. 3열 타일에 아이콘 + 짧은 라벨, 누르면 아래 시트에 문진 원문과 체크일.','2초 안에 훑힌다. 네이버 사용자에게 가장 익숙한 문법. 항목이 늘어도 화면이 길어지지 않는다.','문진 원문이 한 번 더 눌러야 보인다. 아이콘이 항목마다 하나씩 필요하다.'),
+        ('B','손님 질문형','"아이랑 가도 돼요?"처럼 손님이 가기 전에 묻는 말을 Q로 두고, 짧은 답 + 문진 원문 + 세스코 확인을 A로. 상황별(아이·모임 / 먹거리 / 사람·주방 / 화장실) 묶음.','왜 이 정보가 "가야만 아는 정보"인지 맥락이 생긴다. 인터뷰형과 결이 같아 팀장님 평가와 맞는다. 문진 원문이 그대로 보인다.','가장 길다. 질문 10개를 업종마다 새로 써야 한다.'),
+        ('C','기본정보 통합','별도 블록 없이 네이버 기본정보 행(주소·영업시간·전화·결제) 아래에 그룹 행을 더하고, 세스코가 확인한 것은 파란 체크 칩으로. 칩을 누르면 검은 말풍선에 문진 원문.','가장 네이버답고 가장 짧다. "장소 정보" 안에 세스코가 자연스럽게 섞인다. 등록 정보(회색)와 세스코 확인(파랑)이 한눈에 구분된다.','세스코 존재감이 약해질 수 있어 상단 배지(세스코 체크 10 · 날짜)로 보완했다. 칩 라벨이 짧아 뜻이 덜 드러날 수 있다.'),
+    ]
+    tr = ''.join(f'<tr{" class=rec" if k=="A" else ""}><td class="n">{"<span class=\'pick\'>추천</span>" if k=="A" else ""}{k} · {n}</td><td>{d}</td><td>{g}</td><td>{b}</td></tr>' for k,n,d,g,b in rows)
+    figs = ''
+    for bk in ['chicken','care']:
+        t = T.TPL[bk]; mt = 'white' if bk=='chicken' else 'blue'
+        for k, nm in [('A','아이콘 그리드'),('B','손님 질문형'),('C','기본정보 통합')]:
+            figs += f'<figure><figcaption><b>{k}안 · {nm}</b><small>{t["key"]} · 장소정보 탭</small></figcaption><div class="phone"><div class="fold"><span>첫 화면 끝</span></div><div data-static data-biz="{bk}" data-t="C" data-tab="place" data-mt="{mt}" data-pv="{k}"></div></div></figure>'
+    return f'''<div class="blk" id="place3"><h2>장소정보 탭 UI 3안<small>같은 데이터(기본 정보 + 세스코 체크 {len(T.PLACE["chicken"]["checks"])}개)로 보여 주는 방식만 다르게</small></h2>
+<div class="sub">세 안 모두 위쪽 기본 정보(주소·영업시간·전화·결제·편의)는 같고, "세스코가 특별히 체크한 장소 정보"를 어디에 어떻게 두느냐가 다릅니다. 위 대표 화면의 버튼으로도 바꿔 볼 수 있습니다.</div>
+<div class="panel"><table class="names"><thead><tr><th style="width:14%">안</th><th style="width:30%">구조</th><th>좋은 점</th><th style="width:26%">걸리는 점</th></tr></thead><tbody>{tr}</tbody></table></div>
+<div class="row3" style="margin-top:16px">{figs}</div></div>'''
+
 def feat_notes(bk):
     t = T.TPL[bk]; o = t['owner']
     return f'''<div class="notes"><h3>화면 구성 (위에서 아래로)</h3><ol>
@@ -135,7 +153,7 @@ def feat_notes(bk):
 <li class="c"><i>4</i><div><b>{T.STICKER_NAME}</b> (네모 스티커) — 블루 멤버스(파랑) / 화이트 멤버스(식품안전 · 초록) 탭. 세스코 솔루션을 실제로 받는 항목만</div></li>
 <li class="o"><i>5</i><div><b>{o}이 고른 POINT 01~03</b> — 10개 중 2~3개. 아래 비교 행에서 바꿔 볼 수 있어요</div></li>
 <li class="c"><i>6</i><div><b>도구 측정 "세스코가 전문적으로 체크했습니다"</b> — 각 화면 맨 하단, 두 탭 공통. 악취 · 배수구 오염도. 쉬운 설명 → 기준 범위 → 예시 문구 → 체크일. 수치 대신 "기준 안" 통과 표시, 골드 표식</div></li>
-<li class="c"><i>7</i><div><b>장소정보 탭</b> — 기본 정보 전체 + <b>세스코가 특별히 체크한 장소 정보</b>: 유아의자 · 단체석 · 국내산 김치 · 조리자 비흡연 · 손세정제 · 알레르기 표기처럼 가 봐야만 아는 짧은 사실, 아래에 문진 원문</div></li>
+<li class="c"><i>7</i><div><b>장소정보 탭 (3안 중 택 1)</b> — 기본 정보 전체 + <b>세스코가 특별히 체크한 장소 정보</b>: 유아의자 · 단체석 · 국내산 김치 · 조리자 비흡연 · 손세정제 · 알레르기 표기처럼 가 봐야만 아는 짧은 사실, 아래에 문진 원문</div></li>
 </ol><div class="lg2">세스코 영역<i style="background:var(--wc)"></i> · 등록 정보<i style="background:#6B7684"></i> · {o} 선택<i style="background:var(--amber)"></i></div></div>'''
 
 def build():
@@ -144,7 +162,7 @@ def build():
         t = T.TPL[bk]; reg = t['reg']; o = t['owner']; mt = 'white' if bk=='chicken' else 'blue'
         feat = f'''<div class="feat">
 <figure><figcaption><b>상세페이지형 · 위생정보 탭</b><small>최종 제안 · 풀블리드 사진 + POINT 01~03 · {T.STICKER_NAME} 탭과 카드는 클릭해서 넘겨 보세요</small></figcaption><div class="phone"><div class="fold"><span>첫 화면 끝</span></div><div data-static data-biz="{bk}" data-t="C" data-tab="hy" data-mt="{mt}"></div></div></figure>
-<figure><figcaption><b>같은 화면 · 장소정보 탭</b><small>네이버식 기본 정보 + 세스코가 특별히 체크한 장소 정보</small></figcaption><div class="phone"><div class="fold"><span>첫 화면 끝</span></div><div data-static data-biz="{bk}" data-t="C" data-tab="place" data-mt="{mt}"></div></div></figure>
+<figure><figcaption><b>같은 화면 · 장소정보 탭</b><small>네이버식 기본 정보 + 세스코가 특별히 체크한 장소 정보 · 아래 버튼으로 3안을 바꿔 보세요</small></figcaption><div class="pvsel" data-for="#pv-{bk}"><button type="button" data-pv="A" class="on">A 아이콘 그리드</button><button type="button" data-pv="B">B 손님 질문형</button><button type="button" data-pv="C">C 기본정보 통합</button></div><div class="phone"><div class="fold"><span>첫 화면 끝</span></div><div id="pv-{bk}" data-static data-biz="{bk}" data-t="C" data-tab="place" data-mt="{mt}" data-pv="A"></div></div></figure>
 {feat_notes(bk)}</div>'''
         figs = f'<figure><figcaption><b>{o} 선택 화면</b><small>위쳌 사업주용 · 2~3개 체크 · 기본 문안이 미리 들어 있음 · 여기서 바꾸면 이 업종 화면 전체가 같이 바뀜</small></figcaption><div class="ed"><div class="bar">위생 페이지 관리<span class="sv">저장</span></div><div class="in" data-ed data-biz="{bk}"></div></div></figure>'
         for code, nm, ds in TYPES:
@@ -161,10 +179,11 @@ def build():
 <div class="lead"><div class="desc"><h1>위쳌 사업장 상세 — 최종 시안 · 치킨집 · 산후조리원</h1>
 <p>세스코가 점검한 것, 등록 정보에서 온 것, 사장님이 고른 것이 한 페이지에서 어떻게 나뉘는지 보이도록 다시 짰습니다. 업종마다 <b>상세페이지형</b>을 먼저 크게 두고, 같은 화면의 <b>장소정보 탭</b>을 옆에 붙였습니다. 아래에 사장님 선택 화면 · 수치형 · 인터뷰형을 참고로 놓았습니다.</p>
 <p>화면 안의 탭 · 카드 · 체크박스는 전부 눌러서 바꿔 볼 수 있습니다. 상호 · 주소 · 수치는 시안용 예시입니다.</p>
-<div class="chips"><span>① 장소 정보 탭 신설</span><span class="g">② {T.STICKER_NAME} 블루/화이트 멤버스</span><span class="y">③ 도구 측정 블록 (악취 · 배수구)</span><span>④ 문장 손질</span><span>⑤ 상세페이지형 앞으로</span><span>⑥ 관리 구조</span><span>⑦ 명칭 후보</span></div>
-<div class="toc"><a href="#struct">관리 구조</a><a href="#naming">명칭 후보</a><a href="#chicken">치킨집</a><a href="#care">산후조리원</a><a href="#memo">확인 필요</a></div></div></div>
+<div class="chips"><span>① 장소 정보 탭 신설 (UI 3안)</span><span class="g">② {T.STICKER_NAME} 블루/화이트 멤버스</span><span class="y">③ 도구 측정 블록 (악취 · 배수구)</span><span>④ 문장 손질</span><span>⑤ 상세페이지형 앞으로</span><span>⑥ 관리 구조</span><span>⑦ 명칭 후보</span></div>
+<div class="toc"><a href="#struct">관리 구조</a><a href="#naming">명칭 후보</a><a href="#place3">장소정보 3안</a><a href="#chicken">치킨집</a><a href="#care">산후조리원</a><a href="#memo">확인 필요</a></div></div></div>
 {struct_block()}
 {naming_block()}
+{place3_block()}
 {secs}
 <div class="memo" id="memo"><h2>확인 필요 · 출처</h2>
 <div class="tw"><table><thead><tr><th style="width:22%">항목</th><th>내용</th></tr></thead><tbody>
