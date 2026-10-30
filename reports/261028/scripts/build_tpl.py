@@ -186,7 +186,7 @@ function mark(txt, base){ return txt!==base ? '<mark class="ed">'+esc(txt)+'</ma
 function renderEditor(){
   const t=D[cur], s=state[cur], reg=t.reg;
   let h='';
-  h+='<div class="fs"><div class="lb">업종<small>등록 정보로 자동 선택</small></div><div class="seg">'+Object.keys(D).map(k=>`<button type="button" data-biz="${k}" class="${k===cur?'on':''}">${D[k].key}</button>`).join('')+'</div></div>';
+  h+='<div class="fs"><div class="lb">업종<small>등록 정보로 자동 선택</small></div><div class="seg">'+['chicken','care'].map(k=>`<button type="button" data-biz="${k}" class="${k===cur?'on':''}">${D[k].key}</button>`).join('')+'</div></div>';
   h+=`<div class="lock"><b>세스코가 입력 · ${t.owner}은 수정 불가</b><br>위생 등급 A · 점검일 ${reg.date} · 실측 ${reg.n}항목 · 리포트 No. ${reg.report}<br><b>등록 정보에서 자동</b> ${reg.name} · ${reg.cat} · ${reg.town} · ${reg.years}년 · 영업시간 · 메뉴 · 주차</div>`;
   h+='<div class="fs"><div class="lb">① 우리 ${t.place}가 특히 신경 쓰는 것<small>2~3개 선택 · 고른 순서대로 노출</small></div><div class="chk">';
   t.items.forEach((it,i)=>{const on=s.sel.includes(i); const dis=!on&&s.sel.length>=3;
@@ -294,6 +294,7 @@ def js_block():
 def build():
     rows = ''
     for k, t in TPL.items():
+        if k == 'meat': continue
         for i, (a, b, c, e, f) in enumerate(t['items'], 1):
             rows += f'<tr><td>{t["key"]}</td><td>{i}</td><td>{a}</td><td>{b.replace("<br>"," ")}</td><td>{c}</td><td>{e}</td></tr>'
     doc = f'''<!doctype html>
@@ -315,7 +316,7 @@ def build():
 <tr><td><b>세스코 전용</b></td><td>측정값·등급·점검일·리포트·"세스코 확인" 칩</td><td>사장님이 못 바꿈. 사장님이 고른 항목이라도 점검 항목이 아니면 POINT 아래 칩이 "매장 기록"으로만 표시</td></tr>
 </tbody></table></div>
 <p style="margin-top:10px"><span class="flag">확인 필요</span>글자 수 상한(160·140·40), 사진 장수, 사장님 수정분의 검수 여부(자동 게시 vs 세스코 승인 후 게시), 금지어 필터(가이드라인 표기법 ⑭⑮) 적용 위치.</p>
-<h2 style="margin-top:18px">업종별 기본 문안 30개 (특장점 선택 항목)</h2>
+<h2 style="margin-top:18px">업종별 기본 문안 20개 (치킨집·산후조리원 특장점 선택 항목)</h2>
 <p>각 항목은 제목 2줄 + 설명 2~3문장 + 세스코 확인 칩 조건으로 한 벌입니다. 수치·법령·효능 표현은 넣지 않았고, 매장이 하는 "행동"만 적었습니다. 사장님은 설명 문장만 고칠 수 있고 제목과 칩은 고정입니다.</p>
 <div class="tw"><table><thead><tr><th>업종</th><th>#</th><th>선택 항목</th><th>제목(고정)</th><th>기본 설명(사장님 수정 가능)</th><th>칩</th></tr></thead><tbody>{rows}</tbody></table></div>
 </div>
