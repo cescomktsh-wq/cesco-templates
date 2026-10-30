@@ -121,8 +121,8 @@ PLACE = {
   addr='서울 성동구 성수이로 00길 00, 1층', hours='11:00 ~ 23:00 · 라스트오더 22:30 · 월요일 휴무', tel='02-0000-0000', pay='카드 · 간편결제 · 현금영수증', tags='#바삭 #포장 #배달',
   conv=['유아의자','단체석 (최대 12명)','남녀 구분 화장실','포장 · 배달','주차 2대'],
   checks=[
-   ('CHECK','유아의자가 있어요','아이와 함께 와도 돼요. 유아의자 2개를 두고 있어요.'),
-   ('CHECK','단체석이 있어요','최대 12명까지 한 자리에 앉을 수 있어요. 회식, 모임은 예약을 받아요.'),
+   ('CHECK','유아의자가 있어요','유아의자 2개가 있어요. 아이와 같이 와도 돼요.'),
+   ('CHECK','단체석이 있어요','12명까지 한 자리에 앉아요. 회식이나 모임은 예약을 받아요.'),
    ('FOOD','김치는 국내산이에요','국내산 김치라고 하지만 믿을 수 있나요? 식재료의 출처까지 국내산 김치를 확인했습니다.'),
    ('FOOD','닭은 국내산이에요','모두 국내산 닭이라고 하지만 믿을 수 있나요? 세스코가 국내산 닭을 확인했습니다.'),
    ('FOOD','조리하는 분은 모두 비흡연이에요','위생은 조리사의 손끝에서 시작됩니다! 조리 종사자가 모두 담배를 피지 않는 사업장입니다.'),
@@ -135,8 +135,8 @@ PLACE = {
   addr='경기 성남시 분당구 00로 00, 3~5층', hours='상담 10:00 ~ 18:00 · 입소 상담 예약제 · 면회 14:00 ~ 17:00', tel='031-000-0000', pay='카드 · 계좌이체 · 현금영수증', tags='#모자동실 #신생아실CCTV #민간형',
   conv=['모자동실','신생아실 24시간 CCTV','창 너머 면회실','산모 전용 주차','배우자 동반 입실'],
   checks=[
-   ('CHECK','모자동실이 있어요','아기와 같은 방에서 지낼 수 있어요. 원하는 시간만 신생아실에 맡겨도 돼요.'),
-   ('CHECK','신생아실을 폰으로 볼 수 있어요','신생아실 CCTV를 24시간 폰으로 볼 수 있어요. 면회는 창 너머로만 해요.'),
+   ('CHECK','모자동실이 있어요','아기와 같은 방에서 지내요. 원할 때만 신생아실에 맡겨요.'),
+   ('CHECK','신생아실을 폰으로 볼 수 있어요','신생아실 CCTV를 24시간 폰으로 봐요. 면회는 창 너머로 해요.'),
    ('CHECK','모든 직원이 손소독 기록을 남겨요','신생아 감염은 ‘손’으로부터! 모든 직원이 손소독을 철저히 시행하고 손소독 기록지를 통해 체계적으로 관리합니다.'),
    ('IPM','산모 침대 매트리스는 매번 스팀 소독해요','산모와 아이가 오랜 시간을 함께 지내야 하는 침대! 분유나 음식물에 쉽게 오염될 수 있기에, 침대 매트리스는 매번 스팀 소독하며, 매월 정기 매트리스 위생 관리 서비스를 받고 있습니다.'),
    ('CHECK','수건, 옷, 담요는 친환경 세제로 빨아요','아기 피부에 닿는 모든 섬유, 세제부터 확인했습니다! 친환경 세제를 사용합니다.'),
@@ -163,11 +163,11 @@ DRAIN_LV = [('청결','병원 내 조리시설 관리 수준'),('주의','경미
 DRAIN_EX = '배수구는 악취만의 문제가 아니라 세균 증식, 해충 유입의 원인이 됩니다! 배수구 전용 클린 서비스로 관리하는 사업장입니다.'
 TOOLS = {
 'chicken': [
-  dict(k='악취', tool='악취측정기', easy='튀김 기름과 음식물 쓰레기에서 나는 냄새를 전용 측정기로 재요. 냄새에 민감한 분도 느끼기 어려운 수준인지 봐요.', levels=ODOR_LV, ex=ODOR_EX, date='2026.10.16'),
-  dict(k='배수구 오염도', tool='배관 내시경', easy='주방 바닥 배수구 안쪽을 내시경 카메라로 들여다봐요. 기름때와 찌꺼기가 쌓여 냄새·세균·해충의 원인이 되는지 확인해요.', levels=DRAIN_LV, ex=DRAIN_EX, date='2026.10.16')],
+  dict(k='악취', tool='악취측정기', easy='튀김 기름과 음식물 쓰레기 냄새를 측정기로 재요. 냄새에 예민한 분도 못 느낄 정도인지 봐요.', levels=ODOR_LV, ex=ODOR_EX, date='2026.10.16'),
+  dict(k='배수구 오염도', tool='배관 내시경', easy='주방 바닥 배수구 안을 내시경으로 봐요. 기름때와 찌꺼기가 쌓이면 냄새, 세균, 해충이 생기는 자리라서요.', levels=DRAIN_LV, ex=DRAIN_EX, date='2026.10.16')],
 'care': [
-  dict(k='악취', tool='악취측정기', easy='산모 방과 공용 화장실의 냄새를 전용 측정기로 재요. 출산 후 냄새에 예민해진 산모도 느끼기 어려운 수준인지 봐요.', levels=ODOR_LV, ex=ODOR_EX, date='2026.10.15'),
-  dict(k='배수구 오염도', tool='배관 내시경', easy='좌욕실과 조리실 배수구 안쪽을 내시경 카메라로 들여다봐요. 찌꺼기가 쌓여 냄새·세균·해충의 원인이 되는지 확인해요.', levels=DRAIN_LV, ex=DRAIN_EX, date='2026.10.15')],
+  dict(k='악취', tool='악취측정기', easy='산모 방과 공용 화장실 냄새를 측정기로 재요. 출산 뒤 냄새에 예민해진 산모도 못 느낄 정도인지 봐요.', levels=ODOR_LV, ex=ODOR_EX, date='2026.10.15'),
+  dict(k='배수구 오염도', tool='배관 내시경', easy='좌욕실과 조리실 배수구 안을 내시경으로 봐요. 찌꺼기가 쌓이면 냄새, 세균, 해충이 생기는 자리라서요.', levels=DRAIN_LV, ex=DRAIN_EX, date='2026.10.15')],
 'meat': [],
 }
 # 위쳌 AI 카드 (세스코 CT Way PPT 'WeCheck 시연' 상세 화면 구조: 인트로 + ✅ 3 / 매장정보 3 / 리뷰 한눈에 3)
@@ -456,7 +456,7 @@ function previewHtml(bk, typ, s, o){
   const basicHtml=`<div class="binfo"><div class="bi"><span class="ic">📍</span><span>${P.addr}</span><b>복사 · 길찾기</b></div><div class="bi"><span class="ic">🕒</span><span>${P.hours}</span></div><div class="bi"><span class="ic">📞</span><span>${P.tel}</span><b>복사</b></div><div class="bi"><span class="ic">💳</span><span>${P.pay}</span></div><div class="bi"><span class="ic">#</span><span>${P.tags}</span></div><div class="bi"><span class="ic">🛋️</span><span>${P.conv.join(', ')}</span></div></div>`;
   const mtabs=`<div class="mtabs">${t.members.map(m=>`<button type="button" class="mtab ${m.key===mt?'on':''}" data-mt="${m.key}" style="--mc:${m.color}">${m.name}<small>${t.hcards.cards.filter(c=>m.svcs.includes(c[0])).length}</small></button>`).join('')}</div>`;
   const cardsHtml=cards.map((c,ci)=>`<div class="swc" style="--mc:${mem.color};--mbg:${mem.bg};--ml:${mem.line}"><div class="swin"><div class="swt"><span class="logo"><b>CESCO</b><i>${t.svc_en[c[0]]||c[0]}</i></span><span class="stamp"><svg viewBox="0 0 44 44" width="40" height="40"><circle cx="22" cy="22" r="20" fill="none" stroke="#8FA3BF" stroke-width="1.4"/><circle cx="22" cy="22" r="15" fill="none" stroke="#8FA3BF" stroke-width=".8"/><text x="22" y="20" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CESCO</text><text x="22" y="28" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CHECK</text></svg></span></div><div class="hk">${c[1]}</div><div class="hl">${c[2]}</div><div class="ck"><span class="bx">✓</span><span>[${c[3]}] ${c[4]} 체크 완료</span></div><div class="dt">최근 점검일 : 2026.${reg.date}</div><div class="rp">ⓘ 점검 리포트 보기</div></div></div>`).join('');
-  const toolsHtml=`<div class="tools"><div class="tl-h"><span class="gold">CESCO<br>전문<br>측정</span><div><b>세스코가 전문적으로 체크했습니다</b><small>전문 측정 장비로 직접 잰 결과예요 · 기준 범위 안이면 통과</small></div></div>${t.tools.map(x=>`<div class="tl"><div class="tl-k">${x.k}<small>${x.tool}</small><span class="pass">기준 안 · ${x.levels[0][0]}</span></div><p class="tl-e">${x.easy}</p><div class="scale">${x.levels.map((l,i)=>`<div class="lv ${i===0?'on':''}">${l[0]}</div>`).join('')}</div><div class="lvd">${x.levels.map(l=>`<div><b>${l[0]}</b><span>${l[1]}</span></div>`).join('')}</div><p class="tl-x">${x.ex}</p><div class="tl-d">체크일 ${x.date} · 다음 체크 때 갱신</div></div>`).join('')}</div>`;
+  const toolsHtml=`<div class="tools"><div class="tl-h"><span class="gold">CESCO<br>전문<br>측정</span><div><b>세스코가 전문적으로 체크했습니다</b><small>측정 장비로 직접 쟀어요. 기준 안이면 통과예요</small></div></div>${t.tools.map(x=>`<div class="tl"><div class="tl-k">${x.k}<small>${x.tool}</small><span class="pass">기준 안 · ${x.levels[0][0]}</span></div><p class="tl-e">${x.easy}</p><div class="scale">${x.levels.map((l,i)=>`<div class="lv ${i===0?'on':''}">${l[0]}</div>`).join('')}</div><div class="lvd">${x.levels.map(l=>`<div><b>${l[0]}</b><span>${l[1]}</span></div>`).join('')}</div><p class="tl-x">${x.ex}</p><div class="tl-d">체크일 ${x.date}</div></div>`).join('')}</div>`;
   const M=t.placemeta, pv=o.pv||'list';
   const chkRow=(c,i)=>`<div class="pc${i===0?' first':''}" style="--mc:${mcol(c[0])}"><div class="pc-h"><span class="ok">✓</span><b>${c[1]}</b><span class="svc">${t.svc_ko[c[0]]||c[0]}</span></div><p>${c[2]}</p><div class="pc-f">세스코 체크 완료 · 2026.${reg.date} · 유효 3개월</div></div>`;
   const basicRows=`<div class="pl-row"><span>주소</span><span>${P.addr}</span></div><div class="pl-row"><span>${t.key==='산후조리원'?'상담·면회':'영업시간'}</span><span>${P.hours}</span></div><div class="pl-row"><span>전화</span><span>${P.tel}</span></div><div class="pl-row"><span>결제</span><span>${P.pay}</span></div>`;
@@ -468,21 +468,21 @@ function previewHtml(bk, typ, s, o){
     const tiles=P.checks.map((c,i)=>`<div class="tile${i===0?' on':''}" style="--mc:${mcol(c[0])}"><span class="ic">${M[i][0]}</span><b>${M[i][3]}</b><i>✓</i></div>`).join('');
     const c0=P.checks[0];
     placeBody=`<div class="pl-sec"><div class="pl-t">기본 정보</div>${basicRows}${convRow}</div>
-<div class="pl-sec cesco">${cescoHead('가 봐야만 알 수 있는 것 '+P.checks.length+'가지 · 눌러서 자세히')}<div class="tiles">${tiles}</div>
-<div class="sheet" style="--mc:${mcol(c0[0])}"><div class="sh-h"><span class="ic">${M[0][0]}</span><div><b>${c0[1]}</b><small>${t.svc_ko[c0[0]]} · 세스코 체크 완료 2026.${reg.date}</small></div></div><p>${c0[2]}</p><div class="sh-f">유효 3개월 · 다음 점검 때 다시 확인해요</div></div></div>`;
+<div class="pl-sec cesco">${cescoHead('가 봐야만 아는 것 '+P.checks.length+'가지. 누르면 자세히 나와요')}<div class="tiles">${tiles}</div>
+<div class="sheet" style="--mc:${mcol(c0[0])}"><div class="sh-h"><span class="ic">${M[0][0]}</span><div><b>${c0[1]}</b><small>${t.svc_ko[c0[0]]} · 세스코 체크 완료 2026.${reg.date}</small></div></div><p>${c0[2]}</p><div class="sh-f">3개월마다 다시 확인해요</div></div></div>`;
   } else if(pv==='B'){
     const qa=groups.map(g=>`<div class="qg"><div class="qg-t">${g}</div>${P.checks.map((c,i)=>M[i][1]===g?`<div class="qi" style="--mc:${mcol(c[0])}"><div class="q">${M[i][2]}</div><div class="a"><b>${c[1]}</b><small>${c[2]}</small><span class="chk">✓ 세스코 확인 · 2026.${reg.date}</span></div></div>`:'').join('')}</div>`).join('');
     placeBody=`<div class="pl-sec"><div class="pl-t">기본 정보</div>${basicRows}${convRow}</div>
-<div class="pl-sec cesco">${cescoHead('손님이 가기 전에 묻는 말에, 세스코가 현장에서 확인한 답을 붙였어요')}${qa}</div>`;
+<div class="pl-sec cesco">${cescoHead('가기 전에 많이 묻는 것들이에요. 답은 세스코가 가서 확인했어요')}${qa}</div>`;
   } else if(pv==='C'){
     const rows=groups.map(g=>`<div class="pl-row"><span>${g}</span><span class="pl-chips">${P.checks.map((c,i)=>M[i][1]===g?`<i class="cc${i===0?' on':''}" style="--mc:${mcol(c[0])}">✓ ${M[i][3]}</i>`:'').join('')}</span></div>`).join('');
     const c0=P.checks[0];
     placeBody=`<div class="pl-sec"><div class="pl-t">기본 정보<small class="badge">세스코 체크 ${P.checks.length} · 2026.${reg.date} · 유효 3개월</small></div>${basicRows}<div class="pl-row"><span>편의</span><span class="pl-chips">${P.conv.map(c=>`<i>${c}</i>`).join('')}</span></div>${rows}<div class="pl-row"><span>태그</span><span>${P.tags}</span></div>
-<div class="lgc"><i>✓ 파란 칩</i> = 세스코가 현장에서 확인한 것 · 회색 = 등록 정보</div>
+<div class="lgc"><i>✓ 파란 칩</i>은 세스코가 가서 확인한 것, 회색은 등록 정보예요</div>
 <div class="pop" style="--mc:${mcol(c0[0])}"><div class="pop-a"></div><b>${c0[1]}</b><p>${c0[2]}</p><small>${t.svc_ko[c0[0]]} · 세스코 체크 완료 2026.${reg.date}</small></div></div>`;
   } else {
     placeBody=`<div class="pl-sec"><div class="pl-t">기본 정보</div>${basicRows}${convRow}</div>
-<div class="pl-sec cesco">${cescoHead('가 봐야만 알 수 있는 것들을 세스코가 현장에서 확인했어요 · '+P.checks.length+'가지')}${P.checks.map((c,i)=>chkRow(c,i)).join('')}</div>`;
+<div class="pl-sec cesco">${cescoHead('가 봐야만 아는 것 '+P.checks.length+'가지를 세스코가 가서 확인했어요')}${P.checks.map((c,i)=>chkRow(c,i)).join('')}</div>`;
   }
   const placeHtml=`<div class="place">${placeBody}</div>`;
   const headHtml=`
@@ -492,7 +492,7 @@ function previewHtml(bk, typ, s, o){
 <div class="tabs2"><span class="${tab==='hy'?'on':''}" data-tab="hy">위생정보</span><span class="${tab==='place'?'on':''}" data-tab="place">장소정보</span></div>` + (tab==='place' ? placeHtml : `
 <div class="hc">
 <div class="qt2">“${A.quote}”</div>
-<div class="sh3">${t.sticker}<small>세스코 솔루션으로 관리하는 항목</small></div>
+<div class="sh3">${t.sticker}<small>세스코 솔루션을 받는 항목</small></div>
 ${mtabs}
 <div class="sw">${cardsHtml}</div>
 <div class="swbar"><button type="button" class="swnav" data-d="p" aria-label="이전 카드">‹</button><div class="dots">${cards.map((c,ci)=>`<i class="${ci===0?'on':''}"></i>`).join('')}</div><button type="button" class="swnav" data-d="n" aria-label="다음 카드">›</button></div>
