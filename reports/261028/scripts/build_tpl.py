@@ -106,6 +106,21 @@ HCARDS = {
   ('IHM','기름 연기가 지나가는 후드!','기름때가 쌓이지 않도록 후드와 배기 덕트를 정기적으로 청소해요.','전문클리닝 솔루션','후드·배기 청소')]),
 'meat': dict(src='', cards=[]),
 }
+# 위쳌 AI 카드 (세스코 CT Way PPT 'WeCheck 시연' 상세 화면 구조: 인트로 + ✅ 3 / 매장정보 3 / 리뷰 한눈에 3)
+AICARD = {
+'chicken': dict(intro='기름과 높은 온도로 인해 세균이나 해충이 생기기 쉬운 환경이어서 더 꼼꼼하게 관리하고 있어요.',
+  checks=['튀김 기름 산가를 정기 점검해 3.0 이하로 유지','닭고기는 입고 즉시 냉장 보관','주방 후드에 쌓인 기름때, 정기 전문 클리닝'],
+  info=[('👶','유아의자가 있어 아이와 함께 방문하기 좋아요.'),('👥','단체석이 있어 모임이나 회식에 좋아요.'),('🚻','매장 내부에 남녀 구분된 화장실이 있어요.')],
+  review=['튀김이 바삭하고 기름 냄새가 안 나요.','고기가 촉촉하고 부드러워요.','포장해 가도 눅눅하지 않아요.'],
+  quote='바삭함은 기본!<br>보이지 않는 주방 위생까지<br>믿을 수 있는 치킨집이에요.'),
+'care': dict(intro='면역력이 약한 신생아와 산모가 오래 머무는 공간이라, 공기와 손이 닿는 곳까지 더 꼼꼼하게 관리하고 있어요.',
+  checks=['전문 방역업체가 월 1회 이상 전체 살균·소독','젖병·수건은 아기별로 구분해 매일 고온 살균','신생아실 공기 살균기 상시 가동'],
+  info=[('🍼','모자동실을 운영해 아기와 함께 지낼 수 있어요.'),('📹','폰으로 신생아실을 24시간 볼 수 있어요.'),('🪟','방마다 바깥 창이 있어 환기가 잘 돼요.')],
+  review=['신생아실이 항상 깨끗하게 유지돼요.','산모식이 정갈하고 회복에 좋아요.','선생님들이 세심하게 돌봐주세요.'],
+  quote='공기부터 젖병까지,<br>아기에게 닿는 순서대로<br>챙기는 조리원이에요.'),
+'meat': dict(intro='',checks=[],info=[],review=[],quote=''),
+}
+SVC_EN = {'VIRUSCARE':'Viruscare','BODYCARE':'Bodycare','FOOD':'Food','IHM':'Cleaning','IPM':'IPM','AIR':'Air'}
 
 # 인터뷰형 질문(셀프 인터뷰) · 수치형 매핑(위생 카드 실측 항목 index, 없으면 -1)
 QS = {
@@ -122,7 +137,7 @@ MET = {
 # JS로 넘길 데이터
 DATA = {}
 for k, t in TPL.items():
-    d = dict(t); d['hcards'] = HCARDS[k]; d['place'] = '조리원' if k=='care' else '가게'; d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f, q=QS[k][i], metric=MET[k][i]) for i, (a, b, c, e, f) in enumerate(t['items'])]
+    d = dict(t); d['hcards'] = HCARDS[k]; d['aicard'] = AICARD[k]; d['svc_en'] = SVC_EN; d['place'] = '조리원' if k=='care' else '가게'; d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f, q=QS[k][i], metric=MET[k][i]) for i, (a, b, c, e, f) in enumerate(t['items'])]
     hc = t['hc']; d['hc'] = dict(pill=hc['pill'], hl=hc['hl'], ds=hc['ds'], sum=hc['sum'], metrics=[dict(k=m[0], v=m[1], u=m[2], pct=m[3], base=m[4]) for m in hc['metrics']])
     DATA[k] = d
 
@@ -165,26 +180,44 @@ EXTRA_CSS = r"""
 .ed .btns{display:flex;gap:6px}
 .ed .btns button{flex:1;font:inherit;font-size:11.5px;font-weight:800;padding:8px 0;border-radius:10px;border:1px solid #D9DCD6;background:#fff;color:var(--ink);cursor:pointer}
 .ed .btns button.ex{border-color:var(--amber);color:var(--amber);background:var(--amber-bg)}
-.hc{overflow:hidden;min-width:0}
-.hc .sw{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 14px;margin:12px -14px 0;padding:0 14px 4px;scrollbar-width:none}
+.hc{overflow:hidden;min-width:0;background:#fff;border-radius:0;box-shadow:none;padding:18px 0 18px}
+.head .pho2{height:150px;margin:-12px -16px 0;background:linear-gradient(160deg,#E6EAEF,#CBD3DC);display:flex;align-items:flex-end;padding:10px 14px;color:#6B7684;font-size:10.5px;font-weight:700}
+.head{padding-bottom:12px}
+.wai{border:1.5px solid transparent;border-radius:14px;padding:14px 14px 12px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#22B8B0,#3D6FD9) border-box}
+.wai-t{display:flex;align-items:center;gap:6px;font-size:14.5px;font-weight:900;color:var(--ink)}
+.wai-t .inf{width:14px;height:14px;border:1.3px solid #A6AFBB;border-radius:50%;font-size:9px;color:#A6AFBB;display:inline-flex;align-items:center;justify-content:center;font-weight:800}
+.wai-i{font-size:12.5px;font-weight:800;color:var(--ink);line-height:1.6;margin-top:8px}
+.wai ul{list-style:none;margin:8px 0 0;padding:0}
+.wai li{display:flex;gap:6px;font-size:12px;color:var(--ink2);line-height:1.55;padding:2px 0}
+.wai li .em{flex:none;font-size:12px}
+.wai-h{font-size:12px;font-weight:900;color:#0072CE;margin-top:12px}
+.tabs2{display:flex;background:#fff;border-bottom:1px solid var(--line);margin-top:10px}
+.tabs2 span{flex:1;height:44px;display:flex;align-items:center;justify-content:center;font-size:13.5px;color:#8A8A8A}
+.tabs2 span.on{color:var(--ink);font-weight:900;border-bottom:2.5px solid var(--ink)}
+.qt2{text-align:center;font-size:17px;font-weight:800;color:var(--ink);line-height:1.45;padding:6px 20px 16px;letter-spacing:-.01em}
+.hc .sw{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 calc((100% - 262px)/2) 4px;scrollbar-width:none}
 .hc .sw::-webkit-scrollbar{display:none}
-.hc .swc{flex:none;width:252px;scroll-snap-align:start;border:1px solid var(--wc-line);border-radius:14px;padding:13px 14px;background:#fff;display:flex;flex-direction:column}
-.hc .swt{display:flex;align-items:center;justify-content:space-between}
-.hc .swt .cat{font-size:9.5px;font-weight:900;letter-spacing:.08em;color:var(--wc);background:var(--wc-bg);border-radius:6px;padding:2px 7px}
-.hc .swt .no{font-size:10px;color:var(--muted);font-weight:700}
-.hc .swc .hl{font-size:14.5px;font-weight:900;color:var(--ink);margin-top:9px;line-height:1.35}
-.hc .swc p{font-size:12px;color:var(--txt);line-height:1.6;margin-top:6px;flex:1}
-.hc .swc .ck{display:flex;align-items:flex-start;gap:6px;margin-top:10px;font-size:11px;color:var(--ink2);line-height:1.45}
-.hc .swc .ck svg{flex-shrink:0;background:var(--wc);border-radius:4px;padding:1px;margin-top:2px}
-.hc .swc .ck b{color:var(--wc);font-weight:800}
-.hc .swc .dt{font-size:10px;color:var(--muted);margin-top:4px;padding-left:18px}
-.hc .swc{cursor:pointer}
-.hc .swbar{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px}
+.hc .swc{flex:none;width:262px;scroll-snap-align:center;background:#E3E8EE;border-radius:20px;padding:12px;cursor:pointer}
+.hc .swin{background:#fff;border-radius:12px;border:1.4px solid #E3E8EE;border-top-color:#2F7CE8;border-left-color:#2F7CE8;padding:14px 14px 12px;height:100%;display:flex;flex-direction:column}
+.hc .swt{display:flex;align-items:flex-start;justify-content:space-between}
+.hc .logo{display:flex;align-items:baseline;gap:4px}
+.hc .logo b{font-family:Georgia,"Times New Roman",serif;font-size:16px;font-weight:700;color:#1E2B49;letter-spacing:-.02em}
+.hc .logo i{font-style:normal;font-size:13px;color:#1E2B49;font-weight:600}
+.hc .stamp{flex:none;margin-top:-4px}
+.hc .hk{font-size:12px;color:#6B7684;margin-top:12px;line-height:1.5}
+.hc .hl{font-size:14px;font-weight:800;color:#1A2E5A;line-height:1.5;margin-top:6px;flex:1}
+.hc .ck{display:flex;gap:6px;align-items:flex-start;margin-top:12px;font-size:10.5px;color:#1A2E5A;line-height:1.45}
+.hc .ck .bx{flex:none;width:13px;height:13px;border:1.4px solid #1A2E5A;border-radius:2px;font-size:9px;line-height:11px;text-align:center;font-weight:900}
+.hc .dt{font-size:10px;color:#6B9AD4;margin-top:3px;padding-left:19px}
+.hc .rp{align-self:center;margin-top:10px;font-size:10px;color:#6B7684;background:#F2F4F7;border-radius:999px;padding:3px 10px}
+.hc .swbar{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:12px}
 .hc .swnav{width:26px;height:26px;border-radius:50%;border:1px solid var(--wc-line);background:#fff;color:var(--wc);font-size:16px;font-weight:900;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 2px}
 .hc .dots{display:flex;gap:5px;justify-content:center}
-.hc .dots i{cursor:pointer}
-.hc .dots i{width:6px;height:6px;border-radius:50%;background:#D5DCE4}
+.hc .dots i{width:6px;height:6px;border-radius:50%;background:#D5DCE4;cursor:pointer}
 .hc .dots i.on{width:16px;border-radius:3px;background:var(--wc)}
+.hc .hcsum{text-align:center;font-size:10.5px;color:var(--muted);margin-top:10px}
+.hc .hcsum b{color:var(--wc)}
+.hc .grid{padding:0 16px;margin-top:14px}
 .tsel{display:flex;gap:6px;margin:0 0 10px}
 .tsel button{flex:1;font:inherit;font-size:12px;font-weight:800;padding:8px 0;border-radius:10px;border:1px solid #D9DCD6;background:#fff;color:var(--ink);cursor:pointer}
 .tsel button.on{background:var(--ink);border-color:var(--ink);color:#fff}
@@ -248,14 +281,20 @@ function previewHtml(bk, typ, s){
   const strip=t.strip.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
   const pts=s.sel.map((i,n)=>{const it=t.items[i]; return `<div class="pt${n%2?' alt':''}"><div class="pho">사진 자리 · ${it.label}</div><div class="tx"><div class="num">POINT 0${n+1}</div><h3>${it.title}</h3><p>${mark(s.pts[i],it.copy)}</p><div class="fx"><i>${CHK}</i>${it.chip}</div></div></div>`;}).join('');
   const say = s.say ? `<div class="say2"><div class="lb">${t.owner} 한마디</div><p><mark class="ed">"${esc(s.say)}"</mark></p><small>${reg.name} ${t.owner}</small></div>` : '';
+  const A=t.aicard;
+  const aiHtml=`<div class="wai"><div class="wai-t"><span class="sp">✨</span>위쳌 AI<span class="inf">i</span></div><p class="wai-i">${A.intro}</p><ul>${A.checks.map(x=>`<li><span class="em">✅</span>${x}</li>`).join('')}</ul><div class="wai-h">매장정보</div><ul>${A.info.map(x=>`<li><span class="em">${x[0]}</span>${x[1]}</li>`).join('')}</ul><div class="wai-h">리뷰 한눈에</div><ul>${A.review.map(x=>`<li><span class="em">✅</span>${x}</li>`).join('')}</ul></div>`;
+  const N=t.hcards.cards.length;
+  const cardsHtml=t.hcards.cards.map((c,ci)=>`<div class="swc"><div class="swin"><div class="swt"><span class="logo"><b>CESCO</b><i>${t.svc_en[c[0]]||c[0]}</i></span><span class="stamp"><svg viewBox="0 0 44 44" width="40" height="40"><circle cx="22" cy="22" r="20" fill="none" stroke="#8FA3BF" stroke-width="1.4"/><circle cx="22" cy="22" r="15" fill="none" stroke="#8FA3BF" stroke-width=".8"/><text x="22" y="20" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CESCO</text><text x="22" y="28" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CHECK</text></svg></span></div><div class="hk">${c[1]}</div><div class="hl">${c[2]}</div><div class="ck"><span class="bx">✓</span><span>[${c[3]}] ${c[4]} 체크 완료</span></div><div class="dt">최근 점검일 : 2026.${reg.date}</div><div class="rp">ⓘ 점검 리포트 보기</div></div></div>`).join('');
   const headHtml=`
 <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">${reg.name}</div></div>
-<div class="head"><div class="nm"><h2>${reg.name}</h2><span class="cat">${reg.cat}</span></div><div class="rv"><svg width="13" height="13" viewBox="0 0 24 24" fill="#C77700"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.5L12 16.8 6.1 20l1.3-6.5L2.5 9l6.6-.8z"/></svg><b>${reg.rating}</b><span>${reg.rv} · ${reg.town}</span></div><div class="tabs">${tabs}</div></div>
-<div class="body" style="padding-bottom:12px">
-<div class="ai"><div class="lb">AI 요약<small>세스코 리포트 · 사장님 선택 · 리뷰</small></div><ul>${ai}</ul></div>
-<div class="hc"><div class="top"><div class="grade"><b>A</b><span>위생 등급</span></div><div class="t"><b>세스코가 직접 체크했어요 · ${reg.date}</b><span>${t.key} 위생 정보 ${t.hcards.cards.length}가지 · 옆으로 넘겨 보세요</span></div></div>
-<div class="sw">${t.hcards.cards.map((c,ci)=>`<div class="swc"><div class="swt"><span class="cat">${c[0]}</span><span class="no">${ci+1}/${t.hcards.cards.length}</span></div><div class="hl">${c[1]}</div><p>${c[2]}</p><div class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>[${c[3]}]</b> ${c[4]} 체크 완료</span></div><div class="dt">최근 점검일 : 2026.${reg.date}</div></div>`).join('')}</div>
+<div class="head"><div class="pho2">사진 자리 · 대표 사진 (${t.owner} 업로드)</div><div class="nm" style="margin-top:12px"><span class="cat">${reg.cat}</span></div><div class="nm"><h2>${reg.name}</h2></div><div class="rv"><b>리뷰</b><span style="color:#0072CE;font-weight:700">${reg.rv.replace(/\D+/g,'')}개</span><span>· ${reg.town}</span></div></div>
+<div class="body" style="padding-bottom:4px;background:#fff">${aiHtml}</div>
+<div class="tabs2"><span class="on">위생정보</span><span>장소정보</span></div>
+<div class="hc">
+<div class="qt2">“${A.quote}”</div>
+<div class="sw">${cardsHtml}</div>
 <div class="swbar"><button type="button" class="swnav" data-d="p" aria-label="이전 카드">‹</button><div class="dots">${t.hcards.cards.map((c,ci)=>`<i class="${ci===0?'on':''}"></i>`).join('')}</div><button type="button" class="swnav" data-d="n" aria-label="다음 카드">›</button></div>
+<div class="hcsum">세스코가 ${reg.date}에 직접 체크한 ${t.key} 위생 정보 ${N}가지 · 위생 등급 <b>A</b></div>
 ${typ==='A'?'<div class="grid">'+ms+'</div>':''}</div>`;
   const bodyC=`<div class="dp">
 <div class="hr"><div class="pho">사진 자리 · 대표 세로 컷 (사장님 또는 점검 촬영)</div><div class="ov"><span class="lab">${fill(t.hero_lab,reg)}</span><h1>${t.hero}</h1><div class="sub">${reg.name} · 세스코 위생 실측 A</div></div></div>
@@ -333,13 +372,13 @@ document.addEventListener('input',e=>{
   el.parentElement.querySelector('.cnt').textContent=el.value.length+'/'+(el.dataset.f==='about'?160:el.dataset.f==='say'?40:140);
   refreshPreviews(bk);
 });
-function swGo(sw,k){const n=sw.children.length; k=(k+n)%n; sw.scrollTo({left:sw.children[k].offsetLeft-sw.children[0].offsetLeft,behavior:'smooth'});}
+function swGo(sw,k){const n=sw.children.length; k=(k+n)%n; const c=sw.children[k]; sw.scrollTo({left:c.offsetLeft-(sw.clientWidth-c.offsetWidth)/2-sw.offsetLeft*0,behavior:'smooth'});}
 document.addEventListener('click',e=>{
   const dot=e.target.closest('.hc .dots i'); if(dot){const sw=dot.closest('.hc').querySelector('.sw'); swGo(sw,[...dot.parentElement.children].indexOf(dot)); return;}
   const nav=e.target.closest('.hc .swnav'); if(nav){const sw=nav.closest('.hc').querySelector('.sw'); const cur=[...sw.closest('.hc').querySelectorAll('.dots i')].findIndex(d=>d.classList.contains('on')); swGo(sw,cur+(nav.dataset.d==='n'?1:-1)); return;}
   const card=e.target.closest('.hc .swc'); if(card){const sw=card.parentElement; const i=[...sw.children].indexOf(card); const cur=[...sw.closest('.hc').querySelectorAll('.dots i')].findIndex(d=>d.classList.contains('on')); swGo(sw, i===cur? i+1 : i);}
 });
-document.addEventListener('scroll',e=>{const sw=e.target; if(!sw.classList||!sw.classList.contains('sw')) return; const w=sw.firstElementChild?sw.firstElementChild.offsetWidth+10:1; const k=Math.round(sw.scrollLeft/w); sw.parentElement.querySelectorAll('.dots i').forEach((d,i)=>d.classList.toggle('on',i===k));},true);
+document.addEventListener('scroll',e=>{const sw=e.target; if(!sw.classList||!sw.classList.contains('sw')) return; const w=sw.firstElementChild?sw.firstElementChild.offsetWidth+12:1; const k=Math.round(sw.scrollLeft/w); sw.parentElement.querySelectorAll('.dots i').forEach((d,i)=>d.classList.toggle('on',i===k));},true);
 render();
 """
 
