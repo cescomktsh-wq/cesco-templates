@@ -289,7 +289,11 @@ figcaption small{display:block;font-weight:500;color:var(--muted);font-size:11.5
 .hc .swc .ck svg{flex-shrink:0;background:var(--wc);border-radius:4px;padding:1px;margin-top:2px}
 .hc .swc .ck b{color:var(--wc);font-weight:800}
 .hc .swc .dt{font-size:10px;color:var(--muted);margin-top:4px;padding-left:18px}
-.hc .dots{display:flex;gap:5px;justify-content:center;margin-top:8px}
+.hc .swc{cursor:pointer}
+.hc .swbar{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px}
+.hc .swnav{width:26px;height:26px;border-radius:50%;border:1px solid var(--wc-line);background:#fff;color:var(--wc);font-size:16px;font-weight:900;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0 0 2px}
+.hc .dots{display:flex;gap:5px;justify-content:center}
+.hc .dots i{cursor:pointer}
 .hc .dots i{width:6px;height:6px;border-radius:50%;background:#D5DCE4}
 .hc .dots i.on{width:16px;border-radius:3px;background:var(--wc)}
 .tsel{display:flex;gap:6px;margin:0 0 10px}
@@ -389,7 +393,7 @@ function previewHtml(bk, typ, s){
 <div class="ai"><div class="lb">AI 요약<small>세스코 리포트 · 사장님 선택 · 리뷰</small></div><ul>${ai}</ul></div>
 <div class="hc"><div class="top"><div class="grade"><b>A</b><span>위생 등급</span></div><div class="t"><b>세스코가 직접 체크했어요 · ${reg.date}</b><span>${t.key} 위생 정보 ${t.hcards.cards.length}가지 · 옆으로 넘겨 보세요</span></div></div>
 <div class="sw">${t.hcards.cards.map((c,ci)=>`<div class="swc"><div class="swt"><span class="cat">${c[0]}</span><span class="no">${ci+1}/${t.hcards.cards.length}</span></div><div class="hl">${c[1]}</div><p>${c[2]}</p><div class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><span><b>[${c[3]}]</b> ${c[4]} 체크 완료</span></div><div class="dt">최근 점검일 : 2026.${reg.date}</div></div>`).join('')}</div>
-<div class="dots">${t.hcards.cards.map((c,ci)=>`<i class="${ci===0?'on':''}"></i>`).join('')}</div>
+<div class="swbar"><button type="button" class="swnav" data-d="p" aria-label="이전 카드">‹</button><div class="dots">${t.hcards.cards.map((c,ci)=>`<i class="${ci===0?'on':''}"></i>`).join('')}</div><button type="button" class="swnav" data-d="n" aria-label="다음 카드">›</button></div>
 ${typ==='A'?'<div class="grid">'+ms+'</div>':''}</div>`;
   const bodyC=`<div class="dp">
 <div class="hr"><div class="pho">사진 자리 · 대표 세로 컷 (사장님 또는 점검 촬영)</div><div class="ov"><span class="lab">${fill(t.hero_lab,reg)}</span><h1>${t.hero}</h1><div class="sub">${reg.name} · 세스코 위생 실측 A</div></div></div>
@@ -466,6 +470,12 @@ document.addEventListener('input',e=>{
   const t=D[bk]; el.classList.toggle('changed', el.dataset.f==='about'? s.about!==fill(t.about,t.reg) : el.dataset.f==='say'? !!s.say : s.pts[+el.dataset.pt]!==t.items[+el.dataset.pt].copy);
   el.parentElement.querySelector('.cnt').textContent=el.value.length+'/'+(el.dataset.f==='about'?160:el.dataset.f==='say'?40:140);
   refreshPreviews(bk);
+});
+function swGo(sw,k){const n=sw.children.length; k=(k+n)%n; sw.scrollTo({left:sw.children[k].offsetLeft-sw.children[0].offsetLeft,behavior:'smooth'});}
+document.addEventListener('click',e=>{
+  const dot=e.target.closest('.hc .dots i'); if(dot){const sw=dot.closest('.hc').querySelector('.sw'); swGo(sw,[...dot.parentElement.children].indexOf(dot)); return;}
+  const nav=e.target.closest('.hc .swnav'); if(nav){const sw=nav.closest('.hc').querySelector('.sw'); const cur=[...sw.closest('.hc').querySelectorAll('.dots i')].findIndex(d=>d.classList.contains('on')); swGo(sw,cur+(nav.dataset.d==='n'?1:-1)); return;}
+  const card=e.target.closest('.hc .swc'); if(card){const sw=card.parentElement; const i=[...sw.children].indexOf(card); const cur=[...sw.closest('.hc').querySelectorAll('.dots i')].findIndex(d=>d.classList.contains('on')); swGo(sw, i===cur? i+1 : i);}
 });
 document.addEventListener('scroll',e=>{const sw=e.target; if(!sw.classList||!sw.classList.contains('sw')) return; const w=sw.firstElementChild?sw.firstElementChild.offsetWidth+10:1; const k=Math.round(sw.scrollLeft/w); sw.parentElement.querySelectorAll('.dots i').forEach((d,i)=>d.classList.toggle('on',i===k));},true);
 render();
