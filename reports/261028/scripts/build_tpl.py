@@ -89,10 +89,22 @@ TPL = {
             say='숫자는 세스코가 재요. 저는 복도에 붙이기만 해요.')),
 }
 
+# 인터뷰형 질문(셀프 인터뷰) · 수치형 매핑(위생 카드 실측 항목 index, 없으면 -1)
+QS = {
+'chicken': ['기름은 언제 갈아요?','닭은 언제 들어오고 언제까지 써요?','염지는 어떻게 해요?','생닭 손질할 때 도마는요?','두 번 튀기는 이유가 있어요?','후드 청소는 누가, 얼마나 자주 해요?','포장하면 눅눅해지지 않나요?','어떤 닭을 쓰세요?','테이블이랑 소스통은요?','배달은 매장이랑 다른 게 있어요?'],
+'meat': ['고기는 몇 도에 두세요?','고기 들어올 때 뭘 보세요?','불판은 언제 바꿔 줘요?','집게가 두 개 나오던데요?','남은 반찬은 어떻게 해요?','숯은 언제 갈아요?','연기는 어떻게 빼요?','오늘 고기는 어디서 온 거예요?','된장이랑 김치는 직접 담그세요?','홀 공기는 어떻게 관리해요?'],
+'care': ['신생아실 공기는 어떻게 확인해요?','젖병은 아기마다 따로 써요?','산모 방 환기는요?','면회는 어떻게 해요?','수유실 소독은 얼마나 자주 해요?','침구랑 세탁은요?','산모식은 누가 어떻게 만들어요?','좌욕기는 쓰고 나면요?','밤에는 신생아실에 누가 있어요?','신생아실은 누가 봐요?'],
+}
+MET = {
+'chicken': [0,1,1,2,-1,3,-1,-1,-1,-1],
+'meat':    [0,-1,1,2,-1,-1,3,-1,-1,3],
+'care':    [0,1,-1,-1,2,-1,3,-1,-1,-1],
+}
+
 # JS로 넘길 데이터
 DATA = {}
 for k, t in TPL.items():
-    d = dict(t); d['place'] = '조리원' if k=='care' else '가게'; d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f) for a, b, c, e, f in t['items']]
+    d = dict(t); d['place'] = '조리원' if k=='care' else '가게'; d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f, q=QS[k][i], metric=MET[k][i]) for i, (a, b, c, e, f) in enumerate(t['items'])]
     hc = t['hc']; d['hc'] = dict(pill=hc['pill'], hl=hc['hl'], ds=hc['ds'], sum=hc['sum'], metrics=[dict(k=m[0], v=m[1], u=m[2], pct=m[3], base=m[4]) for m in hc['metrics']])
     DATA[k] = d
 
@@ -135,6 +147,10 @@ EXTRA_CSS = r"""
 .ed .btns{display:flex;gap:6px}
 .ed .btns button{flex:1;font:inherit;font-size:11.5px;font-weight:800;padding:8px 0;border-radius:10px;border:1px solid #D9DCD6;background:#fff;color:var(--ink);cursor:pointer}
 .ed .btns button.ex{border-color:var(--amber);color:var(--amber);background:var(--amber-bg)}
+.tsel{display:flex;gap:6px;margin:0 0 10px}
+.tsel button{flex:1;font:inherit;font-size:12px;font-weight:800;padding:8px 0;border-radius:10px;border:1px solid #D9DCD6;background:#fff;color:var(--ink);cursor:pointer}
+.tsel button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.ed .pt-ed .qq{font-size:10.5px;color:var(--muted);margin:-2px 0 6px}
 .ed .note{font-size:10.5px;color:var(--muted);line-height:1.5}
 /* 손님 화면 쪽 수정 표시 */
 mark.ed{background:var(--amber-bg);color:inherit;box-shadow:0 0 0 2px var(--amber-bg);border-radius:2px}
@@ -158,6 +174,7 @@ JS = r"""
 const D = __DATA__;
 const CHK = '__CHK__';
 let cur = (location.hash.slice(1) in D) ? location.hash.slice(1) : 'chicken';
+let typ = 'C';
 const state = {};   // per biz: {sel:[...], about, pts:{i:copy}, say, example:false}
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 function fill(s, reg){return s.replace(/\{(\w+)\}/g,(m,k)=>reg[k]||m);}
@@ -177,7 +194,7 @@ function renderEditor(){
   h+='</div></div>';
   h+=`<div class="fs"><div class="lb">② ${t.place} 소개<small>기본 문안이 들어 있어요 · 160자</small></div><textarea data-f="about" rows="4" class="${s.about!==fill(t.about,reg)?'changed':''}">${esc(s.about)}</textarea><div class="cnt">${s.about.length}/160</div></div>`;
   h+='<div class="fs"><div class="lb">③ 고른 항목의 설명<small>그대로 둬도 돼요 · 각 140자</small></div>';
-  s.sel.forEach((i,n)=>{const it=t.items[i]; h+=`<div class="pt-ed"><div class="t">POINT 0${n+1}<span>${it.title.replace('<br>',' ')}</span></div><textarea data-pt="${i}" rows="3" class="${s.pts[i]!==it.copy?'changed':''}">${esc(s.pts[i])}</textarea><div class="cnt">${s.pts[i].length}/140</div><div class="ph">사진 추가 (선택) · 없으면 점검 때 촬영한 사진</div></div>`;});
+  s.sel.forEach((i,n)=>{const it=t.items[i]; h+=`<div class="pt-ed"><div class="t">POINT 0${n+1}<span>${it.title.replace('<br>',' ')}</span></div><div class="qq">인터뷰형에선 이 질문의 답으로 나가요: “${it.q}”</div><textarea data-pt="${i}" rows="3" class="${s.pts[i]!==it.copy?'changed':''}">${esc(s.pts[i])}</textarea><div class="cnt">${s.pts[i].length}/140</div><div class="ph">사진 추가 (선택) · 없으면 점검 때 촬영한 사진</div></div>`;});
   h+='</div>';
   h+=`<div class="fs"><div class="lb">④ ${t.owner} 한마디<small>선택 · 40자</small></div><input type="text" data-f="say" value="${esc(s.say)}" placeholder="비워 두면 이 칸은 손님 화면에 안 나와요" class="${s.say?'changed':''}"><div class="cnt">${s.say.length}/40</div></div>`;
   h+='<div class="btns"><button type="button" data-act="reset">기본 문안으로 되돌리기</button><button type="button" class="ex" data-act="example">${t.owner}이 고친 예시 넣기</button></div>';
@@ -193,14 +210,13 @@ function renderPreview(){
   const strip=t.strip.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
   const pts=s.sel.map((i,n)=>{const it=t.items[i]; return `<div class="pt${n%2?' alt':''}"><div class="pho">사진 자리 · ${it.label}</div><div class="tx"><div class="num">POINT 0${n+1}</div><h3>${it.title}</h3><p>${mark(s.pts[i],it.copy)}</p><div class="fx"><i>${CHK}</i>${it.chip}</div></div></div>`;}).join('');
   const say = s.say ? `<div class="say2"><div class="lb">${t.owner} 한마디</div><p><mark class="ed">"${esc(s.say)}"</mark></p><small>${reg.name} ${t.owner}</small></div>` : '';
-  document.getElementById('pv').innerHTML=`
+  const headHtml=`
 <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">${reg.name}</div></div>
 <div class="head"><div class="nm"><h2>${reg.name}</h2><span class="cat">${reg.cat}</span></div><div class="rv"><svg width="13" height="13" viewBox="0 0 24 24" fill="#C77700"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.5L12 16.8 6.1 20l1.3-6.5L2.5 9l6.6-.8z"/></svg><b>${reg.rating}</b><span>${reg.rv} · ${reg.town}</span></div><div class="tabs">${tabs}</div></div>
 <div class="body" style="padding-bottom:12px">
 <div class="ai"><div class="lb">AI 요약<small>세스코 리포트 · 사장님 선택 · 리뷰</small></div><ul>${ai}</ul></div>
-<div class="hc"><div class="top"><div class="grade"><b>A</b><span>위생 등급</span></div><div class="t"><b>세스코 전문가 실측 · ${reg.date} · ${reg.n}가지 모두 기준 안</b><span>위생점검 리포트 No. ${reg.report} · 다음 점검 11월</span></div></div><div class="pt"><span class="pill">${hc.pill}</span><small>CESCO 위쳌 기준</small><div class="hl">${hc.hl}</div><div class="ds">${hc.ds}</div></div><div class="grid">${ms}</div><div class="sum"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0072CE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><div>${hc.sum}</div></div></div>
-</div>
-<div class="dp">
+<div class="hc"><div class="top"><div class="grade"><b>A</b><span>위생 등급</span></div><div class="t"><b>세스코 전문가 실측 · ${reg.date} · ${reg.n}가지 모두 기준 안</b><span>위생점검 리포트 No. ${reg.report} · 다음 점검 11월</span></div></div><div class="pt"><span class="pill">${hc.pill}</span><small>CESCO 위쳌 기준</small><div class="hl">${hc.hl}</div><div class="ds">${hc.ds}</div></div><div class="grid">${ms}</div><div class="sum"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0072CE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg><div>${hc.sum}</div></div></div>`;
+  const bodyC=`<div class="dp">
 <div class="hr"><div class="pho">사진 자리 · 대표 세로 컷 (사장님 또는 점검 촬영)</div><div class="ov"><span class="lab">${fill(t.hero_lab,reg)}</span><h1>${t.hero}</h1><div class="sub">${reg.name} · 세스코 위생 실측 A</div></div></div>
 <div class="sec"><span class="lab">ABOUT</span><h2>${t.about_h}</h2><p>${mark(s.about, fill(t.about,reg))}</p><div class="strip">${strip}</div></div>
 <div class="sec alt" style="padding-bottom:10px"><span class="lab">POINT</span><h2>${t.pt_h}</h2></div>
@@ -209,8 +225,36 @@ ${say}
 <div style="height:8px"></div>
 <div class="rep"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. ${reg.report}<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
 <p class="fine2">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. POINT는 ${t.owner}이 고른 항목이고, "세스코 실측·확인" 표시가 있는 것만 점검에서 실제로 봤어요.</p>
-</div>
-<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
+</div>`;
+  const repRow=`<div class="report"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. ${reg.report}<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>`;
+  const fine=`<p class="fine">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 관리 포인트는 ${t.owner}이 고른 항목이고, "세스코 실측·확인" 표시가 있는 것만 점검에서 실제로 봤어요.</p>`;
+  const sayCard = s.say ? `<div class="card say"><div class="lb">${t.owner} 한마디</div><p><mark class="ed">"${esc(s.say)}"</mark></p><div class="sg">${reg.name} ${t.owner}</div></div>` : '';
+  // A · 수치형
+  const gauges=hc.metrics.map((m,mi)=>{
+    const sel=s.sel.filter(i=>t.items[i].metric===mi);
+    const why=sel.map(i=>`<div class="why1"><b>이 집은</b> ${mark(s.pts[i],t.items[i].copy)}</div>`).join('');
+    return `<div class="r"><div class="k">${m.k}</div><div class="mt" style="margin-top:3px"><div class="mrow"><b>${m.v}</b>${m.u?'<small>'+m.u+'</small>':''}<span class="pill2">기준의 ${m.pct}%</span></div><div class="mb"><i style="width:${m.pct}%"></i></div><div class="ml"><span>0</span><span>${m.base}</span></div></div>${why}</div>`;}).join('');
+  const rest=s.sel.filter(i=>t.items[i].metric<0);
+  const restList = rest.length ? `<div class="card list"><div class="hd"><b>실측 항목 밖에서 ${t.owner}이 고른 것</b><span>매장 기록</span></div>${rest.map(i=>`<div class="row"><span style="width:8px;height:8px;border-radius:50%;background:#C9D0D8;display:block;margin:0 auto"></span><div class="k">${t.items[i].title.replace('<br>',' ')}<small>${mark(s.pts[i],t.items[i].copy)}</small></div><span class="tag o">매장 기록</span></div>`).join('')}</div>` : '';
+  const bodyA=`<div class="body">
+<div class="card intro"><div class="byline"><div class="av"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0072CE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><div><b>${reg.name}은요</b><span>${t.owner}이 적은 소개</span></div></div><p style="margin-top:8px">${mark(s.about, fill(t.about,reg))}</p></div>
+<div class="sh2"><b>항목별로 얼마나 여유 있나</b><small>${reg.date} 세스코 실측 · 값과 기준선</small></div>
+<div class="res">${gauges}</div>
+${restList}
+${sayCard}
+${repRow}${fine}</div>`;
+  // B · 인터뷰형 (셀프 인터뷰)
+  const qa=s.sel.map(i=>{const it=t.items[i]; return `<div class="it"><div class="q">${it.q}</div><div class="a">${mark(s.pts[i],it.copy)}</div><div class="fact"><i>${CHK}</i>${it.chip}</div></div>`;}).join('');
+  const pull = s.say ? `<div class="pull"><p><mark class="ed" style="background:transparent;box-shadow:none">"${esc(s.say)}"</mark></p><span>${reg.name} ${t.owner}</span></div>` : '';
+  const bodyB=`<div class="body">
+<div class="iv-hero"><div class="ph">사진 자리 · ${t.owner} · 대표 컷 (${t.owner} 업로드 또는 점검 촬영)</div><div class="eb">${t.owner} 셀프 인터뷰 · ${reg.date} 점검 후</div><h3>${t.about_h}</h3><div class="who">${reg.name} · 질문은 위쳌이, 답은 ${t.owner}이 직접 적었어요</div></div>
+<div class="card intro"><p>${mark(s.about, fill(t.about,reg))}</p></div>
+<div class="card iv">${qa}</div>
+${pull}
+${repRow}${fine}</div>`;
+  const body = typ==='A'?bodyA : typ==='B'?bodyB : bodyC;
+  document.getElementById('pv').innerHTML = headHtml + body + `<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
+  document.querySelectorAll('.tsel button').forEach(b=>b.classList.toggle('on',b.dataset.t===typ));
 }
 function render(){renderEditor();renderPreview();}
 document.getElementById('ed-in').addEventListener('click',e=>{
@@ -234,6 +278,7 @@ document.getElementById('ed-in').addEventListener('input',e=>{
   el.parentElement.querySelector('.cnt').textContent=el.value.length+'/'+(el.dataset.f==='about'?160:el.dataset.f==='say'?40:140);
   renderPreview();
 });
+document.querySelector('.tsel').addEventListener('click',e=>{const b=e.target.closest('button[data-t]'); if(b){typ=b.dataset.t; renderPreview();}});
 render();
 """
 
@@ -250,13 +295,14 @@ def build():
 <p>왼쪽은 <b>사장님 편집 화면</b>, 오른쪽은 <b>손님이 보는 화면</b>입니다. 업종을 고르면 기본 문안이 다 들어간 페이지가 바로 나오고(0 입력 상태), 특장점을 체크하면 그 순서대로 POINT가 바뀌고, 입력칸의 글을 고치면 오른쪽에 바로 반영됩니다. 고친 곳은 주황색으로 보입니다(검토용). "사장님이 고친 예시 넣기"를 누르면 실제 사장님이 손본 상태가 어떻게 달라지는지 볼 수 있습니다. 세스코 측정값·등급·점검일·등록 정보는 사장님이 못 건드립니다.</p></div></div>
 <div class="two-col">
 <div class="col"><h3>사장님 편집 화면<small>위쳌 사업주용 · 기본 문안이 미리 들어 있음</small></h3><div class="ed"><div class="bar">위생 페이지 관리<span class="sv">저장</span></div><div class="in" id="ed-in"></div></div></div>
-<div class="col"><h3>손님이 보는 화면<small>C안 상세페이지형 틀 · 편집 즉시 반영</small></h3><div class="phone"><div class="fold"><span>첫 화면 끝</span></div><div id="pv"></div></div></div>
+<div class="col"><h3>손님이 보는 화면<small>같은 데이터로 유형만 바꿔 봅니다 · 편집 즉시 반영</small></h3><div class="tsel"><button type="button" data-t="A">수치형</button><button type="button" data-t="B">인터뷰형</button><button type="button" data-t="C" class="on">상세페이지형</button></div><div class="phone"><div class="fold"><span>첫 화면 끝</span></div><div id="pv"></div></div></div>
 </div>
 <div class="memo"><h2>구조 메모</h2>
 <div class="tw"><table><thead><tr><th style="width:18%">단계</th><th style="width:32%">누가 무엇을</th><th>화면에 나오는 것</th></tr></thead><tbody>
 <tr><td><b>0 · 기본 제공</b></td><td>세스코 점검 데이터 + 등록 정보만 있음. 사장님 입력 없음</td><td>업종 기본 소개 문구, 업종 기본 특장점 3개(기본 선택), 기본 문안 그대로. 이 상태로도 완성된 페이지</td></tr>
 <tr><td><b>1 · 고르기</b></td><td>사장님이 특장점 10개 중 2~3개 체크 (고른 순서 = 노출 순서)</td><td>POINT 01~03이 고른 항목의 기본 문안으로 바뀜. AI 요약 두 번째 줄도 같이 바뀜</td></tr>
 <tr><td><b>2 · 고치기</b></td><td>사장님이 소개(160자)·항목 설명(140자)·한마디(40자)를 고침. 사진 추가</td><td>고친 문장만 바뀜. 안 고친 칸은 기본 문안 유지. 한마디는 적었을 때만 나옴</td></tr>
+<tr><td><b>유형 (세스코가 정함)</b></td><td>수치형 · 인터뷰형 · 상세페이지형. 사장님 입력은 세 유형 공통</td><td>수치형: 실측 계기판 아래 "이 집은 ~"로 사장님 문장이 붙음. 인터뷰형: 고른 항목이 질문이 되고 사장님 문장이 답이 됨(셀프 인터뷰). 상세페이지형: POINT 01~03</td></tr>
 <tr><td><b>세스코 전용</b></td><td>측정값·등급·점검일·리포트·"세스코 확인" 칩</td><td>사장님이 못 바꿈. 사장님이 고른 항목이라도 점검 항목이 아니면 POINT 아래 칩이 "매장 기록"으로만 표시</td></tr>
 </tbody></table></div>
 <p style="margin-top:10px"><span class="flag">확인 필요</span>글자 수 상한(160·140·40), 사진 장수, 사장님 수정분의 검수 여부(자동 게시 vs 세스코 승인 후 게시), 금지어 필터(가이드라인 표기법 ⑭⑮) 적용 위치.</p>
