@@ -349,7 +349,7 @@ def ai_block(b):
     lis = ''.join(f'<li>{x}</li>' for x in b['ai'])
     return f'<div class="ai"><div class="lb">{SPARK}AI 요약<small>리뷰 · 세스코 리포트 · 사장님 기록 기준</small></div><ul>{lis}</ul></div>'
 
-def hc_block(b):
+def hc_block(b, grid=False):
     h = b['hc']
     ms = ''
     for k, v, u, pct, base in h['metrics']:
@@ -358,7 +358,7 @@ def hc_block(b):
     return f'''<div class="hc">
 <div class="top"><div class="grade"><b>A</b><span>위생 등급</span></div><div class="t"><b>세스코 전문가 실측 · {b['date']} · {b['n']}가지 모두 기준 안</b><span>위생점검 리포트 No. {b['report']} · 다음 점검 11월</span></div></div>
 <div class="pt"><span class="pill">{h['pill']}</span><small>CESCO 위쳌 기준</small><div class="hl">{h['hl']}</div><div class="ds">{h['ds']}</div></div>
-<div class="grid">{ms}</div>
+{('<div class="grid">'+ms+'</div>') if grid else ''}
 <div class="sum">{CHK14.replace('currentColor','#0072CE')}<div>{h['sum']}</div></div>
 </div>'''
 
@@ -474,7 +474,7 @@ def build_A(bk):
         tr += f'<tr><td>{r}</td>' + ''.join(f'<td class="{"now" if i==5 else ""}"><i></i></td>' for i in range(6)) + '</tr>'
     hist = f'<div class="card hist"><div class="lb">점검 이력</div><table><thead><tr><th></th>{th}</tr></thead><tbody>{tr}</tbody></table><div class="ft">월 1회 세스코 정기 점검 · {len(months)}회 연속 기준 통과 · 다음 점검 11월</div></div>'
     memo = f'<div class="card say own-in"><span class="own-tag">사업주 입력</span><div class="lb">사장님 한마디</div><p>"{a["memo"]}"</p><div class="sg">{b["owner"]} · 사업주가 직접 적는 한 줄 (선택)</div></div>'
-    body = f'''{ai_block(b)}{hc_block(b)}{LEGEND}
+    body = f'''{ai_block(b)}{hc_block(b, grid=True)}{LEGEND}
 <div class="sh2"><b>항목별로 얼마나 여유 있나</b><small>{b['date']} 세스코 실측 · 값과 기준선</small></div>
 <div class="res">{g}</div>
 <div class="two">{two}</div>
@@ -758,7 +758,7 @@ th{{background:var(--soft);font-weight:700;font-size:13px;color:var(--ink2);whit
 <h2><span class="num">04</span>상단 공통 요소 (3유형 동일)</h2>
 <ul>
 <li><b>AI 요약</b> — 리뷰·세스코 리포트·사장님 기록 세 출처에서 한 줄씩. <span class="need">[확인 필요]</span> 실제 위쳌 상세 페이지의 AI 요약 위치·형식·데이터 출처(리뷰 요약만인지, 점검 리포트까지 읽는지).</li>
-<li><b>위생 정보 카드</b> — 등급 + 점검일 + 업종 공통 위생 포인트(10/23 개선안 1안 문구 기준) + 실측 2열 4항목. 치킨집은 10/23 개선안에 행이 없어 10/27 시안의 문구를 썼습니다.</li>
+<li><b>위생 정보 카드</b> — 등급 + 점검일 + 업종 공통 위생 포인트(10/23 개선안 1안 문구 기준). 실측 수치 2열 격자는 <b>A안(수치형)에만</b> 들어가고 B·C안 상단은 글 카드만 둡니다(10/30 수정). 치킨집은 10/23 개선안에 행이 없어 10/27 시안의 문구를 썼습니다.</li>
 <li><b>리포트 원본 · 매장이 매일 하는 일 · 면책 문구</b> — 10/28 M안·L안과 동일.</li>
 </ul>
 
