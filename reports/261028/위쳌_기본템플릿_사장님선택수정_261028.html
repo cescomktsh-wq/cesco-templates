@@ -374,7 +374,7 @@ function editorHtml(bk, s, withBiz){
   let h='';
   if(withBiz) h+='<div class="fs"><div class="lb">업종<small>등록 정보로 자동 선택</small></div><div class="seg">'+['chicken','care'].map(k=>`<button type="button" data-biz="${k}" class="${k===bk?'on':''}">${D[k].key}</button>`).join('')+'</div></div>';
   h+=`<div class="lock"><b>세스코가 입력 · ${t.owner}은 수정 불가</b><br>위생 등급 A · 점검일 ${reg.date} · 실측 ${reg.n}항목 · 리포트 No. ${reg.report}<br><b>등록 정보에서 자동</b> ${reg.name} · ${reg.cat} · ${reg.town} · ${reg.years}년 · 영업시간 · 메뉴 · 주차</div>`;
-  h+=`<div class="fs"><div class="lb">① 우리 ${t.place}가 특히 신경 쓰는 것<small>2~3개 선택 · 고른 순서대로 노출</small></div><div class="chk">`;
+  h+=`<div class="fs"><div class="lb">① 우리 ${t.place}${t.place==='조리원'?'이':'가'} 특히 신경 쓰는 것<small>2~3개 선택 · 고른 순서대로 노출</small></div><div class="chk">`;
   t.items.forEach((it,i)=>{const on=s.sel.includes(i); const dis=!on&&s.sel.length>=3;
     h+=`<label class="${on?'on':''}${dis?' dis':''}"><input type="checkbox" data-i="${i}" ${on?'checked':''} ${dis?'disabled':''}><span>${it.label}<span class="cs ${it.cesco?'':'o'}">${it.cesco?'세스코 점검 항목':'매장 기록'}</span></span><span class="ord">${on?(s.sel.indexOf(i)+1):''}</span></label>`;});
   h+='</div></div>';
