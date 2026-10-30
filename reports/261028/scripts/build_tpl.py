@@ -231,7 +231,7 @@ function editorHtml(bk, s, withBiz){
   s.sel.forEach((i,n)=>{const it=t.items[i]; h+=`<div class="pt-ed"><div class="t">POINT 0${n+1}<span>${it.title.replace('<br>',' ')}</span></div><div class="qq">인터뷰형에선 이 질문의 답으로 나가요: “${it.q}”</div><textarea data-pt="${i}" rows="3" class="${s.pts[i]!==it.copy?'changed':''}">${esc(s.pts[i])}</textarea><div class="cnt">${s.pts[i].length}/140</div><div class="ph">사진 추가 (선택) · 없으면 점검 때 촬영한 사진</div></div>`;});
   h+='</div>';
   h+=`<div class="fs"><div class="lb">④ ${t.owner} 한마디<small>선택 · 40자</small></div><input type="text" data-f="say" value="${esc(s.say)}" placeholder="비워 두면 이 칸은 손님 화면에 안 나와요" class="${s.say?'changed':''}"><div class="cnt">${s.say.length}/40</div></div>`;
-  h+='<div class="btns"><button type="button" data-act="reset">기본 문안으로 되돌리기</button><button type="button" class="ex" data-act="example">${t.owner}이 고친 예시 넣기</button></div>';
+  h+='<div class="btns"><button type="button" data-act="reset">기본 내용으로 저장</button><button type="button" class="ex" data-act="example">수정한 내용으로 저장</button></div>';
   h+='<div class="note">저장하면 손님 화면에 바로 반영돼요. 세스코 측정값·등급·점검일은 ${t.owner}이 바꿀 수 없어요. 주황색 칸이 ${t.owner}이 고친 곳이에요.</div>';
   return h;
 }
@@ -347,7 +347,7 @@ def build():
 <title>위쳌 기본 템플릿 + 사장님 선택·수정 (10/28)</title>{B.FONT}<style>{B.CSS}{EXTRA_CSS}</style></head>
 <body>
 <div class="top"><div class="desc"><h1>위쳌 사업장 상세 — 기본 템플릿은 이미 채워져 있고, 사장님은 2~3개만 고르고, 원하면 고친다</h1>
-<p>왼쪽은 <b>사장님 편집 화면</b>, 오른쪽은 <b>손님이 보는 화면</b>입니다. 업종을 고르면 기본 문안이 다 들어간 페이지가 바로 나오고(0 입력 상태), 특장점을 체크하면 그 순서대로 POINT가 바뀌고, 입력칸의 글을 고치면 오른쪽에 바로 반영됩니다. 고친 곳은 주황색으로 보입니다(검토용). "사장님이 고친 예시 넣기"를 누르면 실제 사장님이 손본 상태가 어떻게 달라지는지 볼 수 있습니다. 세스코 측정값·등급·점검일·등록 정보는 사장님이 못 건드립니다.</p></div></div>
+<p>왼쪽은 <b>사장님 편집 화면</b>, 오른쪽은 <b>손님이 보는 화면</b>입니다. 업종을 고르면 기본 문안이 다 들어간 페이지가 바로 나오고(0 입력 상태), 특장점을 체크하면 그 순서대로 POINT가 바뀌고, 입력칸의 글을 고치면 오른쪽에 바로 반영됩니다. 고친 곳은 주황색으로 보입니다(검토용). "수정한 내용으로 저장"을 누르면 사장님이 손본 상태가 어떻게 달라지는지 볼 수 있습니다. 세스코 측정값·등급·점검일·등록 정보는 사장님이 못 건드립니다.</p></div></div>
 <div class="two-col">
 <div class="col"><h3>사장님 편집 화면<small>위쳌 사업주용 · 기본 문안이 미리 들어 있음</small></h3><div class="ed"><div class="bar">위생 페이지 관리<span class="sv">저장</span></div><div class="in" id="ed-in" data-ed data-withbiz data-biz="chicken"></div></div></div>
 <div class="col"><h3>손님이 보는 화면<small>같은 데이터로 유형만 바꿔 봅니다 · 편집 즉시 반영</small></h3><div class="tsel"><button type="button" data-t="A">수치형</button><button type="button" data-t="B">인터뷰형</button><button type="button" data-t="C" class="on">상세페이지형</button></div><div class="phone"><div class="fold"><span>첫 화면 끝</span></div><div id="pv" data-static data-biz="chicken" data-t="C"></div></div></div>
