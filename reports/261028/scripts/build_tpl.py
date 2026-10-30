@@ -13,7 +13,7 @@ FNAME = '위쳌_기본템플릿_사장님선택수정_261028.html'
 # ── 업종 기본 템플릿 (등록 정보만 들어가면 완성되는 문안) ──
 TPL = {
 'chicken': dict(
-  key='치킨집', tabs=['홈','메뉴','리뷰','사진','위생'], cta='이 가게 방역 알림 받기',
+  key='치킨집', owner='사장님', tabs=['홈','메뉴','리뷰','사진','위생'], cta='이 가게 방역 알림 받기',
   reg=dict(name='열한시 치킨', cat='치킨·닭강정', town='성수동', years='17', rating='4.7', rv='리뷰 2,041', date='10.16', report='2026-1016-0512', n=5),
   hero_lab='{town} · {years}년', hero='오늘 기름,<br>오늘 닭으로 튀겨요',
   about_h='기름과 닭과 도마를<br>매일 같은 순서로',
@@ -38,7 +38,7 @@ TPL = {
             pts={0:'문은 열한 시에 여는데 저는 네 시 반에 나와요. 월·수·금. 알람 세 개 맞춰 놓고요. 작년에 한 번 늦잠 자서 열 시에 갈았는데 단골이 "오늘 좀 다르네" 하더라고요.'},
             say='기름은 새벽에 갈아요. 점검 오시는 날도, 안 오시는 날도요.')),
 'meat': dict(
-  key='고깃집', tabs=['홈','메뉴','리뷰','사진','위생'], cta='이 가게 방역 알림 받기',
+  key='고깃집', owner='사장님', tabs=['홈','메뉴','리뷰','사진','위생'], cta='이 가게 방역 알림 받기',
   reg=dict(name='일도씨 정육식당', cat='돼지고기 구이·삼겹살', town='마포', years='3', rating='4.6', rv='리뷰 1,318', date='10.14', report='2026-1014-0287', n=5),
   hero_lab='{town} · {years}년', hero='고기는<br>온도로 관리해요',
   about_h='고기는 온도로, 불판은 손님마다,<br>반찬은 당일로',
@@ -63,7 +63,7 @@ TPL = {
             pts={0:'제 폰 잠금화면이 숙성고 온도예요. 2년 전에 정전으로 4도까지 올라간 적이 있어서 그날 고기 다 뺐어요. 그 뒤로 센서 달고 알림 오게 했어요. 사흘 넘긴 고기는 안 냅니다.', 2:'한 테이블에 세 번 바꿀 때도 있어요. 불판만 닦으시는 분이 두 시에 오세요. 오셔서 제일 먼저 불판을 세요. 마흔 장 아래면 저한테 문자가 와요.'},
             say='고기는 온도로 먹는 거예요. 숙성고 1도, 불판 새것, 반찬 새것.')),
 'care': dict(
-  key='산후조리원', tabs=['홈','프로그램','리뷰','사진','위생'], cta='이 조리원 방역 알림 받기',
+  key='산후조리원', owner='원장님', tabs=['홈','프로그램','리뷰','사진','위생'], cta='이 조리원 방역 알림 받기',
   reg=dict(name='볕드는집 산후조리원', cat='산후조리원 · 민간형', town='분당', years='6', rating='4.9', rv='후기 412', date='10.15', report='2026-1015-0341', n=6),
   hero_lab='{town} · 민간형', hero='아기한테 닿는<br>순서대로 봐요',
   about_h='공기, 젖병, 수유실을<br>먼저 봐요',
@@ -92,7 +92,7 @@ TPL = {
 # JS로 넘길 데이터
 DATA = {}
 for k, t in TPL.items():
-    d = dict(t); d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f) for a, b, c, e, f in t['items']]
+    d = dict(t); d['place'] = '조리원' if k=='care' else '가게'; d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f) for a, b, c, e, f in t['items']]
     hc = t['hc']; d['hc'] = dict(pill=hc['pill'], hl=hc['hl'], ds=hc['ds'], sum=hc['sum'], metrics=[dict(k=m[0], v=m[1], u=m[2], pct=m[3], base=m[4]) for m in hc['metrics']])
     DATA[k] = d
 
@@ -157,42 +157,43 @@ mark.ed{background:var(--amber-bg);color:inherit;box-shadow:0 0 0 2px var(--ambe
 JS = r"""
 const D = __DATA__;
 const CHK = '__CHK__';
-let cur = 'chicken';
+let cur = (location.hash.slice(1) in D) ? location.hash.slice(1) : 'chicken';
 const state = {};   // per biz: {sel:[...], about, pts:{i:copy}, say, example:false}
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 function fill(s, reg){return s.replace(/\{(\w+)\}/g,(m,k)=>reg[k]||m);}
 function init(bk){const t=D[bk]; state[bk]={sel:[...t.default_sel], about:fill(t.about,t.reg), pts:{}, say:'', example:false}; t.items.forEach((it,i)=>state[bk].pts[i]=it.copy);}
 Object.keys(D).forEach(init);
+window.addEventListener('hashchange',()=>{const k=location.hash.slice(1); if(k in D){cur=k;render();}});
 function mark(txt, base){ return txt!==base ? '<mark class="ed">'+esc(txt)+'</mark>' : esc(txt); }
 
 function renderEditor(){
   const t=D[cur], s=state[cur], reg=t.reg;
   let h='';
   h+='<div class="fs"><div class="lb">업종<small>등록 정보로 자동 선택</small></div><div class="seg">'+Object.keys(D).map(k=>`<button type="button" data-biz="${k}" class="${k===cur?'on':''}">${D[k].key}</button>`).join('')+'</div></div>';
-  h+=`<div class="lock"><b>세스코가 입력 · 사장님은 수정 불가</b><br>위생 등급 A · 점검일 ${reg.date} · 실측 ${reg.n}항목 · 리포트 No. ${reg.report}<br><b>등록 정보에서 자동</b> ${reg.name} · ${reg.cat} · ${reg.town} · ${reg.years}년 · 영업시간 · 메뉴 · 주차</div>`;
-  h+='<div class="fs"><div class="lb">① 우리 가게가 특히 신경 쓰는 것<small>2~3개 선택 · 고른 순서대로 노출</small></div><div class="chk">';
+  h+=`<div class="lock"><b>세스코가 입력 · ${t.owner}은 수정 불가</b><br>위생 등급 A · 점검일 ${reg.date} · 실측 ${reg.n}항목 · 리포트 No. ${reg.report}<br><b>등록 정보에서 자동</b> ${reg.name} · ${reg.cat} · ${reg.town} · ${reg.years}년 · 영업시간 · 메뉴 · 주차</div>`;
+  h+='<div class="fs"><div class="lb">① 우리 ${t.place}가 특히 신경 쓰는 것<small>2~3개 선택 · 고른 순서대로 노출</small></div><div class="chk">';
   t.items.forEach((it,i)=>{const on=s.sel.includes(i); const dis=!on&&s.sel.length>=3;
     h+=`<label class="${on?'on':''}${dis?' dis':''}"><input type="checkbox" data-i="${i}" ${on?'checked':''} ${dis?'disabled':''}><span>${it.label}<span class="cs ${it.cesco?'':'o'}">${it.cesco?'세스코 점검 항목':'매장 기록'}</span></span><span class="ord">${on?(s.sel.indexOf(i)+1):''}</span></label>`;});
   h+='</div></div>';
-  h+=`<div class="fs"><div class="lb">② 가게 소개<small>기본 문안이 들어 있어요 · 160자</small></div><textarea data-f="about" rows="4" class="${s.about!==fill(t.about,reg)?'changed':''}">${esc(s.about)}</textarea><div class="cnt">${s.about.length}/160</div></div>`;
+  h+=`<div class="fs"><div class="lb">② ${t.place} 소개<small>기본 문안이 들어 있어요 · 160자</small></div><textarea data-f="about" rows="4" class="${s.about!==fill(t.about,reg)?'changed':''}">${esc(s.about)}</textarea><div class="cnt">${s.about.length}/160</div></div>`;
   h+='<div class="fs"><div class="lb">③ 고른 항목의 설명<small>그대로 둬도 돼요 · 각 140자</small></div>';
   s.sel.forEach((i,n)=>{const it=t.items[i]; h+=`<div class="pt-ed"><div class="t">POINT 0${n+1}<span>${it.title.replace('<br>',' ')}</span></div><textarea data-pt="${i}" rows="3" class="${s.pts[i]!==it.copy?'changed':''}">${esc(s.pts[i])}</textarea><div class="cnt">${s.pts[i].length}/140</div><div class="ph">사진 추가 (선택) · 없으면 점검 때 촬영한 사진</div></div>`;});
   h+='</div>';
-  h+=`<div class="fs"><div class="lb">④ 사장님 한마디<small>선택 · 40자</small></div><input type="text" data-f="say" value="${esc(s.say)}" placeholder="비워 두면 이 칸은 손님 화면에 안 나와요" class="${s.say?'changed':''}"><div class="cnt">${s.say.length}/40</div></div>`;
-  h+='<div class="btns"><button type="button" data-act="reset">기본 문안으로 되돌리기</button><button type="button" class="ex" data-act="example">사장님이 고친 예시 넣기</button></div>';
-  h+='<div class="note">저장하면 손님 화면에 바로 반영돼요. 세스코 측정값·등급·점검일은 사장님이 바꿀 수 없어요. 주황색 칸이 사장님이 고친 곳이에요.</div>';
+  h+=`<div class="fs"><div class="lb">④ ${t.owner} 한마디<small>선택 · 40자</small></div><input type="text" data-f="say" value="${esc(s.say)}" placeholder="비워 두면 이 칸은 손님 화면에 안 나와요" class="${s.say?'changed':''}"><div class="cnt">${s.say.length}/40</div></div>`;
+  h+='<div class="btns"><button type="button" data-act="reset">기본 문안으로 되돌리기</button><button type="button" class="ex" data-act="example">${t.owner}이 고친 예시 넣기</button></div>';
+  h+='<div class="note">저장하면 손님 화면에 바로 반영돼요. 세스코 측정값·등급·점검일은 ${t.owner}이 바꿀 수 없어요. 주황색 칸이 ${t.owner}이 고친 곳이에요.</div>';
   document.getElementById('ed-in').innerHTML=h;
 }
 
 function renderPreview(){
   const t=D[cur], s=state[cur], reg=t.reg, hc=t.hc;
   const tabs=t.tabs.map(x=>`<span class="${x==='위생'?'on':''}">${x}</span>`).join('');
-  const ai=[ `세스코가 ${reg.date}에 ${reg.n}가지를 직접 재서 모두 기준 안이었어요.`, `사장님이 고른 관리 포인트: ${s.sel.map(i=>t.items[i].label).join(', ')}`, t.review ].map(x=>`<li>${x}</li>`).join('');
+  const ai=[ `세스코가 ${reg.date}에 ${reg.n}가지를 직접 재서 모두 기준 안이었어요.`, `${t.owner}이 고른 관리 포인트: ${s.sel.map(i=>t.items[i].label).join(', ')}`, t.review ].map(x=>`<li>${x}</li>`).join('');
   const ms=hc.metrics.map(m=>`<div class="m"><div class="k">${m.k}<i>적합</i></div><div class="v">${m.v}${m.u?' <small>'+m.u+'</small>':''}</div><div class="bar"><i style="width:${m.pct}%"></i></div><div class="b">${m.base}</div></div>`).join('');
   const strip=t.strip.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
   const pts=s.sel.map((i,n)=>{const it=t.items[i]; return `<div class="pt${n%2?' alt':''}"><div class="pho">사진 자리 · ${it.label}</div><div class="tx"><div class="num">POINT 0${n+1}</div><h3>${it.title}</h3><p>${mark(s.pts[i],it.copy)}</p><div class="fx"><i>${CHK}</i>${it.chip}</div></div></div>`;}).join('');
   const daily=t.items.map((it,i)=>{const on=s.sel.includes(i); return `<div class="it">${it.cesco?'<div class="ok">'+CHK+'</div>':'<div class="ok o"></div>'}<div class="k">${it.label}${on?' <span style="font-size:9.5px;color:#0072CE;font-weight:900">선택</span>':''}</div><span class="tag${it.cesco?'':' o'}">${it.cesco?'세스코 확인':'매장 기록'}</span></div>`;}).join('');
-  const say = s.say ? `<div class="say2"><div class="lb">사장님 한마디</div><p><mark class="ed">"${esc(s.say)}"</mark></p><small>${reg.name} 사장님</small></div>` : '';
+  const say = s.say ? `<div class="say2"><div class="lb">${t.owner} 한마디</div><p><mark class="ed">"${esc(s.say)}"</mark></p><small>${reg.name} ${t.owner}</small></div>` : '';
   document.getElementById('pv').innerHTML=`
 <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">${reg.name}</div></div>
 <div class="head"><div class="nm"><h2>${reg.name}</h2><span class="cat">${reg.cat}</span></div><div class="rv"><svg width="13" height="13" viewBox="0 0 24 24" fill="#C77700"><path d="M12 2l2.9 6.2 6.6.8-4.9 4.6 1.3 6.5L12 16.8 6.1 20l1.3-6.5L2.5 9l6.6-.8z"/></svg><b>${reg.rating}</b><span>${reg.rv} · ${reg.town}</span></div><div class="tabs">${tabs}</div></div>
@@ -209,13 +210,13 @@ ${say}
 <div class="daily alt"><span class="lab">EVERY DAY</span><h2>매장이 하는 일</h2>${daily}</div>
 <div style="height:24px"></div>
 <div class="rep"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. ${reg.report}<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
-<p class="fine2">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 매장이 하는 일은 사장님이 고른 항목이고, 세스코 확인 표시가 있는 것만 점검에서 실제로 봤어요.</p>
+<p class="fine2">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 매장이 하는 일은 ${t.owner}이 고른 항목이고, 세스코 확인 표시가 있는 것만 점검에서 실제로 봤어요.</p>
 </div>
 <div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
 }
 function render(){renderEditor();renderPreview();}
 document.getElementById('ed-in').addEventListener('click',e=>{
-  const b=e.target.closest('button[data-biz]'); if(b){cur=b.dataset.biz;render();return;}
+  const b=e.target.closest('button[data-biz]'); if(b){cur=b.dataset.biz;history.replaceState(null,'','#'+cur);render();return;}
   const a=e.target.closest('button[data-act]'); if(!a) return;
   const t=D[cur]; if(a.dataset.act==='reset'){init(cur);} else {const s=state[cur]; s.about=t.edit.about; Object.entries(t.edit.pts).forEach(([i,c])=>{i=+i; if(!s.sel.includes(i)) s.sel=[i,...s.sel].slice(0,3); s.pts[i]=c;}); s.say=t.edit.say;}
   render();
