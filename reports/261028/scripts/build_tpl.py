@@ -121,27 +121,29 @@ PLACE = {
   addr='서울 성동구 성수이로 00길 00, 1층', hours='11:00 ~ 23:00 · 라스트오더 22:30 · 월요일 휴무', tel='02-0000-0000', pay='카드 · 간편결제 · 현금영수증', tags='#바삭 #포장 #배달',
   conv=['유아의자','단체석 (최대 12명)','남녀 구분 화장실','포장 · 배달','주차 2대'],
   checks=[
-   ('FOOD','조리 종사자 비흡연','위생은 조리사의 손끝에서 시작됩니다! 조리 종사자가 모두 담배를 피지 않는 사업장입니다.'),
-   ('FOOD','국내산 닭 확인','모두 국내산 닭이라고 하지만 믿을 수 있나요? 세스코가 국내산 닭을 확인했습니다.'),
-   ('FOOD','알레르기 유발 식재료 표기','누군가에게는 치명적이기에! 알레르기 유발 식재료를 명확히 표기한 사업장입니다.'),
-   ('VIRUSCARE','화장실 손세정제 비치','물로만 손 씻기에는 부족합니다! 손세정제를 화장실에 비치해 고객의 손 위생까지 생각하는 사업장입니다.'),
-   ('IHM','화장실 하루 1회 이상 청소','기본을 지키는 일, 깨끗한 화장실의 시작입니다! 화장실을 하루 1회 이상 청소해 쾌적함을 유지하는 것을 확인했습니다.'),
-   ('FOOD','마감 후 테이블 전체 살균·소독','이곳에서 수저는 테이블 위에 직접 놓으세요! 매일 마감 후 테이블을 전체 살균·소독하는 것을 확인했습니다.'),
-   ('FOOD','행주 매일 열탕 소독','젖은 행주, 그 안에 1억 마리 세균이 자랍니다! 매일 1회 고온 열탕 소독을 통해 행주까지 ‘속 시원하게’ 소독하는 사업장입니다.'),
-   ('MYLAB','식약처 인정 살균소독제만 사용','음식을 다루는 공간이기에, 살균제도 까다로워야 합니다! 식약처 신고 완료된 ‘식품첨가살균소독제 인정 소독제’만을 사용하는 것을 확인했습니다.'),
-   ('FOOD','위생 위반 이력 없음','한 번이 두 번, 세 번 되기는 쉽습니다! 위생 위반 이력이 없는, 기본을 지키는 안심 사업장입니다.'),
-   ('FOOD','전 직원 정기 위생 교육','알아야 실천할 수 있습니다! 단기 계약을 포함한 전 직원이 정기 위생 교육을 받고, 모든 위생 지침을 철저히 실천하고 있는 사업장입니다.')]),
+   ('CHECK','유아의자가 있어요','아이와 함께 와도 돼요. 유아의자 2개를 두고 있어요.'),
+   ('CHECK','단체석이 있어요','최대 12명까지 한 자리에 앉을 수 있어요. 회식, 모임은 예약을 받아요.'),
+   ('FOOD','김치는 국내산이에요','국내산 김치라고 하지만 믿을 수 있나요? 식재료의 출처까지 국내산 김치를 확인했습니다.'),
+   ('FOOD','닭은 국내산이에요','모두 국내산 닭이라고 하지만 믿을 수 있나요? 세스코가 국내산 닭을 확인했습니다.'),
+   ('FOOD','조리하는 분은 모두 비흡연이에요','위생은 조리사의 손끝에서 시작됩니다! 조리 종사자가 모두 담배를 피지 않는 사업장입니다.'),
+   ('VIRUSCARE','화장실에 손세정제가 있어요','물로만 손 씻기에는 부족합니다! 손세정제를 화장실에 비치해 고객의 손 위생까지 생각하는 사업장입니다.'),
+   ('FOOD','알레르기 유발 재료를 표기해요','누군가에게는 치명적이기에! 알레르기 유발 식재료를 명확히 표기한 사업장입니다.'),
+   ('IHM','화장실은 하루 1회 이상 청소해요','기본을 지키는 일, 깨끗한 화장실의 시작입니다! 화장실을 하루 1회 이상 청소해 쾌적함을 유지하는 것을 확인했습니다.'),
+   ('FOOD','마감 후 테이블을 전체 살균해요','이곳에서 수저는 테이블 위에 직접 놓으세요! 매일 마감 후 테이블을 전체 살균·소독하는 것을 확인했습니다.'),
+   ('FOOD','위생 위반 이력이 없어요','한 번이 두 번, 세 번 되기는 쉽습니다! 위생 위반 이력이 없는, 기본을 지키는 안심 사업장입니다.')]),
 'care': dict(
   addr='경기 성남시 분당구 00로 00, 3~5층', hours='상담 10:00 ~ 18:00 · 입소 상담 예약제 · 면회 14:00 ~ 17:00', tel='031-000-0000', pay='카드 · 계좌이체 · 현금영수증', tags='#모자동실 #신생아실CCTV #민간형',
   conv=['모자동실','신생아실 24시간 CCTV','창 너머 면회실','산모 전용 주차','배우자 동반 입실'],
   checks=[
-   ('CHECK','전 직원 손소독 기록 관리','신생아 감염은 ‘손’으로부터! 모든 직원이 손소독을 철저히 시행하고 손소독 기록지를 통해 체계적으로 관리합니다.'),
-   ('IPM','산모 침대 매트리스 스팀 소독','산모와 아이가 오랜 시간을 함께 지내야 하는 침대! 분유나 음식물에 쉽게 오염될 수 있기에, 침대 매트리스는 매번 스팀 소독하며, 매월 정기 매트리스 위생 관리 서비스를 받고 있습니다.'),
-   ('CHECK','섬유 제품 친환경 세제 사용','아기 피부에 닿는 모든 섬유, 세제부터 확인했습니다! 친환경 세제를 사용합니다.'),
-   ('MYLAB','공용 접촉면 하루 3회 소독','문 손잡이가 교차 감염의 가장 빈번한 경로입니다! 하루 3번, 손이 닿는 모든 곳을 정해진 기준에 따라 소독하는 사업장입니다.'),
-   ('IHM','좌욕기 즉시 소독 · 월 1회 분해 세척','산모의 상처 부위가 직접 닿는 좌욕기! 사용 후 즉시 소독하고, 월 1회 분해 세척합니다.'),
-   ('IHM','에어컨 내부 분해 세척 연 2회','세균과 곰팡이로 가득한 공기를 숨 쉬지 않도록! 에어컨 내부 분해 세척을 연 2회 이상 진행하는 것을 확인했습니다.'),
-   ('IHM','가습기 정기 소독','가습기에서 세균 가득한 수증기를 뿜지 않도록! 단순 청소가 아닌 정기 소독으로 관리하는 것을 체크했습니다.')]),
+   ('CHECK','모자동실이 있어요','아기와 같은 방에서 지낼 수 있어요. 원하는 시간만 신생아실에 맡겨도 돼요.'),
+   ('CHECK','신생아실을 폰으로 볼 수 있어요','신생아실 CCTV를 24시간 폰으로 볼 수 있어요. 면회는 창 너머로만 해요.'),
+   ('CHECK','모든 직원이 손소독 기록을 남겨요','신생아 감염은 ‘손’으로부터! 모든 직원이 손소독을 철저히 시행하고 손소독 기록지를 통해 체계적으로 관리합니다.'),
+   ('IPM','산모 침대 매트리스는 매번 스팀 소독해요','산모와 아이가 오랜 시간을 함께 지내야 하는 침대! 분유나 음식물에 쉽게 오염될 수 있기에, 침대 매트리스는 매번 스팀 소독하며, 매월 정기 매트리스 위생 관리 서비스를 받고 있습니다.'),
+   ('CHECK','수건, 옷, 담요는 친환경 세제로 빨아요','아기 피부에 닿는 모든 섬유, 세제부터 확인했습니다! 친환경 세제를 사용합니다.'),
+   ('MYLAB','문 손잡이 같은 접촉면은 하루 3회 소독해요','문 손잡이가 교차 감염의 가장 빈번한 경로입니다! 하루 3번, 손이 닿는 모든 곳을 정해진 기준에 따라 소독하는 사업장입니다.'),
+   ('IHM','좌욕기는 쓰고 나면 바로 소독해요','산모의 상처 부위가 직접 닿는 좌욕기! 사용 후 즉시 소독하고, 월 1회 분해 세척합니다.'),
+   ('IHM','에어컨은 연 2회 분해 세척해요','세균과 곰팡이로 가득한 공기를 숨 쉬지 않도록! 에어컨 내부 분해 세척을 연 2회 이상 진행하는 것을 확인했습니다.'),
+   ('IHM','가습기는 정기적으로 소독해요','가습기에서 세균 가득한 수증기를 뿜지 않도록! 단순 청소가 아닌 정기 소독으로 관리하는 것을 체크했습니다.')]),
 'meat': dict(addr='',hours='',tel='',pay='',tags='',conv=[],checks=[]),
 }
 SVC_KO = {'VIRUSCARE':'바이러스케어','BODYCARE':'바디케어','FOOD':'식품안전','IHM':'전문클리닝','IPM':'종합방제','AIR':'에어','MYLAB':'마이랩','CHECK':'현장 문진'}
@@ -293,7 +295,8 @@ EXTRA_CSS = r"""
 .hc .ck .bx{border-color:var(--mc,#1A2E5A)}
 .hc .sw:empty:before{content:"이 탭에 해당하는 항목이 없어요";font-size:11px;color:var(--muted);padding:12px 0}
 /* 도구 측정 블록 */
-.tools{margin:18px 16px 0;background:#fff;border:1.5px solid #E6D9B8;border-radius:16px;padding:14px}
+.tools-wrap{background:var(--bg);padding:6px 0 18px}
+.tools{margin:0 16px;background:#fff;border:1.5px solid #E6D9B8;border-radius:16px;padding:14px}
 .tl-h{display:flex;gap:10px;align-items:center}
 .gold{flex:none;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#F6E7B0,#C9A227 70%,#A8841A);color:#5A4200;font-size:7.5px;font-weight:900;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.15;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 .tl-h b{display:block;font-size:13.5px;font-weight:900;color:var(--ink)}
@@ -326,10 +329,11 @@ EXTRA_CSS = r"""
 .pc{padding:10px 0;border-top:1px solid var(--line)}
 .pc.first{border-top:0;padding-top:4px}
 .pc-h{display:flex;align-items:center;gap:7px}
-.pc-h .svc{flex:none;font-size:9.5px;font-weight:900;color:#fff;background:var(--mc);border-radius:5px;padding:2px 6px}
+.pc-h .svc{flex:none;margin-left:auto;font-size:9px;font-weight:800;color:var(--mc);border:1px solid var(--mc);border-radius:5px;padding:1px 5px;white-space:nowrap}
+.pc-h .ok{flex:none;width:16px;height:16px;border-radius:50%;background:var(--wc);color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center}
 .pc-h b{font-size:12.5px;font-weight:900;color:var(--ink);line-height:1.3}
-.pc p{font-size:11.5px;color:var(--txt);line-height:1.55;margin-top:5px}
-.pc-f{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--wc);font-weight:800;margin-top:5px}
+.pc p{font-size:10.5px;color:var(--muted);line-height:1.5;margin-top:4px;padding-left:23px}
+.pc-f{font-size:9.5px;color:var(--wc);font-weight:800;margin-top:3px;padding-left:23px}
 .pc-f .bx{width:12px;height:12px;border:1.3px solid var(--wc);border-radius:2px;font-size:8px;line-height:10px;text-align:center}
 .tsel{display:flex;gap:6px;margin:0 0 10px}
 .tsel button{flex:1;font:inherit;font-size:12px;font-weight:800;padding:8px 0;border-radius:10px;border:1px solid #D9DCD6;background:#fff;color:var(--ink);cursor:pointer}
@@ -406,7 +410,7 @@ function previewHtml(bk, typ, s, o){
   const cardsHtml=cards.map((c,ci)=>`<div class="swc" style="--mc:${mem.color};--mbg:${mem.bg};--ml:${mem.line}"><div class="swin"><div class="swt"><span class="logo"><b>CESCO</b><i>${t.svc_en[c[0]]||c[0]}</i></span><span class="stamp"><svg viewBox="0 0 44 44" width="40" height="40"><circle cx="22" cy="22" r="20" fill="none" stroke="#8FA3BF" stroke-width="1.4"/><circle cx="22" cy="22" r="15" fill="none" stroke="#8FA3BF" stroke-width=".8"/><text x="22" y="20" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CESCO</text><text x="22" y="28" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CHECK</text></svg></span></div><div class="hk">${c[1]}</div><div class="hl">${c[2]}</div><div class="ck"><span class="bx">✓</span><span>[${c[3]}] ${c[4]} 체크 완료</span></div><div class="dt">최근 점검일 : 2026.${reg.date}</div><div class="rp">ⓘ 점검 리포트 보기</div></div></div>`).join('');
   const toolsHtml=`<div class="tools"><div class="tl-h"><span class="gold">CESCO<br>전문<br>측정</span><div><b>세스코가 전문적으로 체크했습니다</b><small>전문 측정 장비로 직접 잰 결과예요 · 기준 범위 안이면 통과</small></div></div>${t.tools.map(x=>`<div class="tl"><div class="tl-k">${x.k}<small>${x.tool}</small><span class="pass">기준 안 · ${x.levels[0][0]}</span></div><p class="tl-e">${x.easy}</p><div class="scale">${x.levels.map((l,i)=>`<div class="lv ${i===0?'on':''}">${l[0]}</div>`).join('')}</div><div class="lvd">${x.levels.map(l=>`<div><b>${l[0]}</b><span>${l[1]}</span></div>`).join('')}</div><p class="tl-x">${x.ex}</p><div class="tl-d">체크일 ${x.date} · 다음 체크 때 갱신</div></div>`).join('')}</div>`;
   const placeHtml=`<div class="place"><div class="pl-sec"><div class="pl-t">기본 정보</div><div class="pl-row"><span>주소</span><span>${P.addr}</span></div><div class="pl-row"><span>${t.key==='산후조리원'?'상담·면회':'영업시간'}</span><span>${P.hours}</span></div><div class="pl-row"><span>전화</span><span>${P.tel}</span></div><div class="pl-row"><span>결제</span><span>${P.pay}</span></div><div class="pl-row"><span>편의</span><span class="pl-chips">${P.conv.map(c=>`<i>${c}</i>`).join('')}</span></div><div class="pl-row"><span>태그</span><span>${P.tags}</span></div></div>
-<div class="pl-sec cesco"><div class="pl-t">세스코가 특별히 체크한 장소 정보<small>가 봐야만 알 수 있는 것들을 세스코가 현장에서 확인했어요 · ${P.checks.length}가지</small></div>${P.checks.map((c,i)=>`<div class="pc${i===0?' first':''}" style="--mc:${mcol(c[0])}"><div class="pc-h"><span class="svc">${t.svc_ko[c[0]]||c[0]}</span><b>${c[1]}</b></div><p>${c[2]}</p><div class="pc-f"><span class="bx">✓</span>세스코 체크 완료 · 2026.${reg.date} · 유효 3개월</div></div>`).join('')}</div></div>`;
+<div class="pl-sec cesco"><div class="pl-t">세스코가 특별히 체크한 장소 정보<small>가 봐야만 알 수 있는 것들을 세스코가 현장에서 확인했어요 · ${P.checks.length}가지</small></div>${P.checks.map((c,i)=>`<div class="pc${i===0?' first':''}" style="--mc:${mcol(c[0])}"><div class="pc-h"><span class="ok">✓</span><b>${c[1]}</b><span class="svc">${t.svc_ko[c[0]]||c[0]}</span></div><p>${c[2]}</p><div class="pc-f">세스코 체크 완료 · 2026.${reg.date} · 유효 3개월</div></div>`).join('')}</div></div>`;
   const headHtml=`
 <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">${reg.name}</div></div>
 <div class="head"><div class="pho2">사진 자리 · 대표 사진 (${t.owner} 업로드)</div><div class="nm" style="margin-top:12px"><span class="cat">${reg.cat}</span></div><div class="nm"><h2>${reg.name}</h2></div><div class="rv"><b>리뷰</b><span style="color:#0072CE;font-weight:700">${reg.rv.replace(/\D+/g,'')}개</span><span>· ${reg.town}</span></div></div>
@@ -419,7 +423,6 @@ ${mtabs}
 <div class="sw">${cardsHtml}</div>
 <div class="swbar"><button type="button" class="swnav" data-d="p" aria-label="이전 카드">‹</button><div class="dots">${cards.map((c,ci)=>`<i class="${ci===0?'on':''}"></i>`).join('')}</div><button type="button" class="swnav" data-d="n" aria-label="다음 카드">›</button></div>
 <div class="hcsum">세스코가 ${reg.date}에 직접 체크한 ${t.key} 위생 정보 ${t.hcards.cards.length}가지 · 위생 등급 <b>A</b></div>
-${toolsHtml}
 ${typ==='A'?'<div class="grid">'+ms+'</div>':''}</div>`);
   const bodyC=`<div class="dp">
 <div class="hr"><div class="pho">사진 자리 · 대표 세로 컷 (사장님 또는 점검 촬영)</div><div class="ov"><span class="lab">${fill(t.hero_lab,reg)}</span><h1>${t.hero}</h1><div class="sub">${reg.name} · 세스코 위생 실측 A</div></div></div>
@@ -458,7 +461,7 @@ ${repRow}${fine}</div>`;
 ${pull}
 ${repRow}${fine}</div>`;
   const body = typ==='A'?bodyA : typ==='B'?bodyB : bodyC;
-  return headHtml + (tab==='place'?'':body) + `<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
+  return headHtml + (tab==='place'?'':body) + `<div class="tools-wrap">${toolsHtml}</div>` + `<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
 }
 function refreshPreviews(bk){
   document.querySelectorAll('[data-static]').forEach(el=>{ if(el.dataset.biz===bk) el.innerHTML=previewHtml(bk, el.dataset.t, state[bk], {tab:el.dataset.tab, mt:el.dataset.mt}); });
