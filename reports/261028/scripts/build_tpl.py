@@ -232,7 +232,7 @@ function editorHtml(bk, s, withBiz){
   h+='</div>';
   h+=`<div class="fs"><div class="lb">④ ${t.owner} 한마디<small>선택 · 40자</small></div><input type="text" data-f="say" value="${esc(s.say)}" placeholder="비워 두면 이 칸은 손님 화면에 안 나와요" class="${s.say?'changed':''}"><div class="cnt">${s.say.length}/40</div></div>`;
   h+='<div class="btns"><button type="button" data-act="reset">기본 내용으로 저장</button><button type="button" class="ex" data-act="example">수정한 내용으로 저장</button></div>';
-  h+='<div class="note">저장하면 손님 화면에 바로 반영돼요. 세스코 측정값·등급·점검일은 ${t.owner}이 바꿀 수 없어요. 주황색 칸이 ${t.owner}이 고친 곳이에요.</div>';
+  h+=`<div class="note">저장하면 손님 화면에 바로 반영돼요. 세스코 측정값·등급·점검일은 ${t.owner}이 바꿀 수 없어요. 주황색 칸이 ${t.owner}이 고친 곳이에요.</div>`;
   return h;
 }
 
