@@ -192,7 +192,6 @@ function renderPreview(){
   const ms=hc.metrics.map(m=>`<div class="m"><div class="k">${m.k}<i>적합</i></div><div class="v">${m.v}${m.u?' <small>'+m.u+'</small>':''}</div><div class="bar"><i style="width:${m.pct}%"></i></div><div class="b">${m.base}</div></div>`).join('');
   const strip=t.strip.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
   const pts=s.sel.map((i,n)=>{const it=t.items[i]; return `<div class="pt${n%2?' alt':''}"><div class="pho">사진 자리 · ${it.label}</div><div class="tx"><div class="num">POINT 0${n+1}</div><h3>${it.title}</h3><p>${mark(s.pts[i],it.copy)}</p><div class="fx"><i>${CHK}</i>${it.chip}</div></div></div>`;}).join('');
-  const daily=t.items.map((it,i)=>{const on=s.sel.includes(i); return `<div class="it">${it.cesco?'<div class="ok">'+CHK+'</div>':'<div class="ok o"></div>'}<div class="k">${it.label}${on?' <span style="font-size:9.5px;color:#0072CE;font-weight:900">선택</span>':''}</div><span class="tag${it.cesco?'':' o'}">${it.cesco?'세스코 확인':'매장 기록'}</span></div>`;}).join('');
   const say = s.say ? `<div class="say2"><div class="lb">${t.owner} 한마디</div><p><mark class="ed">"${esc(s.say)}"</mark></p><small>${reg.name} ${t.owner}</small></div>` : '';
   document.getElementById('pv').innerHTML=`
 <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">${reg.name}</div></div>
@@ -207,10 +206,9 @@ function renderPreview(){
 <div class="sec alt" style="padding-bottom:10px"><span class="lab">POINT</span><h2>${t.pt_h}</h2></div>
 ${pts}
 ${say}
-<div class="daily alt"><span class="lab">EVERY DAY</span><h2>매장이 하는 일</h2>${daily}</div>
-<div style="height:24px"></div>
+<div style="height:8px"></div>
 <div class="rep"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. ${reg.report}<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
-<p class="fine2">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 매장이 하는 일은 ${t.owner}이 고른 항목이고, 세스코 확인 표시가 있는 것만 점검에서 실제로 봤어요.</p>
+<p class="fine2">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. POINT는 ${t.owner}이 고른 항목이고, "세스코 실측·확인" 표시가 있는 것만 점검에서 실제로 봤어요.</p>
 </div>
 <div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
 }
@@ -259,7 +257,7 @@ def build():
 <tr><td><b>0 · 기본 제공</b></td><td>세스코 점검 데이터 + 등록 정보만 있음. 사장님 입력 없음</td><td>업종 기본 소개 문구, 업종 기본 특장점 3개(기본 선택), 기본 문안 그대로. 이 상태로도 완성된 페이지</td></tr>
 <tr><td><b>1 · 고르기</b></td><td>사장님이 특장점 10개 중 2~3개 체크 (고른 순서 = 노출 순서)</td><td>POINT 01~03이 고른 항목의 기본 문안으로 바뀜. AI 요약 두 번째 줄도 같이 바뀜</td></tr>
 <tr><td><b>2 · 고치기</b></td><td>사장님이 소개(160자)·항목 설명(140자)·한마디(40자)를 고침. 사진 추가</td><td>고친 문장만 바뀜. 안 고친 칸은 기본 문안 유지. 한마디는 적었을 때만 나옴</td></tr>
-<tr><td><b>세스코 전용</b></td><td>측정값·등급·점검일·리포트·"세스코 확인" 칩</td><td>사장님이 못 바꿈. 사장님이 고른 항목이라도 점검 항목이 아니면 "매장 기록"으로만 표시</td></tr>
+<tr><td><b>세스코 전용</b></td><td>측정값·등급·점검일·리포트·"세스코 확인" 칩</td><td>사장님이 못 바꿈. 사장님이 고른 항목이라도 점검 항목이 아니면 POINT 아래 칩이 "매장 기록"으로만 표시</td></tr>
 </tbody></table></div>
 <p style="margin-top:10px"><span class="flag">확인 필요</span>글자 수 상한(160·140·40), 사진 장수, 사장님 수정분의 검수 여부(자동 게시 vs 세스코 승인 후 게시), 금지어 필터(가이드라인 표기법 ⑭⑮) 적용 위치.</p>
 <h2 style="margin-top:18px">업종별 기본 문안 30개 (특장점 선택 항목)</h2>
