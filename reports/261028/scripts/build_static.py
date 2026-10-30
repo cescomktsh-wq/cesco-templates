@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 import build as B, build_tpl as T
 
 OUT = os.path.join(os.path.dirname(__file__), '..')
-FNAME = '위쳌_기본템플릿_치킨집·산후조리원_3유형_한눈에_261028.html'
+FNAME = 'wecheck_draft_261028.html'
 TYPES = [('A','수치형','세스코 실측 계기판 아래 "이 집은 ~"으로 사장님 문장이 붙음'),('B','인터뷰형','고른 항목이 질문, 사장님 문장이 답 (셀프 인터뷰)'),('C','상세페이지형','풀블리드 사진 + POINT 01~03')]
 
 CSS = r"""
