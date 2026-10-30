@@ -98,13 +98,68 @@ HCARDS = {
   ('VIRUSCARE','산모와 아기가 숨 쉬는 공기!','공기 중 부유세균을 150 CFU/m³ 이하로 유지해요. 산후조리원 법정 기준의 5분의 1 수준으로 낮아요.','바이러스케어 솔루션','공기 살균'),
   ('BODYCARE','출산 후 감염에 약한 산모의 몸!','안심하고 회복할 수 있도록 청결 관리를 돕는 비데를 전 객실에 설치했어요.','바디케어 솔루션','비데 위생 관리'),
   ('FOOD','아기에게까지 닿는 산모의 식사!','식자재 입고부터 조리, 배식, 보관까지 모든 과정을 국내 식품위생법 기준으로 운영해요.','식품안전 솔루션','산모 식재료 위생')]),
-'chicken': dict(src='초안 · 10/23 개선안에 치킨집 행이 없어 같은 형식으로 작성 [확인 필요]', cards=[
+'chicken': dict(src='초안 · 엑셀 ①시트에 치킨집 행이 없어 같은 형식으로 작성 [확인 필요]', cards=[
   ('FOOD','오늘 튀기는 기름!','튀김유 산가를 측정해서 식품위생법 기준(3.0 이하) 안으로 관리해요.','식품안전 솔루션','튀김유 산가'),
   ('FOOD','냉장고 안의 생닭!','생닭은 0~5℃ 냉장에서 보관하고 실온에 오래 두지 않아요.','식품안전 솔루션','생닭 보관 온도'),
   ('FOOD','생닭을 손질한 칼과 도마!','생닭용 칼·도마를 따로 구분하고 쓰고 나면 세척·소독해요.','식품안전 솔루션','칼·도마 위생'),
-  ('FOOD','닭을 만지는 조리자의 손!','생닭을 만진 뒤에는 바로 손을 씻고 장갑을 바꿔 끼워요.','식품안전 솔루션','작업자 손 위생'),
-  ('IHM','기름 연기가 지나가는 후드!','기름때가 쌓이지 않도록 후드와 배기 덕트를 정기적으로 청소해요.','전문클리닝 솔루션','후드·배기 청소')]),
+  ('IHM','기름 연기가 지나가는 후드!','기름때가 쌓이지 않도록 후드와 배기 덕트를 정기적으로 전문 클리닝해요.','전문클리닝 솔루션','후드·배기 청소'),
+  ('AIR','튀김 연기가 머무는 주방 공기!','공기청정기를 24시간 가동해서 초미세먼지와 휘발성유기화합물을 관리해요.','에어 솔루션','주방 공기질'),
+  ('IPM','기름과 음식 냄새에 꼬이는 해충!','전문 방제 서비스로 월 1회 이상 점검하고 관리해요.','종합방제 솔루션','해충 방제')]),
 'meat': dict(src='', cards=[]),
+}
+# 네모 스티커(체크 스탬프) 탭 · 색 구분. 블루 멤버스 = IPM·바이러스케어·에어·워터·레스트룸(바디케어) 등 파랑, 화이트 멤버스 = 식품안전(세스코 푸드 초록)
+MEMBERS = [
+  dict(key='blue',  name='블루 멤버스',  color='#0072CE', bg='#EAF3FC', line='#2F7CE8', svcs=['IPM','VIRUSCARE','AIR','WATER','RESTROOM','BODYCARE','IHM','MYLAB']),
+  dict(key='white', name='화이트 멤버스', color='#0E8F4A', bg='#E8F6EE', line='#2FA86A', svcs=['FOOD']),
+]
+# 네모 스티커 명칭(가칭) — 팀 내 결정 필요
+STICKER_NAME = '체크 스탬프'
+
+# 장소 정보 탭: 네이버식 기본 정보 + "세스코가 특별히 체크한 장소 정보"(엑셀 ②시트 현황검진 문진 · 가야만 아는 정보)
+PLACE = {
+'chicken': dict(
+  addr='서울 성동구 성수이로 00길 00, 1층', hours='11:00 ~ 23:00 · 라스트오더 22:30 · 월요일 휴무', tel='02-0000-0000', pay='카드 · 간편결제 · 현금영수증', tags='#바삭 #포장 #배달',
+  conv=['유아의자','단체석 (최대 12명)','남녀 구분 화장실','포장 · 배달','주차 2대'],
+  checks=[
+   ('FOOD','조리 종사자 비흡연','위생은 조리사의 손끝에서 시작됩니다! 조리 종사자가 모두 담배를 피지 않는 사업장입니다.'),
+   ('FOOD','국내산 닭 확인','모두 국내산 닭이라고 하지만 믿을 수 있나요? 세스코가 국내산 닭을 확인했습니다.'),
+   ('FOOD','알레르기 유발 식재료 표기','누군가에게는 치명적이기에! 알레르기 유발 식재료를 명확히 표기한 사업장입니다.'),
+   ('VIRUSCARE','화장실 손세정제 비치','물로만 손 씻기에는 부족합니다! 손세정제를 화장실에 비치해 고객의 손 위생까지 생각하는 사업장입니다.'),
+   ('IHM','화장실 하루 1회 이상 청소','기본을 지키는 일, 깨끗한 화장실의 시작입니다! 화장실을 하루 1회 이상 청소해 쾌적함을 유지하는 것을 확인했습니다.'),
+   ('FOOD','마감 후 테이블 전체 살균·소독','이곳에서 수저는 테이블 위에 직접 놓으세요! 매일 마감 후 테이블을 전체 살균·소독하는 것을 확인했습니다.'),
+   ('FOOD','행주 매일 열탕 소독','젖은 행주, 그 안에 1억 마리 세균이 자랍니다! 매일 1회 고온 열탕 소독을 통해 행주까지 ‘속 시원하게’ 소독하는 사업장입니다.'),
+   ('MYLAB','식약처 인정 살균소독제만 사용','음식을 다루는 공간이기에, 살균제도 까다로워야 합니다! 식약처 신고 완료된 ‘식품첨가살균소독제 인정 소독제’만을 사용하는 것을 확인했습니다.'),
+   ('FOOD','위생 위반 이력 없음','한 번이 두 번, 세 번 되기는 쉽습니다! 위생 위반 이력이 없는, 기본을 지키는 안심 사업장입니다.'),
+   ('FOOD','전 직원 정기 위생 교육','알아야 실천할 수 있습니다! 단기 계약을 포함한 전 직원이 정기 위생 교육을 받고, 모든 위생 지침을 철저히 실천하고 있는 사업장입니다.')]),
+'care': dict(
+  addr='경기 성남시 분당구 00로 00, 3~5층', hours='상담 10:00 ~ 18:00 · 입소 상담 예약제 · 면회 14:00 ~ 17:00', tel='031-000-0000', pay='카드 · 계좌이체 · 현금영수증', tags='#모자동실 #신생아실CCTV #민간형',
+  conv=['모자동실','신생아실 24시간 CCTV','창 너머 면회실','산모 전용 주차','배우자 동반 입실'],
+  checks=[
+   ('CHECK','전 직원 손소독 기록 관리','신생아 감염은 ‘손’으로부터! 모든 직원이 손소독을 철저히 시행하고 손소독 기록지를 통해 체계적으로 관리합니다.'),
+   ('IPM','산모 침대 매트리스 스팀 소독','산모와 아이가 오랜 시간을 함께 지내야 하는 침대! 분유나 음식물에 쉽게 오염될 수 있기에, 침대 매트리스는 매번 스팀 소독하며, 매월 정기 매트리스 위생 관리 서비스를 받고 있습니다.'),
+   ('CHECK','섬유 제품 친환경 세제 사용','아기 피부에 닿는 모든 섬유, 세제부터 확인했습니다! 친환경 세제를 사용합니다.'),
+   ('MYLAB','공용 접촉면 하루 3회 소독','문 손잡이가 교차 감염의 가장 빈번한 경로입니다! 하루 3번, 손이 닿는 모든 곳을 정해진 기준에 따라 소독하는 사업장입니다.'),
+   ('IHM','좌욕기 즉시 소독 · 월 1회 분해 세척','산모의 상처 부위가 직접 닿는 좌욕기! 사용 후 즉시 소독하고, 월 1회 분해 세척합니다.'),
+   ('IHM','에어컨 내부 분해 세척 연 2회','세균과 곰팡이로 가득한 공기를 숨 쉬지 않도록! 에어컨 내부 분해 세척을 연 2회 이상 진행하는 것을 확인했습니다.'),
+   ('IHM','가습기 정기 소독','가습기에서 세균 가득한 수증기를 뿜지 않도록! 단순 청소가 아닌 정기 소독으로 관리하는 것을 체크했습니다.')]),
+'meat': dict(addr='',hours='',tel='',pay='',tags='',conv=[],checks=[]),
+}
+SVC_KO = {'VIRUSCARE':'바이러스케어','BODYCARE':'바디케어','FOOD':'식품안전','IHM':'전문클리닝','IPM':'종합방제','AIR':'에어','MYLAB':'마이랩','CHECK':'현장 문진'}
+
+# 도구 측정 블록(엑셀 ③시트) — 치킨집·산후조리원 각각 악취 + 배수구 오염도. 실제 수치 대신 기준 범위 안 통과 표시.
+# levels: (단계명, 소비자 설명) · 첫 단계가 통과 위치. ex = 엑셀 '예시 문구' 원문(배수구는 ③시트에 없어 ②시트 숙박 행 문구를 가져옴 [확인 필요])
+ODOR_LV = [('청결','냄새 민감군도 감지하기 어려운 수준'),('주의','불쾌감이 시작되고 해충 유입 위험이 증가하는 수준'),('위험','눈·코·입 점막을 자극해 알레르기 반응, 기관지염 등 건강에 실질적인 영향을 미칠 수 있는 수준')]
+ODOR_EX = '일반적으로 악취 민원이 발생하는 화장실의 주요 악취 유발물질 농도는 암모니아 1.0 ~ 3.5 ppm, 황화수소 0.01 ~ 0.04 ppm, 메틸메르캅탄 0.003 ~ 0.01 ppm 이지만, 우리 사업장은 방향탈취기를 사용하여 냄새 민감군도 감지하기 어려운 수준인 암모니아 0.5 ppm 이하, 황화수소 0.005 ppm 이하, 메틸메르캅탄 0.001 ppm 이하로 쾌적하게 관리합니다.'
+DRAIN_LV = [('청결','병원 내 조리시설 관리 수준'),('주의','경미한 악취가 시작되는 수준'),('경고','식중독균이 서식할 수 있는 수준'),('심각','악취가 심각하고 해충 서식 위험이 높은 수준')]
+DRAIN_EX = '배수구는 악취만의 문제가 아니라 세균 증식, 해충 유입의 원인이 됩니다! 배수구 전용 클린 서비스로 관리하는 사업장입니다.'
+TOOLS = {
+'chicken': [
+  dict(k='악취', tool='악취측정기', easy='튀김 기름과 음식물 쓰레기에서 나는 냄새를 전용 측정기로 재요. 냄새에 민감한 분도 느끼기 어려운 수준인지 봐요.', levels=ODOR_LV, ex=ODOR_EX, date='2026.10.16'),
+  dict(k='배수구 오염도', tool='배관 내시경', easy='주방 바닥 배수구 안쪽을 내시경 카메라로 들여다봐요. 기름때와 찌꺼기가 쌓여 냄새·세균·해충의 원인이 되는지 확인해요.', levels=DRAIN_LV, ex=DRAIN_EX, date='2026.10.16')],
+'care': [
+  dict(k='악취', tool='악취측정기', easy='산모 방과 공용 화장실의 냄새를 전용 측정기로 재요. 출산 후 냄새에 예민해진 산모도 느끼기 어려운 수준인지 봐요.', levels=ODOR_LV, ex=ODOR_EX, date='2026.10.15'),
+  dict(k='배수구 오염도', tool='배관 내시경', easy='좌욕실과 조리실 배수구 안쪽을 내시경 카메라로 들여다봐요. 찌꺼기가 쌓여 냄새·세균·해충의 원인이 되는지 확인해요.', levels=DRAIN_LV, ex=DRAIN_EX, date='2026.10.15')],
+'meat': [],
 }
 # 위쳌 AI 카드 (세스코 CT Way PPT 'WeCheck 시연' 상세 화면 구조: 인트로 + ✅ 3 / 매장정보 3 / 리뷰 한눈에 3)
 AICARD = {
@@ -120,7 +175,7 @@ AICARD = {
   quote='공기부터 젖병까지,<br>아기에게 닿는 순서대로<br>챙기는 조리원이에요.'),
 'meat': dict(intro='',checks=[],info=[],review=[],quote=''),
 }
-SVC_EN = {'VIRUSCARE':'Viruscare','BODYCARE':'Bodycare','FOOD':'Food','IHM':'Cleaning','IPM':'IPM','AIR':'Air'}
+SVC_EN = {'VIRUSCARE':'Viruscare','BODYCARE':'Bodycare','FOOD':'Food','IHM':'Cleaning','IPM':'IPM','AIR':'Air','MYLAB':'MyLab','CHECK':'Check'}
 
 # 인터뷰형 질문(셀프 인터뷰) · 수치형 매핑(위생 카드 실측 항목 index, 없으면 -1)
 QS = {
@@ -137,7 +192,7 @@ MET = {
 # JS로 넘길 데이터
 DATA = {}
 for k, t in TPL.items():
-    d = dict(t); d['hcards'] = HCARDS[k]; d['aicard'] = AICARD[k]; d['svc_en'] = SVC_EN; d['place'] = '조리원' if k=='care' else '가게'; d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f, q=QS[k][i], metric=MET[k][i]) for i, (a, b, c, e, f) in enumerate(t['items'])]
+    d = dict(t); d['hcards'] = HCARDS[k]; d['aicard'] = AICARD[k]; d['svc_en'] = SVC_EN; d['svc_ko'] = SVC_KO; d['members'] = MEMBERS; d['sticker'] = STICKER_NAME; d['placeinfo'] = PLACE[k]; d['tools'] = TOOLS[k]; d['place'] = '조리원' if k=='care' else '가게'; d['default_mt'] = 'white' if k=='chicken' else 'blue'; d['items'] = [dict(label=a, title=b, copy=c, chip=e, cesco=f, q=QS[k][i], metric=MET[k][i]) for i, (a, b, c, e, f) in enumerate(t['items'])]
     hc = t['hc']; d['hc'] = dict(pill=hc['pill'], hl=hc['hl'], ds=hc['ds'], sum=hc['sum'], metrics=[dict(k=m[0], v=m[1], u=m[2], pct=m[3], base=m[4]) for m in hc['metrics']])
     DATA[k] = d
 
@@ -218,6 +273,64 @@ EXTRA_CSS = r"""
 .hc .hcsum{text-align:center;font-size:10.5px;color:var(--muted);margin-top:10px}
 .hc .hcsum b{color:var(--wc)}
 .hc .grid{padding:0 16px;margin-top:14px}
+/* 기본 정보(네이버식) */
+.binfo{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+.bi{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--ink2);line-height:1.5;padding:3px 0}
+.bi .ic{flex:none;width:16px;text-align:center;font-size:12px}
+.bi b{flex:none;margin-left:auto;font-size:11px;color:var(--wc);font-weight:700;white-space:nowrap}
+.tabs2 span{cursor:pointer}
+/* 체크 스탬프(네모 스티커) · 블루/화이트 멤버스 탭 */
+.sh3{display:flex;align-items:baseline;gap:6px;padding:0 16px;font-size:12.5px;font-weight:900;color:var(--ink)}
+.sh3 small{font-weight:600;color:var(--muted);font-size:10.5px}
+.mtabs{display:flex;gap:6px;padding:8px 16px 12px}
+.mtab{flex:1;font:inherit;font-size:12px;font-weight:800;padding:8px 0;border-radius:999px;border:1.5px solid #E3E6E1;background:#fff;color:var(--muted);cursor:pointer}
+.mtab small{font-weight:700;margin-left:4px;font-size:10px}
+.mtab.on{border-color:var(--mc);background:var(--mc);color:#fff}
+.hc .swc{background:var(--mbg,#E3E8EE)}
+.hc .swin{border-top-color:var(--ml,#2F7CE8);border-left-color:var(--ml,#2F7CE8)}
+.hc .logo b,.hc .logo i{color:var(--mc,#1E2B49)}
+.hc .ck{color:var(--mc,#1A2E5A)}
+.hc .ck .bx{border-color:var(--mc,#1A2E5A)}
+.hc .sw:empty:before{content:"이 탭에 해당하는 항목이 없어요";font-size:11px;color:var(--muted);padding:12px 0}
+/* 도구 측정 블록 */
+.tools{margin:18px 16px 0;background:#fff;border:1.5px solid #E6D9B8;border-radius:16px;padding:14px}
+.tl-h{display:flex;gap:10px;align-items:center}
+.gold{flex:none;width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#F6E7B0,#C9A227 70%,#A8841A);color:#5A4200;font-size:7.5px;font-weight:900;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.15;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.tl-h b{display:block;font-size:13.5px;font-weight:900;color:var(--ink)}
+.tl-h small{font-size:10.5px;color:var(--muted)}
+.tl{margin-top:12px;padding-top:12px;border-top:1px dashed #E6D9B8}
+.tl-k{display:flex;align-items:baseline;gap:6px;font-size:13px;font-weight:900;color:var(--ink)}
+.tl-k small{font-weight:600;color:var(--muted);font-size:10.5px}
+.tl-k .pass{margin-left:auto;font-size:10px;font-weight:900;color:#5A4200;background:#F6E7B0;border-radius:999px;padding:2px 8px;white-space:nowrap}
+.tl-e{font-size:11.5px;color:var(--txt);line-height:1.55;margin-top:5px}
+.scale{display:flex;gap:3px;margin-top:24px}
+.scale .lv{flex:1;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;opacity:.3;position:relative}
+.scale .lv:nth-child(1){background:#0E8F4A}.scale .lv:nth-child(2){background:#E0A100}.scale .lv:nth-child(3){background:#E2641B}.scale .lv:nth-child(4){background:#C8102E}
+.scale .lv.on{opacity:1;box-shadow:0 0 0 2px #fff,0 0 0 3.5px #C9A227}
+.scale .lv.on:after{content:"✓ 이 사업장";position:absolute;top:-17px;left:50%;transform:translateX(-50%);font-size:9.5px;font-weight:900;color:#5A4200;white-space:nowrap}
+.lvd{margin-top:8px;font-size:10px;color:var(--muted);line-height:1.45}
+.lvd div{display:flex;gap:6px}
+.lvd b{flex:none;width:28px;color:var(--ink2);font-weight:800}
+.tl-x{font-size:11px;color:var(--ink2);line-height:1.6;margin-top:8px;background:#FBF7EC;border-radius:10px;padding:9px 10px}
+.tl-d{font-size:10px;color:#9A6B12;margin-top:6px;font-weight:700}
+/* 장소 정보 탭 */
+.place{background:#fff;padding:14px 16px 18px}
+.pl-sec{padding:4px 0 14px}
+.pl-t{font-size:13.5px;font-weight:900;color:var(--ink);margin-bottom:8px}
+.pl-t small{display:block;font-size:10.5px;color:var(--muted);font-weight:600;margin-top:2px}
+.pl-row{display:grid;grid-template-columns:58px 1fr;gap:8px;font-size:12px;color:var(--ink2);padding:7px 0;border-top:1px solid var(--line);line-height:1.5}
+.pl-row span:first-child{color:var(--muted);font-weight:700}
+.pl-chips{display:flex;flex-wrap:wrap;gap:5px}
+.pl-chips i{font-style:normal;font-size:11px;font-weight:700;color:var(--ink2);background:#F2F4F7;border-radius:999px;padding:3px 9px}
+.pl-sec.cesco{margin-top:4px;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(135deg,#22B8B0,#3D6FD9) border-box;border:1.5px solid transparent;border-radius:14px;padding:14px 14px 8px}
+.pc{padding:10px 0;border-top:1px solid var(--line)}
+.pc.first{border-top:0;padding-top:4px}
+.pc-h{display:flex;align-items:center;gap:7px}
+.pc-h .svc{flex:none;font-size:9.5px;font-weight:900;color:#fff;background:var(--mc);border-radius:5px;padding:2px 6px}
+.pc-h b{font-size:12.5px;font-weight:900;color:var(--ink);line-height:1.3}
+.pc p{font-size:11.5px;color:var(--txt);line-height:1.55;margin-top:5px}
+.pc-f{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--wc);font-weight:800;margin-top:5px}
+.pc-f .bx{width:12px;height:12px;border:1.3px solid var(--wc);border-radius:2px;font-size:8px;line-height:10px;text-align:center}
 .tsel{display:flex;gap:6px;margin:0 0 10px}
 .tsel button{flex:1;font:inherit;font-size:12px;font-weight:800;padding:8px 0;border-radius:10px;border:1px solid #D9DCD6;background:#fff;color:var(--ink);cursor:pointer}
 .tsel button.on{background:var(--ink);border-color:var(--ink);color:#fff}
@@ -273,8 +386,8 @@ function editorHtml(bk, s, withBiz){
   return h;
 }
 
-function previewHtml(bk, typ, s){
-  const t=D[bk], reg=t.reg, hc=t.hc;
+function previewHtml(bk, typ, s, o){
+  const t=D[bk], reg=t.reg, hc=t.hc; o=o||{}; const tab=o.tab||'hy', mt=o.mt||t.default_mt;
   const tabs=t.tabs.map(x=>`<span class="${x==='위생'?'on':''}">${x}</span>`).join('');
   const ai=[ `세스코가 ${reg.date}에 ${reg.n}가지를 직접 재서 모두 기준 안이었어요.`, `${t.owner}이 고른 관리 포인트: ${s.sel.map(i=>t.items[i].label).join(', ')}`, t.review ].map(x=>`<li>${x}</li>`).join('');
   const ms=hc.metrics.map(m=>`<div class="m"><div class="k">${m.k}<i>적합</i></div><div class="v">${m.v}${m.u?' <small>'+m.u+'</small>':''}</div><div class="bar"><i style="width:${m.pct}%"></i></div><div class="b">${m.base}</div></div>`).join('');
@@ -283,19 +396,31 @@ function previewHtml(bk, typ, s){
   const say = s.say ? `<div class="say2"><div class="lb">${t.owner} 한마디</div><p><mark class="ed">"${esc(s.say)}"</mark></p><small>${reg.name} ${t.owner}</small></div>` : '';
   const A=t.aicard;
   const aiHtml=`<div class="wai"><div class="wai-t"><span class="sp">✨</span>위쳌 AI<span class="inf">i</span></div><p class="wai-i">${A.intro}</p><ul>${A.checks.map(x=>`<li><span class="em">✅</span>${x}</li>`).join('')}</ul><div class="wai-h">매장정보</div><ul>${A.info.map(x=>`<li><span class="em">${x[0]}</span>${x[1]}</li>`).join('')}</ul><div class="wai-h">리뷰 한눈에</div><ul>${A.review.map(x=>`<li><span class="em">✅</span>${x}</li>`).join('')}</ul></div>`;
-  const N=t.hcards.cards.length;
-  const cardsHtml=t.hcards.cards.map((c,ci)=>`<div class="swc"><div class="swin"><div class="swt"><span class="logo"><b>CESCO</b><i>${t.svc_en[c[0]]||c[0]}</i></span><span class="stamp"><svg viewBox="0 0 44 44" width="40" height="40"><circle cx="22" cy="22" r="20" fill="none" stroke="#8FA3BF" stroke-width="1.4"/><circle cx="22" cy="22" r="15" fill="none" stroke="#8FA3BF" stroke-width=".8"/><text x="22" y="20" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CESCO</text><text x="22" y="28" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CHECK</text></svg></span></div><div class="hk">${c[1]}</div><div class="hl">${c[2]}</div><div class="ck"><span class="bx">✓</span><span>[${c[3]}] ${c[4]} 체크 완료</span></div><div class="dt">최근 점검일 : 2026.${reg.date}</div><div class="rp">ⓘ 점검 리포트 보기</div></div></div>`).join('');
+  const mem=t.members.find(m=>m.key===mt)||t.members[0];
+  const cards=t.hcards.cards.filter(c=>mem.svcs.includes(c[0]));
+  const N=cards.length;
+  const mcol=svc=>svc==='FOOD'?t.members[1].color:svc==='CHECK'?'#1A3668':t.members[0].color;
+  const P=t.placeinfo;
+  const basicHtml=`<div class="binfo"><div class="bi"><span class="ic">📍</span><span>${P.addr}</span><b>복사 · 길찾기</b></div><div class="bi"><span class="ic">🕒</span><span>${P.hours}</span></div><div class="bi"><span class="ic">📞</span><span>${P.tel}</span><b>복사</b></div><div class="bi"><span class="ic">💳</span><span>${P.pay}</span></div><div class="bi"><span class="ic">#</span><span>${P.tags}</span></div><div class="bi"><span class="ic">🛋️</span><span>${P.conv.join(', ')}</span></div></div>`;
+  const mtabs=`<div class="mtabs">${t.members.map(m=>`<button type="button" class="mtab ${m.key===mt?'on':''}" data-mt="${m.key}" style="--mc:${m.color}">${m.name}<small>${t.hcards.cards.filter(c=>m.svcs.includes(c[0])).length}</small></button>`).join('')}</div>`;
+  const cardsHtml=cards.map((c,ci)=>`<div class="swc" style="--mc:${mem.color};--mbg:${mem.bg};--ml:${mem.line}"><div class="swin"><div class="swt"><span class="logo"><b>CESCO</b><i>${t.svc_en[c[0]]||c[0]}</i></span><span class="stamp"><svg viewBox="0 0 44 44" width="40" height="40"><circle cx="22" cy="22" r="20" fill="none" stroke="#8FA3BF" stroke-width="1.4"/><circle cx="22" cy="22" r="15" fill="none" stroke="#8FA3BF" stroke-width=".8"/><text x="22" y="20" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CESCO</text><text x="22" y="28" text-anchor="middle" font-size="6.5" font-weight="800" fill="#6F86A6">CHECK</text></svg></span></div><div class="hk">${c[1]}</div><div class="hl">${c[2]}</div><div class="ck"><span class="bx">✓</span><span>[${c[3]}] ${c[4]} 체크 완료</span></div><div class="dt">최근 점검일 : 2026.${reg.date}</div><div class="rp">ⓘ 점검 리포트 보기</div></div></div>`).join('');
+  const toolsHtml=`<div class="tools"><div class="tl-h"><span class="gold">CESCO<br>전문<br>측정</span><div><b>세스코가 전문적으로 체크했습니다</b><small>전문 측정 장비로 직접 잰 결과예요 · 기준 범위 안이면 통과</small></div></div>${t.tools.map(x=>`<div class="tl"><div class="tl-k">${x.k}<small>${x.tool}</small><span class="pass">기준 안 · ${x.levels[0][0]}</span></div><p class="tl-e">${x.easy}</p><div class="scale">${x.levels.map((l,i)=>`<div class="lv ${i===0?'on':''}">${l[0]}</div>`).join('')}</div><div class="lvd">${x.levels.map(l=>`<div><b>${l[0]}</b><span>${l[1]}</span></div>`).join('')}</div><p class="tl-x">${x.ex}</p><div class="tl-d">체크일 ${x.date} · 다음 체크 때 갱신</div></div>`).join('')}</div>`;
+  const placeHtml=`<div class="place"><div class="pl-sec"><div class="pl-t">기본 정보</div><div class="pl-row"><span>주소</span><span>${P.addr}</span></div><div class="pl-row"><span>${t.key==='산후조리원'?'상담·면회':'영업시간'}</span><span>${P.hours}</span></div><div class="pl-row"><span>전화</span><span>${P.tel}</span></div><div class="pl-row"><span>결제</span><span>${P.pay}</span></div><div class="pl-row"><span>편의</span><span class="pl-chips">${P.conv.map(c=>`<i>${c}</i>`).join('')}</span></div><div class="pl-row"><span>태그</span><span>${P.tags}</span></div></div>
+<div class="pl-sec cesco"><div class="pl-t">세스코가 특별히 체크한 장소 정보<small>가 봐야만 알 수 있는 것들을 세스코가 현장에서 확인했어요 · ${P.checks.length}가지</small></div>${P.checks.map((c,i)=>`<div class="pc${i===0?' first':''}" style="--mc:${mcol(c[0])}"><div class="pc-h"><span class="svc">${t.svc_ko[c[0]]||c[0]}</span><b>${c[1]}</b></div><p>${c[2]}</p><div class="pc-f"><span class="bx">✓</span>세스코 체크 완료 · 2026.${reg.date} · 유효 3개월</div></div>`).join('')}</div></div>`;
   const headHtml=`
 <div class="appbar"><button class="back" aria-label="뒤로 가기"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div class="t">${reg.name}</div></div>
 <div class="head"><div class="pho2">사진 자리 · 대표 사진 (${t.owner} 업로드)</div><div class="nm" style="margin-top:12px"><span class="cat">${reg.cat}</span></div><div class="nm"><h2>${reg.name}</h2></div><div class="rv"><b>리뷰</b><span style="color:#0072CE;font-weight:700">${reg.rv.replace(/\D+/g,'')}개</span><span>· ${reg.town}</span></div></div>
-<div class="body" style="padding-bottom:4px;background:#fff">${aiHtml}</div>
-<div class="tabs2"><span class="on">위생정보</span><span>장소정보</span></div>
+<div class="body" style="padding-bottom:4px;background:#fff">${aiHtml}${basicHtml}</div>
+<div class="tabs2"><span class="${tab==='hy'?'on':''}" data-tab="hy">위생정보</span><span class="${tab==='place'?'on':''}" data-tab="place">장소정보</span></div>` + (tab==='place' ? placeHtml : `
 <div class="hc">
 <div class="qt2">“${A.quote}”</div>
+<div class="sh3">${t.sticker}<small>세스코 솔루션으로 관리하는 항목</small></div>
+${mtabs}
 <div class="sw">${cardsHtml}</div>
-<div class="swbar"><button type="button" class="swnav" data-d="p" aria-label="이전 카드">‹</button><div class="dots">${t.hcards.cards.map((c,ci)=>`<i class="${ci===0?'on':''}"></i>`).join('')}</div><button type="button" class="swnav" data-d="n" aria-label="다음 카드">›</button></div>
-<div class="hcsum">세스코가 ${reg.date}에 직접 체크한 ${t.key} 위생 정보 ${N}가지 · 위생 등급 <b>A</b></div>
-${typ==='A'?'<div class="grid">'+ms+'</div>':''}</div>`;
+<div class="swbar"><button type="button" class="swnav" data-d="p" aria-label="이전 카드">‹</button><div class="dots">${cards.map((c,ci)=>`<i class="${ci===0?'on':''}"></i>`).join('')}</div><button type="button" class="swnav" data-d="n" aria-label="다음 카드">›</button></div>
+<div class="hcsum">세스코가 ${reg.date}에 직접 체크한 ${t.key} 위생 정보 ${t.hcards.cards.length}가지 · 위생 등급 <b>A</b></div>
+${toolsHtml}
+${typ==='A'?'<div class="grid">'+ms+'</div>':''}</div>`);
   const bodyC=`<div class="dp">
 <div class="hr"><div class="pho">사진 자리 · 대표 세로 컷 (사장님 또는 점검 촬영)</div><div class="ov"><span class="lab">${fill(t.hero_lab,reg)}</span><h1>${t.hero}</h1><div class="sub">${reg.name} · 세스코 위생 실측 A</div></div></div>
 <div class="sec"><span class="lab">ABOUT</span><h2>${t.about_h}</h2><p>${mark(s.about, fill(t.about,reg))}</p><div class="strip">${strip}</div></div>
@@ -304,10 +429,10 @@ ${pts}
 ${say}
 <div style="height:8px"></div>
 <div class="rep"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. ${reg.report}<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>
-<p class="fine2">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. POINT는 ${t.owner}이 고른 항목이고, "세스코 실측·확인" 표시가 있는 것만 점검에서 실제로 봤어요.</p>
+<p class="fine2">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. POINT는 ${t.owner}이 고른 항목이에요. "세스코 실측·확인" 표시가 있는 것만 세스코가 점검에서 직접 봤어요.</p>
 </div>`;
   const repRow=`<div class="report"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A3668" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg><div class="t">위생점검 리포트 No. ${reg.report}<small>세스코 전문가 현장 측정·서명 원본</small></div><a class="btn sec" href="#">원본 보기</a></div>`;
-  const fine=`<p class="fine">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 관리 포인트는 ${t.owner}이 고른 항목이고, "세스코 실측·확인" 표시가 있는 것만 점검에서 실제로 봤어요.</p>`;
+  const fine=`<p class="fine">측정값은 점검일 기준이며 다음 정기 점검 시 갱신돼요. 관리 포인트는 ${t.owner}이 고른 항목이에요. "세스코 실측·확인" 표시가 있는 것만 세스코가 점검에서 직접 봤어요.</p>`;
   const sayCard = s.say ? `<div class="card say"><div class="lb">${t.owner} 한마디</div><p><mark class="ed">"${esc(s.say)}"</mark></p><div class="sg">${reg.name} ${t.owner}</div></div>` : '';
   // A · 수치형
   const gauges=hc.metrics.map((m,mi)=>{
@@ -333,10 +458,10 @@ ${repRow}${fine}</div>`;
 ${pull}
 ${repRow}${fine}</div>`;
   const body = typ==='A'?bodyA : typ==='B'?bodyB : bodyC;
-  return headHtml + body + `<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
+  return headHtml + (tab==='place'?'':body) + `<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
 }
 function refreshPreviews(bk){
-  document.querySelectorAll('[data-static]').forEach(el=>{ if(el.dataset.biz===bk) el.innerHTML=previewHtml(bk, el.dataset.t, state[bk]); });
+  document.querySelectorAll('[data-static]').forEach(el=>{ if(el.dataset.biz===bk) el.innerHTML=previewHtml(bk, el.dataset.t, state[bk], {tab:el.dataset.tab, mt:el.dataset.mt}); });
 }
 function refresh(bk){
   document.querySelectorAll('[data-ed]').forEach(el=>{ if(el.dataset.biz===bk) el.innerHTML=editorHtml(bk, state[bk], el.hasAttribute('data-withbiz')); });
@@ -371,6 +496,10 @@ document.addEventListener('input',e=>{
   const t=D[bk]; el.classList.toggle('changed', el.dataset.f==='about'? s.about!==fill(t.about,t.reg) : el.dataset.f==='say'? !!s.say : s.pts[+el.dataset.pt]!==t.items[+el.dataset.pt].copy);
   el.parentElement.querySelector('.cnt').textContent=el.value.length+'/'+(el.dataset.f==='about'?160:el.dataset.f==='say'?40:140);
   refreshPreviews(bk);
+});
+document.addEventListener('click',e=>{
+  const tb=e.target.closest('.tabs2 span[data-tab]'); if(tb){const el=tb.closest('[data-static]'); if(el){el.dataset.tab=tb.dataset.tab; el.innerHTML=previewHtml(el.dataset.biz, el.dataset.t, state[el.dataset.biz], {tab:el.dataset.tab, mt:el.dataset.mt});} return;}
+  const mb=e.target.closest('.mtab[data-mt]'); if(mb){const el=mb.closest('[data-static]'); if(el){el.dataset.mt=mb.dataset.mt; el.innerHTML=previewHtml(el.dataset.biz, el.dataset.t, state[el.dataset.biz], {tab:el.dataset.tab, mt:el.dataset.mt});} return;}
 });
 function swGo(sw,k){const n=sw.children.length; k=(k+n)%n; const c=sw.children[k]; sw.scrollTo({left:c.offsetLeft-(sw.clientWidth-c.offsetWidth)/2-sw.offsetLeft*0,behavior:'smooth'});}
 document.addEventListener('click',e=>{
