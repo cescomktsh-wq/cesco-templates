@@ -386,8 +386,11 @@ def daily_list(b):
 
 LEGEND = '<div class="lg"><span><i style="background:#C77700"></i>주황 표식 = 사업주가 고르거나 적는 자리 (검토용, 실제 화면엔 안 보임)</span></div>'
 
+PAGES = {}
+
 def page(fname, title, desc, figcap, figsub, body_html, side_html, b, dp=False):
     inner = body_html if dp else f'<div class="body">{body_html}</div>'
+    PAGES[fname] = dict(title=title, figcap=figcap, figsub=figsub, phone=f'{appbar(b)}\n{inner}\n{actions(b)}', side=side_html)
     doc = f'''<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>{FONT}<style>{CSS}</style></head>
@@ -786,7 +789,81 @@ th{{background:var(--soft);font-weight:700;font-size:13px;color:var(--ink2);whit
         f.write(doc)
     print('wrote index.html')
 
+ALL = '위쳌_전체보기_9종_261028.html'
+
+def build_all():
+    ids = {}
+    for bk in ['chicken','meat','care']:
+        for t in 'ABC':
+            ids[FN[bk][t]] = f'{bk}-{t}'
+    btns = ''
+    for bk in ['chicken','meat','care']:
+        for t in 'ABC':
+            star = ' ★' if (bk=='meat' and t=='B') else ''
+            nm = {'A':'수치형','B':'인터뷰·에디터형','C':'상세페이지형'}[t]
+            btns += f'<button type="button" class="sel" data-id="{bk}-{t}">{BIZ[bk]["key"]} × {t}안<small>{nm}{star}</small></button>'
+    secs = ''
+    for fname, d in PAGES.items():
+        side = d['side']
+        for k, v in ids.items():
+            side = side.replace(f'href="{k}"', f'href="#{v}"')
+        secs += f"""<section class="view" id="{ids[fname]}" hidden>
+<div class="desc"><h1>{d['title']}</h1></div>
+<div class="stage"><figure><figcaption>{d['figcap']}<small>{d['figsub']}</small></figcaption>
+<div class="phone"><div class="fold"><span>첫 화면 끝</span></div>{d['phone']}</div></figure>
+<aside class="side">{side}</aside></div></section>"""
+    idx = open(os.path.join(OUT, 'index.html'), encoding='utf-8').read()
+    for k, v in ids.items():
+        idx = idx.replace(f'href="{k}" target="_blank"', f'href="#{v}" target="_top"')
+    idx = idx.replace('href="../261026/index.html"', 'href="https://cescomktsh-wq.github.io/cesco-templates/reports/261026/index.html" target="_blank"')
+    srcdoc = html.escape(idx, quote=True)
+    doc = f"""<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>위쳌 사업장 상세 9종 전체보기 (10/28)</title>{FONT}<style>{CSS}
+.selbar{{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #D9DCD6;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}}
+.selbar .ttl{{font-size:12.5px;font-weight:900;color:var(--ink);margin-right:6px}}
+.sel{{font:inherit;font-size:12px;font-weight:800;color:var(--ink);background:#fff;border:1px solid #D9DCD6;border-radius:999px;padding:5px 11px;cursor:pointer;line-height:1.2;text-align:left}}
+.sel small{{display:block;font-weight:600;color:var(--muted);font-size:10px}}
+.sel.on{{background:var(--wc);border-color:var(--wc);color:#fff}}
+.sel.on small{{color:#CFE0F3}}
+.sel.cmp{{margin-left:auto;background:var(--chip)}}
+.view .desc h1{{font-size:15px}}
+#cmp iframe{{width:100%;border:0;background:#fff;border-radius:12px;display:block}}
+.view{{scroll-margin-top:70px}}
+@media (max-width:760px){{.selbar{{position:static}}}}
+</style></head><body>
+<div class="selbar"><span class="ttl">위쳌 사업장 상세 9종</span>{btns}<button type="button" class="sel cmp" data-id="cmp">비교 표·메모<small>index</small></button></div>
+<div class="wrap">
+<section class="view" id="cmp"><iframe id="cmpf" srcdoc="{srcdoc}" title="9개 조합 비교"></iframe></section>
+{secs}
+</div>
+<script>
+(function(){{
+  var views=document.querySelectorAll('.view'), btns=document.querySelectorAll('.sel');
+  function show(id){{
+    if(!document.getElementById(id)) id='cmp';
+    views.forEach(function(v){{v.hidden=(v.id!==id)}});
+    btns.forEach(function(b){{b.classList.toggle('on',b.dataset.id===id)}});
+    window.scrollTo(0,0);
+    setTimeout(function(){{window.scrollTo(0,0)}},0);
+  }}
+  btns.forEach(function(b){{b.addEventListener('click',function(){{location.hash=b.dataset.id}})}});
+  window.addEventListener('hashchange',function(){{show(location.hash.slice(1))}});
+  var f=document.getElementById('cmpf');
+  function fit(){{try{{f.style.height=(f.contentDocument.documentElement.scrollHeight+20)+'px'}}catch(e){{f.style.height='4000px'}}}}
+  f.addEventListener('load',function(){{fit();
+    try{{f.contentDocument.addEventListener('click',function(e){{var a=e.target.closest('a[href^="#"]');if(a){{e.preventDefault();location.hash=a.getAttribute('href').slice(1)}}}})}}catch(e){{}}
+  }});
+  window.addEventListener('resize',fit);
+  show(location.hash.slice(1)||'cmp');
+}})();
+</script></body></html>"""
+    with open(os.path.join(OUT, ALL), 'w', encoding='utf-8') as fh:
+        fh.write(doc)
+    print('wrote', ALL)
+
 if __name__ == '__main__':
     for bk in ['chicken','meat','care']:
         build_A(bk); build_B(bk, full=(bk=='meat')); build_C(bk)
     build_index()
+    build_all()
