@@ -202,8 +202,8 @@ function renderEditor(){
   document.getElementById('ed-in').innerHTML=h;
 }
 
-function renderPreview(){
-  const t=D[cur], s=state[cur], reg=t.reg, hc=t.hc;
+function previewHtml(bk, typ, s){
+  const t=D[bk], reg=t.reg, hc=t.hc;
   const tabs=t.tabs.map(x=>`<span class="${x==='위생'?'on':''}">${x}</span>`).join('');
   const ai=[ `세스코가 ${reg.date}에 ${reg.n}가지를 직접 재서 모두 기준 안이었어요.`, `${t.owner}이 고른 관리 포인트: ${s.sel.map(i=>t.items[i].label).join(', ')}`, t.review ].map(x=>`<li>${x}</li>`).join('');
   const ms=hc.metrics.map(m=>`<div class="m"><div class="k">${m.k}<i>적합</i></div><div class="v">${m.v}${m.u?' <small>'+m.u+'</small>':''}</div><div class="bar"><i style="width:${m.pct}%"></i></div><div class="b">${m.base}</div></div>`).join('');
@@ -253,10 +253,14 @@ ${repRow}${fine}</div>`;
 ${pull}
 ${repRow}${fine}</div>`;
   const body = typ==='A'?bodyA : typ==='B'?bodyB : bodyC;
-  document.getElementById('pv').innerHTML = headHtml + body + `<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
+  return headHtml + body + `<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
+}
+function renderPreview(){
+  document.getElementById('pv').innerHTML = previewHtml(cur, typ, state[cur]);
   document.querySelectorAll('.tsel button').forEach(b=>b.classList.toggle('on',b.dataset.t===typ));
 }
 function render(){renderEditor();renderPreview();}
+if(document.getElementById('ed-in')){
 document.getElementById('ed-in').addEventListener('click',e=>{
   const b=e.target.closest('button[data-biz]'); if(b){cur=b.dataset.biz;history.replaceState(null,'','#'+cur);render();return;}
   const a=e.target.closest('button[data-act]'); if(!a) return;
@@ -280,7 +284,12 @@ document.getElementById('ed-in').addEventListener('input',e=>{
 });
 document.querySelector('.tsel').addEventListener('click',e=>{const b=e.target.closest('button[data-t]'); if(b){typ=b.dataset.t; renderPreview();}});
 render();
+}
+document.querySelectorAll('[data-static]').forEach(el=>{el.innerHTML=previewHtml(el.dataset.biz, el.dataset.t, state[el.dataset.biz]);});
 """
+
+def js_block():
+    return JS.replace('__DATA__', json.dumps(DATA, ensure_ascii=False)).replace('__CHK__', B.CHK.replace("'", "\\'"))
 
 def build():
     rows = ''
@@ -310,7 +319,7 @@ def build():
 <p>각 항목은 제목 2줄 + 설명 2~3문장 + 세스코 확인 칩 조건으로 한 벌입니다. 수치·법령·효능 표현은 넣지 않았고, 매장이 하는 "행동"만 적었습니다. 사장님은 설명 문장만 고칠 수 있고 제목과 칩은 고정입니다.</p>
 <div class="tw"><table><thead><tr><th>업종</th><th>#</th><th>선택 항목</th><th>제목(고정)</th><th>기본 설명(사장님 수정 가능)</th><th>칩</th></tr></thead><tbody>{rows}</tbody></table></div>
 </div>
-<script>{JS.replace('__DATA__', json.dumps(DATA, ensure_ascii=False)).replace('__CHK__', B.CHK.replace("'", "\\'"))}</script>
+<script>{js_block()}</script>
 </body></html>'''
     with open(os.path.join(OUT, FNAME), 'w', encoding='utf-8') as f:
         f.write(doc)

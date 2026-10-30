@@ -350,8 +350,8 @@ function renderEditor(){
   document.getElementById('ed-in').innerHTML=h;
 }
 
-function renderPreview(){
-  const t=D[cur], s=state[cur], reg=t.reg, hc=t.hc;
+function previewHtml(bk, typ, s){
+  const t=D[bk], reg=t.reg, hc=t.hc;
   const tabs=t.tabs.map(x=>`<span class="${x==='위생'?'on':''}">${x}</span>`).join('');
   const ai=[ `세스코가 ${reg.date}에 ${reg.n}가지를 직접 재서 모두 기준 안이었어요.`, `${t.owner}이 고른 관리 포인트: ${s.sel.map(i=>t.items[i].label).join(', ')}`, t.review ].map(x=>`<li>${x}</li>`).join('');
   const ms=hc.metrics.map(m=>`<div class="m"><div class="k">${m.k}<i>적합</i></div><div class="v">${m.v}${m.u?' <small>'+m.u+'</small>':''}</div><div class="bar"><i style="width:${m.pct}%"></i></div><div class="b">${m.base}</div></div>`).join('');
@@ -401,10 +401,14 @@ ${repRow}${fine}</div>`;
 ${pull}
 ${repRow}${fine}</div>`;
   const body = typ==='A'?bodyA : typ==='B'?bodyB : bodyC;
-  document.getElementById('pv').innerHTML = headHtml + body + `<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
+  return headHtml + body + `<div class="actions"><div class="ico">전화</div><div class="ico">저장</div><div class="cta">${t.cta}</div></div>`;
+}
+function renderPreview(){
+  document.getElementById('pv').innerHTML = previewHtml(cur, typ, state[cur]);
   document.querySelectorAll('.tsel button').forEach(b=>b.classList.toggle('on',b.dataset.t===typ));
 }
 function render(){renderEditor();renderPreview();}
+if(document.getElementById('ed-in')){
 document.getElementById('ed-in').addEventListener('click',e=>{
   const b=e.target.closest('button[data-biz]'); if(b){cur=b.dataset.biz;history.replaceState(null,'','#'+cur);render();return;}
   const a=e.target.closest('button[data-act]'); if(!a) return;
@@ -428,5 +432,7 @@ document.getElementById('ed-in').addEventListener('input',e=>{
 });
 document.querySelector('.tsel').addEventListener('click',e=>{const b=e.target.closest('button[data-t]'); if(b){typ=b.dataset.t; renderPreview();}});
 render();
+}
+document.querySelectorAll('[data-static]').forEach(el=>{el.innerHTML=previewHtml(el.dataset.biz, el.dataset.t, state[el.dataset.biz]);});
 </script>
 </body></html>
